@@ -1,11 +1,4 @@
 set nocompatible              " be iMproved required
-
-" Highlight search results
-set hlsearch
-" Makes search act like search in modern browsers
-set incsearch
-
-
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -14,21 +7,44 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+
+" ------------------------------------------------
+"                    PLUGINS
+" ------------------------------------------------
+
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'xuyuanp/nerdtree-git-plugin'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/syntastic'
+    Plugin 'VundleVim/Vundle.vim' 
+
+" Folder tree with git plugin
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'xuyuanp/nerdtree-git-plugin'
+
+" Git tools
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'airblade/vim-gitgutter'
+
+" Syntax check
+    Plugin 'scrooloose/syntastic'
+
 " Parenthesis, brackets, etc
-Plugin 'tpope/vim-surround'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'valloric/youcompleteme'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'latex-box-team/latex-box'
-Plugin 'c.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'airblade/vim-gitgutter'
+    Plugin 'tpope/vim-surround'
+
+" Fuzzy finder
+    Plugin 'ctrlpvim/ctrlp.vim'
+
+" Autocompletion (need some dependencies)
+    " Plugin 'valloric/youcompleteme'
+
+" Markdown
+    Plugin 'plasticboy/vim-markdown'
+" Latextools
+    Plugin 'latex-box-team/latex-box'
+" C/C++ tools
+    Plugin 'c.vim'
+" Color schemes
+    Plugin 'flazz/vim-colorschemes'
+
+" ------------------------------------------------
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,3 +60,21 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" ------------------------------------------------
+"                    OPTIONS
+" ------------------------------------------------
+
+" Highlight search results
+    set hlsearch
+" Makes search act like search in modern browsers
+    set incsearch
+"Clean screen highlights (search results)
+    nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+" Convert tabs into 4  spaces
+    set tabstop=4
+    set shiftwidth=4
+    set expandtab
+" use :retab to convert tabs into spaces
+" ------------------------------------------------
