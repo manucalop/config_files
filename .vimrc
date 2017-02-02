@@ -77,4 +77,7 @@ filetype plugin indent on    " required
     set shiftwidth=4
     set expandtab
 " use :retab to convert tabs into spaces
+
+" Select colorscheme
+    colorscheme Tomorrow-Night
 " ------------------------------------------------
