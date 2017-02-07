@@ -43,7 +43,8 @@ call vundle#begin()
     Plugin 'c.vim'
 " Color schemes
     Plugin 'flazz/vim-colorschemes'
-
+" Nerd commenter
+    Plugin 'scrooloose/nerdcommenter'
 " ------------------------------------------------
 
 " All of your Plugins must be added before the following line
@@ -77,7 +78,7 @@ filetype plugin indent on    " required
     set shiftwidth=4
     set expandtab
 " use :retab to convert tabs into spaces
-
+    set number
 " Select colorscheme
     colorscheme Tomorrow-Night
 " ------------------------------------------------
