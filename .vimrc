@@ -79,5 +79,5 @@ filetype plugin indent on    " required
 " use :retab to convert tabs into spaces
     set number
 " Select colorscheme
-    colorscheme Tomorrow-Night
+"    colorscheme Tomorrow-Night
 " ------------------------------------------------

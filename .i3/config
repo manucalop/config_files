@@ -56,8 +56,8 @@
 # -----------------------------------------------------------------
 #
 # start a terminal
-    bindsym $mod+Return exec i3-sensible-terminal
-
+#    bindsym $mod+Return exec i3-sensible-terminal
+    bindsym $mod+Return exec gnome-terminal
 # kill focused window
     bindsym $mod+Shift+q kill
 
@@ -202,11 +202,12 @@
     mode "$mode_launcher" {
         bindsym f exec firefox
         bindsym m exec matlab
+        bindsym s exec spotify
         bindsym Escape mode "default"
         bindsym Return mode "default"
     }
 # Dialog for launcher mode 
-    set $mode_launcher Launch: [f]irefox [m]atlab
+    set $mode_launcher Launch: [f]irefox [m]atlab [s]potify
 #------------------------------------------------------------------
 # i3 bar 
 # -----------------------------------------------------------------
@@ -253,6 +254,6 @@ bar {
 # Screen detection
     exec_always sh ~/.i3/screen_script.sh
 # Wallpaper
-    exec_always feh --bg-scale ~/Downloads/wallpapers/night1.jpeg
+#    exec_always feh --bg-scale ~/Downloads/wallpapers/night1.jpeg
 # Programs
     exec_always dropbox start
