@@ -250,7 +250,7 @@ bar {
 # -----------------------------------------------------------------
 #
 #Network Manager applet
-    exec -no-startup-id nm-applet
+#    exec -no-startup-id nm-applet
 # Screen detection
     exec_always sh ~/.i3/screen_script.sh
 # Wallpaper

@@ -38,6 +38,7 @@ call vundle#begin()
     Plugin 'plasticboy/vim-markdown'
 " Latextools
     Plugin 'latex-box-team/latex-box'
+"    Plugin 'lervag/vimtex'
 " C/C++ tools
     Plugin 'c.vim'
 " Color schemes
@@ -60,7 +61,17 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
+" ------------------------------------------------
+"                   MAPPINGS     
+" ------------------------------------------------
+    nmap j  gj
+    vmap j  gj
+    nmap k  gk
+    vmap k  gk
+    nmap 0  g0
+    vmap 0  g0
+    nmap $  g$
+    vmap $  g$
 " ------------------------------------------------
 "                    OPTIONS
 " ------------------------------------------------
@@ -78,6 +89,14 @@ filetype plugin indent on    " required
     set expandtab
 " use :retab to convert tabs into spaces
     set number
+" Soft wrapping
+    set wrap
+    set linebreak
+    set nolist
 " Select colorscheme
 "    colorscheme Tomorrow-Night
+" Latex autocompletion
+    let g:vimtex_enabled=1
+    let g:vimtex_complete_enabled=1
+    let g:vimtex_complete_recursive_bib=1
 " ------------------------------------------------

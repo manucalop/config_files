@@ -83,3 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+  source /opt/ros/indigo/setup.zsh 
+  source ~/drone_mpc_ws/devel/setup.zsh
+
+  alias matlab="/usr/local/MATLAB/R2015a/bin/matlab"
