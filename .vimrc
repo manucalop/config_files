@@ -45,6 +45,8 @@ call vundle#begin()
     Plugin 'flazz/vim-colorschemes'
 " Nerd commenter
     Plugin 'scrooloose/nerdcommenter'
+" Spell check
+    Plugin 'reedes/vim-lexical'
 " ------------------------------------------------
 
 " All of your Plugins must be added before the following line
@@ -99,4 +101,6 @@ filetype plugin indent on    " required
     let g:vimtex_enabled=1
     let g:vimtex_complete_enabled=1
     let g:vimtex_complete_recursive_bib=1
+" Spell check    
+    let g:lexical#spell = 1         " 0=disabled, 1=enabled
 " ------------------------------------------------
