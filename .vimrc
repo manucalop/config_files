@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved required
 filetype off                  " required
-
+syntax on
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -32,7 +32,7 @@ call vundle#begin()
     Plugin 'ctrlpvim/ctrlp.vim'
 
 " Autocompletion (need some dependencies)
-    " Plugin 'valloric/youcompleteme'
+    Plugin 'valloric/youcompleteme'
 
 " Markdown
     Plugin 'plasticboy/vim-markdown'
@@ -53,7 +53,7 @@ call vundle#begin()
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
