@@ -259,8 +259,8 @@ bar {
 # Wallpaper
 #    exec_always feh --bg-scale ~/Downloads/wallpapers/night1.jpeg
 # Programs
+#    exec_always gnome-panel
+    exec gnome-settings-daemon
+    exec nm-applet
+    exec gnome-sound-applet
     exec_always dropbox start
-    exec -no-startup-id gnome-settings-daemon
-    exec -no-startup-id nm-applet
-    exec -no-startup-id gnome-sound-applet
-    

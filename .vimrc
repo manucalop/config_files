@@ -32,7 +32,7 @@ call vundle#begin()
     Plugin 'ctrlpvim/ctrlp.vim'
 
 " Autocompletion (need some dependencies)
-    Plugin 'valloric/youcompleteme'
+"    Plugin 'valloric/youcompleteme'
 
 " Markdown
     Plugin 'plasticboy/vim-markdown'
