@@ -167,6 +167,9 @@
     bindsym $mod+r mode "resize"
 # Custom mode
     bindsym $mod+o mode "$mode_launcher"
+# Lock screen
+    bindsym $mod+Shift+s exec "gnome-screensaver-command --lock"
+
 
 #------------------------------------------------------------------
 # Modes of operation 
@@ -257,3 +260,7 @@ bar {
 #    exec_always feh --bg-scale ~/Downloads/wallpapers/night1.jpeg
 # Programs
     exec_always dropbox start
+    exec -no-startup-id gnome-settings-daemon
+    exec -no-startup-id nm-applet
+    exec -no-startup-id gnome-sound-applet
+    
