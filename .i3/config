@@ -62,11 +62,11 @@
     bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-    bindsym $mod+d exec dmenu_run
+ #   bindsym $mod+d exec dmenu_run
     # There also is the (new) i3-dmenu-desktop which only displays applications
     # shipping a .desktop file. It is a wrapper around dmenu, so you need that installed.
-        # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
+    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop 
+    bindysm --release $mod+z exec ~/.i3/morc_menu
 # change focus
     bindsym $mod+h focus left
     bindsym $mod+j focus down
@@ -187,7 +187,7 @@
        
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
@@ -203,14 +203,15 @@
 # Custom mode
 ## Press $mod+o followed by either f, t, Esc or Return to launch firefox,
     mode "$mode_launcher" {
-        bindsym f exec firefox
-        bindsym m exec matlab
-        bindsym s exec spotify
+        bindsym f exec firefox; mode "default"
+        bindsym m exec matlab; mode "default"
+        bindsym s exec spotify; mode "default"
+        bindsym t exec thunar; mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"
     }
 # Dialog for launcher mode 
-    set $mode_launcher Launch: [f]irefox [m]atlab [s]potify
+    set $mode_launcher Launch: [f]irefox [m]atlab [s]potify [t]hunar
 #------------------------------------------------------------------
 # i3 bar 
 # -----------------------------------------------------------------
@@ -221,9 +222,13 @@
 bar {
   #  output HDMI2
   #  tray_output primary
-    position top
+    position top 
     tray_output primary
-    status_command i3status --config ~/.i3/i3status.conf
+   # status_command gnome-panel
+   # status_command i3status --config ~/.i3/i3status.conf
+   #  status_command python3 ~/.i3/i3pystatus.py
+   #status_command i3pystatus -c ~/.i3/i3pystatus.py
+     status_command py3status -c ~/.i3/i3status.conf
    # colors {
    #     background $bg-color
    #     separator #757575
@@ -247,7 +252,7 @@ bar {
 # -----------------------------------------------------------------
 #
     for_window [class="Skype"] floating enable
-
+    for_window [class="Gsimplecal"] floating enable
 #------------------------------------------------------------------
 # Initial apps 
 # -----------------------------------------------------------------
@@ -257,10 +262,12 @@ bar {
 # Screen detection
     exec_always sh ~/.i3/screen_script.sh
 # Wallpaper
-#    exec_always feh --bg-scale ~/Downloads/wallpapers/night1.jpeg
+    exec_always feh --bg-scale ~/.i3/wallpaper.jpg
 # Programs
 #    exec_always gnome-panel
     exec gnome-settings-daemon
     exec nm-applet
     exec gnome-sound-applet
     exec_always dropbox start
+    exec_always compton
+    exec_always dunst
