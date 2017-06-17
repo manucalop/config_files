@@ -1,0 +1,8 @@
+rename experiments
+
+delete
+rename mimenu.sh
+mkdir dunst
+rename dunstrc
+Q
+rename diploma_bill.pdf

@@ -90,10 +90,10 @@
     bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-    bindsym $alt+h split v
+    bindsym $alt+h split h; exec notify-send -t 10 'tile horizontally'
 
 # split in vertical orientation
-    bindsym $alt+v split h
+    bindsym $alt+v split v; exec notify-send -t 10 'tile vertically'
 
 # enter fullscreen mode for the focused container
     bindsym $mod+f fullscreen
@@ -139,6 +139,20 @@
     bindsym $mod+Shift+9 move container to workspace $ws9
     bindsym $mod+Shift+0 move container to workspace $ws10
 
+# Suspend
+    bindsym $mod+Shift+s mode "$mode_system"
+    set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (S)hutdown
+    mode "$mode_system"{
+       bindsym Shift+s exec  dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop; mode "default"
+       bindsym r exec dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart; mode "default"
+       bindsym s exec dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend && dm-tool lock; mode "default"
+       bindsym l exec "dm-tool lock"; mode "default"
+       bindsym e exec "i3-msg exit"
+       bindsym Return mode "default"
+       bindsym Escape mode "default"
+#For Ubuntu 15.04 and later use systemctl poweroff/reboot/suspend/hibernate/hybrid-sleep
+}
+#    bindsym $mod+Shift+s exec "gnome-screensaver-command --lock"
 # reload the configuration file
     bindsym $mod+Shift+c reload
 
@@ -149,9 +163,9 @@
     bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Pulse Audio controls (have to install pactl)
-    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +10% #increase sound volume
-    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -10%  #decrease sound volume
-    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +10%; exec notify-send -t 5 'Volume up' #increase sound volume
+    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -10%; exec notify-send -t 5 'Volume down'  #decrease sound volume
+    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle; exec notify-send -t 5 'Mute toogle' # mute sound
 
 # Sreen brightness controls
     bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -162,13 +176,7 @@
     bindsym XF86AudioPause exec playerctl pause
     bindsym XF86AudioNext exec playerctl next
     bindsym XF86AudioPrev exec playerctl previous
-
-# resize window (you can also use the mouse for that)
-    bindsym $mod+r mode "resize"
-# Custom mode
-    bindsym $mod+o mode "$mode_launcher"
-# Lock screen
-    bindsym $mod+Shift+s exec "gnome-screensaver-command --lock"
+    
 
 
 #------------------------------------------------------------------
@@ -177,6 +185,7 @@
 #
 # No need to define default mode
 
+    bindsym $mod+r mode "resize"
     mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -202,6 +211,8 @@
     }
 # Custom mode
 ## Press $mod+o followed by either f, t, Esc or Return to launch firefox,
+    bindsym $mod+o mode "$mode_launcher"
+    set $mode_launcher Launch: [f]irefox [m]atlab [s]potify [t]hunar
     mode "$mode_launcher" {
         bindsym f exec firefox; mode "default"
         bindsym m exec matlab; mode "default"
@@ -211,7 +222,6 @@
         bindsym Return mode "default"
     }
 # Dialog for launcher mode 
-    set $mode_launcher Launch: [f]irefox [m]atlab [s]potify [t]hunar
 #------------------------------------------------------------------
 # i3 bar 
 # -----------------------------------------------------------------
@@ -224,26 +234,46 @@ bar {
   #  tray_output primary
     position top 
     tray_output primary
+    
    # status_command gnome-panel
    # status_command i3status --config ~/.i3/i3status.conf
    #  status_command python3 ~/.i3/i3pystatus.py
    #status_command i3pystatus -c ~/.i3/i3pystatus.py
      status_command py3status -c ~/.i3/i3status.conf
-   # colors {
+   #colors {
    #     background $bg-color
    #     separator #757575
-          #     border             background         text
+   #       #     border             background         text
    #             focused_workspace  $bg-color          $bg-color          $text-color
    #             inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
    #             urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-    #        }
+   #        }
+    colors{
+    background #2B2C2B
+    statusline #F9FAF9
+    separator  #454947
+    
+#    focused_workspace  #F9FAF9 #16A085 #2B2C2B
+#    active_workspace   #595B5B #353836 #FDF6E3
+#    inactive_workspace #595B5B #353836 #EEE8D5
+#    urgent_workspace   #16A085 #FDF6E3 #E5201D
+    }
 }
-
+# Theme colors
+# # class                 border  backgr. text    indic.  child_border
+# client.focused          #808280 #808280 #80FFF9 #FDF6E3
+# client.focused_inactive #434745 #434745 #16A085 #454948
+# client.unfocused        #434745 #434745 #16A085 #454948
+# client.urgent           #CB4B16 #FDF6E3 #16A085 #268BD2
+# client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
+#
+# client.background #2B2C2Bi
+#
 #------------------------------------------------------------------
 # Workspaces association
 # -----------------------------------------------------------------
 #
-    assign [class="spotify"]    $ws10
+    assign [class="Spotify"]    $ws10
     assign [class="Skype"]      $ws9
    # assign [class="Firefox"]    $ws2
    # assign [class="matlab"]     $ws3     
@@ -253,6 +283,9 @@ bar {
 #
     for_window [class="Skype"] floating enable
     for_window [class="Gsimplecal"] floating enable
+    for_window [class="(?i)virtualbox"] floating enable border normal
+    for_window [class="Nitrogen"] floating enable sticky enable border normal
+    for_window [class="File-roller"] floating enable border normal
 #------------------------------------------------------------------
 # Initial apps 
 # -----------------------------------------------------------------
@@ -267,7 +300,8 @@ bar {
 #    exec_always gnome-panel
     exec gnome-settings-daemon
     exec nm-applet
-    exec gnome-sound-applet
+    exec volumeicon
     exec_always dropbox start
-    exec_always compton
+    exec_always compton -b
     exec_always dunst
+
