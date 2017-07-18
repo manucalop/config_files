@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved required
 filetype off                  " required
-syntax on
+syntax enable 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -32,7 +32,7 @@ call vundle#begin()
     Plugin 'ctrlpvim/ctrlp.vim'
 
 " Autocompletion (need some dependencies)
-"    Plugin 'valloric/youcompleteme'
+    Plugin 'valloric/youcompleteme'
 
 " Markdown
     Plugin 'plasticboy/vim-markdown'
@@ -79,7 +79,7 @@ filetype plugin on
 " ------------------------------------------------
 
 " Highlight search results
-    set hlsearch
+"    set hlsearch
 " Makes search act like search in modern browsers
     set incsearch
 "Clean screen highlights (search results)
@@ -103,4 +103,6 @@ filetype plugin on
     let g:vimtex_complete_recursive_bib=1
 " Spell check    
     let g:lexical#spell = 1         " 0=disabled, 1=enabled
+" Set system clipboard
+    set clipboard=unnamedplus
 " ------------------------------------------------
