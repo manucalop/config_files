@@ -6,7 +6,7 @@ do
     winid=$(xdotool search --class Zenity)
 done
 winid=${winid: -8:8}
-eval $(xdotool getdisplaygeometry --shell)
-#eval $(xdotool getmouselocation --shell |grep X)
-pos=$((WIDTH-265))
-xdotool windowmove $winid $pos 45
+#eval $(xdotool getdisplaygeometry --shell)
+eval $(xdotool getmouselocation --shell)
+#pos=$((WIDTH-265))
+xdotool windowmove $winid $((X-250)) $((Y+50))

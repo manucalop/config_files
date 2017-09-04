@@ -29,24 +29,24 @@ call vundle#begin()
     Plugin 'tpope/vim-surround'
 
 " Fuzzy finder
-    Plugin 'ctrlpvim/ctrlp.vim'
+"    Plugin 'ctrlpvim/ctrlp.vim'
 
 " Autocompletion (need some dependencies)
-    Plugin 'valloric/youcompleteme'
+"    Plugin 'valloric/youcompleteme'
 
 " Markdown
     Plugin 'plasticboy/vim-markdown'
 " Latextools
-    Plugin 'latex-box-team/latex-box'
+"    Plugin 'latex-box-team/latex-box'
 "    Plugin 'lervag/vimtex'
 " C/C++ tools
-    Plugin 'c.vim'
+"    Plugin 'c.vim'
 " Color schemes
-    Plugin 'flazz/vim-colorschemes'
+"    Plugin 'flazz/vim-colorschemes'
 " Nerd commenter
-    Plugin 'scrooloose/nerdcommenter'
+"    Plugin 'scrooloose/nerdcommenter'
 " Spell check
-    Plugin 'reedes/vim-lexical'
+"    Plugin 'reedes/vim-lexical'
 " ------------------------------------------------
 
 " All of your Plugins must be added before the following line
