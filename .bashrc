@@ -117,6 +117,20 @@ if ! shopt -oq posix; then
 fi
 # DISABLE MOUSE STICK. Should not be here
 xinput disable "AlpsPS/2 ALPS DualPoint Stick"
+#alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+
+function ranger-cd {
+    tempfile="$(mktemp)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+
+# This binds Ctrl-O to ranger-cd:
+bind '"\C-o":"ranger-cd\C-m"'
 
 source /opt/ros/kinetic/setup.bash
 # source ~/dji_ws/devel/setup.bash

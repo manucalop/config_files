@@ -1,8 +1,16 @@
-rename experiments
+vim
+mkdir include
+open_with vim
+rename dji_vrep.yaml
+delete 
+mkdir drone_mpc_vrep
+open_with okular
+mkdir 
 
+shell 
+open_with 1
+open_with 
+search d
+cd 
 delete
-rename mimenu.sh
-mkdir dunst
-rename dunstrc
-Q
-rename diploma_bill.pdf
+search r
