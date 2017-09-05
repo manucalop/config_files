@@ -304,7 +304,7 @@ bar {
 #Network Manager applet
     exec -no-startup-id nm-applet
 # Screen detection
-#    exec_always sh ~/.i3/screen_script.sh
+    exec_always sh ~/.i3/screen_script.sh
 # Wallpaper
     exec_always feh --bg-scale ~/.i3/wallpaper.jpg
 # Programs
