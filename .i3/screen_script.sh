@@ -19,8 +19,12 @@ do
     i=$((i + 1))
 done
 
-
-
+# If lid is closed, turn of the screen. cat /proc/acpi/button/lid/LID0/state |grep closed
+closed=$(grep closed /proc/acpi/button/lid/LID0/state)
+if [ $? -eq 0 ]
+then
+    xrandr --output $display --primary --output $intern --off
+fi
 
 
 # intern=eDP1

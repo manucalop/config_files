@@ -135,3 +135,4 @@ bind '"\C-o":"ranger-cd\C-m"'
 source /opt/ros/kinetic/setup.bash
 # source ~/dji_ws/devel/setup.bash
 source ~/workspace/ros/obstacle_avoidance_catkin_ws/devel/setup.bash
+export OBSTACLE_AVOIDANCE_WORKSPACE=~/workspace/ros/obstacle_avoidance_catkin_ws/

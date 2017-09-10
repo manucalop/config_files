@@ -35,7 +35,7 @@ call vundle#begin()
 "    Plugin 'valloric/youcompleteme'
 
 " Markdown
-    Plugin 'plasticboy/vim-markdown'
+"    Plugin 'plasticboy/vim-markdown'
 " Latextools
 "    Plugin 'latex-box-team/latex-box'
 "    Plugin 'lervag/vimtex'
@@ -105,4 +105,5 @@ filetype plugin on
     let g:lexical#spell = 1         " 0=disabled, 1=enabled
 " Set system clipboard
     set clipboard=unnamedplus
+    set nobackup
 " ------------------------------------------------

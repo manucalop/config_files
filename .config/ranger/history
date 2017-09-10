@@ -2,15 +2,30 @@ vim
 mkdir include
 open_with vim
 rename dji_vrep.yaml
-delete 
 mkdir drone_mpc_vrep
 open_with okular
 mkdir 
-
 shell 
 open_with 1
 open_with 
 search d
+tmux
+find 
+search R
+rename acado_20
+rename drone_mpc_full_generated acado_20
+rename drone_mpc_full.cppo
+rename acado
+rename
+rename dji_vrep20.yaml
+rename acado_qpoases_interfaceya.cpp
+open_with k
 cd 
+w
+delete 
+rename CMakeLists4.txt
+rename CMakeLists20.txt
+rename CMakeLists.txt
+
 delete
-search r
+.launch
