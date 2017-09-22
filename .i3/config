@@ -223,12 +223,12 @@
 # Custom mode
 ## Press $mod+o followed by either f, t, Esc or Return to launch firefox,
     bindsym $mod+o mode "$mode_launcher"
-    set $mode_launcher Launch: [f]irefox [m]atlab [s]potify [t]hunar
+    set $mode_launcher Launch: [f]irefox [m]atlab [s]potify [n]autilus
     mode "$mode_launcher" {
         bindsym f exec firefox; mode "default"
         bindsym m exec matlab; mode "default"
         bindsym s exec spotify; mode "default"
-        bindsym t exec thunar; mode "default"
+        bindsym n exec nautilus; mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"
     }
@@ -303,10 +303,14 @@ bar {
 #
 #Network Manager applet
     exec -no-startup-id nm-applet
+# Authentication agent
+    exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 # Screen detection
     exec_always sh ~/.i3/screen_script.sh
 # Wallpaper
     exec_always feh --bg-scale ~/.i3/wallpaper.jpg
+# Prevent nautilus from showing the desktop
+    exec_always -no-startup-id gsettings set org.gnome.desktop.background show-desktop-icons false
 # Programs
 #    exec_always gnome-panel
     exec gnome-settings-daemon
@@ -315,4 +319,4 @@ bar {
     exec_always dropbox start
     exec_always compton -b
     exec_always dunst
-
+    exec_always blueman-applet

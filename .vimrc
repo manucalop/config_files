@@ -27,7 +27,9 @@ call vundle#begin()
 
 " Parenthesis, brackets, etc
     Plugin 'tpope/vim-surround'
-
+" Status/tabline
+    Plugin 'bling/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
 " Fuzzy finder
 "    Plugin 'ctrlpvim/ctrlp.vim'
 
@@ -95,6 +97,7 @@ filetype plugin on
     set wrap
     set linebreak
     set nolist
+    set t_Co=256
 " Select colorscheme
 "    colorscheme Tomorrow-Night
 " Latex autocompletion
@@ -106,4 +109,11 @@ filetype plugin on
 " Set system clipboard
     set clipboard=unnamedplus
     set nobackup
+" Airline setup
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline_powerline_fonts = 1
+    let g:airline_theme='deus'
+"    let g:solarized_termcolors=256
+"    let g:airline_theme='solarized'
+"    let g:airline_solarized_bg='dark'
 " ------------------------------------------------

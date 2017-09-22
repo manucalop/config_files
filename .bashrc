@@ -118,8 +118,9 @@ fi
 # DISABLE MOUSE STICK. Should not be here
 xinput disable "AlpsPS/2 ALPS DualPoint Stick"
 #alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-
-function ranger-cd {
+alias update='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
+function ranger-cd
+{
     tempfile="$(mktemp)"
     /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
@@ -136,3 +137,11 @@ source /opt/ros/kinetic/setup.bash
 # source ~/dji_ws/devel/setup.bash
 source ~/workspace/ros/obstacle_avoidance_catkin_ws/devel/setup.bash
 export OBSTACLE_AVOIDANCE_WORKSPACE=~/workspace/ros/obstacle_avoidance_catkin_ws/
+
+function undetach () 
+{ 
+    git checkout -b temp 
+    git checkout -B $1 temp 
+    git branch -d temp  
+} 
+export EDITOR='nvim'

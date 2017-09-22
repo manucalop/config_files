@@ -1,12 +1,3 @@
-vim
-mkdir include
-open_with vim
-rename dji_vrep.yaml
-mkdir drone_mpc_vrep
-open_with okular
-mkdir 
-shell 
-open_with 1
 open_with 
 search d
 tmux
@@ -21,11 +12,39 @@ rename dji_vrep20.yaml
 rename acado_qpoases_interfaceya.cpp
 open_with k
 cd 
-w
 delete 
-rename CMakeLists4.txt
 rename CMakeLists20.txt
-rename CMakeLists.txt
+.launch
+mkdir work
+rename PhD
+rename writing_tips.md
+mkdir writing
+mkdir lab
+mkdir UAVs
+rename drone_mpc_dji_lidar
+rename drone_mpc_dji_lidar_obstacles
+rename drone_mpc_dji_lidar_obstacles_node.cpp
+rename dji_odometry_lidar_obstacles.launch
+mkdir drone_mpc_mocap
+rename drone_mpc_mocap_state
+rename drone_mpc_mocap_state.cpp
+mkdir drone_mpc_obstacles
+mkdir platforms
+mkdir state estimation
+rename state_estimation
+rename obstacle_detection
+rename drone_mpc_gps_state
+rename control_signal
+rename dji_model_fo.yaml
+rename dji_model_fod.yaml
+rename ardrone_model.yaml
+rename ardrone_model_fod.yaml
+rename drone_mpc_dji_odometry_state
+Q
+open_with vim
+wq
 
 delete
-.launch
+rename CMakeLists4.txt
+w
+rename CMakeLists.txt

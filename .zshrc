@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+  export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/manuel/.oh-my-zsh
+  export ZSH=/home/manu/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -10,7 +10,7 @@
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -84,7 +84,39 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-  source /opt/ros/indigo/setup.zsh 
-  source ~/drone_mpc_ws/devel/setup.zsh
+#
+# ######################################################################################
+#                               My changes 
+# ######################################################################################
+#
+#
+# DISABLE MOUSE STICK. Should not be here
+xinput disable "AlpsPS/2 ALPS DualPoint Stick"
+#alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 
-  alias matlab="/usr/local/MATLAB/R2015a/bin/matlab"
+function ranger-cd
+{
+    tempfile="$(mktemp)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+zle -N ranger-cd
+
+# This binds Ctrl-O to ranger-cd:
+bindkey '^o' ranger-cd
+
+source /opt/ros/kinetic/setup.zsh
+# source ~/dji_ws/devel/setup.zsh
+source ~/workspace/ros/obstacle_avoidance_catkin_ws/devel/setup.zsh
+export OBSTACLE_AVOIDANCE_WORKSPACE=~/workspace/ros/obstacle_avoidance_catkin_ws/
+
+function undetach () 
+{ 
+    git checkout -b temp 
+    git checkout -B $1 temp 
+    git branch -d temp  
+} 
