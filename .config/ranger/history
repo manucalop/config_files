@@ -1,20 +1,3 @@
-open_with 
-search d
-tmux
-find 
-search R
-rename acado_20
-rename drone_mpc_full_generated acado_20
-rename drone_mpc_full.cppo
-rename acado
-rename
-rename dji_vrep20.yaml
-rename acado_qpoases_interfaceya.cpp
-open_with k
-cd 
-delete 
-rename CMakeLists20.txt
-.launch
 mkdir work
 rename PhD
 rename writing_tips.md
@@ -41,10 +24,27 @@ rename ardrone_model.yaml
 rename ardrone_model_fod.yaml
 rename drone_mpc_dji_odometry_state
 Q
-open_with vim
 wq
-
-delete
 rename CMakeLists4.txt
 w
 rename CMakeLists.txt
+rename NED_FRD_interface
+rename NED_FRD_odometry_transform
+rename ned_frd_transform_odom.launch
+rename ned_frd_transform_odom
+rename ned_frd_transform_odom.h
+rename ned_frddji_localization_transform_odom.cpp
+rename ned_frd_transform_odom_node.cpp
+rename ned_frd_transform_odom.cpp
+open_with vim
+rename dji_out.yaml
+re`
+rename dji_outdoor.yaml
+cd 
+mkdir .tmuxinator
+
+cd
+delete
+mkdir MPC_best
+rename MPC
+mkdir Control

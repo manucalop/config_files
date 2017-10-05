@@ -36,6 +36,9 @@ call plug#end()
     vmap 0  g0
     nmap $  g$
     vmap $  g$
+    " Paragraph jumping 
+    nmap <c-j> 10gj
+    nmap <c-k> 10gk
 " Tab mode
     let g:tinykeymaps_default=0 
     call tinykeymap#EnterMap('tabs', 'gt', {'name': 'Tabs mode: [n]ew [q]uit [hl]movements'}) 
@@ -52,6 +55,8 @@ call plug#end()
 " Ranger mapping
     let g:ranger_map_keys = 0
     map gr :Ranger<CR>
+    " deoplete tab-complete
+    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " ------------------------------------------------
 "                    OPTIONS
 " ------------------------------------------------

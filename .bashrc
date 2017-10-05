@@ -132,11 +132,12 @@ function ranger-cd
 
 # This binds Ctrl-O to ranger-cd:
 bind '"\C-o":"ranger-cd\C-m"'
-
+source ~/.bin/tmuxinator.bash
 source /opt/ros/kinetic/setup.bash
 # source ~/dji_ws/devel/setup.bash
 source ~/workspace/ros/obstacle_avoidance_catkin_ws/devel/setup.bash
-export OBSTACLE_AVOIDANCE_WORKSPACE=~/workspace/ros/obstacle_avoidance_catkin_ws/
+export OBSTACLE_AVOIDANCE_WORKSPACE=~/workspace/ros/obstacle_avoidance_catkin_ws
+export OBSTACLE_AVOIDANCE_PROJECT=~/workspace/ros/obstacle_avoidance_catkin_ws/src/obstacle_avoidance_project
 
 function undetach () 
 { 
