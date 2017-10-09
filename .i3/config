@@ -304,15 +304,19 @@ bar {
 #Network Manager applet
     exec -no-startup-id nm-applet
 # Authentication agent
-    exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+    exec_always --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 # Screen detection
     exec_always sh ~/.i3/screen_script.sh
 # Wallpaper
     exec_always feh --bg-scale ~/.i3/wallpaper.jpg
 # Prevent nautilus from showing the desktop
     exec_always -no-startup-id gsettings set org.gnome.desktop.background show-desktop-icons false
+# Keyboard layouts
+    exec_always "setxkbmap -layout us,es"
+    exec_always "setxkbmap -option 'grp:alt_shift_toggle'"
 # Programs
 #    exec_always gnome-panel
+    exec gsettings set org.gnome.desktop.background show-desktop-icons false
     exec gnome-settings-daemon
     exec nm-applet
     exec volumeicon
