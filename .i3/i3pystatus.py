@@ -33,7 +33,7 @@ status.register("battery",
     alert=True,
     alert_percentage=15,
     status={
-        "DIS": "  ↓ ",
+        "DIS": "   ↓ ",
         "CHR": "   ↑ ",
         "FULL": "  ",
     },)
