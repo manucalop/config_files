@@ -118,7 +118,7 @@ fi
 # DISABLE MOUSE STICK. Should not be here
 xinput disable "AlpsPS/2 ALPS DualPoint Stick"
 #alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-alias update='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade sudo apt-get autoremove'
+alias update='sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-get autoremove'
 function ranger-cd
 {
     tempfile="$(mktemp)"
