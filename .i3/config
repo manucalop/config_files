@@ -223,11 +223,12 @@
 # Custom mode
 ## Press $mod+o followed by either f, t, Esc or Return to launch firefox,
     bindsym $mod+o mode "$mode_launcher"
-    set $mode_launcher Launch: [f]irefox [m]atlab [s]potify [n]autilus
+    set $mode_launcher Launch: [f]irefox [n]autilus [s]ettings [m]atlab [S]potify  
     mode "$mode_launcher" {
         bindsym f exec firefox; mode "default"
         bindsym m exec matlab; mode "default"
-        bindsym s exec spotify; mode "default"
+        bindsym s exec "export XDG_CURRENT_DESKTOP=Unity && unity-control-center"; mode "default"
+        bindsym S exec spotify; mode "default"
         bindsym n exec nautilus; mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"
@@ -317,7 +318,8 @@ bar {
 # Programs
 #    exec_always gnome-panel
     exec gsettings set org.gnome.desktop.background show-desktop-icons false
-    exec gnome-settings-daemon
+    exec_always -no-startup-id "export XDG_CURRENT_DESKTOP=Unity"
+    exec_always unity-settings-daemon
     exec nm-applet
     exec volumeicon
     exec_always dropbox start
