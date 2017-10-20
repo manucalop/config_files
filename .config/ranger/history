@@ -1,7 +1,3 @@
-mkdir work
-rename PhD
-rename writing_tips.md
-mkdir writing
 mkdir lab
 mkdir UAVs
 rename drone_mpc_dji_lidar
@@ -42,9 +38,13 @@ re`
 rename dji_outdoor.yaml
 cd 
 mkdir .tmuxinator
-
 cd
-delete
 mkdir MPC_best
 rename MPC
 mkdir Control
+evince bv_cvxbook.pdf
+mkdir ellipsoid_obstacle
+rename obstacle_model
+
+delete
+rename rigid_ellipsoid.m
