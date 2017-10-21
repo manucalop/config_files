@@ -11,15 +11,15 @@
     # Alt key
         set $alt Mod1
 # Workspaces names
-    set $ws1 "1" 
-    set $ws2 "2"
-    set $ws3 "3"
-    set $ws4 "4"
+    set $ws1 "1 "
+    set $ws2 "2 "
+    set $ws3 "3 "
+    set $ws4 "4 "
     set $ws5 "5"
     set $ws6 "6"
     set $ws7 "7"
     set $ws8 "8"
-    set $ws9 "9"
+    set $ws9 "9"
 # Colors
     set $bg-color            #2f343f
     set $inactive-bg-color   #2f343f
@@ -28,7 +28,7 @@
     set $urgent-bg-color     #E53935
 
 #------------------------------------------------------------------
-# Configuration 
+# Configuration
 # -----------------------------------------------------------------
 #
 # Fonts
@@ -47,7 +47,7 @@
 # Use Mouse+$mod to drag floating windows to their wanted position
     floating_modifier $mod
 
-# Orientation for splitting 
+# Orientation for splitting
     default_orientation horizontal
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 #    new_window pixel 1
@@ -55,10 +55,10 @@
 # Hide borders
     hide_edge_borders none
 # Workspace back and forth
-    workspace_auto_back_and_forth no
+    workspace_auto_back_and_forth yes
 
 #------------------------------------------------------------------
-# Shortcuts (Key bindings) 
+# Shortcuts (Key bindings)
 # -----------------------------------------------------------------
 #
 # change borders
@@ -75,8 +75,9 @@
  #   bindsym $mod+d exec dmenu_run
     # There also is the (new) i3-dmenu-desktop which only displays applications
     # shipping a .desktop file. It is a wrapper around dmenu, so you need that installed.
-    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop 
+    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
     bindysm --release $mod+z exec ~/.i3/morc_menu
+
 # change focus
     bindsym $mod+h focus left
     bindsym $mod+j focus down
@@ -121,7 +122,6 @@
 
 # focus the parent container
     bindsym $mod+a focus parent
-
 # focus the child container
     #bindsym $mod+d focus child
 
@@ -137,7 +137,7 @@
     bindsym $mod+9 workspace $ws9
 
 # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1 
+    bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
     bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
     bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
     bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
@@ -169,7 +169,7 @@
 # exit i3 (logs you out of your X session)
     bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-#   Audio controls 
+#   Audio controls
 #    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +10%; exec notify-send -t 5 'Volume up' #increase sound volume
 #    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -10%; exec notify-send -t 5 'Volume down'  #decrease sound volume
 #    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle; exec notify-send -t 5 'Mute toogle' # mute sound
@@ -187,11 +187,11 @@
     bindsym XF86AudioPause exec playerctl pause
     bindsym XF86AudioNext exec playerctl next
     bindsym XF86AudioPrev exec playerctl previous
-    
+
 
 
 #------------------------------------------------------------------
-# Modes of operation 
+# Modes of operation
 # -----------------------------------------------------------------
 #
 # No need to define default mode
@@ -204,7 +204,7 @@
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-       
+
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -223,19 +223,28 @@
 # Custom mode
 ## Press $mod+o followed by either f, t, Esc or Return to launch firefox,
     bindsym $mod+o mode "$mode_launcher"
-    set $mode_launcher Launch: [f]irefox [n]autilus [s]ettings [m]atlab [S]potify  
+    set $mode_launcher Launch: [f]irefox [n]autilus [s]ettings [m]atlab [S]potify
     mode "$mode_launcher" {
         bindsym f exec firefox; mode "default"
         bindsym m exec matlab; mode "default"
         bindsym s exec "export XDG_CURRENT_DESKTOP=Unity && unity-control-center"; mode "default"
-        bindsym S exec spotify; mode "default"
+        bindsym Shift+s exec spotify; mode "default"
         bindsym n exec nautilus; mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"
     }
-# Dialog for launcher mode 
+# Keyboard Layout mode
+    bindsym $mod+Shift+space mode "$mode_keyboard"
+    set $mode_keyboard Keyboard Layout: [e]nglish [s]panish
+    mode "$mode_keyboard" {
+        bindsym e exec setxkbmap -layout us; mode "default"
+        bindsym s exec setxkbmap -layout es; mode "default"
+        bindsym Escape mode "default"
+        bindsym Return mode "default"
+    }
+# Dialog for launcher mode
 #------------------------------------------------------------------
-# i3 bar 
+# i3 bar
 # -----------------------------------------------------------------
 #
 
@@ -244,9 +253,9 @@
 bar {
   #  output HDMI2
   #  tray_output primary
-    position top 
+    position top
     tray_output primary
-   # font pango: Anonymous Pro 13   
+   # font pango: Anonymous Pro 13
    # status_command gnome-panel
    # status_command i3status --config ~/.i3/i3status.conf
    #  status_command python3 ~/.i3/i3pystatus.py
@@ -288,9 +297,9 @@ bar {
     assign [class="Spotify"]    $ws9
     assign [class="Skype"]      $ws8
    # assign [class="Firefox"]    $ws2
-   # assign [class="matlab"]     $ws3     
+   # assign [class="matlab"]     $ws3
 #------------------------------------------------------------------
-# Floating windows 
+# Floating windows
 # -----------------------------------------------------------------
 #
     for_window [class="Skype"] floating enable
@@ -299,26 +308,14 @@ bar {
     for_window [class="Nitrogen"] floating enable sticky enable border normal
     for_window [class="File-roller"] floating enable border normal
 #------------------------------------------------------------------
-# Initial apps 
+# Initial apps
 # -----------------------------------------------------------------
 ## Screen detection
-    exec_always sh ~/.i3/scripts/screen_script.sh
+    exec_always bash ~/.i3/scripts/displays.bash
 # System tray
-    exec_always -no-startup-id ~/.i3/scripts/tray.sh
+    exec_always bash ~/.i3/scripts/tray.bash
 ## Configurations
-# Prevent nautilus from showing the desktop
-    exec_always -no-startup-id gsettings set org.gnome.desktop.background show-desktop-icons false
-# Authentication agent
-    exec_always --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-    exec -no-startup-id gsettings set org.gnome.desktop.background show-desktop-icons false
-#   exec_always -no-startup-id "export XDG_CURRENT_DESKTOP=Unity"
+    exec_always bash ~/.i3/scripts/initial_config.bash
 # Keyboard layouts
-    exec_always "setxkbmap -layout us,es"
-    exec_always "setxkbmap -option 'grp:alt_shift_toggle'"
-
-
 # Programs
-#   exec_always -no-startup-id unity-settings-daemon
-    exec_always -no-startup-id compton -b
-    exec_always -no-startup-id dunst
     #exec_always --no-startup-id $HOME/.config/polybar/launch.sh

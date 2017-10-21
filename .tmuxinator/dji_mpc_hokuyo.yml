@@ -1,0 +1,50 @@
+# ~/.tmuxinator/mpc-obstacle-avoidance.yml
+
+name: dji_mpc_hokuyo 
+root: ~/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: editor
+
+# Specitifes (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+# startup_pane: 1
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t deliberative-obstacle-avoidance
+
+windows:
+  - robot:
+      layout: main-vertical
+      panes:
+        - roscore
+        - roslaunch --wait "${OBSTACLE_AVOIDANCE_PROJECT}/launchers/sdk_manifold.launch"
+        - roslaunch --wait "${OBSTACLE_AVOIDANCE_PROJECT}/launchers/hokuyo_utm_30lx.launch"
+        - sleep 4; rostopic list
+
+  - processing:
+      layout: tiled
+      panes: 
+        - roslaunch --wait dji_localization_transform dji_localization_transform_odom.launch configure_world_file:="${OBSTACLE_AVOIDANCE_PROJECT}/config/configure_world_outdoors.yml"
+        - roslaunch --wait drone_mpc_controller dji_odometry.launch 
+  - hmi:
+      layout: tiled
+      panes:
+        - roslaunch --wait dji_sdk_demo dji_sdk_client.launch

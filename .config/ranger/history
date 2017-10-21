@@ -1,5 +1,3 @@
-mkdir lab
-mkdir UAVs
 rename drone_mpc_dji_lidar
 rename drone_mpc_dji_lidar_obstacles
 rename drone_mpc_dji_lidar_obstacles_node.cpp
@@ -36,7 +34,6 @@ open_with vim
 rename dji_out.yaml
 re`
 rename dji_outdoor.yaml
-cd 
 mkdir .tmuxinator
 cd
 mkdir MPC_best
@@ -45,6 +42,9 @@ mkdir Control
 evince bv_cvxbook.pdf
 mkdir ellipsoid_obstacle
 rename obstacle_model
-
 delete
 rename rigid_ellipsoid.m
+cd 
+rename fonts_old
+rename .fonts
+
