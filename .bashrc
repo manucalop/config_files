@@ -121,6 +121,7 @@ xinput disable "AlpsPS/2 ALPS DualPoint Stick"
 alias update='sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-get autoremove'
 alias vim='nvim'
 alias ls='ls -1q --classify --group-directories-first --color=auto'
+alias la='ls -A'
 function ranger-cd
 {
     tempfile="$(mktemp)"
