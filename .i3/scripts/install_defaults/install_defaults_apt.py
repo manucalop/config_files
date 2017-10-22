@@ -47,7 +47,6 @@ apt_pkgs = [    "sudo",
 # Check if the user is root
 if os.geteuid() != 0:
     exit( color.BOLD + color.RED +"You need to have root privileges" +color.END )
-
 cache = apt.cache.Cache()
 cache.update()
 for pkg_name in apt_pkgs:
@@ -55,10 +54,15 @@ for pkg_name in apt_pkgs:
     if pkg.is_installed:
         print('{:<40}'.format(pkg_name) + color.CYAN +'Already installed' + color.END )
     else:
+        os.system('apt-get --install-suggests --fix-missing --fix-broken -qq --assume-yes install {}'.format(pkg_name))
+        print('{:<40}'.format(pkg_name) + color.GREEN +'Installed Successfully' + color.END )
+
+"""
         pkg.mark_install()
         print('{:<40}'.format(pkg_name) + color.GREEN +'Installed Successfully' + color.END )
         try:
             cache.commit()
         except Exception:
             print('Installation of {} failed '.format(pkg_name))
+"""
 print('\n')
