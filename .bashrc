@@ -131,7 +131,8 @@ function ranger-cd
     fi
     rm -f -- "$tempfile"
 }
-
+alt_color='\033]11;black\007' 
+bind '"\C-t":"printf ${alt_color}\C-m"'
 # This binds Ctrl-O to ranger-cd:
 bind '"\C-o":"ranger-cd\C-m"'
 source ~/.bin/tmuxinator.bash
@@ -150,3 +151,5 @@ function undetach ()
 export EDITOR='nvim'
 export XDG_CURRENT_DESKTOP=Unity
 source ~/.local/share/icons-in-terminal/icons_bash.sh
+xrdb -merge ~/.Xresources
+xrdb ~/.Xresources

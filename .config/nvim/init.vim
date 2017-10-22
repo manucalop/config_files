@@ -63,6 +63,7 @@ call plug#end()
     set encoding=utf-8
     set nospell
     set spelllang=en_us
+"    set ttymouse=xterm2
 " Highlight search results
     set nohlsearch
 " Makes search act like search in modern browsers
