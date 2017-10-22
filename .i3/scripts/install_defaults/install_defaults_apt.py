@@ -16,7 +16,11 @@ class color:
    END = '\033[0m'
 
 print(color.BOLD + "Installing deb packages \n-----------------------" + color.END)
-apt_pkgs = [    "i3", 
+apt_pkgs = [    "sudo",
+                "xorg",
+                "git",
+                "urxvt",
+                "i3", 
                 "xdotool", 
                 "zenity",
                 "feh",
