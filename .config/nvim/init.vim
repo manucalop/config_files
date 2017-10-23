@@ -39,6 +39,8 @@ call plug#end()
     " Paragraph jumping 
     nmap <c-j> 10gj
     nmap <c-k> 10gk
+    vmap <c-j> 10gj
+    vmap <c-k> 10gk
 " Tab mode
     let g:tinykeymaps_default=0 
     call tinykeymap#EnterMap('tabs', 'gt', {'name': 'Tabs mode: [n]ew [q]uit [hl]movements'}) 

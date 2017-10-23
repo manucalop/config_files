@@ -132,7 +132,8 @@ function ranger-cd
     fi
     rm -f -- "$tempfile"
 }
-alt_color='\033]11;black\007' 
+alt_color='\033]11;#1d1f21\007' 
+#alt_color='\033]11;black\007' 
 bind '"\C-t":"printf ${alt_color}\C-m"'
 # This binds Ctrl-O to ranger-cd:
 bind '"\C-o":"ranger-cd\C-m"'

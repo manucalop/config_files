@@ -39,6 +39,7 @@ apt_pkgs = [    "sudo",
                 "tmuxinator",
                 "neovim",
                 "curl",
+                "xfce4-power-manager",
                 "conky-all",
                 "fonts-font-awesome",
                 "fonts-materialdesignicons-webfont"

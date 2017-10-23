@@ -1,4 +1,4 @@
-###################################################################
+
 #               i3 configuration file -- manuelcloop
 ###################################################################
 # I think the language is bootstrap
@@ -27,6 +27,23 @@
     set $inactive-text-color #676E7D
     set $urgent-bg-color     #E53935
 
+    set $base00 #101218
+    set $base01 #1f222d
+    set $base02 #252936
+    set $base03 #7780a1
+    set $base04 #C0C5CE
+    set $base05 #d1d4e0
+    set $base06 #C9CCDB
+    set $base07 #ffffff
+    set $base08 #ee829f
+    set $base09 #f99170
+    set $base0A #ffefcc
+    set $base0B #a5ffe1
+    set $base0C #97e0ff
+    set $base0D #97bbf7
+    set $base0E #c0b7f9
+    set $base0F #fcc09e
+
 #------------------------------------------------------------------
 # Configuration
 # -----------------------------------------------------------------
@@ -50,7 +67,7 @@
 # Orientation for splitting
     default_orientation horizontal
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-#    new_window pixel 1
+    new_window pixel 4
     new_float normal
 # Hide borders
     hide_edge_borders none
@@ -76,8 +93,11 @@
  #   bindsym $mod+d exec dmenu_run
     # There also is the (new) i3-dmenu-desktop which only displays applications
     # shipping a .desktop file. It is a wrapper around dmenu, so you need that installed.
-    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-    bindysm --release $mod+z exec ~/.i3/morc_menu
+#    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+    bindsym $mod+d exec rofi -show run -lines 10 -eh 2 -width 25 -padding 20 -opacity "80" -bw 5 -bc "$base01" -bg "$base02" -fg "$base07" -hlbg "$base05" -columns 1 -font "Ubuntu Mono 13" -hlfg "$base01"
+   # bindsym $mod+d exec rofi -show run
+    bindsym $mod+Tab exec rofi -show window
+#    bindysm --release $mod+z exec ~/.i3/morc_menu
 
 # change focus
     bindsym $mod+h focus left
@@ -174,14 +194,14 @@
 #    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +10%; exec notify-send -t 5 'Volume up' #increase sound volume
 #    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -10%; exec notify-send -t 5 'Volume down'  #decrease sound volume
 #    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle; exec notify-send -t 5 'Mute toogle' # mute sound
-    bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+; exec notify-send -t 5 'Volume up' #increase sound volume
-    bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-; exec notify-send -t 5 'Volume down'  #decrease sound volume
-    bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle; exec notify-send -t 5 'Mute toogle' # mute sound
+#    bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+; exec notify-send -t 5 'Volume up' #increase sound volume
+#    bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-; exec notify-send -t 5 'Volume down'  #decrease sound volume
+#    bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle; exec notify-send -t 5 'Mute toogle' # mute sound
 
 
 # Sreen brightness controls
-    bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-    bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+#    bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+#    bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Media player controls
     bindsym XF86AudioPlay exec playerctl play
@@ -262,25 +282,27 @@ bar {
    #  status_command python3 ~/.i3/i3pystatus.py
    #status_command i3pystatus -c ~/.i3/i3pystatus.py
      status_command py3status -c ~/.i3/i3status.conf
-   #colors {
-   #     background $bg-color
-   #     separator #757575
-   #       #     border             background         text
-   #             focused_workspace  $bg-color          $bg-color          $text-color
-   #             inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-   #             urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-   #        }
-    colors{
-    background #2B2C2B
-    statusline #F9FAF9
-    separator  #454947
-    }
-#    focused_workspace  #F9FAF9 #16A085 #2B2C2B
-#    active_workspace   #595B5B #353836 #FDF6E3
-#    inactive_workspace #595B5B #353836 #EEE8D5
-#    urgent_workspace   #16A085 #FDF6E3 #E5201D
-#    }
+
+  colors {
+                separator $base03
+                background $base01
+                statusline $base05
+                #                  border  background text
+                focused_workspace  $base01 $base01    $base07
+                active_workspace   $base01 $base02    $base03
+                inactive_workspace $base01 $base01    $base03
+                urgent_workspace   $base01 $base01    $base08
+  }
 }
+
+
+# Widow Colours
+#                         border  background text    indicator
+  client.focused          $base01 $base03    $base07 $base0F
+  client.focused_inactive $base02 $base02    $base03 $base0F
+  client.unfocused        $base02 $base02    $base03 $base0F
+  client.urgent           $base02 $base08    $base00 $base0F
+
 # Theme colors
 # # class                 border  backgr. text    indic.  child_border
 # client.focused          #808280 #808280 #80FFF9 #FDF6E3
@@ -297,7 +319,9 @@ bar {
 #
     assign [class="Spotify"]    $ws9
     assign [class="Skype"]      $ws8
-   # assign [class="Firefox"]    $ws2
+    assign [class="Firefox"]    $ws1
+    # Because assign does not work
+    for_window [class="Spotify"] move to workspace $ws9
    # assign [class="matlab"]     $ws3
 #------------------------------------------------------------------
 # Floating windows
