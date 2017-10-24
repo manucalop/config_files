@@ -1,10 +1,10 @@
 #!/bin/bash
-killall -9 --wait dropbox volumeicon blueman-applet nm-applet ibus-daemon conky compton dunst conky xfce4-power-manager
+killall -9 --wait dropbox volumeicon blueman-applet nm-applet ibus-daemon conky compton dunst conky xfce4-power-manager notify-osd
 # Apps
 # Compton for compositing and transparency
 compton --config ~/.config/compton/my_compton.conf &
 # Dunst for notification messages
-dunst &
+#dunst &
 # Conky
 conky -c ~/.config/conky/monitor.conf &
 

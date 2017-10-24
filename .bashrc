@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 # DISABLE MOUSE STICK. Should not be here
-xinput disable "AlpsPS/2 ALPS DualPoint Stick"
+#xinput disable "AlpsPS/2 ALPS DualPoint Stick"
 #alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias update='sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-get autoremove'
 alias vim='nvim'
@@ -154,4 +154,5 @@ export EDITOR='nvim'
 export XDG_CURRENT_DESKTOP=Unity
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 xrdb -merge ~/.Xresources
-xrdb ~/.Xresources
+xrdb -I$HOME ~/.Xresources
+COLORTERM='rxvt-unicode-256color'

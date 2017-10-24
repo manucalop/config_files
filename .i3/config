@@ -21,11 +21,11 @@
     set $ws8 "8"
     set $ws9 "9"
 # Colors
-    set $bg-color            #2f343f
-    set $inactive-bg-color   #2f343f
-    set $text-color          #f3f4f5
-    set $inactive-text-color #676E7D
-    set $urgent-bg-color     #E53935
+#    set $bg-color            #2f343f
+#    set $inactive-bg-color   #2f343f
+#    set $text-color          #f3f4f5
+#    set $inactive-text-color #676E7D
+#    set $urgent-bg-color     #E53935
 
     set $base00 #101218
     set $base01 #1f222d
@@ -43,6 +43,52 @@
     set $base0D #97bbf7
     set $base0E #c0b7f9
     set $base0F #fcc09e
+
+# Official Arc dark theme colors (taken from gtk-dark.css)
+set $theme_fg_color #D3DAE3;
+set $theme_text_color #D3DAE3;
+set $theme_bg_color #383C4A;
+set $theme_base_color #404552;
+set $theme_selected_bg_color #5294e2;
+set $theme_selected_fg_color #ffffff;
+set $fg_color #D3DAE3;
+set $text_color #D3DAE3;
+set $bg_color #383C4A;
+set $base_color #404552;
+set $selected_bg_color #5294e2;
+set $selected_fg_color #ffffff;
+set $insensitive_bg_color #3c4150;
+set $insensitive_fg_color alpha(#d3dae3, 0.5);
+set $insensitive_base_color #404552;
+set $theme_unfocused_fg_color #D3DAE3;
+set $theme_unfocused_text_color #D3DAE3;
+set $theme_unfocused_bg_color #383C4A;
+set $theme_unfocused_base_color #404552;
+set $borders #2b2e39;
+set $unfocused_borders #2b2e39;
+set $warning_color #F27835;
+set $error_color #FC4138;
+set $success_color #73d216;
+set $placeholder_text_color #A8A8A8;
+set $link_color #a9caf1;
+set $content_view_bg #404552;
+set $wm_title alpha(#cfdae7, 0.8);
+set $wm_unfocused_title alpha(#cfdae7, 0.5);
+set $wm_bg #2f343f;
+set $wm_bg_unfocused #323843;
+set $wm_highlight #363b48;
+set $wm_shadow alpha(black, 0.35);
+set $wm_button_close_bg #cc575d;
+set $wm_button_close_hover_bg #d7787d;
+set $wm_button_close_active_bg #be3841;
+set $wm_icon_close_bg #2f343f;
+set $wm_button_hover_bg #454C5C;
+set $wm_button_active_bg #5294e2;
+set $wm_button_hover_border #262932;
+set $wm_icon_bg #90939B;
+set $wm_icon_unfocused_bg #666A74;
+set $wm_icon_hover_bg #C4C7CC;
+set $wm_icon_active_bg #ffffff;
 
 #------------------------------------------------------------------
 # Configuration
@@ -73,7 +119,7 @@
     hide_edge_borders none
 # Workspace back and forth
     workspace_auto_back_and_forth yes
-
+#    show_marks yes
 #------------------------------------------------------------------
 # Shortcuts (Key bindings)
 # -----------------------------------------------------------------
@@ -96,7 +142,7 @@
 #    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
     bindsym $mod+d exec rofi -show run -lines 10 -eh 2 -width 25 -padding 20 -opacity "80" -bw 5 -bc "$base01" -bg "$base02" -fg "$base07" -hlbg "$base05" -columns 1 -font "Ubuntu Mono 13" -hlfg "$base01"
    # bindsym $mod+d exec rofi -show run
-    bindsym $mod+Tab exec rofi -show window
+    bindsym $mod+Tab exec rofi -show window -lines 10 -eh 2 -width 25 -padding 20 -opacity "80" -bw 5 -bc "$base01" -bg "$base02" -fg "$base07" -hlbg "$base05" -columns 1 -font "Ubuntu Mono 13" -hlfg "$base01"
 #    bindysm --release $mod+z exec ~/.i3/morc_menu
 
 # change focus
@@ -276,6 +322,8 @@ bar {
   #  tray_output primary
     position top
     tray_output primary
+    tray_padding 2
+    workspace_buttons yes
    # font pango: Anonymous Pro 13
    # status_command gnome-panel
    # status_command i3status --config ~/.i3/i3status.conf
@@ -317,11 +365,11 @@ bar {
 # Workspaces association
 # -----------------------------------------------------------------
 #
-    assign [class="Spotify"]    $ws9
-    assign [class="Skype"]      $ws8
-    assign [class="Firefox"]    $ws1
+    assign [class="(?i)spotify"]    $ws9
+    assign [class="(?i)skype"]      $ws8
+    assign [class="(?i)firefox"]    $ws1
     # Because assign does not work
-    for_window [class="Spotify"] move to workspace $ws9
+    for_window [class="spotify"] move to workspace $ws9
    # assign [class="matlab"]     $ws3
 #------------------------------------------------------------------
 # Floating windows
@@ -335,12 +383,12 @@ bar {
 #------------------------------------------------------------------
 # Initial apps
 # -----------------------------------------------------------------
+## Configurations
+    exec_always bash ~/.i3/scripts/initial_config.bash
 ## Screen detection
     exec_always bash ~/.i3/scripts/displays.bash
 # System tray
     exec_always bash ~/.i3/scripts/tray.bash
-## Configurations
-    exec_always bash ~/.i3/scripts/initial_config.bash
 # Keyboard layouts
 # Programs
     #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
