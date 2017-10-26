@@ -4,25 +4,29 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 " Autocompletion , { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-clang'
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.6/lib/libclang.so.1'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+
+"let g:deoplete#sources#clang#libclang_path = '/usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so'
+"let g:deoplete#sources#clang#clang_header = '/usr/lib/gcc/x86_64-linux-gnu/'
 " Make plugin (plugin)
-"Plug 'neomake/neomake'
 " Git tools
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'xuyuanp/nerdtree-git-plugin'
 " Solarized colors
-"Plug 'altercation/vim-colors-solarized'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
-" To navigate with Ctrl hjkl in vim and tmux at the same time
-" Plug 'christoomey/vim-tmux-navigator'
 " Mini mode creator
 Plug 'tomtom/tinykeymap_vim'
 " Ranger integration
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+"Plug 'terryma/vim-multiple-cursors'
+Plug 'taketwo/vim-ros'
 call plug#end()
 
 " ------------------------------------------------
@@ -41,21 +45,32 @@ call plug#end()
     nmap <c-k> 10gk
     vmap <c-j> 10gj
     vmap <c-k> 10gk
+    nmap <c-_> :NERDTreeToggle<CR>
+    
+    nmap <silent> <A-k> :wincmd k<CR>
+    nmap <silent> <A-j> :wincmd j<CR>
+    nmap <silent> <A-h> :wincmd h<CR>
+    nmap <silent> <A-l> :wincmd l<CR>   
+    nmap <silent> <A-v> :vnew<CR>   
+    nmap <silent> <A-l> :new<CR>   
+   " command Nt NERDTreeToggle
 " Tab mode
     let g:tinykeymaps_default=0 
     call tinykeymap#EnterMap('tabs', 'gt', {'name': 'Tabs mode: [n]ew [q]uit [hl]movements'}) 
 "    call tinykeymap#ModeMsg("tabs", "")
     call tinykeymap#Map('tabs', 'l', 'tabnext') 
     call tinykeymap#Map('tabs', 'h', 'tabprev') 
+    call tinykeymap#Map('tabs', '<c-l>', 'tabmove +1') 
+    call tinykeymap#Map('tabs', '<c-h>', 'tabmove -1') 
     call tinykeymap#Map('tabs', 'n', 'tabnew') 
     call tinykeymap#Map('tabs', 't', 'norm! gt') 
     call tinykeymap#Map('tabs', 'T', 'norm! gT') 
-    call tinykeymap#Map("tabs", "^", "tabfirst") 
+    call tinykeymap#Map("tabs", "0", "tabfirst") 
     call tinykeymap#Map("tabs", "$", "tablast") 
     call tinykeymap#Map("tabs", "q", "tabclose")
     let g:tinykeymap#message_fmt="--%s %s--"
 " Ranger mapping
-    let g:ranger_map_keys = 0
+    let g:ranger_map_keys = 1
     map gr :Ranger<CR>
     " deoplete tab-complete
     inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -65,7 +80,10 @@ call plug#end()
     set encoding=utf-8
     set nospell
     set spelllang=en_us
-"    set ttymouse=xterm2
+    "set mouse=xterm2
+    set mouse=a
+" Automatically go to current directory
+    set autochdir
 " Highlight search results
     set nohlsearch
 " Makes search act like search in modern browsers
@@ -121,6 +139,24 @@ call plug#end()
     " Call neomake automatically on write
     " call neomake#configure#automake('w')
     " let g:neomake_open_list = 2
+
 " For autocomplete (deoplete)
-    call deoplete#enable()
+let g:deoplete#enable_at_startup = 1
+
+" For autocomplete (vim)
+"set wildmenu
+"set wildmode=longest:full,full
 " ------------------------------------------------
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+    if exists('g:deoplete#disable_auto_complete') 
+	   let g:deoplete#disable_auto_complete = 1
+    endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+    if exists('g:deoplete#disable_auto_complete')
+	   let g:deoplete#disable_auto_complete = 0
+    endif
+endfunction

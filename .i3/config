@@ -8,7 +8,7 @@
 # Mod keys
     # Windows key
         set $mod Mod4
-    # Alt key
+    # Alt key (trying not to use it -- Windows key for i3)
         set $alt Mod1
 # Workspaces names
     set $ws1 "1 "
@@ -140,9 +140,9 @@ set $wm_icon_active_bg #ffffff;
     # There also is the (new) i3-dmenu-desktop which only displays applications
     # shipping a .desktop file. It is a wrapper around dmenu, so you need that installed.
 #    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-    bindsym $mod+d exec rofi -show run -lines 10 -eh 2 -width 25 -padding 20 -opacity "80" -bw 5 -bc "$base01" -bg "$base02" -fg "$base07" -hlbg "$base05" -columns 1 -font "Ubuntu Mono 13" -hlfg "$base01"
+    bindsym $mod+d exec rofi -show drun -modi drun -i -lines 10 -eh 2 -width 25 -padding 20 -opacity "80" -bw 5 -bc "$base01" -bg "$base02" -fg "$base07" -hlbg "$base05" -columns 1 -font "Ubuntu Mono 13" -hlfg "$base01"
    # bindsym $mod+d exec rofi -show run
-    bindsym $mod+Tab exec rofi -show window -lines 10 -eh 2 -width 25 -padding 20 -opacity "80" -bw 5 -bc "$base01" -bg "$base02" -fg "$base07" -hlbg "$base05" -columns 1 -font "Ubuntu Mono 13" -hlfg "$base01"
+    bindsym $mod+Tab exec rofi -show window -i -lines 10 -eh 2 -width 25 -padding 20 -opacity "80" -bw 5 -bc "$base01" -bg "$base02" -fg "$base07" -hlbg "$base05" -columns 1 -font "Ubuntu Mono 13" -hlfg "$base01"
 #    bindysm --release $mod+z exec ~/.i3/morc_menu
 
 # change focus
@@ -168,10 +168,10 @@ set $wm_icon_active_bg #ffffff;
     bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-    bindsym $alt+h split h; exec notify-send -t 10 'tile horizontally'
+    bindsym $mod+b split h; exec notify-send -t 1000 'tile horizontally'
 
 # split in vertical orientation
-    bindsym $alt+v split v; exec notify-send -t 10 'tile vertically'
+    bindsym $mod+v split v; exec notify-send -t 1000 'tile vertically'
 
 # enter fullscreen mode for the focused container
     bindsym $mod+f fullscreen
@@ -343,6 +343,26 @@ bar {
   }
 }
 
+bar {
+  #  output HDMI2
+  #  tray_output primary
+    position bottom
+    tray_output none
+    workspace_buttons yes
+   # font pango: Anonymous Pro 13
+    status_command i3blocks -c ~/.i3/i3blocks/i3blocks.conf 
+
+    colors {
+                separator $base03
+                background $base01
+                statusline $base05
+                #                  border  background text
+                focused_workspace  $base01 $base01    $base07
+                active_workspace   $base01 $base02    $base03
+                inactive_workspace $base01 $base01    $base03
+                urgent_workspace   $base01 $base01    $base08
+    }
+}
 
 # Widow Colours
 #                         border  background text    indicator

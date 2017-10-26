@@ -14,7 +14,8 @@ class color:
    END = '\033[0m'
 
 print(color.BOLD + "Installing pip packages \n-----------------------" + color.END)
-pip3_pkgs = [   "py3status"
+pip3_pkgs = [   "py3status",
+                "neovim"
             ]
 for pkg_name in pip3_pkgs:
     pip.main(['install', pkg_name])

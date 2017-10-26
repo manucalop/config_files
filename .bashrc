@@ -122,6 +122,7 @@ alias update='sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgra
 alias vim='nvim'
 alias ls='ls -1q --classify --group-directories-first --color=auto'
 alias la='ls -A'
+alias vimconf='vim ~/.config/nvim/init.vim
 function ranger-cd
 {
     tempfile="$(mktemp)"

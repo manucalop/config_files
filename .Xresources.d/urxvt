@@ -5,68 +5,68 @@
 !----------------------------------------
 #include "arc-dark.xcolors"
 ! special
-urxvt*foreground:   fg_color
-urxvt*background:   #101218
-urxvt*cursorColor:  fg_color
+URxvt*foreground:   fg_color
+URxvt*background:   #101218
+URxvt*cursorColor:  fg_color
 
 ! black
-urxvt*color0:       #101218
-urxvt*color8:       #969896
+URxvt*color0:       #101218
+URxvt*color8:       #969896
 
 ! red
-urxvt*color1:       error_color
-urxvt*color9:       error_color
+URxvt*color1:       error_color
+URxvt*color9:       error_color
 
 ! green
-urxvt*color2:       success_color
-urxvt*color10:      success_color
+URxvt*color2:       success_color
+URxvt*color10:      success_color
 
 ! yellow
 
-urxvt*color3:       warning_color
-urxvt*color11:      warning_color
+URxvt*color3:       warning_color
+URxvt*color11:      warning_color
 
 ! blue
-urxvt*color4:       selected_bg_color
-urxvt*color12:      selected_bg_color
+URxvt*color4:       selected_bg_color
+URxvt*color12:      selected_bg_color
 
 ! magenta
-urxvt*color5:       #c782f3
-urxvt*color13:      #c782f3
+URxvt*color5:       #c782f3
+URxvt*color13:      #c782f3
 
 ! cyan
-urxvt*color6:       #467cf3
-urxvt*color14:      #467cf3
+URxvt*color6:       #467cf3
+URxvt*color14:      #467cf3
 
 ! white
-urxvt*color7:       #c5c8c6
-urxvt*color15:      #ffffff
+URxvt*color7:       #c5c8c6
+URxvt*color15:      #ffffff
 
 
 ! Dracula Xresources palette
-!urxvt*foreground: #F8F8F2
-!urxvt*background: #282A36
-!urxvt*color0:     #000000
-!urxvt*color8:     #4D4D4D
-!urxvt*color1:     #FF5555
-!urxvt*color9:     #FF6E67
-!urxvt*color2:     #50FA7B
-!urxvt*color10:    #5AF78E
-!urxvt*color3:     #F1FA8C
-!urxvt*color11:    #F4F99D
-!urxvt*color4:     #BD93F9
-!urxvt*color12:    #CAA9FA
-!urxvt*color5:     #FF79C6
-!urxvt*color13:    #FF92D0
-!urxvt*color6:     #8BE9FD
-!urxvt*color14:    #9AEDFE
-!urxvt*color7:     #BFBFBF
-!urxvt*color15:    #E6E6E6
+!URxvt*foreground: #F8F8F2
+!URxvt*background: #282A36
+!URxvt*color0:     #000000
+!URxvt*color8:     #4D4D4D
+!URxvt*color1:     #FF5555
+!URxvt*color9:     #FF6E67
+!URxvt*color2:     #50FA7B
+!URxvt*color10:    #5AF78E
+!URxvt*color3:     #F1FA8C
+!URxvt*color11:    #F4F99D
+!URxvt*color4:     #BD93F9
+!URxvt*color12:    #CAA9FA
+!URxvt*color5:     #FF79C6
+!URxvt*color13:    #FF92D0
+!URxvt*color6:     #8BE9FD
+!URxvt*color14:    #9AEDFE
+!URxvt*color7:     #BFBFBF
+!URxvt*color15:    #E6E6E6
 
 
 !------------------------------------------
 ! Transparency
-!urxvt*background: rgba:0000/0000/0200/c800
+!URxvt*background: rgba:0000/0000/0200/c800
 
 !Highlighting folders
 URxvt*dynamicColors:       true
@@ -104,7 +104,7 @@ URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
-URxvt.perl-ext-common:      default,matcher,tabbed,clipboard
+URxvt.perl-ext-common:      default,keysym,matcher,tabbed,selection-to-clipboard,clipboard,resize-font,urlLauncher
 URxvt.matcher.button:       1
 URxvt.urlLauncher:          firefox
 
@@ -116,15 +116,16 @@ URxvt*mouseWheelScrollPage: true
 
 ! Pointer
 URxvt.pointerBlank:         true
-
 URxvt.intensityStyles:      false
 
 ! Ctrl Up and Down control font size
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
+
 ! copy paste
-URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
-URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.C-C: perl:clipboard:copy
+URxvt.keysym.C-V: perl:clipboard:paste
+URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
 
 ! disable ctrl-shift
 URxvt.iso14755: false
@@ -134,12 +135,18 @@ URxvt.iso14755_52: false
 URxvt.internalBorder: 10
 
 ! Tabs
-URxvt.tabbed.new-button:         true
-URXvt.tabbed.reopen-on-close:    yes
-URxvt.keysym.Control-Shift-t:    perl:tabbedex:new_tab
-URxvt.keysym.Shifft-Right:       perl:tabbedex:next_tab
-URxvt.keysym.Shift-Left:         perl:tabbedex:prev_tab
-URxvt.tabbed.no-tabbedex-keys:   true
+!Shift+Down 	New tab
+!Shift+Left 	Go to left tab
+!Shift+Right 	Go to right tab
+!Ctrl+Left 	Move tab to the left
+!Ctrl+Right 	Move tab to the right
+!Ctrl+d 	     Close tab 
+
+!URxvt.tabbed.new-button:         true
+!URXvt.tabbed.reopen-on-close:    yes
+!URxvt.keysym.Shifft-Right:       perl:tabbedex:next_tab
+!URxvt.keysym.Shift-Left:         perl:tabbedex:prev_tab
+!URxvt.tabbed.no-tabbedex-keys:   true
 
 !URxvt*loginShell:                true
 
