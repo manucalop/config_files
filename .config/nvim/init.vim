@@ -25,7 +25,7 @@ Plug 'tomtom/tinykeymap_vim'
 " Ranger integration
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
-"Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'taketwo/vim-ros'
 call plug#end()
 
@@ -54,10 +54,34 @@ call plug#end()
     nmap <silent> <A-v> :vnew<CR>   
     nmap <silent> <A-l> :new<CR>   
    " command Nt NERDTreeToggle
-" Tab mode
-    let g:tinykeymaps_default=0 
+    " Ranger mapping
+    nmap gr :Ranger<CR>
+    " deoplete tab-complete
+    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" ------------------------------------------------
+"                   MODES     
+" ------------------------------------------------
+
+" Window mode (replacing the window key binding CTRL-W)
+    call tinykeymap#EnterMap('windows', '<c-w>', {'name': 'Windows mode: [n]ew [v]new [q]uit [hljk]movements <s-hljk>resize <c-hljk>move'}) 
+    call tinykeymap#Map('windows', 'l', ':wincmd l') 
+    call tinykeymap#Map('windows', 'h', ':wincmd h') 
+    call tinykeymap#Map('windows', 'j', ':wincmd j') 
+    call tinykeymap#Map('windows', 'k', ':wincmd k') 
+    call tinykeymap#Map('windows', '<s-l>', ':wincmd >') 
+    call tinykeymap#Map('windows', '<s-h>', ':wincmd <') 
+    call tinykeymap#Map('windows', '<s-j>', ':wincmd -') 
+    call tinykeymap#Map('windows', '<s-k>', ':wincmd +') 
+    call tinykeymap#Map('windows', '<c-h>', ':wincmd R') 
+    call tinykeymap#Map('windows', '<c-l>', ':wincmd r') 
+    call tinykeymap#Map('windows', '<c-k>', ':wincmd R') 
+    call tinykeymap#Map('windows', '<c-j>', ':wincmd r') 
+    call tinykeymap#Map('windows', 'n', 'new') 
+    call tinykeymap#Map('windows', 'v', 'vnew') 
+    call tinykeymap#Map('windows', 'q', 'close')
+
+" Tab mode (replacing gt: :tabnext)
     call tinykeymap#EnterMap('tabs', 'gt', {'name': 'Tabs mode: [n]ew [q]uit [hl]movements'}) 
-"    call tinykeymap#ModeMsg("tabs", "")
     call tinykeymap#Map('tabs', 'l', 'tabnext') 
     call tinykeymap#Map('tabs', 'h', 'tabprev') 
     call tinykeymap#Map('tabs', '<c-l>', 'tabmove +1') 
@@ -65,15 +89,9 @@ call plug#end()
     call tinykeymap#Map('tabs', 'n', 'tabnew') 
     call tinykeymap#Map('tabs', 't', 'norm! gt') 
     call tinykeymap#Map('tabs', 'T', 'norm! gT') 
-    call tinykeymap#Map("tabs", "0", "tabfirst") 
-    call tinykeymap#Map("tabs", "$", "tablast") 
-    call tinykeymap#Map("tabs", "q", "tabclose")
-    let g:tinykeymap#message_fmt="--%s %s--"
-" Ranger mapping
-    let g:ranger_map_keys = 1
-    map gr :Ranger<CR>
-    " deoplete tab-complete
-    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    call tinykeymap#Map('tabs', '0', 'tabfirst') 
+    call tinykeymap#Map('tabs', '$', 'tablast') 
+    call tinykeymap#Map('tabs', 'q', 'tabclose')
 " ------------------------------------------------
 "                    OPTIONS
 " ------------------------------------------------
@@ -146,6 +164,13 @@ let g:deoplete#enable_at_startup = 1
 " For autocomplete (vim)
 "set wildmenu
 "set wildmode=longest:full,full
+
+" Ranger
+let g:ranger_map_keys = 1
+
+" Tinykeymaps
+let g:tinykeymaps_default=0 
+let g:tinykeymap#message_fmt='--%s %s--'
 " ------------------------------------------------
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()

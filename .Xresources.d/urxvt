@@ -1,9 +1,7 @@
 #include "arc-dark.xcolors"
-
 !----------------------------------------
 !    Color Settings
 !----------------------------------------
-#include "arc-dark.xcolors"
 ! special
 URxvt*foreground:   fg_color
 URxvt*background:   #101218
@@ -144,9 +142,9 @@ URxvt.internalBorder: 10
 
 !URxvt.tabbed.new-button:         true
 !URXvt.tabbed.reopen-on-close:    yes
-!URxvt.keysym.Shifft-Right:       perl:tabbedex:next_tab
-!URxvt.keysym.Shift-Left:         perl:tabbedex:prev_tab
-!URxvt.tabbed.no-tabbedex-keys:   true
+URxvt.keysym.M-C-l:       perl:tabbedex:next_tab
+URxvt.keysym.M-C-h:       perl:tabbedex:prev_tab
+URxvt.tabbed.no-tabbedex-keys:   true
 
 !URxvt*loginShell:                true
 
