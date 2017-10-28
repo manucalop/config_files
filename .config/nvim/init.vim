@@ -26,7 +26,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'tomtom/tinykeymap_vim'
 " Ranger integration
 Plug 'terryma/vim-multiple-cursors'
-Plug 'taketwo/vim-ros'
+"Plug 'taketwo/vim-ros'
 Plug 'flazz/vim-colorschemes'
 " Need to check those (form mcantor) btw, tpope is our friend
 "Plug 'tpope/vim-obsession'

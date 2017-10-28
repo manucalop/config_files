@@ -1,5 +1,3 @@
-rename drone_mpc_dji_lidar
-rename drone_mpc_dji_lidar_obstacles
 rename drone_mpc_dji_lidar_obstacles_node.cpp
 rename dji_odometry_lidar_obstacles.launch
 mkdir drone_mpc_mocap
@@ -30,7 +28,6 @@ rename ned_frd_transform_odom.h
 rename ned_frddji_localization_transform_odom.cpp
 rename ned_frd_transform_odom_node.cpp
 rename ned_frd_transform_odom.cpp
-open_with vim
 rename dji_out.yaml
 re`
 rename dji_outdoor.yaml
@@ -48,3 +45,6 @@ cd
 rename fonts_old
 rename .fonts
 
+mkdir ubuntu-server-packages
+vim
+open_with vim
