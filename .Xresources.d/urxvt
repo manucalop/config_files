@@ -118,8 +118,8 @@ Xft.hinting:                true
 Xft.hintstyle:              hintfull
 Xft.lcdfilter:              lcddefault
 
-URxvt*font: xft:Noto Mono for Powerline:pixelsize=14,style=regular,xft:icons-in-terminal:pixelsize=14
-URxvt*boldFont: xft:Noto Mono for Powerline:bold:pixelsize=14,xft:icons-in-terminal:pixelsize=14
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=14,style=regular,xft:icons-in-terminal:pixelsize=14
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=14,xft:icons-in-terminal:pixelsize=14
 !Correct the underscore issue
 URxvt.lineSpace:            1
 !Fonts too separated
