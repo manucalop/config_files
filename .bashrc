@@ -122,7 +122,22 @@ alias update='sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgra
 alias vim='nvim'
 alias ls='ls -1q --classify --group-directories-first --color=auto'
 alias la='ls -A'
-alias vimconf='vim ~/.config/nvim/init.vim
+alias vimconf='vim ~/.config/nvim/init.vim'
+
+function dop(){
+  xdg-open "$1" &
+}
+
+function findcd
+{
+  OUT=$(find -name "$1" -printf '%h\n' -quit)
+ # if [ $(echo $OUT | wc -l) -gt 1 ]; then
+ #   echo "Not the only one"
+ #   echo $OUT
+ #   return
+ # fi
+  cd "$OUT"
+}
 function ranger-cd
 {
     tempfile="$(mktemp)"

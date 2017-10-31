@@ -1,4 +1,4 @@
-" vim: fdm=marker foldenable sw=4 ts=4  
+" vim: fdm=marker foldenable 
 " Manuel Castillo .vimrc File
 " "zo" to open folds, "zc" to close, "za" to toggle "zn" to disable.
 
@@ -604,6 +604,8 @@ endfunction
 "
 "" }}}
 
+set foldenable 
+set fdm=marker
 hi Folded ctermbg=NONE ctermfg=Blue  cterm=bold
 "hi Visual cterm=reverse,bold 
 hi Visual cterm=bold ctermfg=Black ctermbg=Blue

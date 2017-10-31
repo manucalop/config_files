@@ -1,5 +1,3 @@
-rename drone_mpc_dji_lidar_obstacles_node.cpp
-rename dji_odometry_lidar_obstacles.launch
 mkdir drone_mpc_mocap
 rename drone_mpc_mocap_state
 rename drone_mpc_mocap_state.cpp
@@ -48,3 +46,5 @@ rename .fonts
 mkdir ubuntu-server-packages
 vim
 open_with vim
+find 
+open_with 

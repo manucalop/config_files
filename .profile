@@ -20,6 +20,6 @@ fi
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Quit the mouse stick (dell computer)
-  #  xinput disable "AlpsPS/2 ALPS DualPoint Stick"
+    xinput disable "AlpsPS/2 ALPS DualPoint Stick"
 # For the settings
     export XDG_CURRENT_DESKTOP=Unity
