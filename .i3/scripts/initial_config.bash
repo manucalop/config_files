@@ -5,7 +5,7 @@
 # Authentication agent
     /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 # For the settings
-    export XDG_CURRENT_DESKTOP=Unity
+    export XDG_CURRENT_DESKTOP=GNOME
     gnome-settings-daemon &
 # Keyboard
     setxkbmap -layout us,en
