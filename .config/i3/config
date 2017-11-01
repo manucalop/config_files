@@ -329,7 +329,7 @@ bar {
    # status_command i3status --config ~/.i3/i3status.conf
    #  status_command python3 ~/.i3/i3pystatus.py
    #status_command i3pystatus -c ~/.i3/i3pystatus.py
-     status_command py3status -c ~/.i3/i3status.conf
+     status_command py3status -c ~/.config/i3/i3status.conf
 
   colors {
                 separator $base03
@@ -350,7 +350,7 @@ bar {
     tray_output none
     workspace_buttons yes
    # font pango: Anonymous Pro 13
-    status_command i3blocks -c ~/.i3/i3blocks/i3blocks.conf 
+    status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf 
 
     colors {
                 separator $base03
@@ -404,11 +404,11 @@ bar {
 # Initial apps
 # -----------------------------------------------------------------
 ## Configurations
-    exec_always bash ~/.i3/scripts/initial_config.bash
+    exec_always bash ~/.config/i3/scripts/initial_config.bash
 ## Screen detection
-    exec_always bash ~/.i3/scripts/displays.bash
+    exec_always bash ~/.config/i3/scripts/displays.bash
 # System tray
-    exec_always bash ~/.i3/scripts/tray.bash
+    exec_always bash ~/.config/i3/scripts/tray.bash
 # Keyboard layouts
 # Programs
     #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
