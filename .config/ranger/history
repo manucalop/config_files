@@ -1,4 +1,3 @@
-mkdir drone_mpc_mocap
 rename drone_mpc_mocap_state
 rename drone_mpc_mocap_state.cpp
 mkdir drone_mpc_obstacles
@@ -37,14 +36,15 @@ mkdir Control
 evince bv_cvxbook.pdf
 mkdir ellipsoid_obstacle
 rename obstacle_model
-delete
 rename rigid_ellipsoid.m
 cd 
 rename fonts_old
 rename .fonts
-
 mkdir ubuntu-server-packages
 vim
 open_with vim
 find 
 open_with 
+
+delete 
+delete

@@ -6,14 +6,21 @@ export COLORTERM='rxvt-unicode-256color'
 export OBSTACLE_AVOIDANCE_WORKSPACE=~/workspace/ros/obstacle_avoidance_catkin_ws
 export OBSTACLE_AVOIDANCE_PROJECT=$OBSTACLE_AVOIDANCE_WORKSPACE/src/obstacle_avoidance_project
 export ROS_WS=$OBSTACLE_AVOIDANCE_WORKSPACE
+export DEBFULLNAME="Manuel Castillo Lopez"
+export DEBEMAIL="manuelcloop@gmail.com"
 alias update='sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-get autoremove'
-alias vim='nvim'
 alias ls='ls -1q --classify --group-directories-first --color=auto'
 alias la='ls -A'
+alias ld='ls -d */'
+alias lda='ls -d */ .*/'
+alias lf='find . -maxdepth 1 -type f'
+alias vim='nvim'
 alias vimconf='vim ~/.config/nvim/init.vim'
 alias bashconf='vim ~/.bash_aliases'
 alias bashsource='source ~/.bashrc'
+alias i3cd='cd ~/.config/i3/'
 alias i3conf='vim ~/.config/i3/config'
+alias urconf='vim ~/.Xresources.d/urxvt'
 bind '"\C-t":"printf ${alt_color}\C-m"'
 bind '"\C-o":"ranger-cd\C-m"'
 
