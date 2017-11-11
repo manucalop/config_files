@@ -26,7 +26,7 @@ then
     xrandr --output $display --primary --output $intern --off
 fi
 
-feh --bg-scale ~/.config/i3/wallpaper.jpg
+feh --bg-scale ~/.config/i3/wallpaper_mountain.jpg
 
 # intern=eDP1
 # extern=HDMI1

@@ -141,7 +141,7 @@ URxvt.scrollBar:            false
 
 ! Perl extensions
 !URxvt.perl-lib:             ~/.Xresources.d/urxvt-perls/, ~/.Xresources.d/urxvt-perls/deprecated/
-URxvt.perl-ext-common:      default,matcher,tabbed
+URxvt.perl-ext-common:      default,matcher
 URxvt.matcher.button:       1
 URxvt.urlLauncher:          firefox
 

@@ -21,6 +21,7 @@ alias bashsource='source ~/.bashrc'
 alias i3cd='cd ~/.config/i3/'
 alias i3conf='vim ~/.config/i3/config'
 alias urconf='vim ~/.Xresources.d/urxvt'
+alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release'
 bind '"\C-t":"printf ${alt_color}\C-m"'
 bind '"\C-o":"ranger-cd\C-m"'
 
@@ -48,6 +49,11 @@ function findcd(){
  #   return
  # fi
   cd "$OUT"
+}
+function autopush(){
+  git add .
+  git commit -m "Tracking changes on drone_mpc"
+  git push origin master
 }
 
 function ranger-cd(){
