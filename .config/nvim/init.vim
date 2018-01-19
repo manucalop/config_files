@@ -59,12 +59,16 @@ call plug#end()
     vmap 0  g0
     nmap $  g$
     vmap $  g$
-    " Paragraph jumping 
+    " Multiple lines jumping 
     nmap <c-j> 10gj
     nmap <c-k> 10gk
     vmap <c-j> 10gj
     vmap <c-k> 10gk
     nmap <c-_> :NERDTreeToggle<CR>
+
+    " Go to first/last line of the paragraph
+ "   map { {j
+ "   map } }k
     
     " Change indent continuously
     vmap < <gv
@@ -115,13 +119,16 @@ call plug#end()
     
 " Color options
     set nocompatible
-    syntax on
     set background=dark
     let g:onedark_termcolors=256
     let g:onedark_terminal_italics=1
+    
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     set termguicolors
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=3
+
+    syntax on
     colorscheme onedark
+
     hi Visual cterm=bold 
     hi Folded gui=bold guibg=NONE guifg=Blue70 
 "    filetype plugin on
@@ -163,7 +170,9 @@ call plug#end()
 " Avoid creating backup files (~file)    
     set nobackup
 " Airline setup
-    let g:airline#extensions#tabline#enabled = 0
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#show_buffers = 0
+    let g:airline#extensions#tabline#fnamemod = ':t'
     let g:airline_powerline_fonts = 1
     let g:airline_theme='onedark'
     let g:airline_mode_map = {

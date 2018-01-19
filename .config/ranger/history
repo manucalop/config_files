@@ -1,20 +1,10 @@
-mkdir drone_mpc_obstacles
-mkdir platforms
-mkdir state estimation
-rename state_estimation
-rename obstacle_detection
-rename drone_mpc_gps_state
-rename control_signal
-rename dji_model_fo.yaml
 rename dji_model_fod.yaml
 rename ardrone_model.yaml
 rename ardrone_model_fod.yaml
 rename drone_mpc_dji_odometry_state
 Q
-wq
 rename CMakeLists4.txt
 w
-rename CMakeLists.txt
 rename NED_FRD_interface
 rename NED_FRD_odometry_transform
 rename ned_frd_transform_odom.launch
@@ -40,11 +30,21 @@ rename fonts_old
 rename .fonts
 mkdir ubuntu-server-packages
 vim
-open_with vim
 find 
 open_with 
-
-delete 
 rename student_certificate.pdf bcee_docs.pdf
 rename bcee_docs.pdf
+mkdir source
+rename gios_common
+rename gios_common.h
+rename CMakeLists.txt
+default_linemode 
+rename gios_acado
+rename gios_acado.cpp
+rename gios_acado.h
+open_with h
+open_with vim
+wq
+
+delete 
 delete
