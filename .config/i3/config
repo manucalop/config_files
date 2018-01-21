@@ -7,9 +7,9 @@
 # -----------------------------------------------------------------
 # Mod keys
     # Windows key
-        set $mod Mod4
+      # set $mod Mod4
     # Alt key (trying not to use it -- Windows key for i3)
-        set $alt Mod1
+        set $mod Mod1
 # Workspaces names
     set $ws1 "1 "
     set $ws2 "2 "
@@ -302,10 +302,12 @@ set $wm_icon_active_bg #ffffff;
     }
 # Keyboard Layout mode
     bindsym $mod+Shift+space mode "$mode_keyboard"
-    set $mode_keyboard Keyboard Layout: [e]nglish [s]panish
+    set $mode_keyboard Keyboard Layout: [u]s_ [U]s_swapcaps [s]panish [S]panish_swapcaps
     mode "$mode_keyboard" {
-        bindsym e exec setxkbmap -layout us; mode "default"
-        bindsym s exec setxkbmap -layout es; mode "default"
+        bindsym u       exec setxkbmap -layout us -option; mode "default"
+        bindsym Shift+u exec setxkbmap -layout us -option ctrl:swapcaps; mode "default"
+        bindsym s       exec setxkbmap -layout es -option; mode "default"
+        bindsym Shift+u exec setxkbmap -layout es -option ctrl:swapcaps; mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"
     }

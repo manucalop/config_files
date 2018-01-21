@@ -60,11 +60,14 @@ call plug#end()
     nmap $  g$
     vmap $  g$
     " Multiple lines jumping 
-    nmap <c-j> 10gj
-    nmap <c-k> 10gk
-    vmap <c-j> 10gj
-    vmap <c-k> 10gk
+    nmap <c-j> 5gj
+    nmap <c-k> 5gk
+    vmap <c-j> 5gj
+    vmap <c-k> 5gk
     nmap <c-_> :NERDTreeToggle<CR>
+
+"    autocmd StdinReadPre * let s:std_in=1
+"    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
     " Go to first/last line of the paragraph
  "   map { {j
@@ -74,7 +77,9 @@ call plug#end()
     vmap < <gv
     vmap > >gv
    " command Nt NERDTreeToggle
-
+   " Terminal mapping
+    command Term :tabnew | :terminal 
+    tnoremap <Esc> <C-\><C-n>
     " Ranger mapping
     nmap gr :Ranger<CR>
     " deoplete tab-complete
