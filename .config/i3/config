@@ -1,16 +1,17 @@
-
 #               i3 configuration file -- manuelcloop
 ###################################################################
 # I think the language is bootstrap
-#------------------------------------------------------------------
-# Variables
-# -----------------------------------------------------------------
-# Mod keys
+
+# Variables {{{
+
+# Mod keys {{{
     # Windows key
-      # set $mod Mod4
-    # Alt key (trying not to use it -- Windows key for i3)
-        set $mod Mod1
-# Workspaces names
+    # set $mod Mod4
+    # Alt key 
+    set $mod Mod1
+#}}}
+
+# Workspaces names {{{
     set $ws1 "1 "
     set $ws2 "2 "
     set $ws3 "3 "
@@ -20,7 +21,10 @@
     set $ws7 "7"
     set $ws8 "8"
     set $ws9 "9"
-# Colors
+#}}}
+
+# Colors {{{
+
 #    set $bg-color            #2f343f
 #    set $inactive-bg-color   #2f343f
 #    set $text-color          #f3f4f5
@@ -90,11 +94,13 @@ set $wm_icon_unfocused_bg #666A74;
 set $wm_icon_hover_bg #C4C7CC;
 set $wm_icon_active_bg #ffffff;
 
-#------------------------------------------------------------------
-# Configuration
-# -----------------------------------------------------------------
-#
-# Fonts
+#}}}
+
+# }}}
+
+# Configuration {{{
+
+# Fonts {{{
     # Font for window titles. Will also be used by the bar unless a different font
     # is used in the bar {} block below. ISO 10646 = Unicode
      font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -103,95 +109,225 @@ set $wm_icon_active_bg #ffffff;
     # right-to-left text rendering, you should instead use pango for rendering and
     # chose a FreeType font, such as:
     font pango: Ubuntu Mono 13
+#}}}
 
-# Mouse
+# Mouse {{{
     focus_follows_mouse no
-
-# Use Mouse+$mod to drag floating windows to their wanted position
+    # Use Mouse+$mod to drag floating windows to their wanted position
     floating_modifier $mod
+#}}}
 
-# Orientation for splitting
-    default_orientation horizontal
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-    new_window pixel 4
-    new_float normal
-# Hide borders
-    hide_edge_borders none
-# Workspace back and forth
-    workspace_auto_back_and_forth yes
-#    show_marks yes
-#------------------------------------------------------------------
-# Shortcuts (Key bindings)
-# -----------------------------------------------------------------
-#
-# change borders
-    bindsym $mod+u border none
-    bindsym $mod+y border pixel 1
-    bindsym $mod+n border normal
-# start a terminal
-#    bindsym $mod+Return exec i3-sensible-terminal
-    bindsym $mod+Return exec gnome-terminal
-#    bindsym $mod+Return exec urxvt
-# kill focused window
-    bindsym $mod+Shift+q kill
+# Bar {{{
+bar{
+  #output HDMI2
+  position top
+  tray_output primary
+  tray_padding 2
+  workspace_buttons yes
+  #font pango: Anonymous Pro 13
+  #status_command gnome-panel
+  #status_command i3status --config ~/.i3/i3status.conf
+  #status_command python3 ~/.i3/i3pystatus.py
+  #status_command i3pystatus -c ~/.i3/i3pystatus.py
+  status_command py3status -c ~/.config/i3/i3status.conf
+  colors {
+    separator  $base03
+    background $base01
+    statusline $base05
+    #                  border  background text
+    focused_workspace  $base01 $base01    $base07
+    active_workspace   $base01 $base02    $base03
+    inactive_workspace $base01 $base01    $base03
+    urgent_workspace   $base01 $base01    $base08
+  }
+}
 
-# start dmenu (a program launcher)
- #   bindsym $mod+d exec dmenu_run
-    # There also is the (new) i3-dmenu-desktop which only displays applications
-    # shipping a .desktop file. It is a wrapper around dmenu, so you need that installed.
-#    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-    bindsym $mod+d exec rofi -show combi
-    
-    bindsym $mod+Tab exec rofi -show window 
-#    bindysm --release $mod+z exec ~/.i3/morc_menu
+#}}}
 
-# change focus
-    bindsym $mod+h focus left
-    bindsym $mod+j focus down
-    bindsym $mod+k focus up
-    bindsym $mod+l focus right
-    # alternatively, you can use the cursor keys:
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+# Windows {{{
 
-# move focused window
-    bindsym $mod+Shift+h move left
-    bindsym $mod+Shift+j move down
-    bindsym $mod+Shift+k move up
-    bindsym $mod+Shift+l move right
-    # alternatively, you can use the cursor keys:
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+  # Orientation for splitting
+      default_orientation horizontal
+  # Configure border style <normal|1pixel|pixel xx|none|pixel>
+      new_window pixel 4
+      new_float normal
+  # Hide borders
+      hide_edge_borders none
+  # Window Colours
+  #                         border  background text    indicator
+    client.focused          $base01 $base03    $base07 $base0F
+    client.focused_inactive $base02 $base02    $base03 $base0F
+    client.unfocused        $base02 $base02    $base03 $base0F
+    client.urgent           $base02 $base08    $base00 $base0F
 
-# split in horizontal orientation
-    bindsym $mod+b split h; exec notify-send -t 1000 'tile horizontally'
+#}}}
 
-# split in vertical orientation
-    bindsym $mod+v split v; exec notify-send -t 1000 'tile vertically'
+# Workspaces {{{
+  # Workspace back and forth
+      workspace_auto_back_and_forth yes
+  #    show_marks yes
 
-# enter fullscreen mode for the focused container
-    bindsym $mod+f fullscreen
+#}}}
 
-# change container layout (stacked, tabbed, toggle split)
-    bindsym $mod+s layout stacking
-    bindsym $mod+t layout tabbed
-    bindsym $mod+e layout toggle split
+# Modes of operation{{{
 
-# toggle tiling / floating
-    bindsym $mod+Shift+f floating toggle
+  # No need to define default mode
 
-# change focus between tiling / floating windows
-    bindsym $mod+space focus mode_toggle
+# Window Mode {{{
+  set $mode_window Resize (hjkl), Borders (npN), [f]ullscreen, [F]loating toggle
+  mode "$mode_window" {
+      bindsym h resize shrink width  10 px or 10 ppt
+      bindsym j resize grow   height 10 px or 10 ppt
+      bindsym k resize shrink height 10 px or 10 ppt
+      bindsym l resize grow   width  10 px or 10 ppt
 
-# focus the parent container
-    bindsym $mod+a focus parent
-# focus the child container
-    #bindsym $mod+d focus child
+      # same bindings, but for the arrow keys
+      bindsym Left  resize shrink width  10 px or 10 ppt
+      bindsym Down  resize grow   height 10 px or 10 ppt
+      bindsym Up    resize shrink height 10 px or 10 ppt
+      bindsym Right resize grow   width  10 px or 10 ppt
+      
+      # borders
+      bindsym Shift+n border none
+      bindsym p       border pixel 1
+      bindsym n       border normal
 
+      # enter fullscreen mode for the focused container
+      bindsym f fullscreen
+
+      # toggle tiling / floating
+      bindsym Shift+f floating toggle
+
+      # back to normal: Enter or Escape
+      bindsym Return mode "default"
+      bindsym Escape mode "default"
+}
+#}}}
+
+# System Mode {{{
+
+  set $mode_system System: (S)hutdown, (s)uspend, (r)eboot, (l)ock, (e)xit, (R)estart i3  
+  mode "$mode_system"{
+     bindsym Shift+s exec systemctl poweroff;                 mode "default"
+     bindsym l       exec gnome-screensaver-command --lock;   mode "default"
+     bindsym r       exec systemctl reboot;                   mode "default"
+     bindsym s       exec systemctl suspend;                  mode "default"
+     bindsym e       exec i3-msg exit
+     bindsym Shift+r restart;                                 mode "default"
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+
+#For Ubuntu 15.04 and later use systemctl poweroff/reboot/suspend/hibernate/hybrid-sleep
+# reload the configuration file
+#    bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+#    bindsym $mod+Shift+r restart
+
+#}}}
+
+# Launcher Mode {{{
+    set $mode_launcher Launch: [f]irefox [n]autilus [s]potify [m]atlab [S]ettings
+    mode "$mode_launcher" {
+        bindsym f exec firefox; mode "default"
+        bindsym m exec matlab; mode "default"
+        bindsym s exec "export XDG_CURRENT_DESKTOP=Unity && unity-control-center"; mode "default"
+        bindsym Shift+s exec spotify; mode "default"
+        bindsym n exec nautilus; mode "default"
+        bindsym Escape mode "default"
+        bindsym Return mode "default"
+    }
+#}}}
+
+# Keyboard Layout mode {{{
+    set $mode_keyboard Keyboard Layout: [u]s_ [U]s_swapcaps [s]panish [S]panish_swapcaps
+    mode "$mode_keyboard" {
+        bindsym u       exec setxkbmap -layout us -option; mode "default"
+        bindsym Shift+u exec setxkbmap -layout us -option ctrl:swapcaps; mode "default"
+        bindsym s       exec setxkbmap -layout es -option; mode "default"
+        bindsym Shift+u exec setxkbmap -layout es -option ctrl:swapcaps; mode "default"
+        bindsym Escape mode "default"
+        bindsym Return mode "default"
+    }
+#}}}
+
+#}}}
+
+# Launch programs {{{
+
+  assign [class="(?i)spotify"]    $ws9
+  assign [class="(?i)skype"]      $ws8
+  assign [class="(?i)firefox"]    $ws1
+  
+  # Because assign does not work
+  for_window [class="spotify"] move to workspace $ws9
+  
+  # assign [class="matlab"]     $ws3
+  for_window [class="Skype"] floating enable
+  for_window [class="Gsimplecal"] floating enable
+  for_window [class="(?i)virtualbox"] floating enable border normal
+  for_window [class="Nitrogen"] floating enable sticky enable border normal
+  for_window [class="File-roller"] floating enable border normal
+
+#}}}
+
+#}}}
+
+# Key bindings {{{
+
+# System {{{
+
+  # reload the configuration file
+  bindsym $mod+Shift+c reload
+  # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+  bindsym $mod+Shift+r restart
+
+#}}}  
+
+# Windows {{{
+  
+  # kill focused window
+      bindsym $mod+Shift+q kill
+  # focus
+      bindsym $mod+h focus left
+      bindsym $mod+j focus down
+      bindsym $mod+k focus up
+      bindsym $mod+l focus right
+      # alternatively, you can use the cursor keys:
+      bindsym $mod+Left  focus left
+      bindsym $mod+Down  focus down
+      bindsym $mod+Up    focus up
+      bindsym $mod+Right focus right
+
+  # move window
+      bindsym $mod+Shift+h move left
+      bindsym $mod+Shift+j move down
+      bindsym $mod+Shift+k move up
+      bindsym $mod+Shift+l move right
+      # alternatively, you can use the cursor keys:
+      bindsym $mod+Shift+Left  move left
+      bindsym $mod+Shift+Down  move down
+      bindsym $mod+Shift+Up    move up
+      bindsym $mod+Shift+Right move right
+
+  # split in horizontal orientation
+      bindsym $mod+b split h; exec notify-send -t 1000 'tile horizontally'
+
+  # split in vertical orientation
+      bindsym $mod+v split v; exec notify-send -t 1000 'tile vertically'
+
+  # change container layout (stacked, tabbed, toggle split)
+      bindsym $mod+s layout stacking
+      bindsym $mod+t layout tabbed
+      bindsym $mod+e layout toggle split
+  
+  # focus the parent container
+      bindsym $mod+a focus parent
+  # focus the child container
+      #bindsym $mod+d focus child
+#}}}
+
+# Workspaces{{{
 # switch to workspace
     bindsym $mod+1 workspace $ws1
     bindsym $mod+2 workspace $ws2
@@ -202,6 +338,8 @@ set $wm_icon_active_bg #ffffff;
     bindsym $mod+7 workspace $ws7
     bindsym $mod+8 workspace $ws8
     bindsym $mod+9 workspace $ws9
+    bindsym $mod+p workspace prev
+    bindsym $mod+n workspace next
 
 # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -213,204 +351,72 @@ set $wm_icon_active_bg #ffffff;
     bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
     bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
     bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+#}}}
 
-# Suspend
-    bindsym $mod+0 mode "$mode_system"
-    set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (S)hutdown
-    mode "$mode_system"{
-       bindsym Shift+s exec systemctl poweroff; mode "default"
-       bindsym r exec systemctl reboot; mode "default"
-       bindsym s exec systemctl suspend; mode "default"
-       bindsym e exec "i3-msg exit"
-       bindsym Return mode "default"
-       bindsym Escape mode "default"
-#For Ubuntu 15.04 and later use systemctl poweroff/reboot/suspend/hibernate/hybrid-sleep
-}
-#    bindsym $mod+Shift+s exec "gnome-screensaver-command --lock"
-# reload the configuration file
-    bindsym $mod+Shift+c reload
+# Modes of operation {{{
+    bindsym $mod+w           mode "$mode_window"
+    bindsym $mod+o           mode "$mode_launcher"
+    bindsym $mod+space       mode "$mode_keyboard"
+    bindsym $mod+Shift+s     mode "$mode_system"
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-    bindsym $mod+Shift+r restart
+#}}}
 
-# exit i3 (logs you out of your X session)
-    bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# Launch programs {{{
+  # start a terminal
+      #bindsym $mod+Return exec i3-sensible-terminal
+      bindsym $mod+Return exec gnome-terminal
+      #bindsym $mod+Return exec urxvt
 
-#   Audio controls
-#    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +10%; exec notify-send -t 5 'Volume up' #increase sound volume
-#    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -10%; exec notify-send -t 5 'Volume down'  #decrease sound volume
-#    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle; exec notify-send -t 5 'Mute toogle' # mute sound
-#    bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+; exec notify-send -t 5 'Volume up' #increase sound volume
-#    bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-; exec notify-send -t 5 'Volume down'  #decrease sound volume
-#    bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle; exec notify-send -t 5 'Mute toogle' # mute sound
+  # start dmenu (a program launcher)
+   #   bindsym $mod+d exec dmenu_run
+      # There also is the (new) i3-dmenu-desktop which only displays applications
+      # shipping a .desktop file. It is a wrapper around dmenu, so you need that installed.
+  #    bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+      bindsym $mod+d exec rofi -show combi
+      
+      bindsym $mod+Tab exec rofi -show window 
+  #    bindysm --release $mod+z exec ~/.i3/morc_menu
 
+#}}}
 
-# Sreen brightness controls
+# Multimedia {{{
+
+# Audio controls {{{
+
+  #    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +10%; exec notify-send -t 5 'Volume up' #increase sound volume
+  #    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -10%; exec notify-send -t 5 'Volume down'  #decrease sound volume
+  #    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle; exec notify-send -t 5 'Mute toogle' # mute sound
+  #    bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+; exec notify-send -t 5 'Volume up' #increase sound volume
+  #    bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-; exec notify-send -t 5 'Volume down'  #decrease sound volume
+  #    bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle; exec notify-send -t 5 'Mute toogle' # mute sound
+
+# Media player controls
+    bindsym XF86AudioPlay  exec playerctl play
+    bindsym XF86AudioPause exec playerctl pause
+    bindsym XF86AudioNext  exec playerctl next
+    bindsym XF86AudioPrev  exec playerctl previous
+
+#}}}
+
+# Sreen brightness controls {{{
 #    bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 #    bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Media player controls
-    bindsym XF86AudioPlay exec playerctl play
-    bindsym XF86AudioPause exec playerctl pause
-    bindsym XF86AudioNext exec playerctl next
-    bindsym XF86AudioPrev exec playerctl previous
+#}}}
 
+#}}}
 
+#}}}
 
-#------------------------------------------------------------------
-# Modes of operation
-# -----------------------------------------------------------------
-#
-# No need to define default mode
+# Startup scripts {{{
 
-    bindsym $mod+r mode "resize"
-    mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  # Configurations
+      exec_always bash ~/.config/i3/scripts/initial_config.bash
+  # Screen detection
+      exec_always bash ~/.config/i3/scripts/displays.bash
+  # System tray
+      exec_always bash ~/.config/i3/scripts/tray.bash
+  # Programs
+      #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-    }
-# Custom mode
-## Press $mod+o followed by either f, t, Esc or Return to launch firefox,
-    bindsym $mod+o mode "$mode_launcher"
-    set $mode_launcher Launch: [f]irefox [n]autilus [s]ettings [m]atlab [S]potify
-    mode "$mode_launcher" {
-        bindsym f exec firefox; mode "default"
-        bindsym m exec matlab; mode "default"
-        bindsym s exec "export XDG_CURRENT_DESKTOP=Unity && unity-control-center"; mode "default"
-        bindsym Shift+s exec spotify; mode "default"
-        bindsym n exec nautilus; mode "default"
-        bindsym Escape mode "default"
-        bindsym Return mode "default"
-    }
-# Keyboard Layout mode
-    bindsym $mod+Shift+space mode "$mode_keyboard"
-    set $mode_keyboard Keyboard Layout: [u]s_ [U]s_swapcaps [s]panish [S]panish_swapcaps
-    mode "$mode_keyboard" {
-        bindsym u       exec setxkbmap -layout us -option; mode "default"
-        bindsym Shift+u exec setxkbmap -layout us -option ctrl:swapcaps; mode "default"
-        bindsym s       exec setxkbmap -layout es -option; mode "default"
-        bindsym Shift+u exec setxkbmap -layout es -option ctrl:swapcaps; mode "default"
-        bindsym Escape mode "default"
-        bindsym Return mode "default"
-    }
-# Dialog for launcher mode
-#------------------------------------------------------------------
-# i3 bar
-# -----------------------------------------------------------------
-#
-
-#  Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  #  output HDMI2
-  #  tray_output primary
-    position top
-    tray_output primary
-    tray_padding 2
-    workspace_buttons yes
-   # font pango: Anonymous Pro 13
-   # status_command gnome-panel
-   # status_command i3status --config ~/.i3/i3status.conf
-   #  status_command python3 ~/.i3/i3pystatus.py
-   #status_command i3pystatus -c ~/.i3/i3pystatus.py
-     status_command py3status -c ~/.config/i3/i3status.conf
-
-  colors {
-                separator $base03
-                background $base01
-                statusline $base05
-                #                  border  background text
-                focused_workspace  $base01 $base01    $base07
-                active_workspace   $base01 $base02    $base03
-                inactive_workspace $base01 $base01    $base03
-                urgent_workspace   $base01 $base01    $base08
-  }
-}
-
-#bar {
-#  #  output HDMI2
-#  #  tray_output primary
-#    position bottom
-#    tray_output none
-#    workspace_buttons yes
-#   # font pango: Anonymous Pro 13
-#    status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf 
-#
-#    colors {
-#                separator $base03
-#                background $base01
-#                statusline $base05
-#                #                  border  background text
-#                focused_workspace  $base01 $base01    $base07
-#                active_workspace   $base01 $base02    $base03
-#                inactive_workspace $base01 $base01    $base03
-#                urgent_workspace   $base01 $base01    $base08
-#    }
-#}
-
-# Widow Colours
-#                         border  background text    indicator
-  client.focused          $base01 $base03    $base07 $base0F
-  client.focused_inactive $base02 $base02    $base03 $base0F
-  client.unfocused        $base02 $base02    $base03 $base0F
-  client.urgent           $base02 $base08    $base00 $base0F
-
-# Theme colors
-# # class                 border  backgr. text    indic.  child_border
-# client.focused          #808280 #808280 #80FFF9 #FDF6E3
-# client.focused_inactive #434745 #434745 #16A085 #454948
-# client.unfocused        #434745 #434745 #16A085 #454948
-# client.urgent           #CB4B16 #FDF6E3 #16A085 #268BD2
-# client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
-#
-# client.background #2B2C2Bi
-#
-#------------------------------------------------------------------
-# Workspaces association
-# -----------------------------------------------------------------
-#
-    assign [class="(?i)spotify"]    $ws9
-    assign [class="(?i)skype"]      $ws8
-    assign [class="(?i)firefox"]    $ws1
-    # Because assign does not work
-    for_window [class="spotify"] move to workspace $ws9
-   # assign [class="matlab"]     $ws3
-#------------------------------------------------------------------
-# Floating windows
-# -----------------------------------------------------------------
-#
-    for_window [class="Skype"] floating enable
-    for_window [class="Gsimplecal"] floating enable
-    for_window [class="(?i)virtualbox"] floating enable border normal
-    for_window [class="Nitrogen"] floating enable sticky enable border normal
-    for_window [class="File-roller"] floating enable border normal
-#------------------------------------------------------------------
-# Initial apps
-# -----------------------------------------------------------------
-## Configurations
-    exec_always bash ~/.config/i3/scripts/initial_config.bash
-## Screen detection
-    exec_always bash ~/.config/i3/scripts/displays.bash
-# System tray
-    exec_always bash ~/.config/i3/scripts/tray.bash
-# Keyboard layouts
-# Programs
-    #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#}}}
