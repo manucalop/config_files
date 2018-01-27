@@ -8,4 +8,4 @@
     export XDG_CURRENT_DESKTOP=GNOME
     gnome-settings-daemon &
 # Keyboard
-    setxkbmap -layout us -option ctrl:swapcaps
+    setxkbmap -layout us -option ctrl:nocaps

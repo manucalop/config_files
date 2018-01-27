@@ -64,7 +64,12 @@ call plug#end()
     nmap <c-k> 5gk
     vmap <c-j> 5gj
     vmap <c-k> 5gk
+    " Tab jumping
+    nmap <c-l> :tabnext<CR>
+    nmap <c-h> :tabprevious<CR>
+    " NERDTree Toogle
     nmap <c-_> :NERDTreeToggle<CR>
+
 
 "    autocmd StdinReadPre * let s:std_in=1
 "    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -76,7 +81,6 @@ call plug#end()
     " Change indent continuously
     vmap < <gv
     vmap > >gv
-   " command Nt NERDTreeToggle
    " Terminal mapping
     command Term :tabnew | :terminal 
     tnoremap <Esc> <C-\><C-n>
