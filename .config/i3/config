@@ -358,7 +358,7 @@ bar{
     bindsym $mod+w           mode "$mode_window"
     bindsym $mod+o           mode "$mode_launcher"
     bindsym $mod+space       mode "$mode_keyboard"
-    bindsym $mod+Shift+s     mode "$mode_system"
+    bindsym $mod+0           mode "$mode_system"
 
 #}}}
 
