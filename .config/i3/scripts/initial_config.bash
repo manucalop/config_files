@@ -7,5 +7,5 @@
 # For the settings
     export XDG_CURRENT_DESKTOP=GNOME
     gnome-settings-daemon &
-# Keyboard
-    setxkbmap -layout us -option ctrl:nocaps
+# Keyboard Default language, pro mode
+    setxkbmap -option && setxkbmap -option ctrl:nocaps && xcape -e 'Control_L=Escape'; mode "default"

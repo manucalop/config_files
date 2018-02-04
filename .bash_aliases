@@ -8,7 +8,7 @@ export OBSTACLE_AVOIDANCE_PROJECT=$OBSTACLE_AVOIDANCE_WORKSPACE/src/obstacle_avo
 export ROS_WS=$OBSTACLE_AVOIDANCE_WORKSPACE
 export DEBFULLNAME="Manuel Castillo Lopez"
 export DEBEMAIL="manuelcloop@gmail.com"
-alias update='sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-get autoremove'
+alias update='sudo apt -y update; sudo apt -y upgrade; sudo apt -y dist-upgrade; sudo apt -y autoremove'
 alias ls='ls -1q --classify --group-directories-first --color=auto'
 alias la='ls -A'
 alias ld='ls -d */'

@@ -240,13 +240,12 @@ bar{
 #}}}
 
 # Keyboard Layout mode {{{
-    set $mode_keyboard Keyboard Layout: [u]s_ [U]s_nocaps [s]panish [S]panish_nocaps
+    set $mode_keyboard Keyboard Layout: [u]s [e]s | Mode: [n]ormal [p]ro (nocaps + xcape) 
     mode "$mode_keyboard" {
-        bindsym u       exec setxkbmap -layout us -option; mode "default"
-        bindsym Shift+u exec setxkbmap -layout us -option ctrl:nocaps; mode "default"
-        #bindsym Shift+u exec setxkbmap -layout us -option ctrl:swapcaps; mode "default"
-        bindsym s       exec setxkbmap -layout es -option; mode "default"
-        bindsym Shift+u exec setxkbmap -layout es -option ctrl:nocaps; mode "default"
+        bindsym u exec setxkbmap -layout us; mode "default"
+        bindsym e exec setxkbmap -layout es; mode "default"
+        bindsym p exec setxkbmap -option && setxkbmap -option ctrl:nocaps && xcape -e 'Control_L=Escape'; mode "default"
+        bindsym n exec setxkbmap -option; mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"
     }
