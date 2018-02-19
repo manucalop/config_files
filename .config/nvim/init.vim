@@ -45,7 +45,7 @@ call plug#end()
 " ------------------------------------------------
 "                   MAPPINGS     
 " ------------------------------------------------
-    let mapleader = ","
+"    let mapleader = ","
     nnoremap j  gj
     vnoremap j  gj
     nnoremap k  gk
@@ -86,8 +86,29 @@ call plug#end()
     " deoplete tab-complete
 "    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-    " Cantor shortcuts
-    " Creating lines
+    " ROS Snippets
+    command RosMake       :-1read $HOME/.config/nvim/snippets/ros/CMakeLists.txt
+    command RosMakeAcado  :-1read $HOME/.config/nvim/snippets/ros/cmake_acado.txt
+    command RosMakeExe    :-1read $HOME/.config/nvim/snippets/ros/cmake_executable.txt
+    command RosMakeLib    :-1read $HOME/.config/nvim/snippets/ros/cmake_library.txt
+    command RosMakeTest   :-1read $HOME/.config/nvim/snippets/ros/cmake_test.txt
+    command RosMakeMsg    :-1read $HOME/.config/nvim/snippets/ros/cmake_msg.txt
+    command RosMakeSrv    :-1read $HOME/.config/nvim/snippets/ros/cmake_srv.txt
+    command RosMakeAction :-1read $HOME/.config/nvim/snippets/ros/cmake_action.txt
+
+    command RosPack       :-1read $HOME/.config/nvim/snippets/ros/package.xml
+    command RosPackDep    :-1read $HOME/.config/nvim/snippets/ros/package_depend.xml
+    command RosPackMsg    :-1read $HOME/.config/nvim/snippets/ros/package_msg.xml
+
+    command RosCppMain    :-1read $HOME/.config/nvim/snippets/ros/main.cpp
+    command RosCppParam   :-1read $HOME/.config/nvim/snippets/ros/param.cpp
+    command RosCppPub     :-1read $HOME/.config/nvim/snippets/ros/publisher.cpp
+    command RosCppSub     :-1read $HOME/.config/nvim/snippets/ros/subscriber.cpp
+    command RosCppTimer   :-1read $HOME/.config/nvim/snippets/ros/timer.cpp
+
+    command CppClass      :-1read $HOME/.config/nvim/snippets/cpp/class.cpp
+    command CppTemp       :-1read $HOME/.config/nvim/snippets/cpp/template.cpp
+
 "   }}}
 
 "   {{{     Mode

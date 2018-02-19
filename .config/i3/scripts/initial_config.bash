@@ -9,3 +9,5 @@
     gnome-settings-daemon &
 # Keyboard Default language, pro mode
     setxkbmap -option && setxkbmap -option ctrl:nocaps && xcape -e 'Control_L=Escape'; mode "default"
+# Set local time as system time
+#    timedatectl set-local-rtc 1
