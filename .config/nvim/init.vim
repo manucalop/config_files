@@ -186,7 +186,7 @@ call plug#end()
     set spelllang=en_us
     "set mouse=xterm2
 " Enable mouse usage
-    "set mouse=a
+    set mouse=a
 " Highlight search results
     set nohlsearch
 " Makes search act like search in modern browsers

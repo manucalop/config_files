@@ -231,8 +231,8 @@ bar{
     mode "$mode_launcher" {
         bindsym f exec firefox; mode "default"
         bindsym m exec matlab; mode "default"
-        bindsym s exec "export XDG_CURRENT_DESKTOP=Unity && unity-control-center"; mode "default"
-        bindsym Shift+s exec spotify; mode "default"
+        bindsym Shift+s exec "export XDG_CURRENT_DESKTOP=Unity && unity-control-center"; mode "default"
+        bindsym s exec spotify; mode "default"
         bindsym n exec nautilus; mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"

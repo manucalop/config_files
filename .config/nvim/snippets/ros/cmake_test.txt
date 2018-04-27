@@ -1,0 +1,5 @@
+# Tests
+if (CATKIN_ENABLE_TESTING)
+  catkin_add_gtest(${PROJECT_NAME}_test src/tests/${PROJECT_NAME}_test.cpp)
+  target_link_libraries(${PROJECT_NAME}_test ${catkin_LIBRARIES})
+endif()
