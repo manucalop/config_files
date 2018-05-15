@@ -61,13 +61,22 @@ call plug#end()
     vnoremap <c-k> 5gk
     nnoremap <s-j> o<ESC>k
     nnoremap <s-k> O<ESC>j
-    " Tab jumping
-    nnoremap <c-n> :tabnext<CR>
-    nnoremap <c-p> :tabprevious<CR>
+    " Tmux like windows
+    nnoremap <c-w>n :tabnext<CR>
+    nnoremap <c-w>p :tabprevious<CR>
+    nnoremap <c-w>c :tabnew<CR>
+    nnoremap <c-w>v :vnew<CR>
+    nnoremap <c-w>b :below new<CR>
+    nnoremap <c-w><c-l> :vertical resize +5<CR>
+    nnoremap <c-w><c-h> :vertical resize -5<CR>
+    nnoremap <c-w><c-k> :resize +5<CR>
+    nnoremap <c-w><c-j> :resize -5<CR>
+    "nnoremap <c-n> :tabnext<CR>
+    "nnoremap <c-p> :tabprevious<CR>
     " NERDTree Toogle
     nnoremap <c-_> :NERDTreeToggle<CR>
     " Easy saving
-    inoremap <C-u> <ESC>:w<CR>
+    inoremap <C-s> <ESC>:w<CR>
 "    autocmd StdinReadPre * let s:std_in=1
 "    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
