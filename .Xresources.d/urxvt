@@ -111,12 +111,12 @@ URxvt*dynamicColors:       true
 ! Xft settings
 !------------------------
 
-Xft.dpi:                    96
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintfull
-Xft.lcdfilter:              lcddefault
+!Xft.dpi:                    96
+!Xft.antialias:              true
+!Xft.rgba:                   rgb
+!Xft.hinting:                true
+!Xft.hintstyle:              hintfull
+!Xft.lcdfilter:              lcddefault
 
 URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=14,style=regular,xft:icons-in-terminal:pixelsize=14
 URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:bold:pixelsize=14,xft:icons-in-terminal:pixelsize=14

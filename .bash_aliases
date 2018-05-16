@@ -40,7 +40,7 @@ if [ -f ~/.local/share/icons-in-terminal/icons_bash.sh ]; then
     source ~/.local/share/icons-in-terminal/icons_bash.sh
 fi
 xrdb -merge ~/.Xresources
-xrdb -I$HOME ~/.Xresources
+#xrdb -I$HOME ~/.Xresources
 
 function dop(){
   xdg-open "$1" &
