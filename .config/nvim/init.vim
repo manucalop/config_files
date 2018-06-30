@@ -178,6 +178,7 @@ call plug#end()
     let g:onedark_terminal_italics=1
     
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
     set termguicolors
 
     syntax on
