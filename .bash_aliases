@@ -27,7 +27,7 @@ alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release'
 alias latex_make='pdflatex --shell-escape root && bibtex root && pdflatex --shell-escape root && pdflatex --shell-escape root'
 bind '"\C-t":"printf ${alt_color}\C-m"'
 bind '"\C-o":"ranger-cd\C-m"'
-bind '"\C-g":"git status\C-m"'
+bind '"\C-g":"git status .\C-m"'
 
 if [ -f /opt/ros/kinetic/setup.bash ]; then
     source /opt/ros/kinetic/setup.bash
