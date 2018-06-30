@@ -17,40 +17,13 @@ class color:
 
 print('\n')
 print(color.BOLD + "Installing deb packages \n-----------------------" + color.END)
-apt_pkgs = [    "sudo",
-		"xorg",
-                "git",
-                "neovim",
-                "rxvt-unicode-256color",
-                "i3", 
-                "xdotool", 
-                "zenity",
-                "feh",
-                "network-manager",
-                "volumeicon-alsa",
-                "compton",
-                "dunst",
-                "x11-xserver-utils",
-                "python-pip",
-                "python3-pip",
-                "blueman",
-                "ranger",
-                "ruby",
-                "tmux",
-                "tmuxinator",
-                "neovim",
-                "curl",
-                "xfce4-power-manager",
-                "conky-all",
-                "rofi",
-                "xcape",
-                "breeze",
-                "fonts-font-awesome",
-                "fonts-materialdesignicons-webfont"
-            ]
 apt_repos = [ "neovim-ppa/stable",
               "hnakamur/tmux"
 	    ]
+apt_pkgs = [  "dropbox",
+              "atom"
+            ]
+snap_pkgs = [ "spotify" ]
 # Vimplug, py3status (pip3), icons-in-terminal, polybar, atom
 
 # Check if the user is root
