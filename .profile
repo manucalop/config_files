@@ -19,7 +19,5 @@ fi
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
-# Quit the mouse stick (dell computer)
-    xinput disable "AlpsPS/2 ALPS DualPoint Stick"
 # For the settings
-    export XDG_CURRENT_DESKTOP=Unity
+    export XDG_CURRENT_DESKTOP=XFCE

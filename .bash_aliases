@@ -1,5 +1,4 @@
 # DISABLE MOUSE STICK. Should not be here
-#xinput disable "AlpsPS/2 ALPS DualPoint Stick"
 export alt_color='\033]11;#1d1f21\007' 
 export EDITOR='nvim'
 export COLORTERM='rxvt-unicode-256color'
