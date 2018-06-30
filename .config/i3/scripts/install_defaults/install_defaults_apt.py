@@ -42,6 +42,7 @@ apt_pkgs = [    "sudo",
                 "curl",
                 "xfce4-power-manager",
                 "conky-all",
+                "rofi",
                 "fonts-font-awesome",
                 "fonts-materialdesignicons-webfont"
             ]
