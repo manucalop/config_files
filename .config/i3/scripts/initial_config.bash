@@ -8,6 +8,7 @@
     export XDG_CURRENT_DESKTOP=GNOME
     gnome-settings-daemon &
 # Keyboard Default language, pro mode
+    setxkbmap -layout us; mode "default"
     setxkbmap -option && setxkbmap -option ctrl:nocaps && xcape -e 'Control_L=Escape'; mode "default"
 # Set local time as system time
 #    timedatectl set-local-rtc 1
