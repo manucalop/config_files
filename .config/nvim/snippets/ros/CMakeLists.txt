@@ -11,6 +11,7 @@ set(${PROJECT_NAME}_DEPENDS
     
 set(${PROJECT_NAME}_INCLUDE_DIRS
   #Include folders
+  include
 )
 
 find_package(catkin REQUIRED COMPONENTS
@@ -20,21 +21,21 @@ find_package(catkin REQUIRED COMPONENTS
 #What to export (include dirs, libraries, etc)
 catkin_package(
   INCLUDE_DIRS ${catkin_INCLUDE_DIRS} ${${PROJECT_NAME}_INCLUDE_DIRS}
-  #  LIBRARIES ${PROJECT_NAME}_lib
+  LIBRARIES ${PROJECT_NAME}_lib
   CATKIN_DEPENDS ${${PROJECT_NAME}_DEPENDS}
 )
 
 include_directories( ${catkin_INCLUDE_DIRS} ${${PROJECT_NAME}_INCLUDE_DIRS} )
 
 ## Create library
-#add_library(${PROJECT_NAME}_lib src/${PROJECT_NAME}.cpp)
-#add_dependencies(${PROJECT_NAME}_lib ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-#target_link_libraries(${PROJECT_NAME}_lib ${catkin_LIBRARIES})
+add_library(${PROJECT_NAME}_lib src/${PROJECT_NAME}.cpp)
+add_dependencies(${PROJECT_NAME}_lib ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_lib ${catkin_LIBRARIES})
 
-## Create executable (node)
-#add_executable(${PROJECT_NAME}_node src/${PROJECT_NAME}_node.cpp)
-#add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-#target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES})
+# Create executable (node)
+add_executable(${PROJECT_NAME}_node src/${PROJECT_NAME}_node.cpp)
+add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_node ${PROJECT_NAME}_lib ${catkin_LIBRARIES})
 
 ## Tests
 #if (CATKIN_ENABLE_TESTING)

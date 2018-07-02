@@ -113,6 +113,9 @@ call plug#end()
     command RosCppParam   :-1read $HOME/.config/nvim/snippets/ros/param.cpp
     command RosCppPub     :-1read $HOME/.config/nvim/snippets/ros/publisher.cpp
     command RosCppSub     :-1read $HOME/.config/nvim/snippets/ros/subscriber.cpp
+    command RosCppCallback :-1read $HOME/.config/nvim/snippets/ros/callback.cpp
+    command RosCppSrv     :-1read $HOME/.config/nvim/snippets/ros/server.cpp
+    command RosCppSrvFunc :-1read $HOME/.config/nvim/snippets/ros/server_func.cpp
     command RosCppTimer   :-1read $HOME/.config/nvim/snippets/ros/timer.cpp
 
     command CppClass      :-1read $HOME/.config/nvim/snippets/cpp/class.cpp
@@ -148,8 +151,8 @@ call plug#end()
     call tinykeymap#EnterMap('tabs', ',t', {'name': 'Tabs mode: [n]ew [q]uit [hl]movements'}) 
     call tinykeymap#Map('tabs', 'l', 'tabnext') 
     call tinykeymap#Map('tabs', 'h', 'tabprev') 
-    call tinykeymap#Map('tabs', '<c-l>', 'tabmove +1') 
-    call tinykeymap#Map('tabs', '<c-h>', 'tabmove -1') 
+    call tinykeymap#Map('tabs', '<s-l>', 'tabmove +1') 
+    call tinykeymap#Map('tabs', '<s-h>', 'tabmove -1') 
     call tinykeymap#Map('tabs', 'n', 'tabnew') 
     call tinykeymap#Map('tabs', 't', 'norm! gt') 
     call tinykeymap#Map('tabs', 'T', 'norm! gT') 
@@ -187,7 +190,8 @@ call plug#end()
     hi Folded gui=bold guibg=NONE guifg=Blue70 
 "    filetype plugin on
     set path+=**
-    set wildmode=full
+    "set wildmode=full
+    set wildmode=longest:full,full
     set wildmenu
     set encoding=utf-8
     set nospell

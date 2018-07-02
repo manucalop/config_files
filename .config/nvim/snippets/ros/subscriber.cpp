@@ -1,1 +1,1 @@
-  _sub = n.subscribe<type>("topic", 1, &callback,  this);
+  _sub = n.subscribe<type>("topic", 1, &Class::callback,  this);
