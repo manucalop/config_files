@@ -411,10 +411,10 @@ bar{
 # Startup scripts {{{
   
   exec_always bash ~/.config/i3/scripts/startup_apps.bash
+  exec_always bash ~/.config/i3/scripts/displays.bash
   # Configurations
 #      exec_always bash ~/.config/i3/scripts/initial_config.bash
   # Screen detection
-#      exec_always bash ~/.config/i3/scripts/displays.bash
   # System tray
 #      exec_always bash ~/.config/i3/scripts/tray.bash
   # Programs
