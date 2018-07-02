@@ -231,9 +231,9 @@ bar{
     mode "$mode_launcher" {
         bindsym f exec firefox; mode "default"
         bindsym m exec matlab; mode "default"
-        bindsym Shift+s exec "export XDG_CURRENT_DESKTOP=Unity && unity-control-center"; mode "default"
+        bindsym Shift+s exec "xfce4-settings-manager"; mode "default"
         bindsym s exec spotify; mode "default"
-        bindsym n exec nautilus; mode "default"
+        bindsym n exec thunar; mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"
     }
@@ -409,13 +409,14 @@ bar{
 #}}}
 
 # Startup scripts {{{
-
+  
+  exec_always bash ~/.config/i3/scripts/startup_apps.bash
   # Configurations
-      exec_always bash ~/.config/i3/scripts/initial_config.bash
+#      exec_always bash ~/.config/i3/scripts/initial_config.bash
   # Screen detection
-      exec_always bash ~/.config/i3/scripts/displays.bash
+#      exec_always bash ~/.config/i3/scripts/displays.bash
   # System tray
-      exec_always bash ~/.config/i3/scripts/tray.bash
+#      exec_always bash ~/.config/i3/scripts/tray.bash
   # Programs
       #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 

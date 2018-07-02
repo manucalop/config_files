@@ -53,10 +53,12 @@ for pkg_name in apt_pkgs:
         os.system('apt-get --fix-missing --fix-broken -q=2 --assume-yes install {}'.format(pkg_name))
         print('{:<40}'.format(pkg_name) + color.GREEN +'Installed Successfully' + color.END )
 
+"""
         pkg.mark_install()
         print('{:<40}'.format(pkg_name) + color.GREEN +'Installed Successfully' + color.END )
         try:
             cache.commit()
         except Exception:
             print('Installation of {} failed '.format(pkg_name))
+"""
 print('\n')

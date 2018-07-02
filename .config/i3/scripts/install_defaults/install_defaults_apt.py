@@ -43,15 +43,13 @@ apt_pkgs = [    "sudo",
                 "xfce4-power-manager",
                 "conky-all",
                 "rofi",
-<<<<<<< HEAD
-=======
                 "xcape",
                 "breeze",
->>>>>>> 0945b95... Attempt to track my apps. Not successfull
                 "fonts-font-awesome",
                 "fonts-materialdesignicons-webfont"
             ]
-apt_repos = [ "neovim-ppa/stable"
+apt_repos = [ "neovim-ppa/stable",
+              "hnakamur/tmux"
 	    ]
 # Vimplug, py3status (pip3), icons-in-terminal, polybar, atom
 
