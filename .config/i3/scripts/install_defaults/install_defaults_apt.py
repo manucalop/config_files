@@ -44,7 +44,7 @@ apt_pkgs = [    "sudo",
                 "conky-all",
                 "rofi",
                 "xcape",
-                "breeze",
+		"gnome-terminal",
                 "fonts-font-awesome",
                 "fonts-materialdesignicons-webfont"
             ]
