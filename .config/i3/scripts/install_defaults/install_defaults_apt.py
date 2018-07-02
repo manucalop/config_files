@@ -43,6 +43,7 @@ apt_pkgs = [    "sudo",
                 "conky-all",
                 "rofi",
                 "xcape",
+                "dconf-cli",
 		"gnome-terminal",
                 "fonts-font-awesome",
                 "fonts-materialdesignicons-webfont"
