@@ -91,6 +91,18 @@ function undetach(){
 } 
 #}}}
 
+# bedtime{{{
+function bedtime(){
+  t=$1
+  if [ -z "$t" ]
+  then
+    echo "No time selected. Provide it as argument."
+  else
+    sleep $((60*60*t)) && poweroff
+  fi
+}
+#}}}
+
 # roscpptemplate{{{
 function roscpptemplate(){
   pkg_name="$1"
