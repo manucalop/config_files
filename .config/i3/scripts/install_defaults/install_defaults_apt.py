@@ -44,6 +44,7 @@ apt_pkgs = [    "sudo",
                 "rofi",
                 "xcape",
                 "dconf-cli",
+                "pulseaudio-module-bluetooth",
 		"gnome-terminal",
                 "fonts-font-awesome",
                 "fonts-materialdesignicons-webfont"
