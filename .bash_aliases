@@ -103,6 +103,13 @@ function bedtime(){
 }
 #}}}
 
+# bedtime{{{
+function mousewake(){
+  sudo modprobe -r psmouse
+  sudo modprobe psmouse
+}
+#}}}
+
 # roscpptemplate{{{
 function roscpptemplate(){
   pkg_name="$1"
