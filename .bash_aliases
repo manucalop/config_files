@@ -134,6 +134,18 @@ function roscpptemplate(){
 }
 #}}}
 
+#tags_update{{{
+function tags_global_update(){
+  ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_cpp /opt/ros/kinetic/include/
+  ctags -R --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_all /opt/ros/kinetic/include/
+  ctags -R --fields=+iaS --extra=+q -f ~/.config/nvim/tags/usr_all_tags /usr/include/
+}
+
+function tags_local_update(){
+  ctags -R --fields=+iaS --extra=+q .
+}
+#}}}
+
 # Custom terminal prompt{{{
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
