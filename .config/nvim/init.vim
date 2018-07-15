@@ -243,8 +243,11 @@ call plug#end()
     let g:tinykeymap#message_fmt='--%s %s--'
 " NERDTree
     let NERDTreeWinSize=20
+" Tags
+    set tags+=~/.config/nvim/tags/usr_all
+    set tags+=~/.config/nvim/tags/ros_all
 "   }}}
-
+"
 " TODO
 " Functions {{{
 " See Max Cantor dotfiles https://github.com/mcantor/dotfiles/tree/master/vim
