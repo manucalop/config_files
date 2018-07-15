@@ -1,9 +1,16 @@
 " Manuel Castillo .vimrc File
 
-" {{{ Plugins and settings
+" {{{ Plugins 
 call plug#begin('~/.local/share/nvim/plugged')
+" I like minimal tpope's philosophy
 " Defaults everyone can agree on
 Plug 'tpope/vim-sensible'
+" Some usefull mappings
+Plug 'tpope/vim-unimpaired'
+" Tools for comments
+Plug 'tpope/vim-commentary'
+" Tools for brackets, or any surroundings
+Plug 'tpope/vim-surround'
 " Directory tree
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
@@ -27,18 +34,15 @@ Plug 'taketwo/vim-ros'
 Plug 'joshdick/onedark.vim'
 " Need to check those (form mcantor) btw, tpope is our friend
 "Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
 Plug 'majutsushi/tagbar'
 "Plug 'ludovicchabant/vim-gutentags'
 "" Automatic tab adjust
-"Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 " Repeat with . non-native commands
 Plug 'tpope/vim-repeat'
 "" Enhance the vim tree view (netrw)
 Plug 'tpope/vim-vinegar'
-"" UNIX tools
+" UNIX tools
 Plug 'tpope/vim-eunuch'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
@@ -76,21 +80,12 @@ call plug#end()
     nnoremap <c-w><c-h> :vertical resize -5<CR>
     nnoremap <c-w><c-k> :resize +5<CR>
     nnoremap <c-w><c-j> :resize -5<CR>
-    "nnoremap <c-n> :tabnext<CR>
-    "nnoremap <c-p> :tabprevious<CR>
     " NERDTree Toogle
     nnoremap <c-_> :NERDTreeToggle<CR>
     nnoremap <c-i> :TagbarToggle<CR>
     " Easy saving
     inoremap <C-s> <ESC>:w<CR>
     nnoremap <C-s> :w<CR>
-"    autocmd StdinReadPre * let s:std_in=1
-"    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-    " Go to first/last line of the paragraph
- "   map { {j
- "   map } }k
-    
     " Change indent continuously
     vmap < <gv
     vmap > >gv
@@ -99,34 +94,33 @@ call plug#end()
     tnoremap <Esc> <C-\><C-n>
     " Ranger mapping
     nnoremap ,r :Ranger<CR>
-    " deoplete tab-complete
-"    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
     " ROS Snippets
-    command RosMake       :-1read $HOME/.config/nvim/snippets/ros/CMakeLists.txt
-    command RosMakeAcado  :-1read $HOME/.config/nvim/snippets/ros/cmake_acado.txt
-    command RosMakeExe    :-1read $HOME/.config/nvim/snippets/ros/cmake_executable.txt
-    command RosMakeLib    :-1read $HOME/.config/nvim/snippets/ros/cmake_library.txt
-    command RosMakeTest   :-1read $HOME/.config/nvim/snippets/ros/cmake_test.txt
-    command RosMakeMsg    :-1read $HOME/.config/nvim/snippets/ros/cmake_msg.txt
-    command RosMakeSrv    :-1read $HOME/.config/nvim/snippets/ros/cmake_srv.txt
-    command RosMakeAction :-1read $HOME/.config/nvim/snippets/ros/cmake_action.txt
+    command! RosMake       :-1read $HOME/.config/nvim/snippets/ros/CMakeLists.txt
+    command! RosMakeAcado  :-1read $HOME/.config/nvim/snippets/ros/cmake_acado.txt
+    command! RosMakeExe    :-1read $HOME/.config/nvim/snippets/ros/cmake_executable.txt
+    command! RosMakeLib    :-1read $HOME/.config/nvim/snippets/ros/cmake_library.txt
+    command! RosMakeTest   :-1read $HOME/.config/nvim/snippets/ros/cmake_test.txt
+    command! RosMakeMsg    :-1read $HOME/.config/nvim/snippets/ros/cmake_msg.txt
+    command! RosMakeSrv    :-1read $HOME/.config/nvim/snippets/ros/cmake_srv.txt
+    command! RosMakeAction :-1read $HOME/.config/nvim/snippets/ros/cmake_action.txt
 
-    command RosPack       :-1read $HOME/.config/nvim/snippets/ros/package.xml
-    command RosPackDep    :-1read $HOME/.config/nvim/snippets/ros/package_depend.xml
-    command RosPackMsg    :-1read $HOME/.config/nvim/snippets/ros/package_msg.xml
+    command! RosPack       :-1read $HOME/.config/nvim/snippets/ros/package.xml
+    command! RosPackDep    :-1read $HOME/.config/nvim/snippets/ros/package_depend.xml
+    command! RosPackMsg    :-1read $HOME/.config/nvim/snippets/ros/package_msg.xml
 
-    command RosCppMain    :-1read $HOME/.config/nvim/snippets/ros/main.cpp
-    command RosCppParam   :-1read $HOME/.config/nvim/snippets/ros/param.cpp
-    command RosCppPub     :-1read $HOME/.config/nvim/snippets/ros/publisher.cpp
-    command RosCppSub     :-1read $HOME/.config/nvim/snippets/ros/subscriber.cpp
-    command RosCppCallback :-1read $HOME/.config/nvim/snippets/ros/callback.cpp
-    command RosCppSrv     :-1read $HOME/.config/nvim/snippets/ros/server.cpp
-    command RosCppSrvFunc :-1read $HOME/.config/nvim/snippets/ros/server_func.cpp
-    command RosCppTimer   :-1read $HOME/.config/nvim/snippets/ros/timer.cpp
+    command! RosCppMain    :-1read $HOME/.config/nvim/snippets/ros/main.cpp
+    command! RosCppParam   :-1read $HOME/.config/nvim/snippets/ros/param.cpp
+    command! RosCppPub     :-1read $HOME/.config/nvim/snippets/ros/publisher.cpp
+    command! RosCppSub     :-1read $HOME/.config/nvim/snippets/ros/subscriber.cpp
+    command! RosCppCallback :-1read $HOME/.config/nvim/snippets/ros/callback.cpp
+    command! RosCppSrv     :-1read $HOME/.config/nvim/snippets/ros/server.cpp
+    command! RosCppSrvFunc :-1read $HOME/.config/nvim/snippets/ros/server_func.cpp
+    command! RosCppTimer   :-1read $HOME/.config/nvim/snippets/ros/timer.cpp
 
-    command CppClass      :-1read $HOME/.config/nvim/snippets/cpp/class.cpp
-    command CppTemp       :-1read $HOME/.config/nvim/snippets/cpp/template.cpp
+    " Cpp snippets
+    command! CppClass      :-1read $HOME/.config/nvim/snippets/cpp/class.cpp
+    command! CppTemp       :-1read $HOME/.config/nvim/snippets/cpp/template.cpp
 
 "   }}}
 
@@ -168,15 +162,6 @@ call plug#end()
     call tinykeymap#Map('tabs', 'q', 'tabclose')
 "}}}
 
-"Browser mode {{{
-" call tinykeymap#EnterMap('browser', ',b', {'name': 'Tabs mode: [n]ew [q]uit [hl]movements'}) 
-"     call tinykeymap#Map('browser', 'l', 'norm! 5l') 
-"     call tinykeymap#Map('browser', 'h', 'norm! 5h') 
-"     call tinykeymap#Map('browser', 'k', 'norm! <c-y>') 
-"     call tinykeymap#Map('browser', 'j', 'norm! <c-e>') 
-
-"   }}}
-
 " }}}
 
 "   {{{     Options 
@@ -196,42 +181,30 @@ call plug#end()
 
     hi Visual cterm=bold 
     hi Folded gui=bold guibg=NONE guifg=Blue70 
-"    filetype plugin on
     set path+=**
-    "set wildmode=full
     set wildmode=longest:full,full
-"    set wildmenu
-"    set encoding=utf-8
-"    set nospell
-    "set spell
     set spelllang=en_us
-    "set mouse=xterm2
 " Enable mouse usage
     set mouse=a
-" Highlight search results
-"    set nohlsearch
-" Makes search act like search in modern browsers
-"    set incsearch
-"    set ignorecase smartcase
     " Splits
     set splitright
-
-" Formatting
-   set tabstop=2 shiftwidth=2 softtabstop=2
-   set expandtab
+" Tab formatting
+"   set tabstop=2 shiftwidth=2 softtabstop=2
+"   set expandtab
+" use :retab to convert tabs into spaces
 " Start with everything folded
 " "zo" to open folds, "zc" to close, "za" to toggle "zn" to disable.
-		set foldlevelstart=0
-		set foldenable 
-		set fdm=marker
-" use :retab to convert tabs into spaces
+    set foldlevelstart=0
+    set foldenable 
+    set fdm=marker
 " Number lines (I have them in Airline)
     set number
+    set relativenumber
+    set cursorline
 " Soft wrapping
     set wrap
     set linebreak
     set nolist
-"    set scrolloff=5
 " Set system clipboard as default
     set clipboard=unnamedplus
 " Avoid creating backup files (~file)    
@@ -262,53 +235,18 @@ call plug#end()
     let g:tmuxline_powerline_separators = 0
     let g:airline#extensions#tmuxline#enabled = 0
 
-" Neomake configuration
-    " Call neomake automatically on write
-    " call neomake#configure#automake('w')
-    " let g:neomake_open_list = 2
-
 " For autocomplete (deoplete)
-let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_at_startup = 1
 
 " Tinykeymaps
-let g:tinykeymaps_default=0 
-let g:tinykeymap#message_fmt='--%s %s--'
-" Extend the use of %
-"let loaded_matchit = 1
-let NERDTreeWinSize=20
+    let g:tinykeymaps_default=0 
+    let g:tinykeymap#message_fmt='--%s %s--'
+" NERDTree
+    let NERDTreeWinSize=20
 "   }}}
 
-"   {{{ Deoplete exclusion with vim-multicursors
-" Called once right before you start selecting multiple cursors
-" function! Multiple_cursors_before()
-"     if exists('g:deoplete#disable_auto_complete') 
-" 	   let g:deoplete#disable_auto_complete = 1
-"     endif
-" endfunction
-
-" " Called once only when the multiple selection is canceled (default <Esc>)
-" function! Multiple_cursors_after()
-"     if exists('g:deoplete#disable_auto_complete')
-" 	   let g:deoplete#disable_auto_complete = 0
-"     endif
-" endfunction
-"
-""   }}}
-
-"hi Visual cterm=reverse,bold 
-"hi Visual cterm=bold ctermfg=Black ctermbg=Blue
-
-" Color scheme
-" color molokai
-" Make the modification indicator [+] white on red background
-"au ColorScheme * hi User1 gui=bold term=bold cterm=bold guifg=white guibg=red ctermfg=white ctermbg=red
-
-" Tweak the color of the fold display column
-"au ColorScheme * hi FoldColumn cterm=bold ctermbg=233 ctermfg=146
-
-" See Max Cantor dotfiles https://github.com/mcantor/dotfiles/tree/master/vim
-"
+" TODO
 " Functions {{{
-"
-
+" See Max Cantor dotfiles https://github.com/mcantor/dotfiles/tree/master/vim
+"function! RosPublisher(name_pub, msg_type, topic)
 " }}}
