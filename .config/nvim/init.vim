@@ -2,6 +2,8 @@
 
 " {{{ Plugins and settings
 call plug#begin('~/.local/share/nvim/plugged')
+" Defaults everyone can agree on
+Plug 'tpope/vim-sensible'
 " Directory tree
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
@@ -20,13 +22,16 @@ Plug 'tmux-plugins/vim-tmux'
 " Mini mode creator
 Plug 'tomtom/tinykeymap_vim'
 "Plug 'terryma/vim-multiple-cursors'
-"Plug 'taketwo/vim-ros'
+Plug 'taketwo/vim-ros'
 "Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 " Need to check those (form mcantor) btw, tpope is our friend
 "Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'majutsushi/tagbar'
+"Plug 'ludovicchabant/vim-gutentags'
 "" Automatic tab adjust
 "Plug 'tpope/vim-sleuth'
 " Repeat with . non-native commands
@@ -75,8 +80,10 @@ call plug#end()
     "nnoremap <c-p> :tabprevious<CR>
     " NERDTree Toogle
     nnoremap <c-_> :NERDTreeToggle<CR>
+    nnoremap <c-i> :TagbarToggle<CR>
     " Easy saving
     inoremap <C-s> <ESC>:w<CR>
+    nnoremap <C-s> :w<CR>
 "    autocmd StdinReadPre * let s:std_in=1
 "    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -184,7 +191,7 @@ call plug#end()
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
     set termguicolors
 
-    syntax on
+"    syntax on
     colorscheme onedark
 
     hi Visual cterm=bold 
@@ -193,18 +200,18 @@ call plug#end()
     set path+=**
     "set wildmode=full
     set wildmode=longest:full,full
-    set wildmenu
-    set encoding=utf-8
-    set nospell
+"    set wildmenu
+"    set encoding=utf-8
+"    set nospell
     "set spell
     set spelllang=en_us
     "set mouse=xterm2
 " Enable mouse usage
     set mouse=a
 " Highlight search results
-    set nohlsearch
+"    set nohlsearch
 " Makes search act like search in modern browsers
-    set incsearch
+"    set incsearch
 "    set ignorecase smartcase
     " Splits
     set splitright
@@ -224,7 +231,7 @@ call plug#end()
     set wrap
     set linebreak
     set nolist
-    set scrolloff=5
+"    set scrolloff=5
 " Set system clipboard as default
     set clipboard=unnamedplus
 " Avoid creating backup files (~file)    
@@ -267,8 +274,8 @@ let g:deoplete#enable_at_startup = 1
 let g:tinykeymaps_default=0 
 let g:tinykeymap#message_fmt='--%s %s--'
 " Extend the use of %
-let loaded_matchit = 1
-
+"let loaded_matchit = 1
+let NERDTreeWinSize=20
 "   }}}
 
 "   {{{ Deoplete exclusion with vim-multicursors
