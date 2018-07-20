@@ -37,9 +37,9 @@ fi
 if [ -f $AFI_PROJ_WORKSPACE/devel/setup.bash ]; then
     source $AFI_PROJ_WORKSPACE/devel/setup.bash
 fi
-#if [ -f $OBSTACLE_AVOIDANCE_WORKSPACE/devel/setup.bash ]; then
-#    source $OBSTACLE_AVOIDANCE_WORKSPACE/devel/setup.bash
-#fi
+# if [ -f $OBSTACLE_AVOIDANCE_WORKSPACE/devel/setup.bash ]; then
+#     source $OBSTACLE_AVOIDANCE_WORKSPACE/devel/setup.bash
+# fi
 if [ -f ~/.local/share/icons-in-terminal/icons_bash.sh ]; then
     source ~/.local/share/icons-in-terminal/icons_bash.sh
 fi

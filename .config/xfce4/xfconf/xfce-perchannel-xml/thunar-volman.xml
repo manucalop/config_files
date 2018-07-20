@@ -13,4 +13,7 @@
   <property name="autoopen" type="empty">
     <property name="enabled" type="empty"/>
   </property>
+  <property name="autotablet" type="empty">
+    <property name="enabled" type="bool" value="false"/>
+  </property>
 </channel>

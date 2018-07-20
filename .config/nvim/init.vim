@@ -37,7 +37,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'majutsushi/tagbar'
 "Plug 'ludovicchabant/vim-gutentags'
 "" Automatic tab adjust
-Plug 'tpope/vim-sleuth'
+"Plug 'tpope/vim-sleuth'
 " Repeat with . non-native commands
 Plug 'tpope/vim-repeat'
 "" Enhance the vim tree view (netrw)
@@ -189,8 +189,8 @@ call plug#end()
     " Splits
     set splitright
 " Tab formatting
-"   set tabstop=2 shiftwidth=2 softtabstop=2
-"   set expandtab
+    set tabstop=2 shiftwidth=2 softtabstop=2
+    set expandtab
 " use :retab to convert tabs into spaces
 " Start with everything folded
 " "zo" to open folds, "zc" to close, "za" to toggle "zn" to disable.
@@ -205,6 +205,7 @@ call plug#end()
     set wrap
     set linebreak
     set nolist
+    set nohlsearch
 " Set system clipboard as default
     set clipboard=unnamedplus
 " Avoid creating backup files (~file)    
