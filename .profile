@@ -23,4 +23,6 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
     export XDG_CURRENT_DESKTOP=XFCE
 
 # Quit the mouse stick (dell computer)
+if xinput --list | grep -q "AlpsPS/2 ALPS DualPoint Stick"; then
     xinput disable "AlpsPS/2 ALPS DualPoint Stick"
+fi
