@@ -4,9 +4,10 @@ export EDITOR='nvim'
 export COLORTERM='rxvt-unicode-256color'
 export OBSTACLE_AVOIDANCE_WORKSPACE=~/workspace/ros/obstacle_avoidance_catkin_ws
 export AFI_PROJ_WORKSPACE=~/workspace/ros/afi_ws
-export AFI_PROJ_PROJECT=~/workspace/ros/afi_ws/src/afi_project
+export MANUEL_WORKSPACE=~/workspace/ros/manuel_ws
+export MANUEL_PROJECT=$MANUEL_WORKSPACE/src/
+export AFI_PROJ_PROJECT=$AFI_PROJ_WORKSPACE/src/afi_project
 export OBSTACLE_AVOIDANCE_PROJECT=$OBSTACLE_AVOIDANCE_WORKSPACE/src/obstacle_avoidance_project
-export ROS_WS=$OBSTACLE_AVOIDANCE_WORKSPACE
 export DEBFULLNAME="Manuel Castillo Lopez"
 export DEBEMAIL="manuelcloop@gmail.com"
 export PYTHONPATH=$PYTHONPATH:~/workspace/casadi-linux-py35-47c5d06
@@ -26,7 +27,7 @@ alias urconf='vim ~/.Xresources.d/urxvt'
 alias mpccd='roscd drone_mpc_obstacle_avoidance && cd ../..'
 alias gioscd='roscd gios_common && cd ..'
 alias phdcd='cd ~/Dropbox/1_Trabajo/1_PhD'
-alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release; source devel/setup.bash'
+alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release'
 alias latex_make='pdflatex --shell-escape root && bibtex root && pdflatex --shell-escape root && pdflatex --shell-escape root'
 bind '"\C-o":"ranger-cd\C-m"'
 bind '"\C-g":"git status .\C-m"'
@@ -34,12 +35,11 @@ bind '"\C-g":"git status .\C-m"'
 if [ -f /opt/ros/kinetic/setup.bash ]; then
     source /opt/ros/kinetic/setup.bash
 fi
-if [ -f $AFI_PROJ_WORKSPACE/devel/setup.bash ]; then
-    source $AFI_PROJ_WORKSPACE/devel/setup.bash
+export ROS_WS=$AFI_PROJ_WORKSPACE
+
+if [ -f $ROS_WS/devel/setup.bash ]; then
+    source $ROS_WS/devel/setup.bash
 fi
-# if [ -f $OBSTACLE_AVOIDANCE_WORKSPACE/devel/setup.bash ]; then
-#     source $OBSTACLE_AVOIDANCE_WORKSPACE/devel/setup.bash
-# fi
 if [ -f ~/.local/share/icons-in-terminal/icons_bash.sh ]; then
     source ~/.local/share/icons-in-terminal/icons_bash.sh
 fi
