@@ -110,6 +110,73 @@ function mousewake(){
 }
 #}}}
 
+# rr_dirs{{{
+function rr_dirs(){
+  path="$1"
+  find_string="$2"
+  replace_string="$3"
+  if [ -z "$3" ]
+  then
+    echo "Need three arguments: use find_replace path find_string replace_string"
+  else
+    cd $path
+    find . -type d -name "*$find_string*" -exec rename s/$find_string/$replace_string/ '{}' +
+    wait
+    cd - > /dev/null
+  fi
+}
+#}}}
+
+# rr_text{{{
+function rr_text(){
+  path="$1"
+  find_string="$2"
+  replace_string="$3"
+  if [ -z "$3" ]
+  then
+    echo "Need three arguments: use find_replace path find_string replace_string"
+  else
+    cd $path
+    find . -type f -name "*.*" -exec sed -i -e "s/$find_string/$replace_string/g" '{}' \;
+    wait
+    cd - > /dev/null
+  fi
+}
+#}}}
+
+# rr_files{{{
+function rr_files(){
+  path="$1"
+  find_string="$2"
+  replace_string="$3"
+  if [ -z "$3" ]
+  then
+    echo "Need three arguments: use find_replace path find_string replace_string"
+  else
+    cd $path
+    find . -type f -name "*$find_string*" -exec rename s/$find_string/$replace_string/ '{}' +
+    wait
+    cd - > /dev/null
+  fi
+}
+#}}}
+
+# rr_all{{{
+function rr_all(){
+  path="$1"
+  find_string="$2"
+  replace_string="$3"
+  if [ -z "$3" ]
+  then
+    echo "Need three arguments: use find_replace path find_string replace_string"
+  else
+    rr_text $path $find_string $replace_string
+    rr_dirs $path $find_string $replace_string
+    rr_files $path $find_string $replace_string
+  fi
+}
+#}}}
+
 # roscpptemplate{{{
 function roscpptemplate(){
   pkg_name="$1"
@@ -121,14 +188,7 @@ function roscpptemplate(){
     echo "Creating $pkg_name package..."
     rm -rf ros_cpp_template/.git
     rm ros_cpp_template/README.md
-    sed -i "s/ros_cpp_template/$pkg_name/g" ros_cpp_template/CMakeLists.txt
-    sed -i "s/ros_cpp_template/$pkg_name/g" ros_cpp_template/package.xml
-    sed -i "s/ros_cpp_template/$pkg_name/g" ros_cpp_template/src/ros_cpp_template.cpp
-    sed -i "s/ros_cpp_template/$pkg_name/g" ros_cpp_template/src/ros_cpp_template_node.cpp
-    mv ros_cpp_template/include/ros_cpp_template/ros_cpp_template.h ros_cpp_template/include/ros_cpp_template/"$pkg_name".h 
-    mv ros_cpp_template/src/ros_cpp_template.cpp ros_cpp_template/src/"$pkg_name".cpp 
-    mv ros_cpp_template/src/ros_cpp_template_node.cpp ros_cpp_template/src/"$pkg_name"_node.cpp 
-    mv ros_cpp_template/include/ros_cpp_template ros_cpp_template/include/"$pkg_name"
+    rr_all ros_cpp_template/ ros_cpp_template $pkg_name
     mv ros_cpp_template "$pkg_name"
   fi
 }
