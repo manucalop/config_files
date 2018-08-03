@@ -243,7 +243,7 @@ call plug#end()
     let g:tinykeymaps_default=0 
     let g:tinykeymap#message_fmt='--%s %s--'
 " NERDTree
-    let NERDTreeWinSize=20
+    let NERDTreeWinSize=40
 " Tags
     set tags+=~/.config/nvim/tags/usr_all
     set tags+=~/.config/nvim/tags/ros_all
