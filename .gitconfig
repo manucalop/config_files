@@ -2,4 +2,4 @@
 	email = manuelcloop@tutamail.com
 	name = Manuel Castillo
 [credential]
-	helper = cache --timeout=300
+  helper = cache --timeout=300
