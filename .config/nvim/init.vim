@@ -29,7 +29,7 @@ Plug 'tmux-plugins/vim-tmux'
 " Mini mode creator
 Plug 'tomtom/tinykeymap_vim'
 "Plug 'terryma/vim-multiple-cursors'
-Plug 'taketwo/vim-ros'
+" Plug 'taketwo/vim-ros'
 "Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 " Need to check those (form mcantor) btw, tpope is our friend
