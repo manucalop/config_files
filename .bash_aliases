@@ -2,11 +2,8 @@
 #xinput disable "AlpsPS/2 ALPS DualPoint Stick"
 export EDITOR='nvim'
 export COLORTERM='rxvt-unicode-256color'
-export OBSTACLE_AVOIDANCE_WORKSPACE=~/manuel_ws/ros/obstacle_avoidance_ws
-export AFI_PROJ_WORKSPACE=~/manuel_ws/ros/afi_ws
-export SERKET_WORKSPACE=~/serket_ws/ros/arm_mpc_ros_ws
-# export MANUEL_WORKSPACE=~/workspace/ros/manuel_ws
-# export MANUEL_PROJECT=$MANUEL_WORKSPACE/src/
+export OBSTACLE_AVOIDANCE_WORKSPACE=~/"$(whoami)"_ws/ros/obstacle_avoidance_ws
+export AFI_PROJ_WORKSPACE=~/"$(whoami)"_ws/ros/afi_ws
 export AFI_PROJ_PROJECT=$AFI_PROJ_WORKSPACE/src/afi_project
 export OBSTACLE_AVOIDANCE_PROJECT=$OBSTACLE_AVOIDANCE_WORKSPACE/src/obstacle_avoidance_project
 export DEBFULLNAME="Manuel Castillo Lopez"
@@ -41,7 +38,6 @@ if [ -f /opt/ros/kinetic/setup.bash ]; then
     source /opt/ros/kinetic/setup.bash
 fi
 export ROS_WS=$OBSTACLE_AVOIDANCE_WORKSPACE
-# export ROS_WS=$SERKET_WORKSPACE
 
 if [ -f $ROS_WS/devel/setup.bash ]; then
     source $ROS_WS/devel/setup.bash
@@ -51,8 +47,8 @@ if [ -f ~/.local/share/icons-in-terminal/icons_bash.sh ]; then
 fi
 
 # Source acado
-if [ -f ~/manuel_ws/acado_ws/acado/build/acado_env.sh ]; then
-    source ~/manuel_ws/acado_ws/acado/build/acado_env.sh
+if [ -f ~/"$(whoami)"_ws/acado_ws/acado/build/acado_env.sh ]; then
+  source ~/"$(whoami)"_ws/acado_ws/acado/build/acado_env.sh
 fi
 
 # Source Xresources
@@ -74,6 +70,19 @@ function findcd(){
  #   return
  # fi
   cd "$OUT"
+}
+#}}}
+# keypro{{{ 
+function keypro(){
+    setxkbmap -layout us
+    setxkbmap -option && setxkbmap -option ctrl:nocaps && xcape -e 'Control_L=Escape'
+}
+#}}}
+
+# keynormal{{{ 
+function keynormal(){
+    setxkbmap -layout us
+    setxkbmap -option 
 }
 #}}}
 
