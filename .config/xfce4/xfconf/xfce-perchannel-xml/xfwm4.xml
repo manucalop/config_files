@@ -56,6 +56,7 @@
       <value type="string" value="5"/>
       <value type="string" value="6"/>
       <value type="string" value="7"/>
+      <value type="string" value="9"/>
     </property>
     <property name="wrap_resistance" type="empty"/>
     <property name="wrap_windows" type="empty"/>

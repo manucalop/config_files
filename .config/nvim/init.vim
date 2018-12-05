@@ -29,13 +29,14 @@ Plug 'tmux-plugins/vim-tmux'
 " Mini mode creator
 Plug 'tomtom/tinykeymap_vim'
 "Plug 'terryma/vim-multiple-cursors'
-" Plug 'taketwo/vim-ros'
+Plug 'taketwo/vim-ros'
 "Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 " Need to check those (form mcantor) btw, tpope is our friend
 "Plug 'tpope/vim-obsession'
 Plug 'majutsushi/tagbar'
-"Plug 'ludovicchabant/vim-gutentags'
+Plug 'craigemery/vim-autotag'
+" Plug 'ludovicchabant/vim-gutentags'
 "" Automatic tab adjust
 "Plug 'tpope/vim-sleuth'
 " Repeat with . non-native commands
@@ -44,7 +45,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 " UNIX tools
 Plug 'tpope/vim-eunuch'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
+" Latex
+Plug 'lervag/vimtex'
 call plug#end()
 
 "   }}}
@@ -82,9 +85,9 @@ call plug#end()
     nnoremap <c-w><c-j> :resize -5<CR>
     " NERDTree Toogle
     nnoremap <c-_> :NERDTreeToggle<CR>
-    nnoremap <c-i> :TagbarToggle<CR>
+    "nnoremap <c-i> :TagbarToggle<CR>
     " Easy saving
-    inoremap <C-s> <ESC>:w<CR>
+    "inoremap <C-i> <ESC>:w<CR>
     nnoremap <C-s> :w<CR>
     " Change indent continuously
     vmap < <gv
@@ -122,6 +125,9 @@ call plug#end()
     command! CppClass      :-1read $HOME/.config/nvim/snippets/cpp/class.cpp
     command! CppTemp       :-1read $HOME/.config/nvim/snippets/cpp/template.cpp
 
+    " LaTeX snippets
+    command! TexImg        :-1read $HOME/.config/nvim/snippets/latex/img.tex
+    command! TexEqn        :-1read $HOME/.config/nvim/snippets/latex/eqn.tex
 "   }}}
 
 "   {{{     Mode
@@ -183,6 +189,7 @@ call plug#end()
     hi Folded gui=bold guibg=NONE guifg=Blue70 
     set path+=**
     set wildmode=longest:full,full
+    " set wildmode=list:full,full
     set spelllang=en_us
 " Enable mouse usage
     set mouse=a
@@ -245,10 +252,15 @@ call plug#end()
 " NERDTree
     let NERDTreeWinSize=40
 " Tags
-    set tags+=~/.config/nvim/tags/usr_all
-    set tags+=~/.config/nvim/tags/ros_all
+    " set tags+=~/.config/nvim/tags/usr_all
+    " set tags+=~/.config/nvim/tags/ros_all
 "   }}}
-"
+
+"Auto commands{{{
+autocmd FileType tex :setlocal spell
+autocmd FileType cpp :set tags+=~/.config/nvim/tags/ros_all
+"}}}
+
 " TODO
 " Functions {{{
 " See Max Cantor dotfiles https://github.com/mcantor/dotfiles/tree/master/vim

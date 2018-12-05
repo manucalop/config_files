@@ -7,7 +7,7 @@ export AFI_PROJ_WORKSPACE=~/"$(whoami)"_ws/ros/afi_ws
 export AFI_PROJ_PROJECT=$AFI_PROJ_WORKSPACE/src/afi_project
 export OBSTACLE_AVOIDANCE_PROJECT=$OBSTACLE_AVOIDANCE_WORKSPACE/src/obstacle_avoidance_project
 export DEBFULLNAME="Manuel Castillo Lopez"
-export DEBEMAIL="manuelcloop@gmail.com"
+export DEBEMAIL="manucalop@gmail.com"
 export PYTHONPATH=$PYTHONPATH:~/workspace/casadi-linux-py35-47c5d06
 alias update='sudo apt -y update; sudo apt -y upgrade; sudo apt -y dist-upgrade; sudo apt -y autoremove'
 alias ls='ls -1q --classify --group-directories-first --color=auto'
@@ -16,6 +16,7 @@ alias ld='ls -d */'
 alias lda='ls -d */ .*/'
 alias lf='find . -maxdepth 1 -type f'
 alias vim='nvim'
+alias vimcd='cd ~/.config/nvim'
 alias vimconf='vim ~/.config/nvim/init.vim'
 alias bashconf='vim ~/.bash_aliases'
 alias bashsource='source ~/.bashrc'
@@ -27,7 +28,6 @@ alias gioscd='roscd gios && cd ..'
 alias phdcd='cd ~/Dropbox/1_Trabajo/1_PhD'
 alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release'
 alias catkin_build='catkin build -DCMAKE_BUILD_TYPE=Release'
-alias latex_make='pdflatex --shell-escape root && bibtex root && pdflatex --shell-escape root && pdflatex --shell-escape root'
 alias matlab='matlab & $() && sleep 10 && exit'
 alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.14'
 bind '"\C-o":"ranger-cd\C-m"'
@@ -37,7 +37,8 @@ bind '"\C-g":"git status .\C-m"'
 if [ -f /opt/ros/kinetic/setup.bash ]; then
     source /opt/ros/kinetic/setup.bash
 fi
-export ROS_WS=$OBSTACLE_AVOIDANCE_WORKSPACE
+
+export ROS_WS=$AFI_PROJ_WORKSPACE
 
 if [ -f $ROS_WS/devel/setup.bash ]; then
     source $ROS_WS/devel/setup.bash
@@ -54,6 +55,8 @@ fi
 # Source Xresources
 xrdb -merge ~/.Xresources
 #xrdb -I$HOME ~/.Xresources
+
+# Functions {{{
 
 # xdg open {{{
 function dop(){
@@ -72,6 +75,7 @@ function findcd(){
   cd "$OUT"
 }
 #}}}
+
 # keypro{{{ 
 function keypro(){
     setxkbmap -layout us
@@ -225,6 +229,23 @@ function tags_global_update(){
 function tags_local_update(){
   ctags -R --fields=+iaS --extra=+q .
 }
+#}}}
+
+#latex_make {{{
+function latex_make(){
+  file="$1"
+  if [ -z "$1" ]
+  then
+    echo "No file selected"
+  else
+    pdflatex --shell-escape $file &&
+    bibtex $file &&
+    pdflatex --shell-escape $file &&
+    pdflatex --shell-escape $file 
+  fi
+}
+#}}}
+
 #}}}
 
 # Custom terminal prompt{{{

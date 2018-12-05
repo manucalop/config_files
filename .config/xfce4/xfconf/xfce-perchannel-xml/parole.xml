@@ -5,12 +5,12 @@
     <property name="font" type="string" value="Sans Bold 20"/>
   </property>
   <property name="folders" type="empty">
-    <property name="last-used-media" type="string" value="/home/manuel/Videos/4K Video Downloader"/>
+    <property name="last-used-media" type="string" value="/media/manuel/63FB-8B26/media/files"/>
   </property>
   <property name="window" type="empty">
     <property name="maximized" type="bool" value="false"/>
-    <property name="width" type="int" value="1912"/>
-    <property name="height" type="int" value="1031"/>
+    <property name="width" type="int" value="675"/>
+    <property name="height" type="int" value="737"/>
   </property>
   <property name="audio" type="empty">
     <property name="volume" type="int" value="100"/>
