@@ -9,6 +9,7 @@ export OBSTACLE_AVOIDANCE_PROJECT=$OBSTACLE_AVOIDANCE_WORKSPACE/src/obstacle_avo
 export DEBFULLNAME="Manuel Castillo Lopez"
 export DEBEMAIL="manucalop@gmail.com"
 export PYTHONPATH=$PYTHONPATH:~/workspace/casadi-linux-py35-47c5d06
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias update='sudo apt -y update; sudo apt -y upgrade; sudo apt -y dist-upgrade; sudo apt -y autoremove'
 alias ls='ls -1q --classify --group-directories-first --color=auto'
 alias la='ls -A'
@@ -38,7 +39,7 @@ if [ -f /opt/ros/kinetic/setup.bash ]; then
     source /opt/ros/kinetic/setup.bash
 fi
 
-export ROS_WS=$AFI_PROJ_WORKSPACE
+export ROS_WS=$OBSTACLE_AVOIDANCE_WORKSPACE
 
 if [ -f $ROS_WS/devel/setup.bash ]; then
     source $ROS_WS/devel/setup.bash

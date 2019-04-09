@@ -16,7 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
 " Make plugin (plugin)
 " Autocompletion , { 'do': ':UpdateRemotePlugins' }. Check ctags
-Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/deoplete.nvim'
 " Git tools
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -48,6 +48,7 @@ Plug 'tpope/vim-eunuch'
 "Plug 'sheerun/vim-polyglot'
 " Latex
 Plug 'lervag/vimtex'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 call plug#end()
 
 "   }}}
@@ -244,7 +245,7 @@ call plug#end()
     let g:airline#extensions#tmuxline#enabled = 0
 
 " For autocomplete (deoplete)
-    let g:deoplete#enable_at_startup = 1
+    " let g:deoplete#enable_at_startup = 1
 
 " Tinykeymaps
     let g:tinykeymaps_default=0 

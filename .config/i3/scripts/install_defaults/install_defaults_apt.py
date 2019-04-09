@@ -50,6 +50,7 @@ apt_pkgs = [    "sudo",
                 "fonts-font-awesome",
                 "fonts-materialdesignicons-webfont"
             ]
+snap_pkgs = [ "spotify" ]
 apt_repos = [ "neovim-ppa/stable",
               "hnakamur/tmux"
 	    ]
@@ -82,12 +83,12 @@ for pkg_name in apt_pkgs:
         os.system('apt-get --fix-missing --fix-broken -q=2 --assume-yes install {}'.format(pkg_name))
         print('{:<40}'.format(pkg_name) + color.GREEN +'Installed Successfully' + color.END )
 
-"""
-        pkg.mark_install()
+for pkg_name in snap_pkgs:
+    pkg = cache[pkg_name]
+    if pkg.is_installed:
+        print('{:<40}'.format(pkg_name) + color.CYAN +'Already installed' + color.END )
+    else:
+        print(color.GREEN +'Installing {}... '.format(pkg_name) + color.END )
+        os.system('snap install {}'.format(pkg_name))
         print('{:<40}'.format(pkg_name) + color.GREEN +'Installed Successfully' + color.END )
-        try:
-            cache.commit()
-        except Exception:
-            print('Installation of {} failed '.format(pkg_name))
-"""
 print('\n')
