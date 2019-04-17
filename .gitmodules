@@ -1,0 +1,3 @@
+[submodule "manuel_ws"]
+	path = manuel_ws
+	url = https://github.com/manucalop/manuel_ws.git
