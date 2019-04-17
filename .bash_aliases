@@ -206,7 +206,7 @@ function rr_all(){
 # roscpptemplate{{{
 function roscpptemplate(){
   pkg_name="$1"
-  git clone https://manuelcloop@bitbucket.org/manuelcloop/ros_cpp_template.git
+  git clone https://github.com/manucalop/ros_cpp_template.git
   if [ -z "$1" ]
   then
     echo "No pkg_name argument supplied. Using default"
