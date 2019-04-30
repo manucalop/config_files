@@ -56,6 +56,7 @@ fi
 # Source Xresources
 xrdb -merge ~/.Xresources
 #xrdb -I$HOME ~/.Xresources
+#set -o vi
 
 # Functions {{{
 
@@ -257,6 +258,15 @@ parse_tmux_pane(){
 	if { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
   	tmux display -pt "${TMUX_PANE:?}" '(#{pane_index})'
 	fi
+}
+
+vi_mode(){
+  TEST=`bind -v | awk '/keymap/ {print $NF}'`
+  if [ "$TEST" = 'vi-insert' ]; then
+     echo -ne "\033]12;Green\007"
+  else
+     echo -ne "\033]12;Red\007"
+  fi
 }
 
 export PS1="\[\e]0;\u@\h /\w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\$ "
