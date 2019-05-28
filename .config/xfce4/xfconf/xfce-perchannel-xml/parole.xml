@@ -11,12 +11,12 @@
     <property name="font" type="string" value="Sans Bold 20"/>
   </property>
   <property name="folders" type="empty">
-    <property name="last-used-media" type="string" value="/home/manuel/manuel_ws/kdenlive"/>
+    <property name="last-used-media" type="string" value="/home/manuel/Dropbox/1_Trabajo/1_PhD/3_Projects/icra_2020/experiments/mocap_simple_avoidance/straight_avoidance"/>
   </property>
   <property name="window" type="empty">
     <property name="maximized" type="bool" value="true"/>
-    <property name="width" type="int" value="1920"/>
-    <property name="height" type="int" value="1031"/>
+    <property name="width" type="int" value="952"/>
+    <property name="height" type="int" value="1049"/>
   </property>
   <property name="audio" type="empty">
     <property name="volume" type="int" value="100"/>

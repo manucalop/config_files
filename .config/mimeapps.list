@@ -1,0 +1,16 @@
+[Added Associations]
+application/pdf=evince.desktop;kde4-okularApplication_pdf.desktop;
+text/x-matlab=nvim.desktop;
+application/x-cd-image=org.gnome.FileRoller.desktop;
+image/jpeg=display-im6.q16.desktop;ristretto.desktop;
+application/octet-stream=mousepad.desktop;
+application/zip=org.gnome.FileRoller.desktop;
+application/x-tex=nvim.desktop;
+text/x-tex=nvim.desktop;
+video/x-msvideo=vlc.desktop;
+video/mp4=vlc.desktop;
+video/mp2t=vlc.desktop;
+
+[Default Applications]
+application/pdf=kde4-okularApplication_pdf.desktop
+image/jpeg=ristretto.desktop
