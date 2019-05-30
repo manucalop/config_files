@@ -48,6 +48,7 @@ apt_pkgs = [    "sudo",
                 "pulseaudio-module-bluetooth",
 		"gnome-terminal",
                 "fonts-font-awesome",
+                "okular",
                 "fonts-materialdesignicons-webfont"
             ]
 snap_pkgs = [ "spotify" ]
