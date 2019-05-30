@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="parole" version="1.0">
+  <property name="video" type="empty">
+    <property name="videosink" type="empty"/>
+  </property>
+  <property name="parole" type="empty">
+    <property name="plugins" type="empty"/>
+  </property>
   <property name="subtitles" type="empty">
     <property name="font" type="string" value="Sans Bold 20"/>
   </property>
   <property name="folders" type="empty">
-    <property name="last-used-media" type="string" value="/media/manuel/63FB-8B26/media/files"/>
+    <property name="last-used-media" type="string" value="/home/manuel/Dropbox/1_Trabajo/1_PhD/3_Projects/icra_2020/experiments/mocap_simple_avoidance/straight_avoidance"/>
   </property>
   <property name="window" type="empty">
-    <property name="maximized" type="bool" value="false"/>
-    <property name="width" type="int" value="675"/>
-    <property name="height" type="int" value="737"/>
+    <property name="maximized" type="bool" value="true"/>
+    <property name="width" type="int" value="952"/>
+    <property name="height" type="int" value="1049"/>
   </property>
   <property name="audio" type="empty">
     <property name="volume" type="int" value="100"/>
