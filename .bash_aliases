@@ -30,7 +30,9 @@ alias phdcd='cd ~/Dropbox/1_Trabajo/1_PhD'
 alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release'
 alias catkin_build='catkin build -DCMAKE_BUILD_TYPE=Release'
 alias matlab='matlab & $() && sleep 10 && exit'
-alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.14'
+alias zotero='/opt/zotero/zotero & $() && exit'
+# alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.14'
+alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.30'
 bind '"\C-o":"ranger-cd\C-m"'
 bind '"\C-g":"git status .\C-m"'
 
@@ -39,7 +41,7 @@ if [ -f /opt/ros/kinetic/setup.bash ]; then
     source /opt/ros/kinetic/setup.bash
 fi
 
-export ROS_WS=$OBSTACLE_AVOIDANCE_WORKSPACE
+export ROS_WS=$AFI_PROJ_WORKSPACE
 
 if [ -f $ROS_WS/devel/setup.bash ]; then
     source $ROS_WS/devel/setup.bash
@@ -244,6 +246,7 @@ function latex_make(){
     bibtex $file &&
     pdflatex --shell-escape $file &&
     pdflatex --shell-escape $file 
+    rm *.aux *.bbl *.blg *.log *.out *.toc
   fi
 }
 #}}}
