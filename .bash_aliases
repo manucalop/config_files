@@ -246,7 +246,8 @@ function latex_make(){
     bibtex $file &&
     pdflatex --shell-escape $file &&
     pdflatex --shell-escape $file 
-    rm *.aux *.bbl *.blg *.log *.out *.toc
+    pdflatex --shell-escape $file 
+    rm *.aux *.bbl *.blg *.log *.out *.toc *.bcf  *.nav *.run.xml *.snm
   fi
 }
 #}}}
