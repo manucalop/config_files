@@ -3,12 +3,12 @@
 <channel name="displays" version="1.0">
   <property name="Default" type="empty">
     <property name="eDP-1" type="string" value="1. Chimei Innolux Corporation 14&quot;">
-      <property name="Active" type="bool" value="true"/>
+      <property name="Active" type="bool" value="false"/>
       <property name="Resolution" type="string" value="1366x768"/>
       <property name="RefreshRate" type="double" value="60.003141"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
-      <property name="Primary" type="bool" value="true"/>
+      <property name="Primary" type="bool" value="false"/>
       <property name="Position" type="empty">
         <property name="X" type="int" value="0"/>
         <property name="Y" type="int" value="0"/>
@@ -26,10 +26,10 @@
         <property name="Y" type="int" value="0"/>
       </property>
     </property>
-    <property name="DP-3" type="string" value="3. Dell Inc. 24&quot;">
+    <property name="DP-3" type="string" value="3. Dell Inc. 22&quot;">
       <property name="Active" type="bool" value="true"/>
-      <property name="Resolution" type="string" value="1920x1080"/>
-      <property name="RefreshRate" type="double" value="60.000000"/>
+      <property name="Resolution" type="string" value="1680x1050"/>
+      <property name="RefreshRate" type="double" value="59.954250"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
       <property name="Primary" type="bool" value="false"/>
@@ -38,13 +38,13 @@
         <property name="Y" type="int" value="0"/>
       </property>
     </property>
-    <property name="HDMI-1" type="string" value="2. AOC Intl 27&quot;">
+    <property name="HDMI-1" type="string" value="2. LG Electronics 72&quot;">
       <property name="Active" type="bool" value="true"/>
       <property name="Resolution" type="string" value="1920x1080"/>
       <property name="RefreshRate" type="double" value="60.000000"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
-      <property name="Primary" type="bool" value="true"/>
+      <property name="Primary" type="bool" value="false"/>
       <property name="Position" type="empty">
         <property name="X" type="int" value="1366"/>
         <property name="Y" type="int" value="0"/>
@@ -58,7 +58,7 @@
       <property name="Reflection" type="string" value="0"/>
       <property name="Primary" type="bool" value="true"/>
       <property name="Position" type="empty">
-        <property name="X" type="int" value="1920"/>
+        <property name="X" type="int" value="1680"/>
         <property name="Y" type="int" value="0"/>
       </property>
     </property>

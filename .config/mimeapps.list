@@ -10,6 +10,7 @@ text/x-tex=nvim.desktop;
 video/x-msvideo=vlc.desktop;
 video/mp4=vlc.desktop;
 video/mp2t=vlc.desktop;
+application/x-shellscript=nvim.desktop;
 
 [Default Applications]
 application/pdf=kde4-okularApplication_pdf.desktop
