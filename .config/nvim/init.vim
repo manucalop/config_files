@@ -28,9 +28,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'tmux-plugins/vim-tmux'
 " Mini mode creator
 Plug 'tomtom/tinykeymap_vim'
-"Plug 'terryma/vim-multiple-cursors'
 " Plug 'taketwo/vim-ros'
-"Plug 'flazz/vim-colorschemes'
 Plug 'joshdick/onedark.vim'
 " Need to check those (form mcantor) btw, tpope is our friend
 "Plug 'tpope/vim-obsession'
@@ -48,17 +46,8 @@ Plug 'tpope/vim-eunuch'
 "Plug 'sheerun/vim-polyglot'
 " Latex
 Plug 'lervag/vimtex'
-"============
 " Completion 
-"============
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-
-" " (Optional) Multi-entry selection UI.
-" Plug 'junegunn/fzf'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 "   }}}
