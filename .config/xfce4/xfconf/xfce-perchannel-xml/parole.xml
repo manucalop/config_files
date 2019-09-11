@@ -11,14 +11,14 @@
     <property name="font" type="string" value="Sans Bold 20"/>
   </property>
   <property name="folders" type="empty">
-    <property name="last-used-media" type="string" value="/home/manuel/Dropbox/1_Trabajo/1_PhD/3_Projects/jint_2018/videos"/>
+    <property name="last-used-media" type="string" value="/home/manuel/Dropbox/1_Trabajo/1_PhD/3_Projects/bounding_box_paper/experiments/double/2"/>
   </property>
   <property name="window" type="empty">
     <property name="maximized" type="bool" value="true"/>
-    <property name="width" type="int" value="952"/>
-    <property name="height" type="int" value="1049"/>
+    <property name="width" type="int" value="1912"/>
+    <property name="height" type="int" value="1030"/>
   </property>
   <property name="audio" type="empty">
-    <property name="volume" type="int" value="100"/>
+    <property name="volume" type="int" value="32"/>
   </property>
 </channel>

@@ -37,8 +37,8 @@ bind '"\C-o":"ranger-cd\C-m"'
 bind '"\C-g":"git status .\C-m"'
 
 # Source ros environment
-if [ -f /opt/ros/kinetic/setup.bash ]; then
-    source /opt/ros/kinetic/setup.bash
+if [ -f /opt/ros/melodic/setup.bash ]; then
+    source /opt/ros/melodic/setup.bash
 fi
 
 export ROS_WS=$OBSTACLE_AVOIDANCE_WORKSPACE
@@ -225,8 +225,8 @@ function roscpptemplate(){
 
 #tags_update{{{
 function tags_global_update(){
-  ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_cpp /opt/ros/kinetic/include/
-  ctags -R --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_all /opt/ros/kinetic/include/
+  ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_cpp /opt/ros/melodic/include/
+  ctags -R --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_all /opt/ros/melodic/include/
   ctags -R --fields=+iaS --extra=+q -f ~/.config/nvim/tags/usr_all_tags /usr/include/
 }
 

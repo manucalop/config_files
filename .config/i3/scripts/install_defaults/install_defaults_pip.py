@@ -17,7 +17,6 @@ print(color.BOLD + "Installing pip packages \n-----------------------" + color.E
 os.system('pip3 install --upgrade pip')
 os.system('sudo -H pip3 install --upgrade pip')
 pip3_pkgs = [   "py3status",
-                "neovim"
             ]
 for pkg_name in pip3_pkgs:
     os.system('sudo -H pip3 install {}'.format(pkg_name))

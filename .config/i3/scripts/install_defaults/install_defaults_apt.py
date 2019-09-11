@@ -49,12 +49,14 @@ apt_pkgs = [    "sudo",
 		"gnome-terminal",
                 "fonts-font-awesome",
                 "okular",
-                "fonts-materialdesignicons-webfont"
+                "fonts-materialdesignicons-webfont",
+                "breeze-icon-theme",
+                "arc-theme",
+                "texlive-full",
+                "npm"
             ]
 snap_pkgs = [ "spotify" ]
-apt_repos = [ "neovim-ppa/stable",
-              "hnakamur/tmux"
-	    ]
+apt_repos = [ "neovim-ppa/stable" ] 
 # Vimplug, py3status (pip3), icons-in-terminal, polybar, atom
 
 # Check if the user is root
@@ -84,12 +86,12 @@ for pkg_name in apt_pkgs:
         os.system('apt-get --fix-missing --fix-broken -q=2 --assume-yes install {}'.format(pkg_name))
         print('{:<40}'.format(pkg_name) + color.GREEN +'Installed Successfully' + color.END )
 
-for pkg_name in snap_pkgs:
-    pkg = cache[pkg_name]
-    if pkg.is_installed:
-        print('{:<40}'.format(pkg_name) + color.CYAN +'Already installed' + color.END )
-    else:
-        print(color.GREEN +'Installing {}... '.format(pkg_name) + color.END )
-        os.system('snap install {}'.format(pkg_name))
-        print('{:<40}'.format(pkg_name) + color.GREEN +'Installed Successfully' + color.END )
+# for pkg_name in snap_pkgs:
+#     pkg = cache[pkg_name]
+#     if pkg.is_installed:
+#         print('{:<40}'.format(pkg_name) + color.CYAN +'Already installed' + color.END )
+#     else:
+#         print(color.GREEN +'Installing {}... '.format(pkg_name) + color.END )
+#         os.system('snap install {}'.format(pkg_name))
+#         print('{:<40}'.format(pkg_name) + color.GREEN +'Installed Successfully' + color.END )
 print('\n')
