@@ -130,6 +130,7 @@ bar{
   #status_command i3status --config ~/.i3/i3status.conf
   #status_command python3 ~/.i3/i3pystatus.py
   #status_command i3pystatus -c ~/.i3/i3pystatus.py
+  # status_command i3blocks -c ~/.config/i3/i3blocks/i3blocks.conf
   status_command py3status -c ~/.config/i3/i3status.conf
   colors {
     separator  $base03
@@ -269,6 +270,7 @@ bar{
   for_window [class="(?i)virtualbox"] floating enable border normal
   for_window [class="Nitrogen"] floating enable sticky enable border normal
   for_window [class="File-roller"] floating enable border normal
+  for_window [class="Yad"] floating enable
 
 #}}}
 
@@ -411,8 +413,8 @@ bar{
 
 # Startup scripts {{{
   
+  # exec_always bash ~/.scripts/displays.bash
   exec_always bash ~/.scripts/startup_apps.bash
-  exec_always bash ~/.scripts/displays.bash
   # Configurations
 #      exec_always bash ~/.config/i3/scripts/initial_config.bash
   # Screen detection

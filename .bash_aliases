@@ -56,7 +56,7 @@ if [ -f ~/"$(whoami)"_ws/acado_ws/acado/build/acado_env.sh ]; then
 fi
 
 # Source Xresources
-xrdb -merge ~/.Xresources
+# xrdb -merge ~/.Xresources
 #xrdb -I$HOME ~/.Xresources
 #set -o vi
 

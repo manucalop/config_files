@@ -35,6 +35,8 @@ for i in "${apps[@]}"
 do
    killall -9 --wait $i
    $i &
+   # BACK_PID=$!
+   # wait $BACK_PID
 done
 
 # Keyboard Default language, pro mode
