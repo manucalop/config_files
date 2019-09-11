@@ -53,7 +53,8 @@ apt_pkgs = [    "sudo",
                 "breeze-icon-theme",
                 "arc-theme",
                 "texlive-full",
-                "npm"
+                "npm",
+                "i3blocks",
             ]
 snap_pkgs = [ "spotify" ]
 apt_repos = [ "neovim-ppa/stable" ] 
