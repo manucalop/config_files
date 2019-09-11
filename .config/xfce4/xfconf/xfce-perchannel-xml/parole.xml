@@ -11,14 +11,17 @@
     <property name="font" type="string" value="Sans Bold 20"/>
   </property>
   <property name="folders" type="empty">
-    <property name="last-used-media" type="string" value="/home/manuel/Dropbox/1_Trabajo/1_PhD/3_Projects/jint_2018/videos"/>
+    <property name="last-used-media" type="string" value="/tmp"/>
   </property>
   <property name="window" type="empty">
     <property name="maximized" type="bool" value="true"/>
-    <property name="width" type="int" value="952"/>
-    <property name="height" type="int" value="1049"/>
+    <property name="width" type="int" value="675"/>
+    <property name="height" type="int" value="737"/>
   </property>
   <property name="audio" type="empty">
-    <property name="volume" type="int" value="100"/>
+    <property name="volume" type="int" value="27"/>
+  </property>
+  <property name="playlist" type="empty">
+    <property name="show-playlist" type="bool" value="false"/>
   </property>
 </channel>
