@@ -1,16 +1,3 @@
-rofi.i: true
-rofi.lines:10
-rofi.eh: 2
-rofi.width: 25
-rofi.columns: 1
-rofi.padding: 20
-rofi.opacity: 80
-rofi.bw: 5
-rofi.bc: #1f222d
-rofi.bg: #252936
-rofi.fg: #ffffff
-rofi.hlbg: #d1d4e0
-rofi.hlfg: #1f222d
 rofi.font: Ubuntu Mono 14
 rofi.theme: sidetab-adapta.rasi
 !rofi.theme: onedark.rasi
