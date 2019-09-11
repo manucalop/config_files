@@ -1,5 +1,5 @@
 rofi.font: Ubuntu Mono 14
-rofi.theme: sidetab-adapta.rasi
+rofi.theme: sidetab-onedark.rasi
 !rofi.theme: onedark.rasi
 
 rofi.modi:     combi,window
