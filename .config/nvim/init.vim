@@ -252,8 +252,9 @@ call plug#end()
 " NERDTree
     let NERDTreeWinSize=40
 " Tags
-    " set tags+=~/.config/nvim/tags/usr_all
-    " set tags+=~/.config/nvim/tags/ros_all
+    set tags+=~/.config/nvim/tags/usr_all_tags
+    set tags+=~/.config/nvim/tags/ros_all
+    set tags+=~/manuel_ws/ros/obstacle_avoidance_ws/src/tags
 "   }}}
 
 "Auto commands{{{
