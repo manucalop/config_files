@@ -132,7 +132,7 @@ function bedtime(){
 }
 #}}}
 
-# bedtime{{{
+# mousewake{{{
 function mousewake(){
   sudo modprobe -r psmouse
   sudo modprobe psmouse
