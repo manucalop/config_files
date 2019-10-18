@@ -211,7 +211,7 @@ bar{
   set $mode_system System: (S)hutdown, (s)uspend, (r)eboot, (l)ock, (e)xit, (R)estart i3  
   mode "$mode_system"{
      bindsym Shift+s exec systemctl poweroff;                 mode "default"
-     bindsym l       exec gnome-screensaver-command --lock;   mode "default"
+     bindsym l       exec i3lock -feti ~/.config/i3/wallpaper_mountain.png;   mode "default"
      bindsym r       exec systemctl reboot;                   mode "default"
      bindsym s       exec systemctl suspend;                  mode "default"
      bindsym e       exec i3-msg exit
