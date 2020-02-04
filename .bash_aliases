@@ -31,8 +31,9 @@ alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release'
 alias catkin_build='catkin build -DCMAKE_BUILD_TYPE=Release'
 alias matlab='matlab & $() && sleep 10 && exit'
 alias zotero='/opt/zotero/zotero & $() && exit'
-alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.14'
-# alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.30'
+# alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.14'
+alias vrep='export LD_LIBRARY_PATH="." && ~/vrep/vrep'
+alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.30'
 bind '"\C-o":"ranger-cd\C-m"'
 bind '"\C-g":"git status .\C-m"'
 
@@ -247,7 +248,7 @@ function latex_make(){
     pdflatex --shell-escape $file &&
     pdflatex --shell-escape $file 
     pdflatex --shell-escape $file 
-    rm *.aux *.bbl *.blg *.log *.out *.toc *.bcf  *.nav *.run.xml *.snm
+    rm *.aux *.blg *.log *.out *.toc *.bcf  *.nav *.run.xml *.snm
   fi
 }
 #}}}

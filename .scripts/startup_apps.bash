@@ -43,5 +43,6 @@ done
 setxkbmap -layout us; mode "default"
 setxkbmap -option && setxkbmap -option ctrl:nocaps && xcape -e 'Control_L=Escape'; mode "default"
 
+sleep 5
 # Wallpaper
 feh --bg-fill ~/.config/i3/wallpaper_family.jpg
