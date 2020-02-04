@@ -127,7 +127,10 @@ call plug#end()
 
     " LaTeX snippets
     command! TexImg        :-1read $HOME/.config/nvim/snippets/latex/img.tex
+    command! TexTable      :-1read $HOME/.config/nvim/snippets/latex/table.tex
     command! TexEqn        :-1read $HOME/.config/nvim/snippets/latex/eqn.tex
+    command! TexSubEqns    :-1read $HOME/.config/nvim/snippets/latex/subeqns.tex
+    command! TexMultEqn    :-1read $HOME/.config/nvim/snippets/latex/multeqn.tex
 "   }}}
 
 "   {{{     Mode
