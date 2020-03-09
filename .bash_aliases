@@ -16,6 +16,7 @@ alias la='ls -A'
 alias ld='ls -d */'
 alias lda='ls -d */ .*/'
 alias lf='find . -maxdepth 1 -type f'
+alias da='deactivate'
 alias vim='nvim'
 alias vimcd='cd ~/.config/nvim'
 alias vimconf='vim ~/.config/nvim/init.vim'
@@ -31,9 +32,9 @@ alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release'
 alias catkin_build='catkin build -DCMAKE_BUILD_TYPE=Release'
 alias matlab='matlab & $() && sleep 10 && exit'
 alias zotero='/opt/zotero/zotero & $() && exit'
-# alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.14'
+alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.14'
+# alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.30'
 alias vrep='export LD_LIBRARY_PATH="." && ~/vrep/vrep'
-alias robosource='source $OBSTACLE_AVOIDANCE_PROJECT/setup.bash 192.168.30.30'
 bind '"\C-o":"ranger-cd\C-m"'
 bind '"\C-g":"git status .\C-m"'
 
@@ -62,6 +63,7 @@ fi
 #set -o vi
 
 # Functions {{{
+
 
 # xdg open {{{
 function dop(){
@@ -249,6 +251,19 @@ function latex_make(){
     pdflatex --shell-escape $file 
     pdflatex --shell-escape $file 
     rm *.aux *.blg *.log *.out *.toc *.bcf  *.nav *.run.xml *.snm
+  fi
+}
+#}}}
+
+# venv {{{
+function venv(){
+  env="$1"
+  if [ -z "$1" ]
+  then
+    echo "No environment selected these are available:"
+    ls ~/.venv/
+  else
+  source ~/.venv/$env/bin/activate
   fi
 }
 #}}}

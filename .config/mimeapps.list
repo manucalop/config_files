@@ -1,5 +1,5 @@
 [Added Associations]
-application/pdf=okularApplication_pdf.desktop;evince.desktop;kde4-okularApplication_pdf.desktop;
+application/pdf=okularApplication_pdf.desktop;mendeleydesktop.desktop;evince.desktop;kde4-okularApplication_pdf.desktop;
 text/x-matlab=nvim.desktop;
 application/x-cd-image=org.gnome.FileRoller.desktop;
 image/jpeg=ristretto.desktop;display-im6.q16.desktop;
@@ -15,6 +15,8 @@ application/x-compressed-tar=org.gnome.FileRoller.desktop;
 text/html=firefox.desktop;
 video/quicktime=vlc.desktop;
 video/x-matroska=org.xfce.Parole.desktop;
+application/vnd.ms-powerpoint=libreoffice-startcenter.desktop;
+text/x-bibtex=nvim.desktop;
 
 [Default Applications]
 application/pdf=kde4-okularApplication_pdf.desktop
