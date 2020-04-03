@@ -10,7 +10,6 @@ export DEBFULLNAME="Manuel Castillo Lopez"
 export DEBEMAIL="manucalop@gmail.com"
 export PYTHONPATH=$PYTHONPATH:~/workspace/casadi-linux-py35-47c5d06
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-alias update='sudo apt -y update; sudo apt -y upgrade; sudo apt -y dist-upgrade; sudo apt -y autoremove'
 alias ls='ls -1q --classify --group-directories-first --color=auto'
 alias la='ls -A'
 alias ld='ls -d */'
@@ -28,7 +27,7 @@ alias urconf='vim ~/.Xresources.d/urxvt'
 alias mpccd='roscd drone_mpc_controller && cd ../..'
 alias gioscd='roscd gios && cd ..'
 alias phdcd='cd ~/Dropbox/1_Trabajo/1_PhD'
-alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release'
+# alias catkin_make='catkin_make -DCMAKE_BUILD_TYPE=Release'
 alias catkin_build='catkin build -DCMAKE_BUILD_TYPE=Release'
 alias matlab='matlab & $() && sleep 10 && exit'
 alias zotero='/opt/zotero/zotero & $() && exit'
@@ -43,7 +42,7 @@ if [ -f /opt/ros/melodic/setup.bash ]; then
     source /opt/ros/melodic/setup.bash
 fi
 
-export ROS_WS=$OBSTACLE_AVOIDANCE_WORKSPACE
+export ROS_WS=/home/manuel/manuel_ws/ros/catkin_ws
 
 if [ -f $ROS_WS/devel/setup.bash ]; then
     source $ROS_WS/devel/setup.bash
@@ -64,6 +63,15 @@ fi
 
 # Functions {{{
 
+# update {{{
+function update(){
+  sudo apt -y update
+  sudo apt -y upgrade
+  sudo apt -y dist-upgrade
+  sudo apt -y autoremove
+  sudo snap refresh
+}
+#}}}
 
 # xdg open {{{
 function dop(){
@@ -290,5 +298,6 @@ vi_mode(){
 }
 
 export PS1="\[\e]0;\u@\h /\w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\$ "
+
 #}}}
 
