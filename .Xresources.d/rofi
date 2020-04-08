@@ -1,3 +1,4 @@
+rofi.dpi:220
 rofi.i: true
 rofi.lines:10
 rofi.eh: 2
