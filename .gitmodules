@@ -16,3 +16,6 @@
 [submodule ".local/templates/ros/ros_cpp_template"]
 	path = .local/templates/ros/ros_cpp_template
 	url = git@github.com:manucalop/ros_cpp_template.git
+[submodule ".local/lib/acado"]
+	path = .local/lib/acado
+	url = git@github.com:acado/acado.git

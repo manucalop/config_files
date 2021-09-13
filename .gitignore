@@ -16,6 +16,10 @@
 .config/update-notifier/*
 .config/user-dirs.dirs
 .config/user-dirs.locale
+.config/kactivitymanagerdrc
+.config/kglobalshortcutsrc
+.config/okularrc
+.config/session/
 .dbus/*
 .dropbox-dist/*
 .dropbox/
@@ -40,6 +44,8 @@
 .local/share/recently-used.xbel
 .local/share/session_migration-ubuntu
 .local/share/tracker/
+.local/share/kactivitymanagerd/
+.local/share/okular/
 .mozilla/
 .pki/
 .selected_editor
