@@ -13,3 +13,6 @@
 [submodule ".local/snippets"]
 	path = .local/snippets
 	url = git@github.com:manucalop/snippets.git
+[submodule ".local/templates/ros/ros_cpp_template"]
+	path = .local/templates/ros/ros_cpp_template
+	url = git@github.com:manucalop/ros_cpp_template.git
