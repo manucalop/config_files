@@ -22,7 +22,7 @@
 .fonts/.uuid
 .gnupg/*
 .lesshst
-.local/lib/
+.local/lib/python3.8/site-packages/
 .local/share/Trash/
 .local/share/applications/
 .local/share/evolution/

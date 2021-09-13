@@ -10,3 +10,6 @@
 [submodule ".local/lib/matlab/sci_plots_lib"]
 	path = .local/lib/matlab/sci_plots_lib
 	url = git@github.com:manucalop/sci_plots_lib.git
+[submodule ".local/snippets"]
+	path = .local/snippets
+	url = git@github.com:manucalop/snippets.git
