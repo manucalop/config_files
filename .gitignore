@@ -20,6 +20,10 @@
 .config/kglobalshortcutsrc
 .config/okularrc
 .config/session/
+.config/eog/
+.config/gtk-2.0/
+.config/inkscape/
+.config/okularpartrc
 .dbus/*
 .dropbox-dist/*
 .dropbox/
@@ -46,6 +50,7 @@
 .local/share/tracker/
 .local/share/kactivitymanagerd/
 .local/share/okular/
+.local/share/RecentDocuments/
 .mozilla/
 .pki/
 .selected_editor
