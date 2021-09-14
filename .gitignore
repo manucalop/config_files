@@ -25,6 +25,10 @@
 .config/gtk-2.0/
 .config/inkscape/
 .config/okularpartrc
+.config/coc/
+.config/configstore/
+.config/neofetch/
+.npm/
 .dbus/*
 .dropbox-dist/*
 .dropbox/

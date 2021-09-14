@@ -29,7 +29,7 @@ Plug 'tomtom/tinykeymap_vim'
 Plug 'joshdick/onedark.vim'
 " Need to check those (form mcantor) btw, tpope is our friend
 "Plug 'tpope/vim-obsession'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 " Plug 'craigemery/vim-autotag'
 " Plug 'ludovicchabant/vim-gutentags'
 "" Automatic tab adjust
@@ -179,7 +179,6 @@ call plug#end()
     let g:onedark_terminal_italics=1
     
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
     set termguicolors
 
 "    syntax on
@@ -196,8 +195,9 @@ call plug#end()
     " Splits
     set splitright
 " Tab formatting
-    set tabstop=2 shiftwidth=2 softtabstop=2
+    set tabstop=4 shiftwidth=4 softtabstop=0
     set expandtab
+    set smarttab
 " use :retab to convert tabs into spaces
 " Start with everything folded
 " "zo" to open folds, "zc" to close, "za" to toggle "zn" to disable.
@@ -258,14 +258,12 @@ call plug#end()
     "
 " coc.nvim {{{
     let g:coc_global_extensions = [
-      \ 'coc-snippets',
       \ 'coc-pairs',
       \ 'coc-json', 
       \ 'coc-yank',
       \ 'coc-xml',
       \ 'coc-vimtex',
       \ 'coc-vimlsp',
-      \ 'coc-template',
       \ 'coc-tag',
       \ 'coc-syntax',
       \ 'coc-git',

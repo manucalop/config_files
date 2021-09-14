@@ -1,18 +1,9 @@
 [submodule ".Xresources.d/urxvt-perls"]
 	path = .Xresources.d/urxvt-perls
 	url = https://github.com/muennich/urxvt-perls.git
-[submodule ".local/lib/matlab/attitude_lib"]
-	path = .local/lib/matlab/attitude_lib
-	url = git@github.com:manucalop/attitude_lib.git
-[submodule ".local/lib/matlab/sci_plots_lib"]
-	path = .local/lib/matlab/sci_plots_lib
-	url = git@github.com:manucalop/sci_plots_lib.git
 [submodule ".local/snippets"]
 	path = .local/snippets
 	url = git@github.com:manucalop/snippets.git
 [submodule ".local/templates/ros/ros_cpp_template"]
 	path = .local/templates/ros/ros_cpp_template
 	url = git@github.com:manucalop/ros_cpp_template.git
-[submodule ".local/lib/acado"]
-	path = .local/lib/acado
-	url = git@github.com:acado/acado.git
