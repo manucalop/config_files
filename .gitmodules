@@ -1,9 +1,6 @@
 [submodule ".Xresources.d/urxvt-perls"]
 	path = .Xresources.d/urxvt-perls
 	url = https://github.com/muennich/urxvt-perls.git
-[submodule ".scripts/i3bar/i3blocks-contrib"]
-	path = .scripts/i3bar/i3blocks-contrib
-	url = https://github.com/vivien/i3blocks-contrib.git
 [submodule ".local/lib/matlab/attitude_lib"]
 	path = .local/lib/matlab/attitude_lib
 	url = git@github.com:manucalop/attitude_lib.git
