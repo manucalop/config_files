@@ -21,7 +21,7 @@ text/x-bibtex=nvim.desktop;
 [Default Applications]
 application/pdf=kde4-okularApplication_pdf.desktop
 image/jpeg=ristretto.desktop
-x-scheme-handler/mailto=thunderbird.desktop
+x-scheme-handler/mailto=google-chrome.desktop
 text/html=google-chrome.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
