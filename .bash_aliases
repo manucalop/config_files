@@ -305,8 +305,8 @@ custom_terminal_prompt
 
 # ROS{{{
 # export ROS_WS=""
-# export ROS_DISTRO=""
-# source "/opt/ros/${ROS_DISTRO}/setup.bash"
+export ROS_DISTRO="noetic"
+source "/opt/ros/${ROS_DISTRO}/setup.bash"
 # source $ROS_WS/devel/setup.bash
 #}}}
 
