@@ -1,0 +1,54 @@
+# Regolith config file
+
+# Mod Keys {{{
+# Alt key
+i3-wm.mod: Mod1
+# Windows key
+i3-wm.alt: Mod4
+#}}}
+
+# Mouse {{{
+i3-wm.gaps.focus_follows_mouse: no
+#}}}
+
+# Bar {{{
+i3-wm.bar.position: top
+#}}}
+
+# Windows {{{
+/* i3-wm.window.border.size: 4 */
+i3-wm.gaps.inner.size: 12
+i3-wm.gaps.outer.size: 0
+#}}}
+
+# Workspaces {{{
+i3-wm.workspace.auto_back_and_forth: yes
+#}}}
+
+# Key bindings {{{
+
+# Windows{{{
+i3-wm.binding.exit_app:q
+i3-wm.binding.kill_app:Shift+q
+i3-wm.binding.split_v:b
+i3-wm.binding.split_h:v
+
+# TODO: change container layout (stacked, tabbed, toggle split)
+#  bindsym $mod+s layout stacking
+#  bindsym $mod+t layout tabbed
+#  bindsym $mod+e layout toggle split
+# }}}
+
+# Workspaces{{{
+i3-wm.binding.ws_next:n
+i3-wm.binding.ws_prev:p
+# }}}
+i3-wm.binding.notification_ui: Mod4+foo
+i3-wm.binding.file_search: Mod4
+i3-wm.binding.ws_next2: Mod4+Right
+i3-wm.binding.ws_prev2: Mod4+Left
+i3-wm.binding.take_next_free: Mod4+grave
+i3-wm.binding.look_selector: Mod4+l
+i3-wm.binding.bluetooth: Mod4+foo2
+#}}
+
