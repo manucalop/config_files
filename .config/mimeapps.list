@@ -1,5 +1,5 @@
 [Added Associations]
-application/pdf=okularApplication_pdf.desktop;mendeleydesktop.desktop;evince.desktop;kde4-okularApplication_pdf.desktop;
+application/pdf=okularApplication_pdf.desktop;google-chrome.desktop;mendeleydesktop.desktop;evince.desktop;kde4-okularApplication_pdf.desktop;
 text/x-matlab=nvim.desktop;
 application/x-cd-image=org.gnome.FileRoller.desktop;
 image/jpeg=ristretto.desktop;display-im6.q16.desktop;

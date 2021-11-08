@@ -189,7 +189,7 @@ function rr_all(){
 # roscpptemplate{{{
 function roscpptemplate(){
   pkg_name="$1"
-  git clone https://github.com/manucalop/ros_cpp_template.git
+  git clone git@github.com:manucalop/ros_cpp_template.git
   if [ -z "$1" ]
   then
     echo "No pkg_name argument supplied. Using default"
@@ -304,10 +304,10 @@ keypro us
 custom_terminal_prompt
 
 # ROS{{{
-# export ROS_WS=""
 export ROS_DISTRO="noetic"
+export ROS_WS="${HOME}/catkin_ws"
 source "/opt/ros/${ROS_DISTRO}/setup.bash"
-# source $ROS_WS/devel/setup.bash
+source $ROS_WS/devel/setup.bash
 #}}}
 
 # ACADO {{{
