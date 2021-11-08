@@ -16,23 +16,7 @@ bind '"\C-o":"ranger-cd\C-m"'
 bind '"\C-g":"git status .\C-m"'
 #}}}
 
-# Automations {{{
-
-# update {{{
-function update(){
-  sudo apt -y update
-  sudo apt -y upgrade
-  sudo apt -y dist-upgrade
-  sudo apt -y autoremove
-  sudo snap refresh
-}
-#}}}
-
-# xdg open {{{
-function dop(){
-  xdg-open "$1" &
-}
-#}}}
+# Functions {{{
 
 # findcd{{{ 
 function findcd(){
@@ -46,34 +30,6 @@ function findcd(){
 }
 #}}}
 
-# keypro{{{ 
-function keypro(){
-  lang="$1"
-  if [ -z "$1" ]
-  then
-    echo "No language selected. Provide it as argument (es/us)."
-  else
-    setxkbmap -layout $lang
-    setxkbmap -option && setxkbmap -option ctrl:nocaps && xcape -e 'Control_L=Escape'
-    gsettings set org.gnome.settings-daemon.plugins.keyboard active false
-  fi
-}
-#}}}
-
-# keynormal{{{ 
-function keynormal(){
-  lang="$1"
-  if [ -z "$1" ]
-  then
-    echo "No language selected. Provide it as argument (es/us)."
-  else
-    setxkbmap -layout $lang
-    setxkbmap -option 
-    gsettings set org.gnome.settings-daemon.plugins.keyboard active false
-  fi
-}
-#}}}
-
 # ranger-cd{{{
 function ranger-cd(){
     tempfile="$(mktemp)"
@@ -83,184 +39,6 @@ function ranger-cd(){
         cd -- "$(cat "$tempfile")"
     fi
     rm -f -- "$tempfile"
-}
-#}}}
-
-# undetach{{{
-function undetach(){ 
-  branch="$1"
-  if [ -z "$1" ]
-  then
-    echo "No branch selected. Provide it as argument."
-  else
-    git checkout -b temp 
-    git checkout -B $branch temp 
-    git branch -d temp  
-  fi
-} 
-#}}}
-
-# bedtime{{{
-function bedtime(){
-  t=$1
-  if [ -z "$t" ]
-  then
-    echo "No time selected. Provide it as argument."
-  else
-    sleep $((60*60*t)) && poweroff
-  fi
-}
-#}}}
-
-# mousewake{{{
-function mousewake(){
-  sudo modprobe -r psmouse
-  sudo modprobe psmouse
-}
-#}}}
-
-# rr_dirs{{{
-function rr_dirs(){
-  path="$1"
-  find_string="$2"
-  replace_string="$3"
-  if [ -z "$3" ]
-  then
-    echo "Need three arguments: use find_replace path find_string replace_string"
-  else
-    cd $path
-    find . -type d -name "*$find_string*" -exec rename s/$find_string/$replace_string/ '{}' +
-    wait
-    cd - > /dev/null
-  fi
-}
-#}}}
-
-# rr_text{{{
-function rr_text(){
-  path="$1"
-  find_string="$2"
-  replace_string="$3"
-  if [ -z "$3" ]
-  then
-    echo "Need three arguments: use find_replace path find_string replace_string"
-  else
-    cd $path
-    find . -type f -name "*.*" -exec sed -i -e "s/$find_string/$replace_string/g" '{}' \;
-    wait
-    cd - > /dev/null
-  fi
-}
-#}}}
-
-# rr_files{{{
-function rr_files(){
-  path="$1"
-  find_string="$2"
-  replace_string="$3"
-  if [ -z "$3" ]
-  then
-    echo "Need three arguments: use find_replace path find_string replace_string"
-  else
-    cd $path
-    find . -type f -name "*$find_string*" -exec rename s/$find_string/$replace_string/ '{}' +
-    wait
-    cd - > /dev/null
-  fi
-}
-#}}}
-
-# rr_all{{{
-function rr_all(){
-  path="$1"
-  find_string="$2"
-  replace_string="$3"
-  if [ -z "$3" ]
-  then
-    echo "Need three arguments: use find_replace path find_string replace_string"
-  else
-    rr_text $path $find_string $replace_string
-    rr_dirs $path $find_string $replace_string
-    rr_files $path $find_string $replace_string
-  fi
-}
-#}}}
-
-# roscpptemplate{{{
-function roscpptemplate(){
-  pkg_name="$1"
-  git clone git@github.com:manucalop/ros_cpp_template.git
-  if [ -z "$1" ]
-  then
-    echo "No pkg_name argument supplied. Using default"
-  else
-    echo "Creating $pkg_name package..."
-    rm -rf ros_cpp_template/.git
-    rm ros_cpp_template/README.md
-    rr_all ros_cpp_template/ ros_cpp_template $pkg_name
-    mv ros_cpp_template "$pkg_name"
-  fi
-}
-#}}}
-
-#tags_update{{{
-function tags_global_update(){
-  ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_cpp /opt/ros/melodic/include/
-  ctags -R --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_all /opt/ros/melodic/include/
-  ctags -R --fields=+iaS --extra=+q -f ~/.config/nvim/tags/usr_all_tags /usr/include/
-}
-
-function tags_local_update(){
-  ctags -R --fields=+iaS --extra=+q .
-}
-#}}}
-
-#latex_make {{{
-function latex_make(){
-  file="$1"
-  if [ -z "$1" ]
-  then
-    echo "No file selected"
-  else
-    pdflatex --shell-escape $file &&
-    bibtex $file &&
-    pdflatex --shell-escape $file &&
-    rm *.aux *.blg *.log *.out *.toc *.bcf  *.nav *.run.xml *.snm
-  fi
-}
-#}}}
-
-# venv {{{
-function venv(){
-  env="$1"
-  if [ -z "$1" ]
-  then
-    echo "No environment selected these are available:"
-    ls ~/.venv/
-  else
-  source ~/.venv/$env/bin/activate
-  fi
-}
-#}}}
-
-# spotify{{{
-function spotify(){
-  exec spotify --force-device-scale-factor=2 %U &
-  exit
-}
-#}}}
-
-# lfs_mkdir{{{
-function lfs_mkdir(){
-  main_path="$HOME/main_ws"
-  target_path="$(pwd)"
-  main2target_path="$(realpath --relative-to=$main_path $target_path)"
-  echo "$main_path"
-  echo "$target_path"
-  echo "$main2target_path"
-  cd "$main_path"
-  ./setup_large_files.bash "$main2target_path"
-  cd "$target_path"
 }
 #}}}
 
@@ -295,9 +73,17 @@ function custom_terminal_prompt(){
 }
 #}}}
 
+# workcd{{{
+function workcd(){
+    cd $HOME/main_ws/work
+}
+#}}}
+
+
 #}}}
 
 # Configs {{{
+
 export MAIN_WS="${HOME}/main_ws"
 export EDITOR='nvim'
 keypro us 
@@ -307,7 +93,7 @@ custom_terminal_prompt
 export ROS_DISTRO="noetic"
 export ROS_WS="${HOME}/catkin_ws"
 source "/opt/ros/${ROS_DISTRO}/setup.bash"
-source $ROS_WS/devel/setup.bash
+# source $ROS_WS/devel/setup.bash
 #}}}
 
 # ACADO {{{
@@ -320,6 +106,232 @@ source $ROS_WS/devel/setup.bash
 
 # YARN {{{
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+#}}}
+
+#}}}
+
+##### DEPRECATED ######{{{
+
+# update {{{
+# function update(){
+#   sudo apt -y update
+#   sudo apt -y upgrade
+#   sudo apt -y dist-upgrade
+#   sudo apt -y autoremove
+#   sudo snap refresh
+# }
+#}}}
+
+# xdg open {{{
+# function dop(){
+#   xdg-open "$1" &
+# }
+#}}}
+
+# keypro{{{ 
+# function keypro(){
+#   lang="$1"
+#   if [ -z "$1" ]
+#   then
+#     echo "No language selected. Provide it as argument (es/us)."
+#   else
+#     setxkbmap -layout $lang
+#     setxkbmap -option && setxkbmap -option ctrl:nocaps && xcape -e 'Control_L=Escape'
+#     gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+#   fi
+# }
+#}}}
+
+# keynormal{{{ 
+# function keynormal(){
+#   lang="$1"
+#   if [ -z "$1" ]
+#   then
+#     echo "No language selected. Provide it as argument (es/us)."
+#   else
+#     setxkbmap -layout $lang
+#     setxkbmap -option 
+#     gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+#   fi
+# }
+#}}}
+
+# undetach{{{
+# function undetach(){ 
+#   branch="$1"
+#   if [ -z "$1" ]
+#   then
+#     echo "No branch selected. Provide it as argument."
+#   else
+#     git checkout -b temp 
+#     git checkout -B $branch temp 
+#     git branch -d temp  
+#   fi
+# } 
+#}}}
+
+# bedtime{{{
+# function bedtime(){
+#   t=$1
+#   if [ -z "$t" ]
+#   then
+#     echo "No time selected. Provide it as argument."
+#   else
+#     sleep $((60*60*t)) && poweroff
+#   fi
+# }
+#}}}
+
+# mousewake{{{
+# function mousewake(){
+#   sudo modprobe -r psmouse
+#   sudo modprobe psmouse
+# }
+#}}}
+
+# rr_dirs{{{
+# function rr_dirs(){
+#   path="$1"
+#   find_string="$2"
+#   replace_string="$3"
+#   if [ -z "$3" ]
+#   then
+#     echo "Need three arguments: use find_replace path find_string replace_string"
+#   else
+#     cd $path
+#     find . -type d -name "*$find_string*" -exec rename s/$find_string/$replace_string/ '{}' +
+#     wait
+#     cd - > /dev/null
+#   fi
+# }
+#}}}
+
+# rr_text{{{
+# function rr_text(){
+#   path="$1"
+#   find_string="$2"
+#   replace_string="$3"
+#   if [ -z "$3" ]
+#   then
+#     echo "Need three arguments: use find_replace path find_string replace_string"
+#   else
+#     cd $path
+#     find . -type f -name "*.*" -exec sed -i -e "s/$find_string/$replace_string/g" '{}' \;
+#     wait
+#     cd - > /dev/null
+#   fi
+# }
+#}}}
+
+# rr_files{{{
+# function rr_files(){
+#   path="$1"
+#   find_string="$2"
+#   replace_string="$3"
+#   if [ -z "$3" ]
+#   then
+#     echo "Need three arguments: use find_replace path find_string replace_string"
+#   else
+#     cd $path
+#     find . -type f -name "*$find_string*" -exec rename s/$find_string/$replace_string/ '{}' +
+#     wait
+#     cd - > /dev/null
+#   fi
+# }
+#}}}
+
+# rr_all{{{
+# function rr_all(){
+#   path="$1"
+#   find_string="$2"
+#   replace_string="$3"
+#   if [ -z "$3" ]
+#   then
+#     echo "Need three arguments: use find_replace path find_string replace_string"
+#   else
+#     rr_text $path $find_string $replace_string
+#     rr_dirs $path $find_string $replace_string
+#     rr_files $path $find_string $replace_string
+#   fi
+# }
+#}}}
+
+# roscpptemplate{{{
+# function roscpptemplate(){
+#   pkg_name="$1"
+#   git clone git@github.com:manucalop/ros_cpp_template.git
+#   if [ -z "$1" ]
+#   then
+#     echo "No pkg_name argument supplied. Using default"
+#   else
+#     echo "Creating $pkg_name package..."
+#     rm -rf ros_cpp_template/.git
+#     rm ros_cpp_template/README.md
+#     rr_all ros_cpp_template/ ros_cpp_template $pkg_name
+#     mv ros_cpp_template "$pkg_name"
+#   fi
+# }
+#}}}
+
+#tags_update{{{
+# function tags_global_update(){
+#   ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_cpp /opt/ros/melodic/include/
+#   ctags -R --fields=+iaS --extra=+q -f ~/.config/nvim/tags/ros_all /opt/ros/melodic/include/
+#   ctags -R --fields=+iaS --extra=+q -f ~/.config/nvim/tags/usr_all_tags /usr/include/
+# }
+
+# function tags_local_update(){
+#   ctags -R --fields=+iaS --extra=+q .
+# }
+#}}}
+
+#latex_make {{{
+# function latex_make(){
+#   file="$1"
+#   if [ -z "$1" ]
+#   then
+#     echo "No file selected"
+#   else
+#     pdflatex --shell-escape $file &&
+#     bibtex $file &&
+#     pdflatex --shell-escape $file &&
+#     rm *.aux *.blg *.log *.out *.toc *.bcf  *.nav *.run.xml *.snm
+#   fi
+# }
+#}}}
+
+# venv {{{
+# function venv(){
+#   env="$1"
+#   if [ -z "$1" ]
+#   then
+#     echo "No environment selected these are available:"
+#     ls ~/.venv/
+#   else
+#   source ~/.venv/$env/bin/activate
+#   fi
+# }
+#}}}
+
+# spotify{{{
+# function spotify(){
+#   exec spotify --force-device-scale-factor=2 %U &
+#   exit
+# }
+#}}}
+
+# lfs_mkdir{{{
+# function lfs_mkdir(){
+#   main_path="$HOME/main_ws"
+#   target_path="$(pwd)"
+#   main2target_path="$(realpath --relative-to=$main_path $target_path)"
+#   echo "$main_path"
+#   echo "$target_path"
+#   echo "$main2target_path"
+#   cd "$main_path"
+#   ./setup_large_files.bash "$main2target_path"
+#   cd "$target_path"
+# }
 #}}}
 
 #}}}

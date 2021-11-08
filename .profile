@@ -16,10 +16,22 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.tools/bin:$PATH"
+fi
 
 # Quit the mouse stick (dell computer)
-if xinput --list | grep -q "AlpsPS/2 ALPS DualPoint Stick"; then
-    xinput disable "AlpsPS/2 ALPS DualPoint Stick"
-fi
+# if xinput --list | grep -q "AlpsPS/2 ALPS DualPoint Stick"; then
+#     xinput disable "AlpsPS/2 ALPS DualPoint Stick"
+# fi
