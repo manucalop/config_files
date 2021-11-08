@@ -414,7 +414,7 @@ bar{
 # Startup scripts {{{
   
   # exec_always bash ~/.scripts/displays.bash
-  exec_always bash ~/.scripts/startup_apps.bash
+  exec_always bash ~/.tools/i3/startup_apps.bash
   # Configurations
 #      exec_always bash ~/.config/i3/scripts/initial_config.bash
   # Screen detection
