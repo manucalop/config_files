@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+file="$1"
+if [ -z "$1" ]
+then
+  echo "No file name provided. Provide it as argument."
+else
+    file="${file}.py"
+    touch $file
+    echo "#!/usr/bin/python3" > $file
+    chmod +x $file
+fi

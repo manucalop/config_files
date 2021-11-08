@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+t=$1
+if [ -z "$t" ]
+then
+  echo "No time selected. Provide it as argument in hours."
+else
+  sleep $((60*60*t)) && poweroff
+fi

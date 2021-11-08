@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+branch="$1"
+if [ -z "$1" ]
+then
+  echo "No branch selected. Provide it as argument."
+else
+  git checkout -b temp 
+  git checkout -B $branch temp 
+  git branch -d temp  
+fi

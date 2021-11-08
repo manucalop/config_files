@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+lang="$1"
+if [ -z "$1" ]
+then
+  echo "No language selected. Provide it as argument (es/us)."
+else
+  setxkbmap -layout $lang
+  setxkbmap -option 
+  gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+fi

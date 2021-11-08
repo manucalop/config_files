@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+path="$1"
+find_string="$2"
+replace_string="$3"
+if [ -z "$3" ]
+then
+  echo "Need three arguments: use find_replace path find_string replace_string"
+else
+  cd $path
+  find . -type f -name "*.*" -exec sed -i -e "s/$find_string/$replace_string/g" '{}' \;
+  wait
+  cd - > /dev/null
+fi

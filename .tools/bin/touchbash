@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+file="$1"
+if [ -z "$1" ]
+then
+  echo "No file name provided. Provide it as argument."
+else
+    # file="${file}.bash"
+    touch $file
+    echo "#!/usr/bin/env bash" > $file
+    chmod +x $file
+fi

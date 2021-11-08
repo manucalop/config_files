@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+path="$1"
+find_string="$2"
+replace_string="$3"
+if [ -z "$3" ]
+then
+  echo "Need three arguments: use find_replace path find_string replace_string"
+else
+  rr_text $path $find_string $replace_string
+  rr_dirs $path $find_string $replace_string
+  rr_files $path $find_string $replace_string
+fi
