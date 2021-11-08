@@ -32,23 +32,27 @@ i3-wm.binding.exit_app:q
 i3-wm.binding.kill_app:Shift+q
 i3-wm.binding.split_v:b
 i3-wm.binding.split_h:v
-
-# TODO: change container layout (stacked, tabbed, toggle split)
-#  bindsym $mod+s layout stacking
-#  bindsym $mod+t layout tabbed
-#  bindsym $mod+e layout toggle split
 # }}}
 
 # Workspaces{{{
 i3-wm.binding.ws_next:n
 i3-wm.binding.ws_prev:p
 # }}}
-i3-wm.binding.notification_ui: Mod4+foo
-i3-wm.binding.file_search: Mod4
-i3-wm.binding.ws_next2: Mod4+Right
-i3-wm.binding.ws_prev2: Mod4+Left
-i3-wm.binding.take_next_free: Mod4+grave
-i3-wm.binding.look_selector: Mod4+l
-i3-wm.binding.bluetooth: Mod4+foo2
+
 #}}
+
+# TODO: change container layout (stacked, tabbed, toggle split)
+#  bindsym $mod+s layout stacking
+#  bindsym $mod+t layout tabbed
+#  bindsym $mod+e layout toggle split
+i3-wm.binding.notification_ui: i
+i3-wm.binding.file_search: f
+
+i3-wm.binding.bluetooth: Mod4+foo2
+i3-wm.binding.bar_toggle:Mod4+foo3
+i3-wm.binding.fullscreen_toggle:Mod4_foo4
+i3-wm.binding.ws_next2: Mod4+foo5
+i3-wm.binding.ws_prev2: Mod4+foo6
+i3-wm.binding.take_next_free: Mod4+foo7
+i3-wm.binding.look_selector: Mod1+Shift+foo8
 
