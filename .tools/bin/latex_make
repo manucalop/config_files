@@ -7,5 +7,6 @@ else
   pdflatex --shell-escape $file &&
   bibtex $file &&
   pdflatex --shell-escape $file &&
-  rm *.aux *.blg *.log *.out *.toc *.bcf  *.nav *.run.xml *.snm
+  bibtex $file
+  rm *.bbl *.aux *.blg *.log *.out *.toc *.bcf *.nav *.run.xml *.snm
 fi
