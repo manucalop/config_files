@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+name="$1"
+if [ -z "$1" ]
+then
+  echo "No name selected. provide it as argument"
+else
+  echo "Creating $name LaTex project..."
+  git clone git@github.com:manucalop/latex_report_template.git
+  rm -rf latex_report_template/.git
+  mv latex_report_template "$name"
+  echo "$name LaTex project created!"
+fi
