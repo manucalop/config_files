@@ -9,7 +9,6 @@ alias vim='nvim'
 alias vimcd='cd ~/.config/nvim'
 alias vimconf='vim ~/.config/nvim/init.vim'
 alias bashconf="vim ~/.bash_aliases"
-alias bashfunc="vim ${MAIN_WS}/system/shell_scripts/utils/bash_functions.bash"
 alias bashsource='source ~/.bashrc'
 alias matlab='matlab & $() && sleep 10 && exit'
 bind '"\C-o":"ranger-cd\C-m"'
@@ -79,6 +78,11 @@ function workcd(){
 }
 #}}}
 
+# mpccd{{{
+function mpccd(){
+    cd $HOME/main_ws/work/empotech/mpc_project
+}
+#}}}
 
 #}}}
 
@@ -90,7 +94,16 @@ keypro us
 custom_terminal_prompt
 
 # ROS{{{
-export ROS_DISTRO="noetic"
+# export ROS_DISTRO="noetic"
+# export ROS_WS="${HOME}/catkin_ws"
+# source "/opt/ros/${ROS_DISTRO}/setup.bash"
+# source $ROS_WS/devel/setup.bash
+#}}}
+
+# ROS2 {{{
+export ROS_DISTRO="galactic"
+export ROS_DOMAIN_ID=0
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 export ROS_WS="${HOME}/catkin_ws"
 source "/opt/ros/${ROS_DISTRO}/setup.bash"
 # source $ROS_WS/devel/setup.bash
@@ -98,6 +111,12 @@ source "/opt/ros/${ROS_DISTRO}/setup.bash"
 
 # ACADO {{{
 # source "${HOME}/manuel_ws/acado_ws/acado/build/acado_env.sh"
+#}}}
+
+# ACADOS {{{
+export ACADOS_ROOT="${HOME}/main_ws/third_party/acados"
+export ACADOS_SOURCE_DIR="${ACADOS_ROOT}"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"${ACADOS_ROOT}/lib"
 #}}}
 
 # CASADI {{{
