@@ -27,7 +27,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.tools/bin" ] ; then
     PATH="$HOME/.tools/bin:$PATH"
 fi
 
