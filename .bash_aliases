@@ -87,7 +87,8 @@ function mpccd(){
 #}}}
 
 # Configs {{{
-
+export DEBFULLNAME="Manuel Castillo-Lopez"
+export DEBEMAIL="manucalop@gmail.com"
 export MAIN_WS="${HOME}/main_ws"
 export EDITOR='nvim'
 keypro us 
@@ -96,9 +97,14 @@ custom_terminal_prompt
 # ROS{{{
 export ROS_DISTRO="noetic"
 export ROS_WS="${HOME}/temp_ws/catkin_ws"
-source "/opt/ros/${ROS_DISTRO}/setup.bash"
-source $ROS_WS/devel/setup.bash
-export FLIGHTMARE_PATH="${ROS_WS}/src/flightmare"
+if [ -f "/opt/ros/${ROS_DISTRO}/setup.bash" ]; then
+    source "/opt/ros/${ROS_DISTRO}/setup.bash"
+fi
+if [ -f "$ROS_WS/devel/setup.bash" ]; then
+    source $ROS_WS/devel/setup.bash
+fi
+
+# export FLIGHTMARE_PATH="${ROS_WS}/src/flightmare"
 #}}}
 
 # ROS2 {{{
