@@ -32,6 +32,7 @@ apt_pkgs = [
                 "breeze-icon-theme",
                 "arc-theme",
                 "i3",
+                "py3status",
                 "gnome-flashback",
                 "rofi",
                 "feh",
