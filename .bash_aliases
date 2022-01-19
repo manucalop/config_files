@@ -11,6 +11,8 @@ alias vimconf='vim ~/.config/nvim/init.vim'
 alias bashconf="vim ~/.bash_aliases"
 alias bashsource='source ~/.bashrc'
 alias matlab='matlab & $() && sleep 10 && exit'
+alias i3conf='vim ~/.config/i3/config'
+alias i3cd='cd ~/.config/i3'
 bind '"\C-o":"ranger-cd\C-m"'
 bind '"\C-g":"git status .\C-m"'
 #}}}

@@ -412,9 +412,12 @@ bar{
 #}}}
 
 # Startup scripts {{{
+exec --no-startup-id /usr/lib/policykit-1/polkitd
+exec --no-startup-id gnome-flashback
+exec_always nm-applet
   
   # exec_always bash ~/.scripts/displays.bash
-  exec_always bash ~/.tools/i3/startup_apps.bash
+  # exec_always bash ~/.config/i3/scripts/startup_apps.bash
   # Configurations
 #      exec_always bash ~/.config/i3/scripts/initial_config.bash
   # Screen detection
