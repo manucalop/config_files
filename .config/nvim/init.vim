@@ -21,7 +21,7 @@ Plug 'tpope/vim-git'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'tmux-plugins/vim-tmux'
 " Mini mode creator
 Plug 'tomtom/tinykeymap_vim'
@@ -39,18 +39,32 @@ Plug 'tpope/vim-repeat'
 "" Enhance the vim tree view (netrw)
 Plug 'tpope/vim-vinegar'
 " UNIX tools
-Plug 'tpope/vim-eunuch'
+" Plug 'tpope/vim-eunuch'
 "Plug 'sheerun/vim-polyglot'
 " Latex
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
+
+Plug 'psliwka/vim-smoothie'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+ " For vsnip users.
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'rafamadriz/friendly-snippets'
+
 " Completion 
 "
 " New stuff
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'nvim-lua/popup.nvim'
 " Plug 'nvim-telescope/telescope.nvim'
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'williamboman/nvim-lsp-installer', { 'branch': 'main' }
 " Plug 'hrsh7th/nvim-compe'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -82,11 +96,10 @@ call plug#end()
     vnoremap 0  g0
     nnoremap $  g$
     vnoremap $  g$
-    " Fast cursor movement
-    nnoremap <c-j> 5gj
-    nnoremap <c-k> 5gk
-    vnoremap <c-j> 5gj
-    vnoremap <c-k> 5gk
+
+    nnoremap <c-j> 5j
+    nnoremap <c-k> 5k
+    " Create empty lines above and below
     nnoremap <s-j> o<ESC>k
     nnoremap <s-k> O<ESC>j
     " Tmux like windows
@@ -113,6 +126,11 @@ call plug#end()
     tnoremap <Esc> <C-\><C-n>
     " Ranger mapping
     nnoremap ,r :Ranger<CR>
+
+    nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+    nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+    nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
 
     " ROS Snippets
     command! RosMake       :-1read $HOME/.config/nvim/snippets/ros/CMakeLists.txt
@@ -236,12 +254,15 @@ call plug#end()
     set clipboard=unnamedplus
 " Avoid creating backup files (~file)    
     set nobackup
-    set completeopt=menuone,noselect
+    " set completeopt=menuone,noselect
+    set completeopt=menu,menuone,noselect
     set fileencoding=utf-8
     set pumheight=10
     set noshowmode
     set noswapfile
-    set scrolloff=8
+" Scroll
+    set scrolloff=10
+    " set scroll=5
     set whichwrap+=<,>,[,],h,l
     set iskeyword+=-
     set formatoptions-=cro
@@ -292,6 +313,12 @@ call plug#end()
 "Auto commands{{{
 autocmd FileType tex :setlocal spell
 autocmd FileType cpp :set tags+=~/.config/nvim/tags/ros_all
+
+augroup packer_user_config
+    autocmd!
+    " autocmd BufWritePost init.vim source <afile> | PlugClean | PlugInstall
+    autocmd BufWritePost init.vim source <afile>
+augroup end
 "}}}
 
 " TODO
@@ -299,3 +326,64 @@ autocmd FileType cpp :set tags+=~/.config/nvim/tags/ros_all
 " See Max Cantor dotfiles https://github.com/mcantor/dotfiles/tree/master/vim
 "function! RosPublisher(name_pub, msg_type, topic)
 " }}}
+
+" nvim-cmp{{{
+ lua <<EOF
+  -- Setup nvim-cmp.
+  local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      end,
+    },
+    mapping = {
+      ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+  -- Setup lspconfig.
+  --local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+  --require('lspconfig')['pyright'].setup{capabilities = capabilities}
+  require'lspconfig'.pyright.setup{}
+EOF
+"}}}
