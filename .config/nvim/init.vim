@@ -361,6 +361,7 @@ augroup end
       -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
+      { name = 'path' },
     })
   })
 
