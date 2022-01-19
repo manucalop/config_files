@@ -100,11 +100,3 @@ for pkg_name in apt_pkgs:
 
 print('\n')
 # }}}
-
-# Manually: {{{
-# icons-in-terminal
-# git clone https://github.com/sebastiencs/icons-in-terminal.git
-# cd icons-in-terminal
-# ./install.sh
-
-#}}}

@@ -1,7 +1,7 @@
 /* Reload xresources */
 /* xrdb -merge ~/.Xresources */
 /* 4k display settings */
-Xft.dpi: 220
+/* Xft.dpi: 220 */
 
 /* Rofi settings */
 #include ".Xresources.d/rofi"
