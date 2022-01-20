@@ -132,40 +132,57 @@ call plug#end()
     nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
     nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
 
-    " ROS Snippets
-    command! RosMake       :-1read $HOME/.config/nvim/snippets/ros/CMakeLists.txt
-    command! RosMakeAcado  :-1read $HOME/.config/nvim/snippets/ros/cmake_acado.txt
-    command! RosMakeExe    :-1read $HOME/.config/nvim/snippets/ros/cmake_executable.txt
-    command! RosMakeLib    :-1read $HOME/.config/nvim/snippets/ros/cmake_library.txt
-    command! RosMakeTest   :-1read $HOME/.config/nvim/snippets/ros/cmake_test.txt
-    command! RosMakeMsg    :-1read $HOME/.config/nvim/snippets/ros/cmake_msg.txt
-    command! RosMakeSrv    :-1read $HOME/.config/nvim/snippets/ros/cmake_srv.txt
-    command! RosMakeAction :-1read $HOME/.config/nvim/snippets/ros/cmake_action.txt
 
-    command! RosPack       :-1read $HOME/.config/nvim/snippets/ros/package.xml
-    command! RosPackDep    :-1read $HOME/.config/nvim/snippets/ros/package_depend.xml
-    command! RosPackMsg    :-1read $HOME/.config/nvim/snippets/ros/package_msg.xml
+"   }}}
 
-    command! RosCppMain    :-1read $HOME/.config/nvim/snippets/ros/main.cpp
-    command! RosCppParam   :-1read $HOME/.config/nvim/snippets/ros/param.cpp
-    command! RosCppPub     :-1read $HOME/.config/nvim/snippets/ros/publisher.cpp
-    command! RosCppSub     :-1read $HOME/.config/nvim/snippets/ros/subscriber.cpp
-    command! RosCppCallback :-1read $HOME/.config/nvim/snippets/ros/callback.cpp
-    command! RosCppSrv     :-1read $HOME/.config/nvim/snippets/ros/server.cpp
-    command! RosCppSrvFunc :-1read $HOME/.config/nvim/snippets/ros/server_func.cpp
-    command! RosCppTimer   :-1read $HOME/.config/nvim/snippets/ros/timer.cpp
+    " Snippets{{{
 
-    " Cpp snippets
+    " ROS {{{
+    
+    " RosCmake{{{
+    command! RosCmake       :-1read $HOME/.config/nvim/snippets/ros/cmake/CMakeLists.txt
+    command! RosCmakeAcado  :-1read $HOME/.config/nvim/snippets/ros/cmake/cmake_acado.txt
+    command! RosCmakeExe    :-1read $HOME/.config/nvim/snippets/ros/cmake/cmake_executable.txt
+    command! RosCmakeLib    :-1read $HOME/.config/nvim/snippets/ros/cmake/cmake_library.txt
+    command! RosCmakeTest   :-1read $HOME/.config/nvim/snippets/ros/cmake/cmake_test.txt
+    command! RosCmakeMsg    :-1read $HOME/.config/nvim/snippets/ros/cmake/cmake_msg.txt
+    command! RosCmakeSrv    :-1read $HOME/.config/nvim/snippets/ros/cmake/cmake_srv.txt
+    command! RosCmakeAction :-1read $HOME/.config/nvim/snippets/ros/cmake/cmake_action.txt
+    "}}}
+    
+    " RosPack{{{
+    command! RosPack       :-1read $HOME/.config/nvim/snippets/ros/package/package.xml
+    command! RosPackDep    :-1read $HOME/.config/nvim/snippets/ros/package/package_depend.xml
+    command! RosPackMsg    :-1read $HOME/.config/nvim/snippets/ros/package/package_msg.xml
+    "}}}
+    
+    "RosCpp{{{
+    command! RosCppMain     :-1read $HOME/.config/nvim/snippets/ros/cpp/main.cpp
+    command! RosCppParam    :-1read $HOME/.config/nvim/snippets/ros/cpp/param.cpp
+    command! RosCppPub      :-1read $HOME/.config/nvim/snippets/ros/cpp/publisher.cpp
+    command! RosCppSub      :-1read $HOME/.config/nvim/snippets/ros/cpp/subscriber.cpp
+    command! RosCppCallback :-1read $HOME/.config/nvim/snippets/ros/cpp/callback.cpp
+    " command! RosCppSrv      :-1read $HOME/.config/nvim/snippets/ros/cpp/server.cpp
+    " command! RosCppSrvFunc  :-1read $HOME/.config/nvim/snippets/ros/cpp/server_func.cpp
+    command! RosCppTimer    :-1read $HOME/.config/nvim/snippets/ros/cpp/timer.cpp
+    "}}}
+
+"}}}
+
+    " Cpp {{{
     command! CppClass      :-1read $HOME/.config/nvim/snippets/cpp/class.cpp
     command! CppTemp       :-1read $HOME/.config/nvim/snippets/cpp/template.cpp
+    "}}}
 
-    " LaTeX snippets
+    " LaTeX{{{
     command! TexImg        :-1read $HOME/.config/nvim/snippets/latex/img.tex
     command! TexTable      :-1read $HOME/.config/nvim/snippets/latex/table.tex
     command! TexEqn        :-1read $HOME/.config/nvim/snippets/latex/eqn.tex
     command! TexSubEqns    :-1read $HOME/.config/nvim/snippets/latex/subeqns.tex
     command! TexMultEqn    :-1read $HOME/.config/nvim/snippets/latex/multeqn.tex
-"   }}}
+    "}}}
+
+"}}}
 
 "   {{{     Mode
 
