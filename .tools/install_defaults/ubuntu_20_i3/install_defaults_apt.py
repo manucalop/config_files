@@ -29,6 +29,7 @@ apt_pkgs = [
                 "rename",
                 "fonts-font-awesome",
                 "fonts-materialdesignicons-webfont",
+                "fonts-inconsolata",
                 "breeze-icon-theme",
                 "arc-theme",
                 "i3",
