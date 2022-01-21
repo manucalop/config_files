@@ -76,7 +76,7 @@ function custom_terminal_prompt(){
 
 # workcd{{{
 function workcd(){
-    cd $HOME/main_ws/work
+    cd $HOME/main_ws/projects
 }
 #}}}
 
