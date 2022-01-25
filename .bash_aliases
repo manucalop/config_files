@@ -1,20 +1,20 @@
 # Aliases & bindings{{{
-alias ls='ls -1q --classify --group-directories-first --color=auto'
-alias la='ls -A'
-alias ld='ls -d */'
-alias lda='ls -d */ .*/'
-alias lf='find . -maxdepth 1 -type f'
-alias da='deactivate'
+# alias ls='ls -1q --classify --group-directories-first --color=auto'
+# alias la='ls -A'
+# alias ld='ls -d */'
+# alias lda='ls -d */ .*/'
+# alias lf='find . -maxdepth 1 -type f'
+# alias da='deactivate'
 alias vim='nvim'
 alias vimcd='cd ~/.config/nvim'
 alias vimconf='vim ~/.config/nvim/init.vim'
 alias bashconf="vim ~/.bash_aliases"
 alias bashsource='source ~/.bashrc'
-alias matlab='matlab & $() && sleep 10 && exit'
 alias i3conf='vim ~/.config/i3/config'
 alias i3cd='cd ~/.config/i3'
-bind '"\C-o":"ranger-cd\C-m"'
-bind '"\C-g":"git status .\C-m"'
+# bindkey 'C^O' ranger-cd
+# bindkey '"\C-o":"ranger-cd\C-m"'
+# bindkey '"\C-g":"git status .\C-m"'
 #}}}
 
 # Functions {{{
@@ -34,7 +34,7 @@ function findcd(){
 # ranger-cd{{{
 function ranger-cd(){
     tempfile="$(mktemp)"
-    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"
@@ -58,14 +58,14 @@ parse_tmux_pane(){
 #}}}
 
 # vi_mode{{{
-vi_mode(){
-  TEST=`bind -v | awk '/keymap/ {print $NF}'`
-  if [ "$TEST" = 'vi-insert' ]; then
-     echo -ne "\033]12;Green\007"
-  else
-     echo -ne "\033]12;Red\007"
-  fi
-}
+# vi_mode(){
+#   TEST=`bind -v | awk '/keymap/ {print $NF}'`
+#   if [ "$TEST" = 'vi-insert' ]; then
+#      echo -ne "\033]12;Green\007"
+#   else
+#      echo -ne "\033]12;Red\007"
+#   fi
+# }
 #}}}
 
 #custom_terminal_prompt{{{
@@ -93,8 +93,8 @@ export DEBFULLNAME="Manuel Castillo-Lopez"
 export DEBEMAIL="manucalop@gmail.com"
 export MAIN_WS="${HOME}/main_ws"
 export EDITOR='nvim'
-keypro us 
-custom_terminal_prompt
+# keypro us 
+# custom_terminal_prompt
 
 # ROS{{{
 export ROS_DISTRO="noetic"
