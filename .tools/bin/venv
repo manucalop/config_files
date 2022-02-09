@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-env="$1"
-if [ -z "$1" ]
-then
-  echo "No environment selected these are available:"
-  ls ~/.venv/
-else
-source ~/.venv/$env/bin/activate
-fi
