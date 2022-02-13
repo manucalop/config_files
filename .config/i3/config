@@ -361,4 +361,5 @@ bar{
 exec --no-startup-id /usr/lib/policykit-1/polkitd
 exec --no-startup-id gnome-flashback
 exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
 #}}}
