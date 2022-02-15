@@ -18,7 +18,7 @@ class color:
 print('\n')
 print(color.BOLD + "Installing deb packages \n-----------------------" + color.END)
 apt_pkgs = [    "sudo",
-		"xorg",
+		        "xorg",
                 "git",
                 "neovim",
                 "rxvt-unicode-256color",
@@ -46,7 +46,7 @@ apt_pkgs = [    "sudo",
                 "dconf-cli",
                 "exuberant-ctags",
                 "pulseaudio-module-bluetooth",
-		"gnome-terminal",
+		        "gnome-terminal",
                 "okular",
                 "fonts-font-awesome",
                 "fonts-materialdesignicons-webfont",
