@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 # Aliases & bindings{{{
 alias ls='ls -1q --classify --group-directories-first --color=auto'
 alias la='ls -A'
@@ -5,9 +7,10 @@ alias ld='ls -d */'
 alias lda='ls -d */ .*/'
 alias lf='find . -maxdepth 1 -type f'
 alias da='deactivate'
-alias vim='nvim'
-alias vimcd='cd ~/.config/nvim'
-alias vimconf='vim ~/.config/nvim/init.vim'
+alias vim='lvim'
+alias vimcd='cd ~/.config/lvim'
+alias vimconf='vim ~/.config/lvim/config.lua'
+# alias vimconf='vim ~/.config/nvim/init.vim'
 alias bashconf="vim ~/.bash_aliases"
 alias bashsource='source ~/.bashrc'
 alias matlab='matlab & $() && sleep 10 && exit'
@@ -125,19 +128,19 @@ function mpccd(){
 export DEBFULLNAME="Manuel Castillo-Lopez"
 export DEBEMAIL="manucalop@gmail.com"
 export MAIN_WS="${HOME}/main_ws"
-export EDITOR='nvim'
+export EDITOR='lvim'
 keypro us 
 custom_terminal_prompt
 
 # ROS{{{
-export ROS_DISTRO="noetic"
-export ROS_WS="${HOME}/temp_ws/catkin_ws"
-if [ -f "/opt/ros/${ROS_DISTRO}/setup.bash" ]; then
-    source "/opt/ros/${ROS_DISTRO}/setup.bash"
-fi
-if [ -f "$ROS_WS/devel/setup.bash" ]; then
-    source $ROS_WS/devel/setup.bash
-fi
+# export ROS_DISTRO="noetic"
+# export ROS_WS="${HOME}/temp_ws/catkin_ws"
+# if [ -f "/opt/ros/${ROS_DISTRO}/setup.bash" ]; then
+#     source "/opt/ros/${ROS_DISTRO}/setup.bash"
+# fi
+# if [ -f "$ROS_WS/devel/setup.bash" ]; then
+#     source $ROS_WS/devel/setup.bash
+# fi
 
 # export FLIGHTMARE_PATH="${ROS_WS}/src/flightmare"
 #}}}
@@ -156,9 +159,9 @@ fi
 #}}}
 
 # ACADOS {{{
-export ACADOS_ROOT="${HOME}/main_ws/third_party/acados"
-export ACADOS_SOURCE_DIR="${ACADOS_ROOT}"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"${ACADOS_ROOT}/lib"
+# export ACADOS_ROOT="${HOME}/main_ws/third_party/acados"
+# export ACADOS_SOURCE_DIR="${ACADOS_ROOT}"
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"${ACADOS_ROOT}/lib"
 #}}}
 
 # CASADI {{{
