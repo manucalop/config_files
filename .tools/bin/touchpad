@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+arg="$1"
+if [ -z "$1" ]
+then
+    echo "No argument selected. Try: enabled, disabled, disabled-on-external-mouse selected"
+else
+    gsettings set org.gnome.desktop.peripherals.touchpad send-events "$arg"
+fi
