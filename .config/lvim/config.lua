@@ -86,6 +86,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.autocommands.custom_groups = {
   { "BufWinEnter", "*.py", "setlocal foldmethod=indent" },
   { "BufWinEnter", "*.lua", "setlocal foldmethod=marker" },
+  { "BufWinEnter", {"*.bash_aliases","*.bashrc"}, "setlocal foldmethod=marker" },
 }
 --}}}
 
