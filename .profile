@@ -30,8 +30,3 @@ fi
 if [ -d "$HOME/.tools/bin" ] ; then
     PATH="$HOME/.tools/bin:$PATH"
 fi
-
-# Quit the mouse stick (dell computer)
-# if xinput --list | grep -q "AlpsPS/2 ALPS DualPoint Stick"; then
-#     xinput disable "AlpsPS/2 ALPS DualPoint Stick"
-# fi
