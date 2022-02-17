@@ -109,7 +109,7 @@ set $wm_icon_active_bg #ffffff;
     # right-to-left text rendering, you should instead use pango for rendering and
     # chose a FreeType font, such as:
     # font pango: Ubuntu Mono 13
-    font pango: Ubuntu Mono Nerd Font 13
+    font pango: Ubuntu Mono Nerd Font 14
 #}}}
 
 # Mouse {{{
