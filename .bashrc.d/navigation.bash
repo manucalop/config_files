@@ -1,6 +1,10 @@
 #!/usr/bin/bash
 export MAIN_WS="${HOME}/main_ws"
 
+function cocktailcd(){
+    cd $MAIN_WS/projects/cocktail || exit
+}
+
 function workcd(){
     cd $MAIN_WS || exit
 }

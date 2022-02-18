@@ -10,6 +10,7 @@ alias vimcd='cd ~/.config/lvim'
 alias vimconf='vim ~/.config/lvim/config.lua'
 # alias vimconf='vim ~/.config/nvim/init.vim'
 alias bashconf="vim ~/.bash_aliases"
+alias bashcd="cd ${HOME}/.bashrc.d"
 alias bashsource='source ~/.bashrc'
 alias matlab='matlab & $() && sleep 10 && exit'
 alias i3conf='vim ~/.config/i3/config'
