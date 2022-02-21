@@ -38,10 +38,10 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 0
 vim.opt.expandtab = true
+vim.opt.smarttab = true
 vim.opt.foldlevelstart= 0
 vim.opt.foldenable = true
 
--- vim.opt.foldmethod = "indent"
 vim.opt.foldmethod = "marker"
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -96,12 +96,12 @@ formatters.setup {
   {
         command = "black",
         filetypes = { "python" },
-        -- extra_args = { "--print-with=100", "--line-width=100" },
+        extra_args = { "--print-with=100", "--line-width=100" },
   },
   {
         command = "isort",
         filetypes = { "python" },
-        -- extra_args = { "--print-with=100", "--line-width=100" },
+        extra_args = { "--print-with=100", "--line-width=100" },
   },
   -- {
   --   command = "prettier",

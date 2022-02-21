@@ -9,3 +9,5 @@ do
 done
 
 source $HOME/.bashrc.d/configs/debian.bash
+
+keypro us
