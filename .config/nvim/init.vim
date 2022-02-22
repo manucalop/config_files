@@ -99,6 +99,8 @@ call plug#end()
 
     nnoremap <c-j> 5j
     nnoremap <c-k> 5k
+    vnoremap <c-j> 5j
+    vnoremap <c-k> 5k
     " Create empty lines above and below
     nnoremap <s-j> o<ESC>k
     nnoremap <s-k> O<ESC>j
@@ -257,7 +259,7 @@ call plug#end()
 " "zo" to open folds, "zc" to close, "za" to toggle "zn" to disable.
     set foldlevelstart=0
     set foldenable 
-    set fdm=marker
+    set fdm=indent
 " Number lines (I have them in Airline)
     set number
     set relativenumber
@@ -279,14 +281,13 @@ call plug#end()
     set noswapfile
 " Scroll
     set scrolloff=10
-    " set scroll=5
+    " " set scroll=5
     set whichwrap+=<,>,[,],h,l
     set iskeyword+=-
     set formatoptions-=cro
     set incsearch
     set ruler
     set smartindent
-    set virtualedit=all
 " Airline setup
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#show_buffers = 0

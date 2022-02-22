@@ -9,12 +9,13 @@ alias vim='nvim'
 alias vimcd='cd ~/.config/nvim'
 alias vimconf='vim ~/.config/nvim/init.vim'
 alias bashconf="vim ~/.bash_aliases"
-alias bashsource='source ~/.bashrc'
+alias bashsource='source ~/.zshrc'
 alias i3conf='vim ~/.config/i3/config'
 alias i3cd='cd ~/.config/i3'
-# bindkey 'C^O' ranger-cd
-# bindkey '"\C-o":"ranger-cd\C-m"'
-# bindkey '"\C-g":"git status .\C-m"'
+alias cocktail='source ~/venvs/cocktail/bin/activate'
+
+bindkey -s '^o' 'ranger-cd\n'
+bindkey -s '^g' 'git status .\n'
 #}}}
 
 # Functions {{{
