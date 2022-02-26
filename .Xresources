@@ -5,5 +5,4 @@ Xft.dpi: 220
 
 /* Rofi settings */
 #include ".Xresources.d/rofi"
-/* #include ".Xresources.d/urxvt" */
 
