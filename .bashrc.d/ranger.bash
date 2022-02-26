@@ -1,7 +1,7 @@
 #!/usr/bin/bash
-bind '"\C-o":"ranger-cd\C-m"'
+bind '"\C-o":"ranger_cd\C-m"'
 
-function ranger-cd(){
+function ranger_cd(){
     tempfile="$(mktemp)"
     /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&

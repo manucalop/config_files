@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
 # Navigating to configs
-alias bashconf="vim ~/.bash_aliases"
-alias bashcd="cd ${HOME}/.bashrc.d"
+alias bashconf="${EDITOR} ~/.bash_aliases"
+alias bashcd="cd ~/.bashrc.d"
 alias bashsource='source ~/.bashrc'
 
 # Command modifications
