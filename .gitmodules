@@ -8,8 +8,8 @@
 	path = .local/templates/ros/ros_cpp_template
 	url = git@github.com:manucalop/ros_cpp_template.git
 [submodule ".tools/install_defaults/ubuntu_20_i3/third_party/icons-in-terminal"]
-	path = .tools/install_defaults/ubuntu_20_i3/third_party/icons-in-terminal
+	path = .tools/lib/install_defaults/ubuntu_20_i3/third_party/icons-in-terminal
 	url = git@github.com:manucalop/icons-in-terminal.git
 [submodule ".tools/install_defaults/ubuntu_20_i3/third_party/i3-gnome"]
-	path = .tools/install_defaults/ubuntu_20_i3/third_party/i3-gnome
+	path = .tools/lib/install_defaults/ubuntu_20_i3/third_party/i3-gnome
 	url = git@github.com:manucalop/i3-gnome.git
