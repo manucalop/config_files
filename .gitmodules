@@ -1,6 +1,3 @@
-[submodule ".Xresources.d/urxvt-perls"]
-	path = .Xresources.d/urxvt-perls
-	url = https://github.com/muennich/urxvt-perls.git
 [submodule ".local/snippets"]
 	path = .local/snippets
 	url = git@github.com:manucalop/snippets.git
