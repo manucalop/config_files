@@ -1,13 +1,13 @@
 #!/usr/bin/bash
-
 export EDITOR='lvim'
-export MAIN_WS="${HOME}/main_ws"
 
+# Set up var folder
+export VAR="$HOME/.local/var"
+[ -d $VAR ] || mkdir -p $VAR
+
+# Source all active configs
 for file in $HOME/.bashrc.d/*.bash
 do
     source $file
 done
 
-source $HOME/.bashrc.d/configs/debian.bash
-
-keypro us
