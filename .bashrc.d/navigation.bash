@@ -1,5 +1,16 @@
 #!/usr/bin/bash
-export MAIN_WS="${HOME}/main_ws"
+
+function toolscd(){
+    cd $TOOLS || exit
+}
+
+function wdset(){
+    pwd > ${TOOLS}/tmp/current_working_directory.txt
+}
+
+function wdcd(){
+    cd "$(cat $TOOLS/tmp/current_working_directory.txt)" || exit
+}
 
 function workcd(){
     cd $MAIN_WS/projects || exit
@@ -13,14 +24,4 @@ function findcd(){
  #   return
  # fi
   cd "$OUT" || exit
-}
-
-function ranger-cd(){
-    tempfile="$(mktemp)"
-    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
-    fi
-    rm -f -- "$tempfile"
 }

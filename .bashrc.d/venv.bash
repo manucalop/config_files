@@ -1,4 +1,25 @@
 #!/usr/bin/bash
+
+function venvset(){
+    echo "$(pwd)/venv/bin/activate" > ${TOOLS}/tmp/current_venv.txt
+}
+
+function venva(){
+    source "$(cat ${TOOLS}/tmp/current_venv.txt)"
+}
+
+function venvd(){
+    deactivate
+}
+
+function venvmake(){
+    python3 -m venv ./venv
+}
+
+#######################
+# Deprecated
+#######################
+
 function venv_load(){
 env="$1"
 if [ -z "$1" ]

@@ -1,4 +1,9 @@
 #!/usr/bin/bash
+alias vim='lvim'
+alias vimcd='cd ~/.config/lvim'
+alias vimconf='vim ~/.config/lvim/config.lua'
+# alias vimconf='vim ~/.config/nvim/init.vim'
+
 vi_mode(){
   TEST=`bind -v | awk '/keymap/ {print $NF}'`
   if [ "$TEST" = 'vi-insert' ]; then
