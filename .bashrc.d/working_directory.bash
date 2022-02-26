@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 alias wd='wd_go'
-alias swd='wd_set'
+alias wds='wd_set'
 
 function wd_init(){
     # Create file if it doesn't exist
@@ -8,11 +8,11 @@ function wd_init(){
 }
 
 function wd_set(){
-    setup_working_directory
+    wd_init
     pwd > "$VAR/current_working_directory"
 }
 
 function wd_go(){
-    setup_working_directory
+    wd_init
     cd "$(cat $VAR/current_working_directory)"  || exit
 }
