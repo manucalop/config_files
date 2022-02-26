@@ -1,13 +1,14 @@
 #! /bin/bash
-sudo python3 install_defaults_apt.py 
-# python3 install_defaults_pip.py
 
-# Set up some configs
-gsettings set org.gnome.gnome-flashback desktop false
-gsettings set org.gnome.gnome-flashback root-background true
-gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+# Install apt packages
+xargs -d '\n' -- sudo apt install -y < ./packages/apt_pkgs.txt
+# Install pip packages
+xargs -d '\n' -- pip install -y < ./packages/pip_pkgs.txt
+# Install npm packages
+xargs -d '\n' -- sudo npm install -g < ./packages/npm_pkgs.txt
 
-# Terminal
-gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
+./install_i3-gnome.bash
 
-./one-dark.sh
+./settings.bash
+
+./one-dark-gnome-terminal.sh
