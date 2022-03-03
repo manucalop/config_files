@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+alias vs='venv_set'
 alias va='venv_activate'
 alias vd='venv_deactivate'
 
