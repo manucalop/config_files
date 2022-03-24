@@ -22,4 +22,7 @@ function venv_deactivate(){
 
 function venv_make(){
     python3 -m venv ./venv
+    venv_set
+    venv_activate
+    pip install --upgrade pip wheel
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 alias wd='wd_go'
-alias wds='wd_set'
+alias swd='wd_set'
 
 function wd_init(){
     # Create file if it doesn't exist
