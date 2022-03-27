@@ -26,3 +26,7 @@ function venv_make(){
     venv_activate
     pip install --upgrade pip wheel
 }
+
+function venv_freeze(){
+    pip freeze | grep -v "pkg_resources" > requirements.txt
+}
