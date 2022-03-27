@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+export EDITOR='lvim'
+
 alias vim='lvim'
 alias vimcd='cd ~/.config/lvim'
 alias vimconf='vim ~/.config/lvim/config.lua'
