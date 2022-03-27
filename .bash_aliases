@@ -1,5 +1,11 @@
 #!/usr/bin/bash
 
+# Source all active configs
+for file in $HOME/.bashrc.d/*.bash
+do
+    source $file
+done
+
 # Navigating to configs
 alias bashconf="${EDITOR} ~/.bash_aliases"
 alias bashcd="cd ~/.bashrc.d"
@@ -21,9 +27,4 @@ keypro us
 #Custom terminal prompt
 PS1=$(custom_terminal_prompt)
 
-# Source all active configs
-for file in $HOME/.bashrc.d/*.bash
-do
-    source $file
-done
 
