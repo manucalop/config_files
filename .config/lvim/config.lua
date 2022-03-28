@@ -116,12 +116,12 @@ formatters.setup {
   {
         command = "black",
         filetypes = { "python" },
-        -- extra_args = { "--print-with=100", "--line-width=100" },
+        extra_args = { "--line-width=100" },
   },
   {
         command = "isort",
         filetypes = { "python" },
-        -- extra_args = { "--print-with=100", "--line-width=100" },
+        extra_args = { "--line-width=100" },
   },
   -- {
   --   command = "prettier",
