@@ -30,3 +30,9 @@ fi
 if [ -d "$HOME/.tools/bin" ] ; then
     PATH="$HOME/.tools/bin:$PATH"
 fi
+
+if [ -d "$HOME/.pyenv" ] ; then
+    PYENV_ROOT="$HOME/.pyenv"
+    PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+fi
