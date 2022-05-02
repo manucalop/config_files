@@ -1,0 +1,7 @@
+configuration {
+ modi: "combi";
+ font: "Ubuntu Mono 14";
+ combi-modi: "drun,run";
+ show-icons: true;
+ }
+@theme "glue_pro_blue"
