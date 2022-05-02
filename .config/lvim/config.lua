@@ -60,7 +60,7 @@ lvim.keys.normal_mode["<s-k>"] = "o<ESC>j"
 
 -- Options {{{
 
-vim.opt.wrap = true
+-- vim.opt.wrap = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 0
@@ -145,7 +145,7 @@ linters.setup {
   {
         command = "flake8",
         filetypes = { "python" },
-        -- extra_args = { "--print-with=100", "--line-width=100" },
+        extra_args = { "--max-line-length=10000" },
   },
   {
         command = "shellcheck",
