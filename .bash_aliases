@@ -21,6 +21,7 @@ alias lf='find . -maxdepth 1 -type f'
 # Key bindings
 bind '"\C-g":"git status .\C-m"'
 bind '"\C-o":"ranger_cd\C-m"'
+bind '"\C-u":"pipenv shell\C-m"'
 
 keypro us
 
