@@ -1,0 +1,102 @@
+#!/usr/bin/python3
+import subprocess
+import argparse
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
+# Create a command line utility that creates a worktree for each branch
+# in the current repository.
+class GitWt:
+    def __init__(self):
+        self.worktree_dir = "worktrees"
+
+    def run(self, command: str):
+        return subprocess.run(
+            command,
+            shell=True,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            universal_newlines=True,
+        ).stdout.splitlines()
+
+    def get_worktrees(self):
+        # Get the list of all branches.
+        try:
+            worktrees = self.run(f"git worktree list")
+            worktrees = [
+                worktree.split(" ")[0]
+                for worktree in worktrees
+                if "[main]" not in worktree and "[master]" not in worktree
+            ]
+            logger.info(f"Worktrees: {worktrees}")
+            return worktrees
+        except Exception as e:
+            raise e
+
+    def get_missing_branches(self):
+        # Get the list of all branches that are not added to the worktree.
+        try:
+            branches = self.run(f"git branch -l")
+            # Get only the branches that start with ' '
+            branches = [branch.split(" ")[2] for branch in branches if branch.startswith(" ")]
+            return branches
+        except Exception as e:
+            raise e
+
+    def sync(self):
+        try:
+            branches = self.get_missing_branches()
+            # Create a worktree for each branch.
+            for branch in branches:
+                self.run(f"git worktree add {self.worktree_dir}/{branch} {branch}")
+            # Sync the worktrees to the remote.
+            self.run(f"git worktree prune")
+
+        except Exception as e:
+            raise e
+
+    def clean(self):
+        try:
+            # Remove all worktrees.
+            worktrees = self.get_worktrees()
+            for worktree in worktrees:
+                self.run(f"git worktree remove {worktree}")
+        except Exception as e:
+            raise e
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Git worktree utility",
+    )
+
+    parser.add_argument(
+        "--sync",
+        action="store_true",
+        help="Sync the worktrees to the remote.",
+    )
+
+    parser.add_argument(
+        "--clean",
+        action="store_true",
+        help="Clean all worktrees.",
+    )
+
+    args = parser.parse_args()
+
+    git_wt = GitWt()
+
+    if args.sync:
+        git_wt.sync()
+    elif args.clean:
+        git_wt.clean()
+    else:
+        print("Please specify an option")
+        parser.print_help()
+        exit(1)
+
+    exit(0)
