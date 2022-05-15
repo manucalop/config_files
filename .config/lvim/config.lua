@@ -2,9 +2,9 @@
 
 -- Plugins{{{
 lvim.plugins = {
-    {"folke/tokyonight.nvim"},
-    {"github/copilot.vim"},
-    {"folke/trouble.nvim", cmd = "TroubleToggle"},
+    { "folke/tokyonight.nvim" },
+    { "github/copilot.vim" },
+    { "folke/trouble.nvim", cmd = "TroubleToggle" },
 }
 --}}}
 
@@ -16,9 +16,9 @@ local cmp = require "cmp"
 lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
     local copilot_keys = vim.fn["copilot#Accept"]()
     if copilot_keys ~= "" then
-      vim.api.nvim_feedkeys(copilot_keys, "i", true)
+        vim.api.nvim_feedkeys(copilot_keys, "i", true)
     else
-      fallback()
+        fallback()
     end
 end
 -- lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
@@ -66,7 +66,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 0
 vim.opt.expandtab = true
 vim.opt.smarttab = true
-vim.opt.foldlevelstart= 0
+vim.opt.foldlevelstart = 0
 vim.opt.foldenable = true
 
 vim.opt.foldmethod = "marker"
@@ -82,11 +82,11 @@ lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 lvim.leader = "space"
 
-lvim.builtin.dashboard.active = true
+-- lvim.builtin.dashboard.active = true
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+-- lvim.builtin.nvimtree.setup.view.side = "left"
+-- lvim.builtin.nvimtree.show_icons.git = 0
 
 lvim.builtin.treesitter.ensure_installed = {
     "bash",
@@ -112,50 +112,49 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Autocommands{{{
 lvim.autocommands.custom_groups = {
-  { "BufWinEnter", "*.py", "setlocal foldmethod=indent" },
-  { "BufWinEnter", "*.lua", "setlocal foldmethod=marker" },
-  { "BufWinEnter", "*.bash_aliases", "setlocal foldmethod=marker" },
+    { "BufWinEnter", "*.py", "setlocal foldmethod=indent" },
+    { "BufWinEnter", "*.lua", "setlocal foldmethod=marker" },
+    { "BufWinEnter", "*.bash_aliases", "setlocal foldmethod=marker" },
 }
 --}}}
 
 -- Formatters {{{
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  {
+    {
         command = "black",
         filetypes = { "python" },
         extra_args = { "-l 100" },
-  },
-  {
+    },
+    {
         command = "isort",
         filetypes = { "python" },
         extra_args = { "-l 100" },
-  },
-  -- {
-  --   command = "prettier",
-  --   extra_args = { "--print-with", "100" },
-  --   filetypes = { "typescript", "typescriptreact" },
-  -- },
+    },
+    -- {
+    --   command = "prettier",
+    --   extra_args = { "--print-with", "100" },
+    --   filetypes = { "typescript", "typescriptreact" },
+    -- },
 }
 --}}}
 
 -- Linters {{{
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  {
+    {
         command = "flake8",
         filetypes = { "python" },
         extra_args = { "--max-line-length=10000" },
-  },
-  {
+    },
+    {
         command = "shellcheck",
-        extra_args = { "--severity", "warning"},
-  },
-  {
+        extra_args = { "--severity", "warning" },
+    },
+    {
         command = "codespell",
         filetypes = { "javascript", "python" },
         -- extra_args = { "--print-with=100", "--line-width=100" },
-  },
+    },
 }
 --}}}
-

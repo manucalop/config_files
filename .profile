@@ -31,3 +31,7 @@ fi
 if [ -d "$HOME/.tools/bin" ] ; then
     PATH="$HOME/.tools/bin:$PATH"
 fi
+
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
