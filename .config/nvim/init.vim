@@ -21,17 +21,12 @@ Plug 'tpope/vim-git'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'edkolev/tmuxline.vim'
 Plug 'tmux-plugins/vim-tmux'
 " Mini mode creator
 Plug 'tomtom/tinykeymap_vim'
 " Plug 'taketwo/vim-ros'
 Plug 'joshdick/onedark.vim'
 " Need to check those (form mcantor) btw, tpope is our friend
-"Plug 'tpope/vim-obsession'
-" Plug 'majutsushi/tagbar'
-" Plug 'craigemery/vim-autotag'
-" Plug 'ludovicchabant/vim-gutentags'
 "" Automatic tab adjust
 "Plug 'tpope/vim-sleuth'
 " Repeat with . non-native commands
@@ -62,11 +57,15 @@ Plug 'rafamadriz/friendly-snippets'
 " Completion 
 "
 " New stuff
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-lua/popup.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-path'
+
 " Plug 'hrsh7th/nvim-compe'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 "
 " " Plug 'glepnir/galaxyline.nvim', { 'branch': 'main' }
@@ -77,6 +76,8 @@ Plug 'rafamadriz/friendly-snippets'
 " Plug 'tpope/vim-ragtag'
 "
 " Plug 'tomtom/tcomment_vim'
+
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -184,44 +185,6 @@ call plug#end()
     command! TexMultEqn    :-1read $HOME/.config/nvim/snippets/latex/multeqn.tex
     "}}}
 
-"}}}
-
-"   {{{     Mode
-
-"Window mode {{{
-
-  call tinykeymap#EnterMap('windows', ',w', {'name': 'Windows mode: [b]new [v]new [q]uit [hljk]movements <s-hljk>resize <c-hljk>move'}) 
-  call tinykeymap#Map('windows', 'l', ':wincmd l') 
-  call tinykeymap#Map('windows', 'h', ':wincmd h') 
-  call tinykeymap#Map('windows', 'j', ':wincmd j') 
-  call tinykeymap#Map('windows', 'k', ':wincmd k') 
-  call tinykeymap#Map('windows', '<s-l>', ':wincmd >') 
-  call tinykeymap#Map('windows', '<s-h>', ':wincmd <') 
-  call tinykeymap#Map('windows', '<s-j>', ':wincmd -') 
-  call tinykeymap#Map('windows', '<s-k>', ':wincmd +') 
-  call tinykeymap#Map('windows', '<c-h>', ':wincmd R') 
-  call tinykeymap#Map('windows', '<c-l>', ':wincmd r') 
-  call tinykeymap#Map('windows', '<c-k>', ':wincmd R') 
-  call tinykeymap#Map('windows', '<c-j>', ':wincmd r') 
-  call tinykeymap#Map('windows', 'b', 'new') 
-  call tinykeymap#Map('windows', 'v', 'vnew') 
-  call tinykeymap#Map('windows', 'q', 'close')
-
-"}}}
-
-" Tab mode {{{
-
-    call tinykeymap#EnterMap('tabs', ',t', {'name': 'Tabs mode: [n]ew [q]uit [hl]movements'}) 
-    call tinykeymap#Map('tabs', 'l', 'tabnext') 
-    call tinykeymap#Map('tabs', 'h', 'tabprev') 
-    call tinykeymap#Map('tabs', '<s-l>', 'tabmove +1') 
-    call tinykeymap#Map('tabs', '<s-h>', 'tabmove -1') 
-    call tinykeymap#Map('tabs', 'n', 'tabnew') 
-    call tinykeymap#Map('tabs', 't', 'norm! gt') 
-    call tinykeymap#Map('tabs', 'T', 'norm! gT') 
-    call tinykeymap#Map('tabs', '0', 'tabfirst') 
-    call tinykeymap#Map('tabs', '$', 'tablast') 
-    call tinykeymap#Map('tabs', 'q', 'tabclose')
 "}}}
 
 " }}}
