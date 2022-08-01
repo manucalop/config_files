@@ -111,7 +111,7 @@ alias zshcd="cd ${HOME}/.zshrc.d"
 bindkey -s '^g' 'git status . ^M'
 bindkey -s '^o' 'ranger_cd ^M'
 
-for file in $HOME/.bashrc.d/*.bash
+for file in $HOME/.bashrc.d/lib/*.bash
 do
     source $file
 done

@@ -9,7 +9,7 @@ function venv_init(){
 }
 
 function venv_set(){
-    echo "$(pwd)/venv/bin/activate" > $VAR/current_venv
+    echo "$(pwd)/.venv/bin/activate" > $VAR/current_venv
 }
 
 function venv_activate(){
@@ -21,7 +21,7 @@ function venv_deactivate(){
 }
 
 function venv_make(){
-    python3 -m venv ./venv
+    python3 -m venv .venv
     venv_set
     venv_activate
     pip install --upgrade pip wheel

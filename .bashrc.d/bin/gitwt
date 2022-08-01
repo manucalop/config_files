@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-import subprocess
 import argparse
 import logging
+import subprocess
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -65,6 +65,7 @@ class GitWt:
             worktrees = self.get_worktrees()
             for worktree in worktrees:
                 self.run(f"git worktree remove {worktree}")
+            self.run(f"rm -rf {self.worktree_dir}")
         except Exception as e:
             raise e
 
