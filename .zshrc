@@ -115,3 +115,5 @@ for file in $HOME/.bashrc.d/lib/*.bash
 do
     source $file
 done
+
+[ -z "$TMUX"  ] && { tmux; }

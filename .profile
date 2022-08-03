@@ -28,8 +28,8 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.tools/bin" ] ; then
-    PATH="$HOME/.tools/bin:$PATH"
+if [ -d "$HOME/.bashrc.d/bin" ] ; then
+    PATH="$HOME/.bashrc.d/bin:$PATH"
 fi
 
 if [ -d "$HOME/.cargo/bin" ] ; then
