@@ -2,11 +2,22 @@
 
 -- Plugins{{{
 lvim.plugins = {
+    -- Colorscheme
+    { "gruvbox-community/gruvbox" }, -- Gruvbox Colorscheme
     { "tpope/vim-repeat" },
     { "tpope/vim-surround" },
     { "github/copilot.vim" },
     { "alexghergh/nvim-tmux-navigation" },
-    { "folke/trouble.nvim", cmd = "TroubleToggle" },
+    { "folke/trouble.nvim", cmd = "TroubleToggle" }, -- Showing diagnostics
+    -- Testing
+    { "romgrk/nvim-treesitter-context" },
+    { "nvim-treesitter/playground" },
+    { "rcarriga/nvim-dap-ui" },
+    { "theHamsta/nvim-dap-virtual-text" },
+    { "ThePrimeagen/git-worktree.nvim" },
+    { "ThePrimeagen/harpoon" },
+    { "TimUntersberger/neogit" },
+    { "sbdchd/neoformat" },
 }
 
 -- Copilot{{{
@@ -38,6 +49,11 @@ require 'nvim-tmux-navigation'.setup {
 }
 --}}}
 
+-- Telescope{{{
+-- Ignore folder patterns node_modules
+lvim.builtin.telescope.defaults.file_ignore_patterns = { "node_modules", ".venv" }
+--}}}
+
 --}}}
 
 -- Key mappings {{{
@@ -61,10 +77,25 @@ lvim.keys.visual_mode["<c-k>"] = "5k"
 lvim.keys.normal_mode["<s-j>"] = "o<ESC>k"
 lvim.keys.normal_mode["<s-k>"] = "o<ESC>j"
 
+-- Harpoon
+lvim.keys.normal_mode["<leader>i"] = ":lua require('harpoon.ui').toggle_quick_menu()<cr>"
+lvim.keys.normal_mode["<leader>a"] = ":lua require('harpoon.mark').add_file()<cr>"
+lvim.keys.normal_mode["<leader>hi"] = ":lua require('harpoon.ui').toggle_quick_menu()<cr>"
+lvim.keys.normal_mode["<leader>ha"] = ":lua require('harpoon.mark').add_file()<cr>"
+lvim.keys.normal_mode["<leader>hn"] = ":lua require('harpoon.ui').nav_next()<cr>"
+lvim.keys.normal_mode["<leader>hp"] = ":lua require('harpoon.ui').nav_next()<cr>"
+lvim.keys.normal_mode["<leader>ht"] = ":lua require('harpoon.tmux').gotoTerminal('{down-of}')<cr>"
+
+-- Neogit
+lvim.keys.normal_mode["<leader>gn"] = ":Neogit<cr>"
 
 --}}}
 
 -- Options {{{
+-- local colorscheme = "onedarker"
+local colorscheme = "gruvbox"
+lvim.colorscheme = colorscheme
+lvim.builtin.lualine.options.theme = colorscheme
 
 -- vim.opt.wrap = true
 vim.opt.tabstop = 4
@@ -83,12 +114,12 @@ vim.opt.hlsearch = false
 vim.opt.backup = false
 vim.opt.swapfile = false
 
+-- hide bufferline
+lvim.builtin.bufferline.active = false
+vim.opt.showtabline = 0
 -- lvim stuff
 lvim.log.level = "warn"
 lvim.format_on_save = true
-local colorscheme = "onedarker"
-lvim.colorscheme = colorscheme
-lvim.builtin.lualine.options.theme = colorscheme
 lvim.leader = "space"
 
 -- lvim.builtin.dashboard.active = true
