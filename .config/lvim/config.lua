@@ -2,16 +2,17 @@
 
 -- Plugins{{{
 lvim.plugins = {
-    { "folke/tokyonight.nvim" },
+    { "tpope/vim-repeat" },
+    { "tpope/vim-surround" },
     { "github/copilot.vim" },
+    { "alexghergh/nvim-tmux-navigation" },
     { "folke/trouble.nvim", cmd = "TroubleToggle" },
 }
---}}}
 
+-- Copilot{{{
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
-local cmp = require "cmp"
 
 lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
     local copilot_keys = vim.fn["copilot#Accept"]()
@@ -21,18 +22,23 @@ lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
         fallback()
     end
 end
--- lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
---   if cmp.visible() then
---     cmp.select_next_item()
---   else
---     local copilot_keys = vim.fn["copilot#Accept"]()
---     if copilot_keys ~= "" then
---       vim.api.nvim_feedkeys(copilot_keys, "i", true)
---     else
---       fallback()
---     end
---   end
--- end
+--}}}
+
+-- Tmux Navigator{{{
+require 'nvim-tmux-navigation'.setup {
+    disable_when_zoomed = true, -- defaults to false
+    keybindings = {
+        left = "<C-w>h",
+        down = "<C-w>j",
+        up = "<C-w>k",
+        right = "<C-w>l",
+        -- last_active = "<C-\\>",
+        -- next = "<C-Space>",
+    }
+}
+--}}}
+
+--}}}
 
 -- Key mappings {{{
 
@@ -68,6 +74,7 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.foldlevelstart = 0
 vim.opt.foldenable = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.foldmethod = "marker"
 vim.opt.number = true
@@ -79,7 +86,9 @@ vim.opt.swapfile = false
 -- lvim stuff
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
+local colorscheme = "onedarker"
+lvim.colorscheme = colorscheme
+lvim.builtin.lualine.options.theme = colorscheme
 lvim.leader = "space"
 
 -- lvim.builtin.dashboard.active = true
@@ -88,25 +97,9 @@ lvim.builtin.terminal.active = true
 -- lvim.builtin.nvimtree.setup.view.side = "left"
 -- lvim.builtin.nvimtree.show_icons.git = 0
 
-lvim.builtin.treesitter.ensure_installed = {
-    "bash",
-    "c",
-    "cpp",
-    "go",
-    "python",
-    "markdown",
-    "yaml",
-    "json",
-    "html",
-    "css",
-    "lua",
-    "javascript",
-    "rust",
-    "java",
-    "hcl",
-}
+lvim.builtin.treesitter.ensure_installed = "all"
+lvim.builtin.treesitter.ignore_install = { "phpdoc" }
 
-lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 -- }}}
 
