@@ -17,8 +17,13 @@ lvim.plugins = {
     { "ThePrimeagen/git-worktree.nvim" },
     { "ThePrimeagen/harpoon" },
     { "TimUntersberger/neogit" },
-    --    { "sbdchd/neoformat" },
+    { "sbdchd/neoformat" },
 }
+
+-- hide bufferline
+lvim.builtin.bufferline.active = false
+lvim.builtin.dap.active = true
+vim.opt.showtabline = 0
 
 -- Copilot{{{
 vim.g.copilot_no_tab_map = true
@@ -114,9 +119,6 @@ vim.opt.hlsearch = false
 vim.opt.backup = false
 vim.opt.swapfile = false
 
--- hide bufferline
-lvim.builtin.bufferline.active = false
-vim.opt.showtabline = 0
 -- lvim stuff
 lvim.log.level = "warn"
 lvim.format_on_save = true
@@ -139,6 +141,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 vim.cmd("au BufEnter *.py setlocal foldmethod=indent")
 vim.cmd("au BufEnter *.lua setlocal foldmethod=marker")
 vim.cmd("au BufEnter *.bash_aliases setlocal foldmethod=marker")
+vim.cmd("au BufWritePre * :silent! Neoformat")
+
 
 --}}}
 
