@@ -17,7 +17,7 @@ lvim.plugins = {
     { "ThePrimeagen/git-worktree.nvim" },
     { "ThePrimeagen/harpoon" },
     { "TimUntersberger/neogit" },
-    { "sbdchd/neoformat" },
+    --    { "sbdchd/neoformat" },
 }
 
 -- Copilot{{{
@@ -143,24 +143,24 @@ vim.cmd("au BufEnter *.bash_aliases setlocal foldmethod=marker")
 --}}}
 
 -- Formatters {{{
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-    {
-        command = "black",
-        filetypes = { "python" },
-        extra_args = { "-l 100" },
-    },
-    {
-        command = "isort",
-        filetypes = { "python" },
-        extra_args = { "-l 100" },
-    },
-    -- {
-    --   command = "prettier",
-    --   extra_args = { "--print-with", "100" },
-    --   filetypes = { "typescript", "typescriptreact" },
-    -- },
-}
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- formatters.setup {
+--     {
+--         command = "black",
+--         filetypes = { "python" },
+--         extra_args = { "-l 100" },
+--     },
+--     {
+--         command = "isort",
+--         filetypes = { "python" },
+--         extra_args = { "-l 100" },
+--     },
+--     -- {
+--     --   command = "prettier",
+--     --   extra_args = { "--print-with", "100" },
+--     --   filetypes = { "typescript", "typescriptreact" },
+--     -- },
+-- }
 --}}}
 
 -- Linters {{{
