@@ -121,7 +121,7 @@ vim.opt.swapfile = false
 
 -- lvim stuff
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.leader = "space"
 
 -- lvim.builtin.dashboard.active = true
@@ -142,6 +142,7 @@ vim.cmd("au BufEnter *.py setlocal foldmethod=indent")
 vim.cmd("au BufEnter *.lua setlocal foldmethod=marker")
 vim.cmd("au BufEnter *.bash_aliases setlocal foldmethod=marker")
 vim.cmd("au BufWritePre * :silent! Neoformat")
+
 
 
 --}}}
