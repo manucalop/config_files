@@ -1,7 +1,8 @@
 #!/usr/bin/bash
 export EDITOR='lvim'
+export VISUAL="$EDITOR"
 
-alias vim='lvim'
+alias vim="$EDITOR"
 alias vimcd='cd ~/.config/lvim'
 alias vimconf='vim ~/.config/lvim/config.lua'
 # alias vimconf='vim ~/.config/nvim/init.vim'
