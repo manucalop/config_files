@@ -110,6 +110,7 @@ alias zshcd="cd ${HOME}/.zshrc.d"
 # Key bindings
 bindkey -s '^g' 'git status . ^M'
 bindkey -s '^o' 'ranger_cd ^M'
+bindkey -s '^u' 'poetry shell ^M'
 
 for file in $HOME/.bashrc.d/lib/*.bash
 do
