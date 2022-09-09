@@ -1,6 +1,7 @@
 alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 # alt - space : open -a /System/Library/CoreServices/Spotlight.app
 
+alt - q : yabai -m window --close
 # focus window
 alt - l : yabai -m window --focus east || yabai -m window --focus first
 alt - h : yabai -m window --focus west || yabai -m window --focus last
