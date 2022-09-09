@@ -18,8 +18,9 @@ lvim.plugins = {
     { "ThePrimeagen/harpoon" },
     { "TimUntersberger/neogit" },
     { "sbdchd/neoformat" },
+    { "norcalli/nvim-colorizer.lua" },
 }
-
+require'colorizer'.setup()
 -- hide bufferline
 lvim.builtin.bufferline.active = false
 lvim.builtin.dap.active = true
