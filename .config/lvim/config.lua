@@ -128,6 +128,8 @@ lvim.leader = "space"
 -- lvim.builtin.dashboard.active = true
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.nvimtree.setup.auto_close = true
+lvim.builtin.nvimtree.setup.view.width = 50
 -- lvim.builtin.nvimtree.setup.view.side = "left"
 -- lvim.builtin.nvimtree.show_icons.git = 0
 
