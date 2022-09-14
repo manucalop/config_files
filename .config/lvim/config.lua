@@ -19,6 +19,7 @@ lvim.plugins = {
     { "TimUntersberger/neogit" },
     { "sbdchd/neoformat" },
     { "norcalli/nvim-colorizer.lua" },
+    { "ThePrimeagen/vim-be-good" },
 }
 require'colorizer'.setup()
 -- hide bufferline
@@ -62,40 +63,6 @@ lvim.builtin.telescope.defaults.file_ignore_patterns = { "node_modules", ".venv"
 
 --}}}
 
--- Key mappings {{{
-
--- Save with C-s
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-
--- Move around wrapped lines
-lvim.keys.normal_mode["j"] = "gj"
-lvim.keys.normal_mode["k"] = "gk"
-lvim.keys.visual_mode["j"] = "gj"
-lvim.keys.visual_mode["k"] = "gk"
-
--- Fast cursor movement
-lvim.keys.normal_mode["<c-j>"] = "5j"
-lvim.keys.normal_mode["<c-k>"] = "5k"
-lvim.keys.visual_mode["<c-j>"] = "5j"
-lvim.keys.visual_mode["<c-k>"] = "5k"
-
--- Create empty lines above and below
-lvim.keys.normal_mode["<s-j>"] = "o<ESC>k"
-lvim.keys.normal_mode["<s-k>"] = "o<ESC>j"
-
--- Harpoon
-lvim.keys.normal_mode["<leader>i"] = ":lua require('harpoon.ui').toggle_quick_menu()<cr>"
-lvim.keys.normal_mode["<leader>a"] = ":lua require('harpoon.mark').add_file()<cr>"
-lvim.keys.normal_mode["<leader>hi"] = ":lua require('harpoon.ui').toggle_quick_menu()<cr>"
-lvim.keys.normal_mode["<leader>ha"] = ":lua require('harpoon.mark').add_file()<cr>"
-lvim.keys.normal_mode["<leader>hn"] = ":lua require('harpoon.ui').nav_next()<cr>"
-lvim.keys.normal_mode["<leader>hp"] = ":lua require('harpoon.ui').nav_next()<cr>"
-lvim.keys.normal_mode["<leader>ht"] = ":lua require('harpoon.tmux').gotoTerminal('{down-of}')<cr>"
-
--- Neogit
-lvim.keys.normal_mode["<leader>gn"] = ":Neogit<cr>"
-
---}}}
 
 -- Options {{{
 -- local colorscheme = "onedarker"
@@ -128,9 +95,8 @@ lvim.leader = "space"
 -- lvim.builtin.dashboard.active = true
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.auto_close = true
+lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 lvim.builtin.nvimtree.setup.view.width = 50
--- lvim.builtin.nvimtree.setup.view.side = "left"
 -- lvim.builtin.nvimtree.show_icons.git = 0
 
 lvim.builtin.treesitter.ensure_installed = "all"
@@ -138,6 +104,62 @@ lvim.builtin.treesitter.ignore_install = { "phpdoc" }
 
 lvim.builtin.treesitter.highlight.enabled = true
 -- }}}
+
+-- Key mappings {{{
+
+-- Save with C-s
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+
+-- Move around wrapped lines
+lvim.keys.normal_mode["j"] = "gj"
+lvim.keys.normal_mode["k"] = "gk"
+lvim.keys.visual_mode["j"] = "gj"
+lvim.keys.visual_mode["k"] = "gk"
+
+-- Fast cursor movement
+lvim.keys.normal_mode["<c-j>"] = "5j"
+lvim.keys.normal_mode["<c-k>"] = "5k"
+lvim.keys.visual_mode["<c-j>"] = "5j"
+lvim.keys.visual_mode["<c-k>"] = "5k"
+
+-- Hover
+lvim.lsp.buffer_mappings.normal_mode["K"] = nil
+lvim.lsp.buffer_mappings.normal_mode["H"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
+
+-- Create empty lines above and below
+lvim.keys.normal_mode["J"] = "o<Esc>k"
+lvim.keys.normal_mode["K"] = "O<Esc>j"
+
+
+-- Keep buffer when pasting
+lvim.keys.normal_mode["<leader>p"] = "\"_dP"
+lvim.keys.visual_mode["<leader>p"] = "\"_dP"
+
+-- Copying to/from System Clipboard
+lvim.keys.normal_mode["<leader>y"] = '"+y'
+lvim.keys.visual_mode["<leader>y"] = '"+y'
+lvim.keys.normal_mode["<leader>Y"] = '"+Y'
+
+
+-- Make current file executable
+lvim.keys.normal_mode["<leader>x"] = ":!chmod +x %<cr>"
+
+-- Telescope
+lvim.builtin.which_key.mappings["/"] = { "<cmd>Telescope live_grep<cr>", "Search" }
+
+-- Harpoon
+lvim.keys.normal_mode["<leader>i"] = ":lua require('harpoon.ui').toggle_quick_menu()<cr>"
+lvim.keys.normal_mode["<leader>a"] = ":lua require('harpoon.mark').add_file()<cr>"
+lvim.keys.normal_mode["<leader>hi"] = ":lua require('harpoon.ui').toggle_quick_menu()<cr>"
+lvim.keys.normal_mode["<leader>ha"] = ":lua require('harpoon.mark').add_file()<cr>"
+lvim.keys.normal_mode["<leader>hn"] = ":lua require('harpoon.ui').nav_next()<cr>"
+lvim.keys.normal_mode["<leader>hp"] = ":lua require('harpoon.ui').nav_next()<cr>"
+lvim.keys.normal_mode["<leader>ht"] = ":lua require('harpoon.tmux').gotoTerminal('{down-of}')<cr>"
+
+-- Neogit
+lvim.keys.normal_mode["<leader>gn"] = ":Neogit<cr>"
+
+--}}}
 
 -- Autocommands{{{
 
