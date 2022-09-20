@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # Source all active configs
-for file in $HOME/.bashrc.d/*.bash
+for file in $HOME/.bashrc.d/lib/*.bash
 do
     source $file
 done
