@@ -2,30 +2,35 @@
 
 -- Plugins{{{
 lvim.plugins = {
-    -- Colorscheme
-    { "gruvbox-community/gruvbox" }, -- Gruvbox Colorscheme
-    { "tpope/vim-repeat" },
-    { "tpope/vim-surround" },
-    { "github/copilot.vim" },
-    { "alexghergh/nvim-tmux-navigation" },
-    { "folke/trouble.nvim", cmd = "TroubleToggle" }, -- Showing diagnostics
-    -- Testing
-    { "romgrk/nvim-treesitter-context" },
-    { "nvim-treesitter/playground" },
-    { "rcarriga/nvim-dap-ui" },
-    { "theHamsta/nvim-dap-virtual-text" },
-    { "ThePrimeagen/git-worktree.nvim" },
-    { "ThePrimeagen/harpoon" },
-    { "TimUntersberger/neogit" },
-    { "sbdchd/neoformat" },
-    { "norcalli/nvim-colorizer.lua" },
-    { "ThePrimeagen/vim-be-good" },
+  -- Colorscheme
+  { "gruvbox-community/gruvbox" }, -- Gruvbox Colorscheme
+  { "tpope/vim-repeat" },
+  { "tpope/vim-surround" },
+  { "github/copilot.vim" },
+  { "alexghergh/nvim-tmux-navigation" },
+  { "folke/trouble.nvim", cmd = "TroubleToggle" }, -- Showing diagnostics
+  -- Testing
+  { "romgrk/nvim-treesitter-context" },
+  { "nvim-treesitter/playground" },
+  { "rcarriga/nvim-dap-ui" },
+  { "theHamsta/nvim-dap-virtual-text" },
+  { "ThePrimeagen/git-worktree.nvim" },
+  { "ThePrimeagen/harpoon" },
+  { "TimUntersberger/neogit" },
+  { "sbdchd/neoformat" },
+  { "norcalli/nvim-colorizer.lua" },
+  { "ThePrimeagen/vim-be-good" },
 }
-require'colorizer'.setup()
--- hide bufferline
+require 'colorizer'.setup()
+-- Hide bufferline
 lvim.builtin.bufferline.active = false
 lvim.builtin.dap.active = true
 vim.opt.showtabline = 0
+
+-- Manual Project Management (Not git based)
+lvim.builtin.project.manual_mode = true
+
+
 
 -- Copilot{{{
 vim.g.copilot_no_tab_map = true
@@ -33,26 +38,26 @@ vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
 
 lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
-    local copilot_keys = vim.fn["copilot#Accept"]()
-    if copilot_keys ~= "" then
-        vim.api.nvim_feedkeys(copilot_keys, "i", true)
-    else
-        fallback()
-    end
+  local copilot_keys = vim.fn["copilot#Accept"]()
+  if copilot_keys ~= "" then
+    vim.api.nvim_feedkeys(copilot_keys, "i", true)
+  else
+    fallback()
+  end
 end
 --}}}
 
 -- Tmux Navigator{{{
 require 'nvim-tmux-navigation'.setup {
-    disable_when_zoomed = true, -- defaults to false
-    keybindings = {
-        left = "<C-w>h",
-        down = "<C-w>j",
-        up = "<C-w>k",
-        right = "<C-w>l",
-        -- last_active = "<C-\\>",
-        -- next = "<C-Space>",
-    }
+  disable_when_zoomed = true, -- defaults to false
+  keybindings = {
+    left = "<C-w>h",
+    down = "<C-w>j",
+    up = "<C-w>k",
+    right = "<C-w>l",
+    -- last_active = "<C-\\>",
+    -- next = "<C-Space>",
+  }
 }
 --}}}
 
@@ -62,7 +67,6 @@ lvim.builtin.telescope.defaults.file_ignore_patterns = { "node_modules", ".venv"
 --}}}
 
 --}}}
-
 
 -- Options {{{
 -- local colorscheme = "onedarker"
@@ -196,19 +200,19 @@ vim.cmd("au BufWritePre * :silent! Neoformat")
 -- Linters {{{
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-    -- {
-    --     command = "flake8",
-    --     filetypes = { "python" },
-    --     extra_args = { "--max-line-length=10000" },
-    -- },
-    -- {
-    --     command = "shellcheck",
-    --     extra_args = { "--severity", "warning" },
-    -- },
-    -- {
-    --     command = "codespell",
-    --     filetypes = { "javascript", "python" },
-    --     -- extra_args = { "--print-with=100", "--line-width=100" },
-    -- },
+  -- {
+  --     command = "flake8",
+  --     filetypes = { "python" },
+  --     extra_args = { "--max-line-length=10000" },
+  -- },
+  -- {
+  --     command = "shellcheck",
+  --     extra_args = { "--severity", "warning" },
+  -- },
+  -- {
+  --     command = "codespell",
+  --     filetypes = { "javascript", "python" },
+  --     -- extra_args = { "--print-with=100", "--line-width=100" },
+  -- },
 }
 --}}}
