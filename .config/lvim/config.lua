@@ -23,7 +23,7 @@ lvim.plugins = {
 }
 require 'colorizer'.setup()
 -- Hide bufferline
-lvim.builtin.bufferline.active = false
+-- lvim.builtin.bufferline.active = false
 lvim.builtin.dap.active = true
 vim.opt.showtabline = 0
 
@@ -127,12 +127,11 @@ lvim.keys.visual_mode["<c-j>"] = "5j"
 lvim.keys.visual_mode["<c-k>"] = "5k"
 
 -- Hover
-lvim.lsp.buffer_mappings.normal_mode["K"] = nil
-lvim.lsp.buffer_mappings.normal_mode["H"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
-
+lvim.lsp.buffer_mappings.normal_mode["<c-i>"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
+lvim.lsp.buffer_mappings.normal_mode["K"]  = nil
 -- Create empty lines above and below
-lvim.keys.normal_mode["J"] = "o<Esc>k"
 lvim.keys.normal_mode["K"] = "O<Esc>j"
+lvim.keys.normal_mode["J"] = "o<Esc>k"
 
 
 -- Keep buffer when pasting
