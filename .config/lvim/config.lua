@@ -183,25 +183,25 @@ vim.cmd("au BufWritePre * :silent! Neoformat")
 --}}}
 
 -- Formatters {{{
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---     {
---         command = "black",
---         filetypes = { "python" },
---         extra_args = { "-l 100" },
---     },
---     {
---         command = "isort",
---         filetypes = { "python" },
---         extra_args = { "-l 100" },
---     },
---     -- {
---     --   command = "prettier",
---     --   extra_args = { "--print-with", "100" },
---     --   filetypes = { "typescript", "typescriptreact" },
---     -- },
--- }
---}}}
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+    -- {
+    --     command = "black",
+    --     filetypes = { "python" },
+    --     extra_args = { "-l 100" },
+    -- },
+    {
+        command = "isort",
+        filetypes = { "python" },
+        extra_args = { "-l 100" },
+    },
+    -- {
+    --   command = "prettier",
+    --   extra_args = { "--print-with", "100" },
+    --   filetypes = { "typescript", "typescriptreact" },
+    -- },
+}
+-- }}}
 
 -- Linters {{{
 local linters = require "lvim.lsp.null-ls.linters"

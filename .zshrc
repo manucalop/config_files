@@ -70,7 +70,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,12 +106,22 @@ source $ZSH/oh-my-zsh.sh
 alias zshsource="source ${HOME}/.zshrc"
 alias zshconf="${EDITOR} ${HOME}/.zshrc"
 alias zshcd="cd ${HOME}/.zshrc.d"
+# alias ssh="kitty +kitten ssh"
+
+function runvim() {
+  if [[ -z $1 ]]; then
+    vim .
+  else
+    vim $1
+  fi
+}
 
 # Key bindings
 bindkey -s '^g' 'git status . ^M'
 bindkey -s '^o' 'ranger_cd ^M'
 bindkey -s '^u' 'poetry shell ^M'
-bindkey -s '^f' 'fdir ^M'
+bindkey -s '^f' 'ff ^M'
+bindkey -s '^0' 'vim . ^'
 
 for file in $HOME/.bashrc.d/lib/*.bash
 do
