@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 file="$1"
 if [ -z "$1" ]
 then
@@ -6,6 +6,6 @@ then
 else
     # file="${file}.bash"
     touch $file
-    echo "#!/usr/bin/env bash" > $file
+    echo "#!/bin/bash" > $file
     chmod +x $file
 fi
