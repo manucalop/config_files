@@ -32,8 +32,9 @@ vim.opt.swapfile = false
 
 -- lvim stuff
 lvim.log.level = "warn"
-lvim.format_on_save = false
+lvim.format_on_save = true
 lvim.leader = "space"
+
 
 -- lvim.builtin.dashboard.active = true
 -- lvim.builtin.notify.active = true

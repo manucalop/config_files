@@ -28,7 +28,6 @@ formatters.setup {
       "graphql",
       "vue",
       "angular",
-      "lua",
     },
   },
 }

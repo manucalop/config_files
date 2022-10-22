@@ -14,5 +14,6 @@ lvim.plugins = {
   { "TimUntersberger/neogit" },
   { "norcalli/nvim-colorizer.lua" },
   { "ThePrimeagen/vim-be-good" },
-  { "sbdchd/neoformat" }
+  { "sbdchd/neoformat" },
+  { "rcarriga/nvim-notify" },
 }
