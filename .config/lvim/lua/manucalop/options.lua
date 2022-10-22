@@ -23,7 +23,7 @@ vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
 -- vim.opt.foldenable = true
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.foldmethod = "marker"
+-- vim.opt.foldmethod = "marker"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.hlsearch = false
@@ -48,4 +48,4 @@ lvim.builtin.treesitter.ignore_install = { "phpdoc" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- Let nvim-tree preserve window proportions
-lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
+-- lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
