@@ -36,6 +36,7 @@ lvim.builtin.project.manual_mode = true
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
+vim.g.copilot_node_command = "~/.asdf/installs/nodejs/17.9.1/bin/node"
 
 lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
   local copilot_keys = vim.fn["copilot#Accept"]()
@@ -93,7 +94,7 @@ vim.opt.swapfile = false
 
 -- lvim stuff
 lvim.log.level = "warn"
-lvim.format_on_save = false
+lvim.format_on_save = true
 lvim.leader = "space"
 
 -- lvim.builtin.dashboard.active = true
@@ -107,12 +108,19 @@ lvim.builtin.treesitter.ensure_installed = "all"
 lvim.builtin.treesitter.ignore_install = { "phpdoc" }
 
 lvim.builtin.treesitter.highlight.enabled = true
+
+-- Let nvim-tree preserve window proportions
+lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
 -- }}}
 
 -- Key mappings {{{
 
--- Save with C-s
+-- Saving
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- Closing
+lvim.keys.normal_mode["<C-c>"] = ":q<cr>"
+-- Finding
+lvim.keys.normal_mode["<C-f>"] = ":Telescope find_files<cr>"
 
 -- Move around wrapped lines
 lvim.keys.normal_mode["j"] = "gj"
@@ -128,7 +136,7 @@ lvim.keys.visual_mode["<c-k>"] = "5k"
 
 -- Hover
 lvim.lsp.buffer_mappings.normal_mode["<c-h>"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
-lvim.lsp.buffer_mappings.normal_mode["K"]  = nil
+lvim.lsp.buffer_mappings.normal_mode["K"]     = nil
 
 -- Create empty lines above and below
 lvim.keys.normal_mode["K"] = "O<Esc>j"
@@ -146,6 +154,7 @@ lvim.keys.normal_mode["<leader>Y"] = '"+Y'
 -- Move between buffers
 lvim.keys.normal_mode["H"] = ":bprevious<CR>"
 lvim.keys.normal_mode["L"] = ":bnext<CR>"
+
 
 -- Delete all buffer except the current one
 lvim.keys.normal_mode["<leader>C"] = ":%bd|e#|bd#<CR>"
@@ -176,49 +185,51 @@ lvim.keys.normal_mode["<leader>gn"] = ":Neogit<cr>"
 vim.cmd("au BufEnter *.py setlocal foldmethod=indent")
 vim.cmd("au BufEnter *.lua setlocal foldmethod=marker")
 vim.cmd("au BufEnter *.bash_aliases setlocal foldmethod=marker")
-vim.cmd("au BufWritePre * :silent! Neoformat")
+-- vim.cmd("au BufWritePre * :silent! Neoformat")
 
 
 
 --}}}
 
 -- Formatters {{{
+-- Setup Python neoformat to apply both black and isort
+
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-    -- {
-    --     command = "black",
-    --     filetypes = { "python" },
-    --     extra_args = { "-l 100" },
-    -- },
-    {
-        command = "isort",
-        filetypes = { "python" },
-        extra_args = { "-l 100" },
-    },
-    -- {
-    --   command = "prettier",
-    --   extra_args = { "--print-with", "100" },
-    --   filetypes = { "typescript", "typescriptreact" },
-    -- },
+  {
+    command = "black",
+    filetypes = { "python" },
+    extra_args = { "-l 100" },
+  },
+  {
+    command = "isort",
+    filetypes = { "python" },
+    extra_args = { "-l 100" },
+  },
+  -- {
+  --   command = "prettier",
+  --   extra_args = { "--print-with", "100" },
+  --   filetypes = { "typescript", "typescriptreact" },
+  -- },
 }
 -- }}}
 
 -- Linters {{{
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  -- {
-  --     command = "flake8",
-  --     filetypes = { "python" },
-  --     extra_args = { "--max-line-length=10000" },
-  -- },
-  -- {
-  --     command = "shellcheck",
-  --     extra_args = { "--severity", "warning" },
-  -- },
-  -- {
-  --     command = "codespell",
-  --     filetypes = { "javascript", "python" },
-  --     -- extra_args = { "--print-with=100", "--line-width=100" },
-  -- },
-}
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup {
+-- {
+--     command = "flake8",
+--     filetypes = { "python" },
+--     extra_args = { "--max-line-length=10000" },
+-- },
+-- {
+--     command = "shellcheck",
+--     extra_args = { "--severity", "warning" },
+-- },
+-- {
+--     command = "codespell",
+--     filetypes = { "javascript", "python" },
+--     -- extra_args = { "--print-with=100", "--line-width=100" },
+-- },
+-- }
 --}}}
