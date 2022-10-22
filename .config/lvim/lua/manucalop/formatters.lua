@@ -13,6 +13,22 @@ formatters.setup {
   {
     command = "prettier",
     extra_args = { "--print-with", "100" },
-    filetypes = { "typescript", "typescriptreact", },
+    filetypes = {
+      "typescript",
+      "typescriptreact",
+      "javascript",
+      "javascriptreact",
+      "json",
+      "yaml",
+      "markdown",
+      "html",
+      "css",
+      "scss",
+      "less",
+      "graphql",
+      "vue",
+      "angular",
+      "lua",
+    },
   },
 }
