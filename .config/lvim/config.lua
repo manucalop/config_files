@@ -2,24 +2,24 @@
 
 -- Plugins{{{
 lvim.plugins = {
-  -- Colorscheme
-  { "gruvbox-community/gruvbox" }, -- Gruvbox Colorscheme
-  { "tpope/vim-repeat" },
-  { "tpope/vim-surround" },
-  { "github/copilot.vim" },
-  { "alexghergh/nvim-tmux-navigation" },
-  { "folke/trouble.nvim", cmd = "TroubleToggle" }, -- Showing diagnostics
-  -- Testing
-  { "romgrk/nvim-treesitter-context" },
-  { "nvim-treesitter/playground" },
-  { "rcarriga/nvim-dap-ui" },
-  { "theHamsta/nvim-dap-virtual-text" },
-  { "ThePrimeagen/git-worktree.nvim" },
-  { "ThePrimeagen/harpoon" },
-  { "TimUntersberger/neogit" },
-  { "sbdchd/neoformat" },
-  { "norcalli/nvim-colorizer.lua" },
-  { "ThePrimeagen/vim-be-good" },
+    -- Colorscheme
+    { "gruvbox-community/gruvbox" }, -- Gruvbox Colorscheme
+    { "tpope/vim-repeat" },
+    { "tpope/vim-surround" },
+    { "github/copilot.vim" },
+    { "alexghergh/nvim-tmux-navigation" },
+    { "folke/trouble.nvim", cmd = "TroubleToggle" }, -- Showing diagnostics
+    -- Testing
+    { "romgrk/nvim-treesitter-context" },
+    { "nvim-treesitter/playground" },
+    { "rcarriga/nvim-dap-ui" },
+    { "theHamsta/nvim-dap-virtual-text" },
+    { "ThePrimeagen/git-worktree.nvim" },
+    { "ThePrimeagen/harpoon" },
+    { "TimUntersberger/neogit" },
+    { "sbdchd/neoformat" },
+    { "norcalli/nvim-colorizer.lua" },
+    { "ThePrimeagen/vim-be-good" },
 }
 require 'colorizer'.setup()
 -- Hide bufferline
@@ -31,6 +31,8 @@ vim.opt.showtabline = 0
 lvim.builtin.project.manual_mode = true
 
 
+-- Python provider
+vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
 
 -- Copilot{{{
 vim.g.copilot_no_tab_map = true
@@ -39,26 +41,26 @@ vim.g.copilot_tab_fallback = ""
 vim.g.copilot_node_command = "~/.asdf/installs/nodejs/17.9.1/bin/node"
 
 lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
-  local copilot_keys = vim.fn["copilot#Accept"]()
-  if copilot_keys ~= "" then
-    vim.api.nvim_feedkeys(copilot_keys, "i", true)
-  else
-    fallback()
-  end
+    local copilot_keys = vim.fn["copilot#Accept"]()
+    if copilot_keys ~= "" then
+        vim.api.nvim_feedkeys(copilot_keys, "i", true)
+    else
+        fallback()
+    end
 end
 --}}}
 
 -- Tmux Navigator{{{
 require 'nvim-tmux-navigation'.setup {
-  disable_when_zoomed = true, -- defaults to false
-  keybindings = {
-    left = "<C-w>h",
-    down = "<C-w>j",
-    up = "<C-w>k",
-    right = "<C-w>l",
-    -- last_active = "<C-\\>",
-    -- next = "<C-Space>",
-  }
+    disable_when_zoomed = true, -- defaults to false
+    keybindings = {
+        left = "<C-w>h",
+        down = "<C-w>j",
+        up = "<C-w>k",
+        right = "<C-w>l",
+        -- last_active = "<C-\\>",
+        -- next = "<C-Space>",
+    }
 }
 --}}}
 
@@ -196,21 +198,21 @@ vim.cmd("au BufEnter *.bash_aliases setlocal foldmethod=marker")
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  {
-    command = "black",
-    filetypes = { "python" },
-    extra_args = { "-l 100" },
-  },
-  {
-    command = "isort",
-    filetypes = { "python" },
-    extra_args = { "-l 100" },
-  },
-  -- {
-  --   command = "prettier",
-  --   extra_args = { "--print-with", "100" },
-  --   filetypes = { "typescript", "typescriptreact" },
-  -- },
+    {
+        command = "black",
+        filetypes = { "python" },
+        extra_args = { "-l 100" },
+    },
+    {
+        command = "isort",
+        filetypes = { "python" },
+        extra_args = { "-l 100" },
+    },
+    -- {
+    --   command = "prettier",
+    --   extra_args = { "--print-with", "100" },
+    --   filetypes = { "typescript", "typescriptreact" },
+    -- },
 }
 -- }}}
 
