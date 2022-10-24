@@ -28,6 +28,7 @@ function wd_add(){
     fi
 
     pwd >> "$VAR/current_working_directory"
+    wd_set_first "$PWD"
 }
 
 function wd_select(){
