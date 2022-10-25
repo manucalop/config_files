@@ -16,4 +16,9 @@ lvim.plugins = {
   { "ThePrimeagen/vim-be-good" },
   { "sbdchd/neoformat" },
   { "rcarriga/nvim-notify" },
+  { "nvim-telescope/telescope-file-browser.nvim" },
+  { "nvim-telescope/telescope-project.nvim" },
+  { "pwntester/octo.nvim",
+    event = "BufRead",
+  },
 }
