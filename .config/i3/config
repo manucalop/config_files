@@ -340,17 +340,17 @@ bar{
 # Modes of operation {{{
     bindsym $mod+w           mode "$mode_window"
     bindsym $mod+o           mode "$mode_launcher"
-    bindsym $mod+space       mode "$mode_keyboard"
+    bindsym $mod+d           mode "$mode_keyboard"
     bindsym $mod+0           mode "$mode_system"
 
 #}}}
 
 # Launch programs {{{
   # start a terminal
-      bindsym $mod+Return exec gnome-terminal
+      bindsym $mod+Return exec kitty /usr/bin/bash -c tmux
 
   # start dmenu (a program launcher)
-      bindsym $mod+d exec rofi -show combi
+      bindsym $mod+space exec rofi -show combi
       bindsym $mod+Tab exec rofi -show window 
   #    bindysm --release $mod+z exec ~/.i3/morc_menu
 
