@@ -22,10 +22,12 @@ alias lf='find . -maxdepth 1 -type f'
 bind '"\C-g":"git status .\C-m"'
 bind '"\C-o":"ranger_cd\C-m"'
 bind '"\C-u":"poetry shell\C-m"'
+bind '"\C-f":"ff \C-m"'
 
 keypro us
 
 #Custom terminal prompt
 PS1=$(custom_terminal_prompt)
 
-
+# Launch tmux
+[ -z "$TMUX"  ] && { tmux; }

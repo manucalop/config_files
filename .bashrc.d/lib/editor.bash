@@ -4,7 +4,7 @@ export VISUAL="$EDITOR"
 
 alias vim="$EDITOR"
 alias vimcd='cd ~/.config/lvim'
-alias vimconf='vim ~/.config/lvim/config.lua'
+alias vimconf='vim ~/.config/lvim/lua/manucalop/'
 # alias vimconf='vim ~/.config/nvim/init.vim'
 
 vi_mode(){
