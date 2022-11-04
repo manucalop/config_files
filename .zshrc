@@ -108,20 +108,13 @@ alias zshconf="${EDITOR} ${HOME}/.zshrc"
 alias zshcd="cd ${HOME}/.zshrc.d"
 # alias ssh="kitty +kitten ssh"
 
-function runvim() {
-  if [[ -z $1 ]]; then
-    vim .
-  else
-    vim $1
-  fi
-}
-
 # Key bindings
 bindkey -s '^g' 'git status . ^M'
 bindkey -s '^o' 'ranger_cd ^M'
 bindkey -s '^u' 'poetry shell ^M'
 bindkey -s '^f' 'ff ^M'
-bindkey -s '^0' 'vim . ^'
+bindkey -s '^k' 'vim -c "Telescope find_files" ^M'
+# bindkey -s '^n' 'wd ^M'
 
 for file in $HOME/.bashrc.d/lib/*.bash
 do

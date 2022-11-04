@@ -1,6 +1,6 @@
 [user]
 	email = manucalop@gmail.com
-	name = Manuel Castillo
+	name = Manuel Castillo-Lopez
 [credential]
   helper = cache --timeout=300
 [alias]
@@ -16,3 +16,8 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
