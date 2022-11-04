@@ -32,7 +32,7 @@ if [ -d "$HOME/.bashrc.d/bin" ] ; then
     PATH="$HOME/.bashrc.d/bin:$PATH"
 fi
 
-if [ -d "$HOME/.cargo/bin" ] ; then
+if [ -d "$HOME/.cargo" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
+    . "$HOME/.cargo/env"
 fi
-. "$HOME/.cargo/env"
