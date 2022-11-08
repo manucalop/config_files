@@ -12,7 +12,7 @@ lvim.builtin.lualine.options.theme = colorscheme
 lvim.builtin.project.manual_mode = true
 
 -- Python provider
-vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+vim.g.python3_host_prog = '/usr/bin/python3'
 -- vim.opt.wrap = true
 -- vim.opt.tabstop = 4
 -- vim.opt.shiftwidth = 4
