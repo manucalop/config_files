@@ -33,12 +33,14 @@ function wd_add(){
 
 function wd_select(){
     wd_init
-    local dir=$(cat "$VAR/current_working_directory" | awk -F/ '{print $NF}' | fzf --reverse)
+    # Select directory, showing only the last directory in the path
+    local dir=$(cat "$VAR/current_working_directory" | fzf --reverse --delimiter / --with-nth -1)
     if [ -z "$dir" ]; then
         return 1
     fi
-    local dir_path=$(cat "$VAR/current_working_directory" | grep "$dir")
-    echo "$dir_path"
+    # local dir_path=$(cat "$VAR/current_working_directory" | grep "$dir")
+    # echo "$dir_path"
+    echo "$dir"
 }
 
 function wd_remove(){
@@ -49,20 +51,15 @@ function wd_remove(){
         echo "Directory not found"
         return 1
     fi
-    grep -v "$dir" "$VAR/current_working_directory" > "$VAR/current_working_directory.tmp"
+    grep -vx "$dir" "$VAR/current_working_directory" > "$VAR/current_working_directory.tmp"
     mv "$VAR/current_working_directory.tmp" "$VAR/current_working_directory"
 } 
 
 function wd_set_first(){
-    local full_path=$1
-    # Pipe all but first to temp file
-    cat "$VAR/current_working_directory" | grep -v "$full_path" > "$VAR/current_working_directory.tmp"
-    # Replace original with selected directory
-    echo "$full_path" > "$VAR/current_working_directory"
-    # Append the rest of the file
-    cat "$VAR/current_working_directory.tmp" >> "$VAR/current_working_directory"
-    # Delete temp file
-    rm "$VAR/current_working_directory.tmp"
+    local dir=$1
+    echo "$dir" > "$VAR/current_working_directory.tmp"
+    grep -vx "$dir" "$VAR/current_working_directory" >> "$VAR/current_working_directory.tmp"
+    mv "$VAR/current_working_directory.tmp" "$VAR/current_working_directory"
 }
 
 function wd_select_go(){
