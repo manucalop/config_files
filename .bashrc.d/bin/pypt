@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 pkg_name="$1"
+#pkg-name substituting _ to -
+pkg_name_dash="${pkg_name//_/-}"
 git clone git@github.com:manucalop/mcl_python_package_template.git
 if [ -z "$1" ]
 then
@@ -7,7 +9,7 @@ then
 else
   echo "Creating $pkg_name package..."
   rm -rf mcl_python_package_template/.git
-  rm mcl_python_package_template/README.md
   rr_all mcl_python_package_template/ mcl_python_package_template $pkg_name
+  rr_all mcl_python_package_template/ mcl-python-package-template $pkg_name_dash
   mv mcl_python_package_template "$pkg_name"
 fi
