@@ -21,6 +21,7 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 -- vim.opt.smarttab = true
 -- vim.opt.foldlevelstart = 0
 -- vim.opt.foldenable = true
+vim.opt.foldnestmax = 2
 vim.opt.clipboard = "unnamedplus"
 
 -- vim.opt.foldmethod = "marker"
