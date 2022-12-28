@@ -66,3 +66,18 @@ lvim.builtin.which_key.mappings["a"] = { ":lua require('harpoon.mark').add_file(
 
 -- Neogit
 lvim.builtin.which_key.mappings["gn"] = { ":Neogit<cr>", "Neogit" }
+
+-- Create a zoom function with <c-w>_ \| <c-w>\|
+function _G.zoom()
+  if vim.g.zoomed then
+    vim.cmd("wincmd =")
+    vim.g.zoomed = false
+  else
+    vim.cmd("wincmd _")
+    vim.cmd("wincmd |")
+    vim.g.zoomed = true
+  end
+end
+
+-- Zoom in and out
+lvim.builtin.which_key.mappings["z"] = { ":lua zoom()<cr>", "Zoom" }

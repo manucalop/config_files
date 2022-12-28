@@ -1,0 +1,2 @@
+#!/bin/bash
+grip -b $1

@@ -18,7 +18,15 @@ lvim.plugins = {
   { "rcarriga/nvim-notify" },
   { "nvim-telescope/telescope-file-browser.nvim" },
   { "nvim-telescope/telescope-project.nvim" },
-  { "pwntester/octo.nvim",
-    event = "BufRead",
+  { 'ttibsi/pre-commit.nvim' },
+  { 'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function()
+      require "octo".setup()
+    end
   },
 }

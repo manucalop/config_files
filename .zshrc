@@ -8,7 +8,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="gozilla"
+ZSH_THEME="arrow"
+# ZSH_THEME="terminalparty"
+# ZSH_THEME="smoothmonkey"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -113,8 +117,14 @@ bindkey -s '^g' 'git status . ^M'
 bindkey -s '^o' 'ranger_cd ^M'
 bindkey -s '^u' 'poetry shell ^M'
 bindkey -s '^f' 'ff ^M'
-bindkey -s '^k' 'vim -c "Telescope find_files" ^M'
+# bindkey -s '^k' 'vim -c "Telescope find_files" ^M'
 # bindkey -s '^n' 'wd ^M'
+
+# alias awsdev='aws --profile dev --region eu-west-1'
+# alias awsstg='aws --profile staging --region eu-west-1'
+# alias awsprd='aws --profile prod --region eu-west-1'
+
+# Append newline to the prompt 
 
 for file in $HOME/.bashrc.d/lib/*.bash
 do
@@ -122,3 +132,13 @@ do
 done
 
 [ -z "$TMUX"  ] && { tmux; }
+
+# autoload -U promptinit; promptinit
+# prompt typewritten
+
+# append to prompt a new line
+# NEWLINE=$'
+# PROMPT="$PROMPT$NEWLINE"'
+# NEWLINE=$'\n'
+# PROMPT="${PROMPT}${NEWLINE}"
+
