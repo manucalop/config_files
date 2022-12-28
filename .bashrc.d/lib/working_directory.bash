@@ -22,7 +22,7 @@ function wd_add(){
         return 1
     fi
     # If current directory is already in the list, don't add it
-    if cat "$VAR/current_working_directory" | grep -q "$PWD"; then
+    if cat "$VAR/current_working_directory" | grep -x "$PWD"; then
         echo "Directory already in list"
         return 1
     fi
