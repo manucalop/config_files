@@ -24,10 +24,10 @@ bind '"\C-o":"ranger_cd\C-m"'
 bind '"\C-u":"poetry shell\C-m"'
 bind '"\C-f":"ff \C-m"'
 
-keypro us
+#keypro us
 
 #Custom terminal prompt
-PS1=$(custom_terminal_prompt)
+PS1=$(~/.bashrc.d/bin/custom_terminal_prompt)
 
 # Launch tmux
-[ -z "$TMUX"  ] && { tmux; }
+#[ -z "$TMUX"  ] && { tmux; }
