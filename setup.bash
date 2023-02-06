@@ -6,7 +6,7 @@ function setup_config_files {
     git clone git@github.com:manucalop/config_files.git
     cp -r config_files/. ~/
     rm -rf config_files
-    cp -r config/* ~/.config/
+    rm README.md
 }
 
 function install_packages {
