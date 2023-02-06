@@ -3,7 +3,7 @@
 #
 function setup_config_files {
     echo "Setting up config files..."
-    git clone git@github.com:manucalop/config_files.git
+    git clone https://github.com/manucalop/config_files.git
     cp -r config_files/. ~/
     rm -rf config_files
     rm README.md
