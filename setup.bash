@@ -37,3 +37,7 @@ function install_core_packages {
 
 setup_config_files
 install_core_packages
+
+sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove -y
