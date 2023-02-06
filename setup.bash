@@ -18,3 +18,22 @@ function install_packages {
     # xargs -d '\n' -- pip install < ./packages/pip_pkgs.txt
     # xargs -d '\n' -- sudo npm install -g < ./packages/npm_pkgs.txt
 }
+
+function install_core_packages {
+    local core_path="./.packages/core"
+    echo "Installing apt packages..."
+    xargs -d '\n' -- sudo apt install -y < $core_path/apt_pkgs.txt
+    echo "Installing pip packages..."
+    xargs -d '\n' -- pip install < $core_path/pip_pkgs.txt
+    echo "Installing npm packages..."
+    xargs -d '\n' -- sudo npm install -g < $core_path/npm_pkgs.txt
+    echo "Installing snap packages..."
+    xargs -d '\n' -- sudo snap install < $core_path/snap_pkgs.txt
+    echo "Installing scripts..."
+    for file in $core_path/scripts/*.bash; do
+        ./$file
+    done
+}
+
+setup_config_files
+install_core_packages
