@@ -3,10 +3,10 @@
 #
 function setup_config_files {
     echo "Setting up config files..."
-    git clone git@github.com:manucalop/config_files.git
+    git clone https://github.com/manucalop/config_files.git
     cp -r config_files/. ~/
     rm -rf config_files
-    cp -r config/* ~/.config/
+    rm README.md
 }
 
 function install_packages {
@@ -18,3 +18,26 @@ function install_packages {
     # xargs -d '\n' -- pip install < ./packages/pip_pkgs.txt
     # xargs -d '\n' -- sudo npm install -g < ./packages/npm_pkgs.txt
 }
+
+function install_core_packages {
+    local core_path="./.packages/core"
+    echo "Installing apt packages..."
+    xargs -d '\n' -- sudo apt install -y < $core_path/apt_pkgs.txt
+    echo "Installing pip packages..."
+    xargs -d '\n' -- pip install < $core_path/pip_pkgs.txt
+    echo "Installing npm packages..."
+    xargs -d '\n' -- sudo npm install -g < $core_path/npm_pkgs.txt
+    echo "Installing snap packages..."
+    xargs -d '\n' -- sudo snap install < $core_path/snap_pkgs.txt
+    echo "Installing scripts..."
+    for file in $core_path/scripts/*.bash; do
+        ./$file
+    done
+}
+
+setup_config_files
+install_core_packages
+
+sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove -y
