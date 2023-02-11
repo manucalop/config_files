@@ -3,5 +3,6 @@ configuration {
  font: "Ubuntu Mono 14";
  combi-modi: "drun,run";
  show-icons: true;
+ dpi: 220;
  }
 @theme "glue_pro_blue"
