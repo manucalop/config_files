@@ -3,7 +3,7 @@ formatters.setup {
   {
     command = "black",
     filetypes = { "python" },
-    extra_args = { "-l 100" },
+    extra_args = { "-S", "-l 150" },
   },
   {
     command = "isort",
@@ -12,7 +12,10 @@ formatters.setup {
   },
   {
     command = "prettier",
-    extra_args = { "--print-with", "100" },
+    extra_args = {
+      "--single-quote",
+      "--print-width 150",
+    },
     filetypes = {
       "typescript",
       "typescriptreact",
