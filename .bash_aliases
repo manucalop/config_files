@@ -24,7 +24,11 @@ bind '"\C-o":"ranger_cd\C-m"'
 bind '"\C-u":"poetry shell\C-m"'
 bind '"\C-f":"ff \C-m"'
 
-#keypro us
+# Use keypro us if available
+if command -v keypro &> /dev/null
+then
+    keypro us
+fi
 
 #Custom terminal prompt
 PS1=$(~/.bashrc.d/bin/custom_terminal_prompt)
