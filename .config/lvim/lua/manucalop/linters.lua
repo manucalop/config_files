@@ -46,6 +46,7 @@ linters.setup {
     extra_args = {
       "--config=" .. get_git_root_dir() .. "/setup.cfg",
       -- "--ignore=" .. table.concat(flake8_ignore_list, ","),
+      "--max-line-length=120",
       "--extend-ignore=" .. table.concat(flake8_ignore_list, ","),
     },
   },

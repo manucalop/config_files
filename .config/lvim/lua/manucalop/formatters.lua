@@ -3,7 +3,7 @@ formatters.setup {
   {
     command = "black",
     filetypes = { "python" },
-    extra_args = { "-S", "-l 150" },
+    extra_args = { "-S", "-l 120" },
   },
   {
     command = "isort",
