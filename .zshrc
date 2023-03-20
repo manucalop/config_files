@@ -13,7 +13,8 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="arrow"
 # ZSH_THEME="terminalparty"
 # ZSH_THEME="smoothmonkey"
-
+# ZSH_THEME="terminalparty"
+#
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -111,12 +112,23 @@ alias zshsource="source ${HOME}/.zshrc"
 alias zshconf="${EDITOR} ${HOME}/.zshrc"
 alias zshcd="cd ${HOME}/.zshrc.d"
 # alias ssh="kitty +kitten ssh"
+#
+function show_info() {
+    local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    local cwd=$(echo $PWD | sed -E 's/.*\/(.*)\/(.*)\/(.*)/\1\/\2\/\3/')
+
+    if [[ -n $branch ]]; then
+        echo " $branch"
+    fi
+    echo " .../$cwd"
+}
 
 # Key bindings
 bindkey -s '^g' 'git status . ^M'
 bindkey -s '^o' 'ranger_cd ^M'
 bindkey -s '^u' 'poetry shell ^M'
 bindkey -s '^f' 'ff ^M'
+bindkey -s '^e' 'show_info ^M'
 # bindkey -s '^k' 'vim -c "Telescope find_files" ^M'
 # bindkey -s '^n' 'wd ^M'
 
@@ -131,7 +143,7 @@ do
     source $file
 done
 
-[ -z "$TMUX"  ] && { tmux; }
+
 
 # autoload -U promptinit; promptinit
 # prompt typewritten
@@ -141,4 +153,6 @@ done
 # PROMPT="$PROMPT$NEWLINE"'
 # NEWLINE=$'\n'
 # PROMPT="${PROMPT}${NEWLINE}"
+# PROMPT='$ '
 
+[ -z "$TMUX"  ] && { tmux; }
