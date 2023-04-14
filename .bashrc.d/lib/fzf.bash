@@ -1,7 +1,11 @@
-# If shell is bash, then source fzf.bash
-# if [ -n "$BASH_VERSION" ]; then
-#   source ~/.fzf.bash
-# fi
+# If file exist source it
+if [ -n "$BASH_VERSION" ]; then
+  key_bindings_file="/usr/share/doc/fzf/examples/key-bindings.bash"
+  if [ -f "$key_bindings_file" ]; then
+      source "$key_bindings_file"
+  fi
+fi
+
 # If shell is zsh, then source fzf.zsh
 if [ -n "$ZSH_VERSION" ]; then
   source ~/.fzf.zsh

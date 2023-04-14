@@ -36,3 +36,8 @@ if [ -d "$HOME/.cargo" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
     . "$HOME/.cargo/env"
 fi
+
+if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
+

@@ -4,7 +4,7 @@ lvim.plugins = {
   { "tpope/vim-surround" },
   { "github/copilot.vim" },
   { "alexghergh/nvim-tmux-navigation" },
-  { "folke/trouble.nvim", cmd = "TroubleToggle" }, -- Showing diagnostics
+  { "folke/trouble.nvim",                        cmd = "TroubleToggle" }, -- Showing diagnostics
   -- Testing
   { "romgrk/nvim-treesitter-context" },
   { "nvim-treesitter/playground" },
@@ -15,19 +15,19 @@ lvim.plugins = {
   { "norcalli/nvim-colorizer.lua" },
   { "ThePrimeagen/vim-be-good" },
   { "sbdchd/neoformat" },
-  { "rcarriga/nvim-notify" },
+  -- { "rcarriga/nvim-notify" },
   { "nvim-telescope/telescope-file-browser.nvim" },
   { "nvim-telescope/telescope-project.nvim" },
   { 'ttibsi/pre-commit.nvim' },
-  { 'pwntester/octo.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-web-devicons',
-    },
-    config = function()
-      require "octo".setup()
-    end
-  },
+  -- { 'pwntester/octo.nvim',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-telescope/telescope.nvim',
+  --     'kyazdani42/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require "octo".setup()
+  --   end
+  -- },
   -- { 'tell-k/vim-autopep8' },
 }
