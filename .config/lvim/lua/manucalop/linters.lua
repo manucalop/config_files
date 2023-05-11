@@ -6,35 +6,6 @@ local function get_git_root_dir()
 end
 
 local flake8_ignore_list = {
-  -- "D",
-  -- "N400",
-  -- "N805",
-  -- "PD005",
-  -- "PD010",
-  -- "W503",
-  -- "WPS110",
-  -- "WPS115",
-  -- "WPS204",
-  -- "WPS220",
-  -- "WPS221",
-  -- "WPS226",
-  -- "WPS300",
-  -- "WPS305",
-  -- "WPS306",
-  -- "WPS323",
-  -- "WPS237",
-  -- "WPS336",
-  -- "WPS410",
-  -- "WPS412",
-  -- "WPS428",
-  -- "WPS431",
-  -- "WPS465",
-  -- "WPS503",
-  -- "WPS115",
-  -- "WPS602",
-  -- "N815",
-  -- "S101",
-  -- "S310",
   "Q000",
 }
 
@@ -43,12 +14,12 @@ linters.setup {
   {
     command = "flake8",
     filetypes = { "python" },
-    extra_args = {
-      "--config=" .. get_git_root_dir() .. "/setup.cfg",
-      -- "--ignore=" .. table.concat(flake8_ignore_list, ","),
-      "--max-line-length=120",
-      "--extend-ignore=" .. table.concat(flake8_ignore_list, ","),
-    },
+    -- extra_args = {
+    --   "--config=" .. get_git_root_dir() .. "/setup.cfg",
+    -- "--ignore=" .. table.concat(flake8_ignore_list, ","),
+    -- "--max-line-length=120",
+    --   "--extend-ignore=" .. table.concat(flake8_ignore_list, ","),
+    -- },
   },
   {
     command = "shellcheck",

@@ -18,7 +18,7 @@ lvim.plugins = {
   -- { "rcarriga/nvim-notify" },
   { "nvim-telescope/telescope-file-browser.nvim" },
   { "nvim-telescope/telescope-project.nvim" },
-  { 'ttibsi/pre-commit.nvim' },
+  -- { 'ttibsi/pre-commit.nvim' },
   -- { 'pwntester/octo.nvim',
   --   requires = {
   --     'nvim-lua/plenary.nvim',

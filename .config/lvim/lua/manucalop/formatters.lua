@@ -5,13 +5,13 @@ formatters.setup {
     filetypes = { "python" },
     extra_args = {
       --"-S",
-      "-l 90",
+      "-l 79",
     },
   },
   {
     command = "isort",
     filetypes = { "python" },
-    extra_args = { "-l 100" },
+    -- extra_args = { "-l 120" },
   },
   {
     command = "prettier",
