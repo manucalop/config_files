@@ -9,7 +9,7 @@ else
   export LC_CTYPE=C 
   export LANG=C
   cd $path
-  find . -type f -name "*.*" -exec gsed -i -e "s/$find_string/$replace_string/g" '{}' \;
+  find . -type f -name "*.*" -exec sed -i -e "s/$find_string/$replace_string/g" '{}' \;
   wait
   cd - > /dev/null
 fi
