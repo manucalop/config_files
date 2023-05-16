@@ -3,21 +3,22 @@ lvim.plugins = {
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
   { "github/copilot.vim" },
-  { "alexghergh/nvim-tmux-navigation" },
-  { "folke/trouble.nvim",                        cmd = "TroubleToggle" }, -- Showing diagnostics
-  -- Testing
-  { "romgrk/nvim-treesitter-context" },
-  { "nvim-treesitter/playground" },
-  { "theHamsta/nvim-dap-virtual-text" },
-  { "ThePrimeagen/git-worktree.nvim" },
+  { "folke/trouble.nvim",             cmd = "TroubleToggle" }, -- Showing diagnostics
   { "ThePrimeagen/harpoon" },
-  { "TimUntersberger/neogit" },
   { "norcalli/nvim-colorizer.lua" },
-  { "ThePrimeagen/vim-be-good" },
+  { "alexghergh/nvim-tmux-navigation" },
+  { "romgrk/nvim-treesitter-context" },
   { "sbdchd/neoformat" },
+  -- Testing
+  -- { "nvim-treesitter/playground" },
+  -- { "ThePrimeagen/git-worktree.nvim" },
+  -- { "theHamsta/nvim-dap-virtual-text" },
+  -- { "TimUntersberger/neogit" },
+  -- { "ThePrimeagen/vim-be-good" },
   -- { "rcarriga/nvim-notify" },
-  { "nvim-telescope/telescope-file-browser.nvim" },
-  { "nvim-telescope/telescope-project.nvim" },
+  -- { "nvim-telescope/telescope-file-browser.nvim" },
+  -- { "nvim-telescope/telescope-project.nvim" },
+  -----------------------------------------------
   -- { 'ttibsi/pre-commit.nvim' },
   -- { 'pwntester/octo.nvim',
   --   requires = {

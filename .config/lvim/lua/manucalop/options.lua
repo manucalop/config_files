@@ -13,6 +13,7 @@ lvim.builtin.project.manual_mode = true
 
 -- Python provider
 vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.python3_host_prog_pip = '/usr/bin/pip3'
 vim.opt.linebreak = true
 -- vim.opt.wrap = true
 -- vim.opt.tabstop = 4
