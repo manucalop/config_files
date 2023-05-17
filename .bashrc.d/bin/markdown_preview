@@ -1,2 +1,4 @@
 #!/bin/bash
-grip -b $1
+killall grip 2>/dev/null
+echo "Starting markdown preview on http://localhost:6419"
+nohup grip -b "$1" >/dev/null 2>&1 &
