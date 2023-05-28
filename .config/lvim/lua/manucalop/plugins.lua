@@ -9,6 +9,12 @@ lvim.plugins = {
   { "alexghergh/nvim-tmux-navigation" },
   { "romgrk/nvim-treesitter-context" },
   { "sbdchd/neoformat" },
+  {
+    "leoluz/nvim-dap-go",
+    config = function()
+      require("dap-go").setup()
+    end
+  },
   -- Testing
   -- { "nvim-treesitter/playground" },
   -- { "ThePrimeagen/git-worktree.nvim" },
