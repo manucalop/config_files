@@ -7,7 +7,11 @@ then
   echo "Need three arguments: use rr_dirs path find_string replace_string"
 else
   cd $path
-  find . -type d -name "*$find_string*" -exec rename s/$find_string/$replace_string/ '{}' +
-  wait
+  #Rename the directories
+  for dir in $(find . -type d -name "*$find_string*")
+  do
+    new_dir=$(echo $dir | sed "s/$find_string/$replace_string/g")
+    mv $dir $new_dir
+  done
   cd - > /dev/null
 fi

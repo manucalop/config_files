@@ -7,7 +7,10 @@ then
   echo "Need three arguments: use rr_files path find_string replace_string"
 else
   cd $path
-  find . -type f -name "*$find_string*" -exec rename s/$find_string/$replace_string/ '{}' +
-  wait
+  # Rename files
+  for file in $(find . -type f -name "*$find_string*")
+  do
+    mv $file $(echo $file | sed "s/$find_string/$replace_string/g")
+  done
   cd - > /dev/null
 fi
