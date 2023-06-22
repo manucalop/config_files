@@ -43,6 +43,10 @@ shift + alt - 9: yabai -m window --space 9 && yabai -m space --focus 9
 
 alt - c : yabai -m space --create && yabai -m space --focus next
 alt - d : yabai -m space --focus prev && yabai -m space --destroy next
+
+# Mission control:
+alt - u : yabai -m space --toggle mission-control
+
 # shift + alt - r : brew services restart yabai
 
 # focus monitor
