@@ -4,3 +4,6 @@ sudo apt -y upgrade
 sudo apt -y dist-upgrade
 sudo apt -y autoremove
 sudo snap refresh
+brew update
+brew upgrade
+

@@ -235,7 +235,7 @@ bar{
     mode "$mode_launcher" {
         bindsym w workspace $ws3; exec google-chrome; mode "default"
         bindsym f exec nautilus; mode "default"
-        bindsym c workspace $ws2; layout stacking; exec slack; exec ~/.bashrc.d/bin/whatsapp.bash; mode "default"
+        bindsym c workspace $ws2; layout stacking; exec slack; exec ~/.bashrc.d/bin/whatsapp.bash; exec teams-for-linux; mode "default"
         bindsym s exec gnome-control-center; mode "default"
         bindsym m workspace $ws9; exec spotify; mode "default"
         bindsym Escape mode "default"
