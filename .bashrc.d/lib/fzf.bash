@@ -8,7 +8,7 @@ fi
 
 # If shell is zsh, then source fzf.zsh
 if [ -n "$ZSH_VERSION" ]; then
-  source ~/.fzf.zsh
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
 
 export FZF_TMUX=1
