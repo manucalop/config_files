@@ -9,6 +9,7 @@ local flake8_ignore_list = {
   "Q000",
 }
 
+require'lspconfig'.pyright.setup{}
 
 linters.setup {
   {
