@@ -12,4 +12,5 @@ lvim.plugins = {
   },
   { "alexghergh/nvim-tmux-navigation" },
   { "romgrk/nvim-treesitter-context" },
+  { "sainnhe/gruvbox-material" },
 }

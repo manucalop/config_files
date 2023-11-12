@@ -1,5 +1,13 @@
--- lvim.colorscheme = colorscheme
--- lvim.builtin.lualine.options.theme = colorscheme
+-- local colorscheme = "lunar"
+local colorscheme = "gruvbox-material"
+
+-- :h gruvbox-material for more options
+vim.g.gruvbox_material_better_performance = 1
+vim.g.gruvbox_material_foreground = "original"
+vim.g.gruvbox_material_enable_bold = 1
+vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
+lvim.colorscheme = colorscheme
+lvim.builtin.lualine.options.theme = colorscheme
 
 -- Hide bufferline
 -- lvim.builtin.bufferline.active = false
