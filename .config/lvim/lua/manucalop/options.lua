@@ -12,8 +12,10 @@ lvim.builtin.lualine.options.theme = colorscheme
 lvim.builtin.project.manual_mode = true
 
 -- Python provider
-vim.g.python3_host_prog = '/usr/bin/python3'
-vim.g.python3_host_prog_pip = '/usr/bin/pip3'
+-- vim.g.python3_host_prog = '/usr/bin/python3'
+-- vim.g.python3_host_prog_pip = '/usr/bin/pip3'
+vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+vim.g.python3_host_prog_pip = '/opt/homebrew/bin/pip3'
 vim.opt.linebreak = true
 -- vim.opt.wrap = true
 -- vim.opt.tabstop = 4
@@ -46,10 +48,11 @@ lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 lvim.builtin.nvimtree.setup.view.width = 50
 -- lvim.builtin.nvimtree.show_icons.git = 0
 
-lvim.builtin.treesitter.ensure_installed = "all"
-lvim.builtin.treesitter.ignore_install = { "phpdoc" }
+-- lvim.builtin.treesitter.ensure_installed = "all"
+-- lvim.builtin.treesitter.ignore_install = { "phpdoc" }
 
 lvim.builtin.treesitter.highlight.enabled = true
+
 
 -- Let nvim-tree preserve window proportions
 -- lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true

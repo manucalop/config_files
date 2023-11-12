@@ -7,6 +7,8 @@ end
 
 local flake8_ignore_list = {
   "Q000",
+  "E203",
+  "W503",
 }
 
 require'lspconfig'.pyright.setup{}
@@ -15,12 +17,12 @@ linters.setup {
   {
     command = "flake8",
     filetypes = { "python" },
-    -- extra_args = {
+    extra_args = {
     --   "--config=" .. get_git_root_dir() .. "/setup.cfg",
-    -- "--ignore=" .. table.concat(flake8_ignore_list, ","),
+    "--ignore=" .. table.concat(flake8_ignore_list, ","),
     -- "--max-line-length=120",
     --   "--extend-ignore=" .. table.concat(flake8_ignore_list, ","),
-    -- },
+    },
   },
   {
     command = "shellcheck",
