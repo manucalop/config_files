@@ -11,26 +11,13 @@ local flake8_ignore_list = {
   "W503",
 }
 
-require'lspconfig'.pyright.setup{}
-
 linters.setup {
-  {
-    command = "flake8",
-    filetypes = { "python" },
+  { name = "flake8",
     extra_args = {
-    --   "--config=" .. get_git_root_dir() .. "/setup.cfg",
-    "--ignore=" .. table.concat(flake8_ignore_list, ","),
-    -- "--max-line-length=120",
-    --   "--extend-ignore=" .. table.concat(flake8_ignore_list, ","),
+      -- "--config=" .. get_git_root_dir() .. "/setup.cfg",
+      "--ignore=" .. table.concat(flake8_ignore_list, ","),
+      -- "--max-line-length=120",
+      --   "--extend-ignore=" .. table.concat(flake8_ignore_list, ","),
     },
-  },
-  {
-    command = "shellcheck",
-    extra_args = { "--severity", "warning" },
-  },
-  -- {
-  --     command = "codespell",
-  --     filetypes = { "javascript", "python" },
-  --     -- extra_args = { "--print-with=100", "--line-width=100" },
-  -- },
+  }
 }

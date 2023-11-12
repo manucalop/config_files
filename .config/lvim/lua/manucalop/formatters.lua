@@ -1,3 +1,6 @@
-vim.cmd("au BufWritePre * :silent! Neoformat")
-vim.cmd("au BufEnter *.py :let b:neoformat_run_all_formatters = 1")
-vim.g.neoformat_enabled_python = {'black', 'isort', 'docformatter'}
+lvim.format_on_save.enabled = true
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { name = "black" },
+  { name = "isort" }
+}
