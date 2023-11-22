@@ -232,11 +232,11 @@ bar{
 # Launcher Mode {{{
     set $mode_launcher Launch: [w]eb [f]iles [c]hat [s]ettings [m]usic
     mode "$mode_launcher" {
-        bindsym w workspace $ws3; exec google-chrome; mode "default"
+        bindsym w exec google-chrome; mode "default"
         bindsym f exec nautilus; mode "default"
-        bindsym c workspace $ws2; layout stacking; exec slack; exec ~/.bashrc.d/bin/whatsapp.bash; exec teams-for-linux; mode "default"
+        bindsym c layout stacking; exec slack; exec ~/.bashrc.d/bin/whatsapp.bash; exec teams-for-linux; mode "default"
         bindsym s exec gnome-control-center; mode "default"
-        bindsym m workspace $ws9; exec spotify; mode "default"
+        bindsym m exec spotify; mode "default"
         bindsym Escape mode "default"
         bindsym Return mode "default"
     }
@@ -327,6 +327,9 @@ bar{
     bindsym $mod+n workspace next
 
 # move focused container to workspace
+    bindsym $mod+Shift+n move container to workspace next; workspace next
+    bindsym $mod+Shift+p move container to workspace prev; workspace prev
+
     bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
     bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
     bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
