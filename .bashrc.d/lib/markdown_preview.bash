@@ -1,3 +1,3 @@
 #!/bin/bash
 
-alias mdp=markdown_preview
+alias mdview=markdown_preview

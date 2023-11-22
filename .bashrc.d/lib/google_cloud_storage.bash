@@ -4,7 +4,10 @@ GCSFUSE_PATH=$HOME/gcs/manucalop
 GCS_BUCKET=manucalop
 
 function confirmation() {
-  read -r -p "${1:-Do you want to continue? [y/N]} " response
+  local response
+  printf "%s" "${1:-Do you want to continue? [y/N]} "
+  read -r response
+  # read -r -p "${1:-Do you want to continue? [y/N]} " response
   case "$response" in
     [yY][eE][sS]|[yY])
       true
@@ -15,7 +18,7 @@ function confirmation() {
   esac
 }
 
-function gcs_remote_push() {
+function gcs_push() {
   # Source dir is the current directory, relative to home
   source_dir=$(pwd)
 

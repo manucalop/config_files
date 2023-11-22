@@ -1,6 +1,7 @@
 
 function yabai-restart(){
-    brew services restart yabai
+    yabai --start-service
+    yabai --restart-service
     sudo yabai --load-sa
 }
 

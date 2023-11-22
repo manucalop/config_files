@@ -5,10 +5,8 @@ alias vd='venv_deactivate'
 
 venv_folder_name=".venv"
 
-function venv_init(){
-    # Create file if it doesn't exist
-    [ -e "$VAR/current_venv" ] || touch "$VAR/current_venv"
-}
+# Create file if it doesn't exist
+touch "$VAR/current_venv"
 
 function venv_set(){
     echo "$(pwd)/$venv_folder_name/bin/activate" > $VAR/current_venv

@@ -5,7 +5,11 @@ GCS_BUCKET=manucalop
 function dvc_setup() {
   # Get path relative to home directory
   dest_dir=$(pwd)
-  dest_dir=${dest_dir/$HOME\//}
+  if [[ $dest_dir == $HOME ]]; then
+    dest_dir=""
+  else
+    dest_dir=${dest_dir/$HOME\//}
+  fi
   dest_url="gs://$GCS_BUCKET/$dest_dir"
 
   echo "Initializing dvc in  $dest_url"

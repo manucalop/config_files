@@ -31,7 +31,8 @@ then
 fi
 
 #Custom terminal prompt
-PS1=$(~/.bashrc.d/bin/custom_terminal_prompt)
+# PS1=$(~/.bashrc.d/bin/custom_terminal_prompt)
+PS1=$(custom_terminal_prompt)
 
 # Launch tmux
 #[ -z "$TMUX"  ] && { tmux; }
