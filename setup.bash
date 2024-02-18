@@ -37,9 +37,7 @@ function install_core_packages {
 
 function setup_all {
     sudo apt update
-    sudo apt upgrade -y
-    sudo apt autoremove -y
     setup_config_files
-    install_core_packages
+    install_packages
 }
-setup_config_files
+setup_all
