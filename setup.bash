@@ -6,7 +6,9 @@ function setup_config_files {
     git clone https://github.com/manucalop/config_files.git
     cp -r config_files/. ~/
     rm -rf config_files
+    rm -rf packages
     rm README.md
+    rm setup.bash
 }
 
 function install_packages {
@@ -15,8 +17,6 @@ function install_packages {
     for file in ./packages/scripts/*.bash; do
         ./$file
     done
-    # xargs -d '\n' -- pip install < ./packages/pip_pkgs.txt
-    # xargs -d '\n' -- sudo npm install -g < ./packages/npm_pkgs.txt
 }
 
 function install_core_packages {
