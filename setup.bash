@@ -13,8 +13,8 @@ function setup_config_files {
 
 function install_packages {
     echo "Installing packages..."
-    xargs -d '\n' -- sudo apt install -y < ./packages/apt_pkgs.txt
-    for file in ./packages/scripts/*.bash; do
+    xargs -d '\n' -- sudo apt install -y < .packages/apt_pkgs.txt
+    for file in .packages/scripts/*.bash; do
         ./$file
     done
 }
