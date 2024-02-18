@@ -1,6 +1,5 @@
 git
 tmux
-neovim
 python3-pip
 ranger
 curl
@@ -22,13 +21,8 @@ volumeicon-alsa
 nodejs
 npm
 cargo
-shellcheck
-codespell
-flake8
-isort
 okular
 inkscape
-texlive-full
 tk-dev
 gconf2
 gnome-screenshot
