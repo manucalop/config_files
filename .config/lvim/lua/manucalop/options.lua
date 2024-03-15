@@ -54,6 +54,8 @@ lvim.leader = "space"
 -- lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
+-- Disable window picker
+lvim.builtin.nvimtree.setup.actions.open_file.window_picker.enable = false
 lvim.builtin.nvimtree.setup.view.width = 50
 -- lvim.builtin.nvimtree.show_icons.git = 0
 
