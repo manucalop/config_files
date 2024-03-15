@@ -1,5 +1,4 @@
 #!/bin/bash
 killall grip 2>/dev/null
 kill -9 $(lsof -ti tcp:6419) 2>/dev/null
-echo "Starting markdown preview on http://localhost:6419"
-nohup grip -b "$1" >/dev/null 2>&1 &
+grip -b "$1"
