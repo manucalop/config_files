@@ -15,3 +15,6 @@ gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
 
 # Touchpad disabled on external mouse
 gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled-on-external-mouse
+
+# Font scaling 1.5
+# gsettings set org.gnome.desktop.interface text-scaling-factor 1.5
