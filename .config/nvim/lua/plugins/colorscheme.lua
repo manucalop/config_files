@@ -1,5 +1,4 @@
 return {
-  -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
   {
     "LazyVim/LazyVim",
