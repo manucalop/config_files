@@ -14,3 +14,5 @@ vim.g.python3_host_prog_pip = brew_dir .. "/bin/pip3"
 -- * a function with signature `function(buf) -> string|string[]`
 -- vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 vim.g.root_spec = { "cwd" }
+vim.opt.backup = false
+vim.opt.swapfile = false
