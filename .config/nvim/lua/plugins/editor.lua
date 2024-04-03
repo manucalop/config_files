@@ -1,4 +1,4 @@
 return {
   { "alexghergh/nvim-tmux-navigation" },
-  { "nvim-notify", enabled = false },
+  { "nvim-notify", enabled = true },
 }
