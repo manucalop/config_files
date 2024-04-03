@@ -129,6 +129,7 @@ bindkey -s '^o' 'ranger_cd ^M'
 bindkey -s '^u' 'poetry shell ^M'
 bindkey -s '^f' 'ff ^M'
 bindkey -s '^e' 'show_info ^M'
+# bindkey -s '^n' 'open_notes ^M'
 # bindkey -s '^k' 'vim -c "Telescope find_files" ^M'
 # bindkey -s '^n' 'wd ^M'
 
@@ -136,7 +137,7 @@ bindkey -s '^e' 'show_info ^M'
 # alias awsstg='aws --profile staging --region eu-west-1'
 # alias awsprd='aws --profile prod --region eu-west-1'
 
-# Append newline to the prompt 
+# Append newline to the prompt
 
 for file in $HOME/.bashrc.d/lib/*.bash
 do

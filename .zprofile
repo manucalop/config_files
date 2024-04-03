@@ -17,3 +17,9 @@ if [ -d "$HOME/.cargo" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
     . "$HOME/.cargo/env"
 fi
+
+# if [ -d "$(brew --prefix coreutils)/libexec/gnubin" ] ; then
+#     # alias sed="gsed"
+#     # alias find="gfind"
+#     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+# fi
