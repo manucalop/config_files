@@ -1,11 +1,10 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
 local map = vim.keymap.set
 local delete = vim.keymap.del
 
-map({ "n" }, "<C-c>", "<cmd>qa<CR>", { desc = "Quit" })
+-- map({ "n" }, "<C-c>", "<cmd>qa<CR>", { desc = "Quit" })
 map({ "n" }, "<C-n>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
 map({ "n" }, "<C-p>", "<cmd>bprev<CR>", { desc = "Previous Buffer" })
 
