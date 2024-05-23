@@ -13,10 +13,10 @@ fi
 if [ -d "$HOME/.poetry/bin" ] ; then
     PATH="$HOME/.poetry/bin:$PATH"
 fi
-if [ -d "$HOME/.cargo" ] ; then
-    PATH="$HOME/.cargo/bin:$PATH"
-    . "$HOME/.cargo/env"
-fi
+# if [ -d "$HOME/.cargo" ] ; then
+#     PATH="$HOME/.cargo/bin:$PATH"
+#     . "$HOME/.cargo/env"
+# fi
 
 # if [ -d "$(brew --prefix coreutils)/libexec/gnubin" ] ; then
 #     # alias sed="gsed"
