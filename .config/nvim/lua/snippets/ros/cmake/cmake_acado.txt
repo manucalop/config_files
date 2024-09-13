@@ -1,0 +1,33 @@
+#set(ACADO_ROOT_DIR src/solvers/acado)
+set(ACADO_ROOT_DIR src/solvers/acado/drone_mpc_full_generated)
+set(ACADO_INCLUDE_DIRS
+     ${ACADO_ROOT_DIR}/
+     ${ACADO_ROOT_DIR}/qpoases/
+     ${ACADO_ROOT_DIR}/qpoases/INCLUDE
+     ${ACADO_ROOT_DIR}/qpoases/SRC
+     )
+set(ACADO_SOURCES
+  ${ACADO_ROOT_DIR}/qpoases/SRC/Bounds.cpp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/Bounds.ipp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/Constraints.cpp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/Constraints.ipp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/CyclingManager.cpp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/CyclingManager.ipp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/Indexlist.cpp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/Indexlist.ipp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/MessageHandling.cpp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/MessageHandling.ipp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/QProblem.cpp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/QProblem.ipp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/SubjectTo.cpp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/SubjectTo.ipp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/QProblemB.cpp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/QProblemB.ipp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/Utils.cpp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/Utils.ipp
+  ${ACADO_ROOT_DIR}/qpoases/SRC/EXTRAS/SolutionAnalysis.cpp
+  ${ACADO_ROOT_DIR}/acado_auxiliary_functions.c
+  ${ACADO_ROOT_DIR}/acado_integrator.c
+  ${ACADO_ROOT_DIR}/acado_qpoases_interface.cpp
+  ${ACADO_ROOT_DIR}/acado_solver.c
+  )

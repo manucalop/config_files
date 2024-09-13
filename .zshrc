@@ -129,31 +129,10 @@ bindkey -s '^o' 'ranger_cd ^M'
 bindkey -s '^u' 'poetry shell ^M'
 bindkey -s '^f' 'ff ^M'
 bindkey -s '^e' 'show_info ^M'
-# bindkey -s '^n' 'open_notes ^M'
-# bindkey -s '^k' 'vim -c "Telescope find_files" ^M'
-# bindkey -s '^n' 'wd ^M'
-
-# alias awsdev='aws --profile dev --region eu-west-1'
-# alias awsstg='aws --profile staging --region eu-west-1'
-# alias awsprd='aws --profile prod --region eu-west-1'
-
-# Append newline to the prompt
 
 for file in $HOME/.bashrc.d/lib/*.bash
 do
     source $file
 done
-
-
-
-# autoload -U promptinit; promptinit
-# prompt typewritten
-
-# append to prompt a new line
-# NEWLINE=$'
-# PROMPT="$PROMPT$NEWLINE"'
-# NEWLINE=$'\n'
-# PROMPT="${PROMPT}${NEWLINE}"
-# PROMPT='$ '
 
 [ -z "$TMUX"  ] && { tmux; }
