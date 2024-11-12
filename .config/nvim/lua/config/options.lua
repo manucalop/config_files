@@ -16,4 +16,9 @@ vim.g.python3_host_prog_pip = brew_dir .. "/bin/pip3"
 vim.g.root_spec = { "cwd" }
 vim.opt.backup = false
 vim.opt.swapfile = false
--- vim.g.lazyvim_python_lsp = "ruff_lsp"
+
+-- LSP Server to use for Python.
+-- Set to "basedpyright" to use basedpyright instead of pyright.
+-- vim.g.lazyvim_python_lsp = "pyright"
+-- Set to "ruff_lsp" to use the old LSP implementation version.
+-- vim.g.lazyvim_python_ruff = "ruff"

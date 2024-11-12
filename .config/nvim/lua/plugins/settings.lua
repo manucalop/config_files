@@ -44,13 +44,14 @@ if true then
           lua = { "stylua" },
           -- Run multiple formatters sequentially
           python = { "isort", "black" },
+          -- python = { "isort", "ruff-lsp" },
           go = { "goimports", "gofmt" },
           -- Run only the first available formatter
           javascript = { { "prettierd", "prettier" } },
         },
       },
     },
-    { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.ai.copilot" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.dap.core" },
