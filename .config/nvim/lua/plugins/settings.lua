@@ -57,10 +57,19 @@ return {
         pyright = {
           handlers = {
             -- Disable pyright diagnostics in favor of ruff
-            ["textDocument/publishDiagnostics"] = function() end,
+            -- ["textDocument/publishDiagnostics"] = function() end,
           },
         },
       },
+    },
+  },
+  {
+    "stevearc/aerial.nvim",
+    opts = {
+      layout = {
+        min_width = 0.3,
+      },
+      close_on_select = true,
     },
   },
 }

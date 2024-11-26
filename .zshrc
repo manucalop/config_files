@@ -125,7 +125,7 @@ function show_info() {
 
 # Key bindings
 bindkey -s '^g' 'git status . ^M'
-bindkey -s '^o' 'ranger_cd ^M'
+bindkey -s '^o' 'yazi_cd ^M'
 bindkey -s '^u' 'poetry shell ^M'
 bindkey -s '^f' 'ff ^M'
 bindkey -s '^e' 'show_info ^M'
