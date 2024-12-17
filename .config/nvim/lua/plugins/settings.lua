@@ -53,11 +53,12 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        ruff = {},
-        pyright = {
-          handlers = {
-            -- Disable pyright diagnostics in favor of ruff
-            -- ["textDocument/publishDiagnostics"] = function() end,
+        ruff = {
+          init_options = {
+            settings = {
+              showSyntaxErrors = false,
+              lineLength = 120,
+            },
           },
         },
       },
@@ -70,6 +71,21 @@ return {
         min_width = 0.3,
       },
       close_on_select = true,
+    },
+  },
+  {
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>-",
+        "<cmd>Yazi cwd<cr>",
+        desc = "Open yazi at the current file",
+      },
+    },
+    opts = {
+      -- if you want to open yazi instead of netrw, see below for more info
+      open_for_directories = false,
     },
   },
 }

@@ -4,7 +4,7 @@
 local map = vim.keymap.set
 local delete = vim.keymap.del
 
--- map({ "n" }, "<C-c>", "<cmd>qa<CR>", { desc = "Quit" })
+map({ "n" }, "<C-c>", "<cmd>q<CR>", { desc = "Quit" })
 map({ "n" }, "<C-n>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
 map({ "n" }, "<C-p>", "<cmd>bprev<CR>", { desc = "Previous Buffer" })
 
