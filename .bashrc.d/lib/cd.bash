@@ -1,5 +1,3 @@
-eval "$(zoxide init zsh)"
-
 alias cd="z"
 
 if [ -n "$BASH_VERSION" ]; then
