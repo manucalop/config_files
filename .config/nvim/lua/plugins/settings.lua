@@ -39,13 +39,23 @@ return {
   {
     "conform.nvim",
     opts = {
+      formatters = {
+        djlint = {
+          command = "djlint",
+          args = { "--profile", "jinja", "--reformat", "-", "--max-line-length", "88" },
+        },
+        shfmt = {
+          command = "shfmt",
+          args = { "-i", "4", "-ci" },
+        },
+      },
       formatters_by_ft = {
+        html = { "djlint" },
+        bash = { "shfmt" },
         lua = { "stylua" },
-        -- Run multiple formatters sequentially
         python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
         go = { "goimports", "gofmt" },
-        -- Run only the first available formatter
-        javascript = { { "prettierd", "prettier" } },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
       },
     },
   },
@@ -53,10 +63,13 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        jinja_lsp = {
+          filetypes = { "jinja", "html" },
+        },
         ruff = {
           init_options = {
             settings = {
-              showSyntaxErrors = false,
+              -- showSyntaxErrors = false,
               lineLength = 120,
             },
           },
