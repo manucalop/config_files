@@ -181,3 +181,7 @@ run = "move-node-to-workspace Music"
 [[on-window-detected]]
 if.app-id = 'com.citrix.receiver.icaviewer.mac'
 run = "move-node-to-workspace Citrix"
+
+[[on-window-detected]]
+if.app-id = 'com.citrix.receiver.nomas'
+run = "move-node-to-workspace Citrix"
