@@ -166,13 +166,19 @@ t = [
 # alt-shift-k = ['join-with up', 'mode main']
 # alt-shift-l = ['join-with right', 'mode main']
 
+# You can use aerospace list-apps to see their id.
+
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
 run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
+if.app-id = 'notion.id'
 run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'

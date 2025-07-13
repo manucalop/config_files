@@ -101,4 +101,18 @@ return {
       open_for_directories = false,
     },
   },
+  -- {
+  --   "kristijanhusak/vim-dadbod-ui",
+  --   keys = {
+  --     { "<leader>A", "<Plug>(DBUI_ExecuteQuery)", desc = "Execute Query" },
+  --   },
+  -- },
+  {
+    "folke/snacks.nvim",
+    keys = {
+      { "<leader>.", false },
+      { "<leader>S", false },
+      { "<leader>dps", false },
+    },
+  },
 }
