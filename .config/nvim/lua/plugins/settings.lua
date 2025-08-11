@@ -40,6 +40,10 @@ return {
     "conform.nvim",
     opts = {
       formatters = {
+        sqlfluff = {
+          command = "sqlfluff",
+          args = { "fix", "--FIX-EVEN-UNPARSABLE", "-" },
+        },
         djlint = {
           command = "djlint",
           args = { "--profile", "jinja", "--reformat", "-", "--max-line-length", "88" },
@@ -50,6 +54,9 @@ return {
         },
       },
       formatters_by_ft = {
+        sql = { "sqlfluff" },
+        -- sql = { "sqruff" },
+        -- sql = { "sqruff", "sqlfluff" },
         html = { "djlint" },
         bash = { "shfmt" },
         lua = { "stylua" },
@@ -59,24 +66,32 @@ return {
       },
     },
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        jinja_lsp = {
-          filetypes = { "jinja", "html" },
-        },
-        ruff = {
-          init_options = {
-            settings = {
-              -- showSyntaxErrors = false,
-              lineLength = 120,
-            },
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   opts = {
+  --     linters_by_ft = {
+  --       sql = { "sqlfluff" },
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --       jinja_lsp = {
+  --         filetypes = { "jinja", "html" },
+  --       },
+  --       ruff = {
+  --         init_options = {
+  --           settings = {
+  --             -- showSyntaxErrors = false,
+  --             lineLength = 120,
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "stevearc/aerial.nvim",
     opts = {

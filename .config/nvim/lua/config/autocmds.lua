@@ -6,6 +6,18 @@
 
 vim.cmd("au BufEnter *.tex setlocal wrap")
 vim.cmd("au BufEnter *.md setlocal nowrap")
+-- vim.cmd("au BufEnter *.sql.j2 set filetype=sql")
 
--- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
--- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  pattern = "*.sql.j2",
+  callback = function()
+    vim.bo.filetype = "sql"
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  pattern = "*.sqlfluff",
+  callback = function()
+    vim.bo.filetype = "toml"
+  end,
+})
