@@ -85,7 +85,9 @@ outer.top = 0
 
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-alt-enter = 'exec-and-forget kitty --single-instance --instance-group manucalop -d ~'
+# alt-enter = 'exec-and-forget kitty --single-instance --instance-group manucalop -d ~'
+alt-enter = 'exec-and-forget open -na ghostty'
+# alt-enter = 'exec-and-forget open -na wezterm'
 alt-q = 'close --quit-if-last-window'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
@@ -186,3 +188,7 @@ run = "move-node-to-workspace 4"
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = "move-node-to-workspace Music"
+
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run = ["layout floating"]
