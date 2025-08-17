@@ -9,6 +9,8 @@ map("n", "J", "o<Esc>k", { desc = "Insert newline below" })
 map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover" })
 map("n", "gH", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature Help" })
 
+map("n", "gs", "<Nop>", { noremap = true, silent = true })
+
 -- Buffers
 map("n", "<C-n>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next Buffer" })
 map("n", "<C-p>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
