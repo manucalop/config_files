@@ -86,8 +86,8 @@ outer.top = 0
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
 # alt-enter = 'exec-and-forget kitty --single-instance --instance-group manucalop -d ~'
-alt-enter = 'exec-and-forget open -na ghostty'
-# alt-enter = 'exec-and-forget open -na wezterm'
+# alt-enter = 'exec-and-forget open -na ghostty'
+alt-enter = 'exec-and-forget open -na wezterm'
 alt-q = 'close --quit-if-last-window'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
