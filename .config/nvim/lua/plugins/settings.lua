@@ -23,7 +23,7 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
 
     opts = {
       ensure_installed = {
@@ -57,7 +57,7 @@ return {
         sql = { "sqlfluff" },
         -- sql = { "sqruff" },
         -- sql = { "sqruff", "sqlfluff" },
-        html = { "djlint" },
+        -- html = { "djlint" },
         bash = { "shfmt" },
         lua = { "stylua" },
         python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
@@ -139,7 +139,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       mappings = {
         add = "gsa", -- Add surrounding in Normal and Visual modes
