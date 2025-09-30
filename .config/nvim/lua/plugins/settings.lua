@@ -1,3 +1,5 @@
+-- vim.lsp.enable("ty")
+-- vim.lsp.enable("pyrefly")
 return {
   { "ellisonleao/gruvbox.nvim" },
   {
@@ -78,28 +80,18 @@ return {
   --   "neovim/nvim-lspconfig",
   --   opts = {
   --     servers = {
-  --       jinja_lsp = {
-  --         filetypes = { "jinja", "html" },
-  --       },
-  --       ruff = {
-  --         init_options = {
-  --           settings = {
-  --             -- showSyntaxErrors = false,
-  --             lineLength = 120,
-  --           },
-  --         },
-  --       },
+  --       ty = {},
   --     },
   --   },
   -- },
   -- LSP keymaps
-  {
-    "neovim/nvim-lspconfig",
-    opts = function()
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      keys[#keys + 1] = { "K", false }
-    end,
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = function()
+  --     local keys = require("lazyvim.plugins.lsp.keymaps").get()
+  --     keys[#keys + 1] = { "K", false }
+  --   end,
+  -- },
   {
     "stevearc/aerial.nvim",
     opts = {

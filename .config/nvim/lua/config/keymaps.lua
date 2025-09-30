@@ -25,3 +25,6 @@ map("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- For filetype sql map C-Enter to run query with dadbod-ui
 -- map("v", "<Leader><S>", "<Plug>(DBUI_ExecuteQuery)", { noremap = true, silent = true })
+--
+local keys = require("lazyvim.plugins.lsp.keymaps").get()
+keys[#keys + 1] = { "K", false }
