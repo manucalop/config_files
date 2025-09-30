@@ -72,7 +72,16 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+    git
+    docker
+    docker-compose
+    # docker-buildx
+    python
+    pip
+    # zsh-autosuggestions
+    # zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,7 +132,6 @@ function show_info() {
 # Key bindings
 bindkey -s '^g' 'git status . ^M'
 bindkey -s '^o' 'yazi_cd ^M'
-bindkey -s '^u' 'poetry shell ^M'
 bindkey -s '^f' 'ff ^M'
 bindkey -s '^e' 'show_info ^M'
 
