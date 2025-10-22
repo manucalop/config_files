@@ -41,6 +41,9 @@ return {
   {
     "conform.nvim",
     opts = {
+      default_format_opts = {
+        timeout_ms = 10000,
+      },
       formatters = {
         sqlfluff = {
           command = "sqlfluff",
@@ -81,6 +84,34 @@ return {
   --   opts = {
   --     servers = {
   --       ty = {},
+  --     },
+  --   },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --       pyright = {
+  --         mason = false,
+  --         python = {
+  --           analysis = {
+  --             typeCheckingMode = "off",
+  --           },
+  --         },
+  --       },
+  --       ty = {
+  --         settings = {
+  --           ty = {
+  --             inlayHints = {
+  --               variableTypes = false,
+  --             },
+  --             disableLanguageServices = true,
+  --             diagnosticMode = "workspace",
+  --             experimental = {
+  --               rename = true,
+  --             },
+  --           },
+  --         },
+  --       },
   --     },
   --   },
   -- },
@@ -141,6 +172,24 @@ return {
         highlight = "gsh", -- Highlight surrounding
         replace = "gsr", -- Replace surrounding
         update_n_lines = "gsn", -- Update `n_lines`
+      },
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        -- Insert completion item on selection, don't select by default
+        list = {
+          selection = {
+            auto_insert = false,
+          },
+        },
+      },
+      keymap = {
+        -- preset = "enter",
+        preset = "super-tab",
+        -- ["<Tab>"] = { "select_and_accept" },
       },
     },
   },
