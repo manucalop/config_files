@@ -139,6 +139,9 @@ alt-shift-9 = 'move-node-to-workspace --focus-follows-window 9'
 alt-shift-n = 'move-node-to-workspace --focus-follows-window next'
 alt-shift-p = 'move-node-to-workspace --focus-follows-window prev'
 
+[workspace-to-monitor-force-assignment]
+9 = 'secondary' # Non-main monitor in case when there are only two monitors
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-o = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
