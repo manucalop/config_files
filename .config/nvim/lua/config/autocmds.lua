@@ -6,7 +6,6 @@
 
 vim.cmd("au BufEnter *.tex setlocal wrap")
 vim.cmd("au BufEnter *.md setlocal nowrap")
--- vim.cmd("au BufEnter *.sql.j2 set filetype=sql")
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   pattern = "*.sql.j2",

@@ -60,6 +60,7 @@ return {
       },
       formatters_by_ft = {
         sql = { "sqlfluff" },
+        -- sql = { "sqlfmt" },
         -- sql = { "sqruff" },
         -- sql = { "sqruff", "sqlfluff" },
         -- html = { "djlint" },
@@ -123,6 +124,19 @@ return {
   --     keys[#keys + 1] = { "K", false }
   --   end,
   -- },
+  --
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        ["*"] = {
+          keys = {
+            { "K", false },
+          },
+        },
+      },
+    },
+  },
   {
     "stevearc/aerial.nvim",
     opts = {
@@ -186,11 +200,11 @@ return {
           },
         },
       },
-      keymap = {
-        -- preset = "enter",
-        preset = "super-tab",
-        -- ["<Tab>"] = { "select_and_accept" },
-      },
+      -- keymap = {
+      --   preset = "enter",
+      -- preset = "super-tab",
+      -- ["<Tab>"] = { "select_and_accept" },
+      -- },
     },
   },
 }
