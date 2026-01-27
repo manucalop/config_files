@@ -123,8 +123,10 @@ alt-9 = 'workspace --auto-back-and-forth 9'
 alt-m = 'workspace Music'
 
 
-alt-n = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace next'
-alt-p = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace prev'
+# alt-n = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace next'
+# alt-p = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace prev'
+alt-n = 'workspace next'
+alt-p = 'workspace prev'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace --focus-follows-window 1'

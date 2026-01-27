@@ -1,9 +1,6 @@
-[credential]
-	username = manuel.castillolopez.ext@adevinta.com
-  helper = cache --timeout=3600
 [user]
 	name = Manuel Castillo-Lopez
-	email = manuel.castillolopez.ext@adevinta.com
+	email = manucalop@gmail.com
 
 [http]
   sslVerify = false
