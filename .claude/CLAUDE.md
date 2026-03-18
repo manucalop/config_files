@@ -8,12 +8,13 @@ Universal defaults for all projects. **Project-level CLAUDE.md files override th
 - Prioritize clarity over cleverness. Readable code beats compact code. Three similar lines beat a premature abstraction.
 - Favor immutability and pure functions. Mutate state only when necessary and at well-defined boundaries.
 - Never bypass the type system (`as any`, `# type: ignore`, unchecked casts) — use proper types, imports, and patterns.
-- Use descriptive, intent-based names (e.g., `ProcessPayment` not `PaymentService`). Only add comments to explain _why_, never _what_.
+- Use descriptive, intent-based names (e.g., `calculate_tax` not `do_stuff`, `OrderProcessor` not `Manager`). Only add comments to explain _why_, never _what_.
 - Keep changes minimal and focused — don't refactor or "improve" beyond what the task requires (YAGNI).
+- Be aware of algorithmic complexity. Avoid unnecessary O(n²) or worse in loops, queries, and data transformations.
 
 ## Architecture Defaults
 
-These apply unless a project-level CLAUDE.md specifies otherwise.
+These apply to non-trivial projects unless a project-level CLAUDE.md specifies otherwise.
 
 - **Group by domain, then feature.** Co-locate all files for a feature (logic, data, UI, tests) in one directory.
 - **Dependency direction is inward:** Business logic must not depend on infrastructure (frameworks, databases, HTTP). Invert dependencies at boundaries with interfaces/protocols.
@@ -25,6 +26,7 @@ These apply unless a project-level CLAUDE.md specifies otherwise.
 - Fail fast on programming errors (assertion failures, impossible states). Recover gracefully from expected failures (network, user input, external services).
 - Never swallow exceptions silently — at minimum, log and re-raise or return a typed error.
 - Prefer typed/structured errors over bare strings or generic exceptions.
+- Log with context (request ID, entity ID, operation) — not just the error message.
 
 ## Testing
 
@@ -33,6 +35,7 @@ These apply unless a project-level CLAUDE.md specifies otherwise.
 - Tests must be isolated — no shared mutable state, no dependency on execution order.
 - Co-locate tests with the code they test.
 - Mock at boundaries (external services, I/O), not internal logic. Prefer real implementations where feasible.
+- Default to unit tests. Use integration tests for boundaries (DB, APIs, file I/O). Reserve E2E for critical user flows.
 
 ## Development Workflow
 
@@ -52,7 +55,17 @@ These apply unless a project-level CLAUDE.md specifies otherwise.
 - Never commit secrets, credentials, or API keys. Use environment variables or a secrets manager.
 - Never log sensitive data (PII, tokens, passwords) — even at debug level.
 - Use parameterized queries for any database access — never interpolate user input into queries.
+- Avoid interpolating user input into shell commands, templates, or dynamic code — use safe APIs or allowlists.
 
 ## Conventions
 
-- Commit style: [Conventional Commits](https://www.conventionalcommits.org/) — `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`, `ci:`, `perf:`, `build:` prefixes. No `Co-Authored-By` lines.
+- Commit style: [Conventional Commits](https://www.conventionalcommits.org/) — `type(scope): message`. Types: `feat`, `fix`, `docs`, `test`, `refactor`, `chore`, `ci`, `perf`, `build`.
+- Branch naming: `type/short-description` (e.g., `feat/add-auth`, `fix/null-pointer`).
+- Do not add `Co-Authored-By`, `Signed-off-by`, or similar trailers unless explicitly asked.
+
+## Behavior
+
+- When a task is ambiguous, ask one clarifying question rather than guessing.
+- Prefer editing existing files over creating new ones.
+- After making changes, run the project's test/lint commands before reporting done.
+- Do not explain what you are about to do — just do it. Explain only if the approach is non-obvious.
