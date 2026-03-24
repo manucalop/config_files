@@ -2,6 +2,7 @@
 alias wd='wd_select_go'
 alias wa='wd_add'
 alias wr='wd_remove'
+alias we='wd_edit'
 # alias swd='wd_set'
 
 function wd_init(){
@@ -75,4 +76,9 @@ function wd_select_go(){
 function wd_go(){
     wd_init
     cd "$(cat $VAR/current_working_directory)"  || exit
+}
+
+function wd_edit(){
+    wd_init
+    ${EDITOR:-vi} "$VAR/current_working_directory"
 }

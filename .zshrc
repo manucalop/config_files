@@ -149,3 +149,6 @@ done
 
 
 [ -z "$TMUX"  ] && { tmux; }
+
+# Added by Antigravity
+export PATH="/Users/manuel.castillolopez.ext/.antigravity/antigravity/bin:$PATH"

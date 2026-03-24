@@ -1,1 +1,1 @@
-alias ls="eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions --group-directories-first"
+alias ls="eza --long --group-directories-first --icons=always --no-filesize --no-time --no-user --no-permissions"
