@@ -169,10 +169,11 @@ t = [
 # alt-shift-k = ['join-with up', 'mode main']
 # alt-shift-l = ['join-with right', 'mode main']
 #
-[workspace-to-monitor-force-assignment]
-9 = 'secondary' # Non-main monitor in case when there are only two monitors
 
 # You can use aerospace list-apps to see their id.
+
+[workspace-to-monitor-force-assignment]
+9 = 'secondary' # Non-main monitor in case when there are only two monitors
 
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
