@@ -1,11 +1,13 @@
 return {
-  { "ellisonleao/gruvbox.nvim" },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
+  -- { "ellisonleao/gruvbox.nvim" },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "gruvbox",
+  --   },
+  -- },
+
+  -- { "folke/tokyonight.nvim", opts = { style = "day" } },
   {
     "christoomey/vim-tmux-navigator",
     cmd = {
@@ -141,5 +143,9 @@ return {
         },
       },
     },
+  },
+  {
+    "fabridamicelli/cronex.nvim",
+    opts = {},
   },
 }

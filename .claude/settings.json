@@ -9,16 +9,6 @@
           }
         ]
       }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "say \"I need your input\""
-          }
-        ]
-      }
     ]
   },
   "enabledPlugins": {
@@ -26,13 +16,14 @@
     "lua-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": false,
     "code-simplifier@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
-    "agent-skills@addy-agent-skills": true
+    "sentrux@sentrux-marketplace": true,
+    "ducky@duck-code": false
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -46,6 +37,21 @@
         "source": "github",
         "repo": "addyosmani/agent-skills"
       }
+    },
+    "sentrux-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "sentrux/sentrux"
+      }
+    },
+    "duck-code": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/manucalop/workspace/personal/duck_code"
+      }
     }
-  }
+  },
+  "tui": "fullscreen",
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }
