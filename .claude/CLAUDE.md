@@ -18,6 +18,15 @@
 
 - All users and readers have a short attention span.
 
+## Writing
+
+- Paragraphs: topic sentence first; one idea per paragraph.
+- Sentences: familiar info first; new or key info last.
+- Keep subject and verb close; put actions in verbs, not nouns.
+- Prefer active voice; name the actor.
+- One term per concept; define it on first use.
+- Hedge only real uncertainty, once.
+
 ## CLAUDE.md
 
 - Only `##` sections of one-line bullets; no prose paragraphs.

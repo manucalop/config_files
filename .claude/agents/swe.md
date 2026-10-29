@@ -68,10 +68,11 @@ model: inherit
 
 - `docs/domain.md`: the concepts; the source of truth for names.
 - Each concept in `docs/domain.md`: definition, responsibility, code names.
+- The domain doc is `docs/domain.md`, or the path the project CLAUDE.md imports.
 - Write a decision record only when the brief or the lead asks.
 - Decision record: `docs/decisions/YYYY-MM-DD-<slug>.md`.
 - Each decision record: context, choice, consequences.
-- The project CLAUDE.md imports the domain doc with a line `@docs/domain.md`.
+- The project CLAUDE.md imports the domain doc with an `@<path>` line.
 - The project CLAUDE.md holds only project-specific rules: commands, quirks.
 
 ## Domain
