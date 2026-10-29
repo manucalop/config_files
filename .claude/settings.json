@@ -1,57 +1,29 @@
 {
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "say \"I'm done\""
-          }
-        ]
-      }
-    ]
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": false,
-    "code-simplifier@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": true,
-    "sentrux@sentrux-marketplace": true,
-    "ducky@duck-code": false
+  "attribution": {
+    "commit": "",
+    "pr": ""
   },
-  "extraKnownMarketplaces": {
-    "claude-code-plugins": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-code"
-      }
-    },
-    "addy-agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "addyosmani/agent-skills"
-      }
-    },
-    "sentrux-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "sentrux/sentrux"
-      }
-    },
-    "duck-code": {
-      "source": {
-        "source": "directory",
-        "path": "/Users/manucalop/workspace/personal/duck_code"
-      }
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
     }
   },
-  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "teammateMode": "tmux",
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "model": "opus",
+  "permissions": {
+    "allow": [
+      "Bash(gh pr merge:*)"
+    ],
+    "deny": [
+      "Read(//**/.env)",
+      "Read(//**/.env.*)"
+    ]
+  },
+  "agent": "lead"
 }
