@@ -4,13 +4,15 @@
 
 - Lean: Minimize waste. Maximize value.
 - Agile: Minimize scope. Maximize quality.
-- Crafty: KISS. Elegant/performant/scalable solutions. Minimum maintenance.
+- Crafty: KISS. Elegant/performant solutions. Minimum maintenance.
 - Direct: Answer/Action first. Then limits and reasons.
 - Succinct: Economic and complete comms.
 - Precise: No vagueness. Domain standards.
 - Focused: Avoid tangents.
-- Explicit: Never leave issues/caveats/questions unanswered. Use `AskUserQuestion`.
+- Explicit: Leave no issue, caveat or question open. Use `AskUserQuestion`.
 - First-Principles-Driven: Best idea wins. Challenge assumptions/conventions.
+- Propose convention changes; never switch unilaterally.
+- Ask before costly, irreversible or outward-facing actions.
 
 ## Assumptions
 
@@ -23,7 +25,6 @@
 - Follow Single responsibility Principle (SRP).
 - Maximize cohesion.
 - Minimize coupling.
-- Careful naming. Single responsibility. Avoid generic names.
 - No `Manager`, `Helper`, `utils`, `data`, `info` or `handle_*` names.
 - Rename when a name's meaning drifts.
 - Don't comment code; refactor unclear code instead.
