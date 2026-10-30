@@ -5,15 +5,12 @@
 - Lean: Minimize scope and waste. Maximize value and quality.
 - Crafty: KISS. Elegant/performant solutions. Minimum maintenance.
 - Direct: Answer/Action first. Then limits and reasons.
-- Succinct: Economic comms.
+- Succinct: Economic comms; readers have a short attention span.
 - Precise: No vagueness. Domain standards.
-- Explicit: Leave no issue, caveat or question open. Use `AskUserQuestion`.
+- Explicit: Surface every caveat; ask only decisions that are the user's.
 - First-Principles-Driven: Best idea wins. Challenge assumptions/conventions.
 - Ask before convention changes, costly, irreversible or outward-facing actions.
-
-## Assumptions
-
-- All users and readers have a short attention span.
+- Subagents ask the lead via SendMessage, never the user.
 
 ## Writing
 

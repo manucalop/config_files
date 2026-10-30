@@ -13,7 +13,7 @@ model: inherit
 ## Understand and plan
 
 - Size the task from the brief first; scale the planning below to it.
-- Zoom in top-down: `main`, the concept's story module, then needed code.
+- Slice repos: zoom in top-down: `main`, story module, then needed code.
 - Identify which concepts in the domain index the task touches.
 - Decide where the change lives in the hierarchy: which concept, which level.
 - Before writing new logic, search the repo and its deps for a solution.
@@ -62,13 +62,11 @@ model: inherit
 
 ## Code
 
-- No `Manager`, `Helper`, `utils`, `data`, `info` or `handle_*` names.
+- Domain code: no `Manager`, `Helper`, `utils`, `data`, `info`, `handle_*`.
 - Rename when a name's meaning drifts, within the task's scope.
-- Comment only a non-obvious why: workaround, upstream bug, constraint.
-- Don't bypass the type system (`as any`, `# type: ignore`, unchecked casts).
-- If a type-system bypass is unavoidable, comment why.
+- Don't bypass the type system; if unavoidable, comment why.
 - Favor immutability and pure functions; mutate only at clear boundaries.
-- Python: no code in `__init__.py` files.
+- Python slice repos: no code in `__init__.py` files.
 - Python: never edit pyproject.toml dependencies manually. Use `uv` cli.
 
 ## Docs
@@ -95,7 +93,7 @@ model: inherit
 - Each concept has one owner: one entity, one folder.
 - A responsibility no concept owns means a missing concept; ask the lead.
 - No aggregates, repositories or factories until a real need appears.
-- No domain index: send drafted concepts to the lead; code once confirmed.
+- Task adds a concept and no index exists: draft it for the lead first.
 - Once confirmed, create the index and one file per concept.
 - Then import the index in the project CLAUDE.md; create it if missing.
 
@@ -104,7 +102,7 @@ model: inherit
 - Repo without the slice layout: follow its existing structure.
 - Propose slices to the lead once, with reasons; skip if CLAUDE.md decided.
 
-## Layout
+## Layout (slice repos only)
 
 - Vertical slices, nested by abstraction level, not by technical layer.
 - `src/main`: L0, the whole system, every flow in a few lines.
@@ -115,23 +113,20 @@ model: inherit
 - `<sub-concept>/`: L3, a detail opened only if needed, same shape.
 - `src/shared/`: only code used by 2+ top-level concepts, by concept.
 
-## Story modules
+## Story modules (slice repos only)
 
 - Python: a named module, e.g. `order/flows.py`; never `__init__.py`.
 - TypeScript: `index.ts` with explicit named exports; never `export *`.
-
-## Zooming
-
 - Each story module reads like a chapter summary and stays short.
 
-## Growing the tree
+## Growing the tree (slice repos only)
 
 - Start with one file per concept.
 - Add a sub-concept folder when a detail distracts from the story.
 - Add a sub-concept folder when a second sub-concept appears.
 - Cap depth at ~3 levels; deeper usually means a missing top-level concept.
 
-## Sharing
+## Sharing (slice repos only)
 
 - Share nothing until two concepts actually use it (Rule of Two).
 - Put shared code at the lowest common ancestor of its users.
@@ -140,7 +135,7 @@ model: inherit
 - Shared code that isn't in the domain index probably shouldn't exist.
 - When shared code drops to one user, move it back into that user.
 
-## Dependencies
+## Dependencies (slice repos only)
 
 - Each level imports only its own children, through their story module.
 - A concept may import a sibling's story module, down a fixed order.
@@ -161,10 +156,10 @@ model: inherit
 
 - Slice repos: co-locate tests beside their concept.
 - Other repos: follow the repo's existing test layout.
-- Use Given-When-Then structure.
+- Use Given-When-Then structure unless the repo uses another style.
 - Name tests after the behaviour they verify.
 
 ## Before finishing, check
 
-- Do names match the domain index?
-- Does each level import only its own children?
+- Slice repos: do names match the domain index?
+- Slice repos: does each level import only its own children?
