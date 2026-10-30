@@ -18,25 +18,11 @@
   "model": "opus",
   "permissions": {
     "allow": [
-      "Bash(gh pr merge:*)",
-      "Bash(terragrunt apply:*)",
+      "Bash(gh:*)",
+      "Bash(terragrunt:*)",
       "Bash(/Users/manucalop/workspace/empotech/empotech/infra/bin/with-env:*)"
     ],
     "deny": ["Read(//**/.env)", "Read(//**/.env.*)"]
-  },
-  "autoMode": {
-    "environment": [
-      "$defaults",
-      "GitHub repo empotech/empotech is owned by the user; agents work in git worktrees under ~/workspace/empotech.",
-      "Infra changes run through infra/bin/with-env terragrunt and CI; production only via release.yml on a v* tag."
-    ],
-    "allow": [
-      "$defaults",
-      "Squash-merging an empotech/empotech PR that a reviewer agent reviewed and whose CI is green.",
-      "Closing empotech/empotech PRs and deleting their branches once merged or superseded.",
-      "Removing git worktrees and local branches that agents created.",
-      "Deleting untracked files the user asked to remove."
-    ]
   },
   "agent": "lead",
   "disableClaudeAiConnectors": true
