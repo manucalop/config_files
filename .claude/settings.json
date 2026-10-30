@@ -18,12 +18,11 @@
   "model": "opus",
   "permissions": {
     "allow": [
-      "Bash(gh pr merge:*)"
+      "Bash(gh pr merge:*)",
+      "Bash(terragrunt apply:*)",
+      "Bash(/Users/manucalop/workspace/empotech/empotech/infra/bin/with-env:*)"
     ],
-    "deny": [
-      "Read(//**/.env)",
-      "Read(//**/.env.*)"
-    ]
+    "deny": ["Read(//**/.env)", "Read(//**/.env.*)"]
   },
   "agent": "lead"
 }

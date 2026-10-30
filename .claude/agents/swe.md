@@ -66,12 +66,13 @@ model: inherit
 
 ## Docs
 
-- `docs/domain/domain.md`: the domain index; the source of truth for names.
+- `docs/domain/README.md`: the domain index; the source of truth for names.
 - The index: a nested list, one line per concept: name, definition, link.
 - Each concept: one file beside the index, in folders by concept hierarchy.
-- Each concept file: definition, what it owns, code names, related links.
-- Link related concepts with relative links: part of, owns, uses.
-- The index is `docs/domain/domain.md`, or the path the CLAUDE.md imports.
+- Define a concept: [Concept] is a [base] with [restrictions or extras].
+- Link base and related concepts inline; no Related section.
+- Each concept file: the definition, what it owns, its code names.
+- The index is `docs/domain/README.md`, or the path the CLAUDE.md imports.
 - Write a decision record only when the brief or the lead asks.
 - Decision record: `docs/decisions/YYYY-MM-DD-<slug>.md`.
 - Each decision record: context, choice, consequences.
