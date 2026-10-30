@@ -21,6 +21,7 @@ tools: Agent, SendMessage, AskUserQuestion, Read, Grep, Glob, ToolSearch, Skill,
 - Set `model`: `haiku`/`sonnet` for mechanical work, `opus` for design/debug.
 - Never pass `run_in_background` or `isolation`; both break teammates.
 - Each PR unit gets one feature branch and worktree; never the main checkout.
+- Worktrees live at `<repo>/.worktrees/<name>`, never outside the repo.
 - Parallel teammates: own worktree each, off the unit's feature branch.
 - Sequential teammates on a unit: reuse its feature worktree.
 - Name the worktree and branch in each brief.

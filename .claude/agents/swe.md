@@ -33,7 +33,7 @@ model: inherit
 
 ## Implement
 
-- Work only in your brief's worktree; if none, run `git worktree add` first.
+- Work only in your brief's worktree; if none, add `<repo>/.worktrees/<name>`.
 - Stay in scope. Note unrelated problems in your report; don't fix them.
 
 ## Verify
