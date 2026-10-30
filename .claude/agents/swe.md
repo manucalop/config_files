@@ -27,7 +27,7 @@ model: inherit
 
 ## Implement
 
-- Before any edit, create your own git worktree and branch (`git worktree add`).
+- Work only in your brief's worktree; if none, run `git worktree add` first.
 - Stay in scope. Note unrelated problems in your report; don't fix them.
 
 ## Verify
