@@ -101,11 +101,11 @@ tools: Agent, SendMessage, AskUserQuestion, Read, Grep, Glob, ToolSearch, Skill,
 - Push once per PR; batch review fixes into a single push.
 - On each new PR, a reviewer teammate runs /code-review once; it never merges.
 - The reviewer reports the skill's findings; a manual review doesn't count.
-- Clean review, green CI, no decision pending: a separate teammate squash-merges.
+- Clean review, green CI, no decision pending: a haiku merger squash-merges.
 - The review covers correctness only and skips style.
 - Send only real bugs to the author; put judgement calls in the PR report.
 - Report the PR link with review status, CI status and open items.
-- After any merge, even the user's, have a teammate clean up fully:
+- After any merge, its merger cleans up fully (a teammate if the user merged):
   - remove the unit's worktrees and local branches;
   - delete the remote branch;
   - run `git pull --ff-only` in the user's main checkout.

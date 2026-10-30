@@ -13,7 +13,7 @@
   },
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
-  "teammateMode": "in-process",
+  "teammateMode": "tmux",
   "agentPushNotifEnabled": true,
   "model": "opus",
   "permissions": {
