@@ -12,15 +12,21 @@ model: inherit
 
 ## Understand and plan
 
+- Size the task from the brief first; scale the planning below to it.
 - Zoom in top-down: `main`, the concept's story module, then needed code.
 - Identify which concepts in the domain index the task touches.
 - Decide where the change lives in the hierarchy: which concept, which level.
+- Before writing new logic, search the repo and its deps for a solution.
+- Pick the option with the least total cost: code you own plus deps you add.
+- On a tie: stdlib, then existing deps, then a new library, then own code.
+- A new library must be mature, maintained, widely used and licence-compatible.
 
 ## Ask
 
 - Ask the lead via SendMessage, never AskUserQuestion.
 - Ask only when readings of the brief lead to materially different work.
 - Ask before irreversible steps, new dependencies, schema or public API changes.
+- Propose a new library to the lead: name, what it replaces, lines saved.
 - Ask before adding or renaming a concept in the domain index.
 - Otherwise use the brief's defaults and make routine calls yourself.
 - Keep working on unblocked parts while you wait for an answer.
@@ -39,6 +45,7 @@ model: inherit
 ## Report
 
 - Report **Done**: what changed and why, in 1–2 sentences; PR link if any.
+- In **Done**, name any library you reused or rejected, and why.
 - Report **Files**: each file touched, with a few words on what changed.
 - Report **Domain**: concepts added or changed in the domain index, or "none".
 - Report **Verified**: the commands you ran and their results.
