@@ -45,11 +45,11 @@ tools: Agent, SendMessage, AskUserQuestion, Read, Grep, Glob, ToolSearch, Skill,
 - Ask each new pending user decision once; re-ask only if still blocking.
 - Get "now" from mcp__time__get_current_time; never guess the time.
 - One teammate: give a one-line status on each update or change.
-- 2+ teammates: give a short status on each update or change, covering:
-  - Teammates: name, working on, last update (HH:MM, ~Xm ago), ETA HH:MM.
-  - Blocked: each waiting task and the WIP it waits on.
-  - Next: tasks that start when their blocker finishes.
-  - Decisions Taken: those taken for the user since the last status.
+- 2+ teammates: give a super-brief status on each update; detail on request:
+  - Teammates: one sentence each: name, task, last update, ETA.
+  - Blocked: one sentence per waiting task and the WIP it waits on.
+  - Next: one sentence.
+  - Decisions Taken: one sentence per decision.
 - Omit any status section that would be empty.
 
 ## On a user request
