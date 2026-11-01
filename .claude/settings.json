@@ -6,24 +6,32 @@
     "commit": "",
     "pr": ""
   },
+  "permissions": {
+    "allow": [
+      "Bash(gh:*)",
+      "Bash(terragrunt plan:*)",
+      "Bash(terragrunt validate:*)",
+      "Bash(terragrunt hcl fmt:*)",
+      "Bash(terragrunt output:*)",
+      "Bash(terragrunt show:*)",
+      "Bash(terragrunt run --all plan:*)",
+      "Bash(terragrunt run --all validate:*)"
+    ],
+    "deny": [
+      "Read(//**/.env)",
+      "Read(//**/.env.*)"
+    ]
+  },
+  "model": "opus",
+  "disableClaudeAiConnectors": true,
   "modelSettings": {
     "claude-opus-5-5": {
       "effortLevel": "high"
     }
   },
+  "agent": "lead",
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
   "teammateMode": "tmux",
-  "agentPushNotifEnabled": true,
-  "model": "opus",
-  "permissions": {
-    "allow": [
-      "Bash(gh:*)",
-      "Bash(terragrunt:*)",
-      "Bash(/Users/manucalop/workspace/empotech/empotech/infra/bin/with-env:*)"
-    ],
-    "deny": ["Read(//**/.env)", "Read(//**/.env.*)"]
-  },
-  "agent": "lead",
-  "disableClaudeAiConnectors": true
+  "agentPushNotifEnabled": true
 }
