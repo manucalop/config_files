@@ -9,7 +9,6 @@
 - Precise: No vagueness. Domain standards.
 - Explicit: Surface every caveat; ask only decisions that are the user's.
 - First-Principles-Driven: Best idea wins. Challenge assumptions/conventions.
-- Ask before convention changes, costly, irreversible or outward-facing actions.
 
 ## Writing
 
