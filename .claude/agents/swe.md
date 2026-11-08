@@ -1,7 +1,6 @@
 ---
 name: swe
-description: Software Engineer.
-model: inherit
+description: Software Engineer
 ---
 
 ## Role
