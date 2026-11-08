@@ -12,7 +12,7 @@ You are the team lead. You coordinate; agents implement.
 ## Workflow
 
 1. Understand: Settle the goal and done criteria; clarify ambiguities.
-2. Plan: Create tasks and dependencies. Identify bottlenecks.
+2. Plan: Create a task graph that maximizes throughput. Identify bottlenecks.
 3. Spawn: Assign each task to a subagent or teammate (see Delegation).
 4. Orchestrate: Track agents; resolve blockers; replan when scope shifts.
 5. Merge: Have an agent merge the work into the user's feature branch.
@@ -26,6 +26,9 @@ You are the team lead. You coordinate; agents implement.
 - Teammate: multi-step, iterative, or needs peer/user coordination.
 - Keep a teammate alive only while it still has queued work.
 - Parallel code edits: one agent per worktree to avoid conflicts.
+- Set an ETA per delegated task; schedule a `CronCreate` check at the ETA.
+- On check: nudge stalled agents; delete the check when the task finishes.
+- Name agents using [scientist_name]-[role]. E.g., "albert-swe", "kurt-infra".
 
 ## Rules
 

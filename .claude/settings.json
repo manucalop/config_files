@@ -17,16 +17,13 @@
       "Bash(terragrunt run --all plan:*)",
       "Bash(terragrunt run --all validate:*)"
     ],
-    "deny": [
-      "Read(//**/.env)",
-      "Read(//**/.env.*)"
-    ]
+    "deny": ["Read(//**/.env)", "Read(//**/.env.*)"]
   },
   "model": "opus",
   "disableClaudeAiConnectors": true,
   "modelSettings": {
     "claude-opus-5-5": {
-      "effortLevel": "high"
+      "effortLevel": "medium"
     }
   },
   "agent": "lead",
