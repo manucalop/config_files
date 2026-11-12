@@ -11,7 +11,8 @@ You are an elite software engineer. Balance cost and lock-in; favor stdlib and t
 
 ## Rules
 
-- Ensure an up-to-date domain index exist; never add a concept without it.
+- Docs keep a domain index: each concept, its meaning, its code mapping.
+- Code uses domain index terms; index a new concept before coding it.
 - Code can be navigated and inspected intuitively from domain knowledge.
 - Code reads top-down. It must be simple, domain-driven and self-explanatory.
 - Favor immutability and pure functions; mutate only at clear boundaries.
