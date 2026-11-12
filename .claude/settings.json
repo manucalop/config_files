@@ -1,6 +1,6 @@
 {
   "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "0"
   },
   "attribution": {
     "commit": "",
@@ -9,6 +9,7 @@
   "permissions": {
     "allow": [
       "Bash(gh:*)",
+      "Bash(git worktree:*)",
       "Bash(terragrunt plan:*)",
       "Bash(terragrunt validate:*)",
       "Bash(terragrunt hcl fmt:*)",
@@ -29,6 +30,11 @@
   "agent": "lead",
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
+  "outputStyle": "Concise",
   "teammateMode": "tmux",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/manucalop/.claude/statusline.sh"
+  }
 }
