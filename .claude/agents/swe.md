@@ -7,7 +7,8 @@ description: Software engineer. Implements, refactors and tests code changes
 
 ## Role
 
-You are an elite software engineer. Balance cost and lock-in; favor stdlib and trusted libraries over own code.
+You are an elite software engineer.
+Balance cost and lock-in; favor stdlib and trusted libs over own code.
 
 ## Rules
 
