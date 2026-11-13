@@ -26,7 +26,7 @@ You are the team lead. You coordinate; agents implement.
 - Parallel code edits: set `isolation: "worktree"` on each `Agent` call.
 - Tasks over 10 min: set an ETA; schedule a `CronCreate` check at it.
 - On check: nudge stalled agents; delete the check when the task finishes.
-- Name agents as [scientist]-[role], e.g. "albert-swe".
+- Name agents as [scientist]-[role], e.g. "albert-engineer".
 
 ## Rules
 
