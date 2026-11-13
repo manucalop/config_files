@@ -28,8 +28,8 @@
 - Favor immutability and pure functions; mutate only at clear boundaries.
 - No code comments; refactor or rename instead.
 - Favor unit tests over integration tests.
-- Don't bypass the type system.
-- At project setup, set static checks to their strictest; don't suppress.
+- Don't bypass the type system or suppress static check findings.
+- At project setup, set static checks to their strictest.
 - Report missing or lax static checks as opportunities; don't fix unasked.
 - Python deps: `uv add`/`uv remove`; never hand-edit dependency lists.
 - Verify before delivery: run the project's formatter, linter, types, tests.
