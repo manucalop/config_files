@@ -29,6 +29,7 @@
 - No code comments; refactor or rename instead.
 - Favor unit tests over integration tests.
 - Don't bypass the type system.
+- Run static checks at their strictest setting; fix findings, don't suppress.
 - Python deps: `uv add`/`uv remove`; never hand-edit dependency lists.
 - Verify before delivery: run the project's formatter, linter, types, tests.
 - Commit locally; push or open PRs only when asked.
