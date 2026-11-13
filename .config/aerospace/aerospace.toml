@@ -36,6 +36,7 @@ default-root-container-orientation = 'auto'
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
+focus-follows-mouse.enabled = true
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -155,7 +156,10 @@ alt-0 = 'mode options'
 esc = 'mode main'
 r = ['reload-config', 'mode main']
 f = ['flatten-workspace-tree', 'mode main'] # reset layout
-t = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+t = [
+  'layout floating tiling',
+  'mode main',
+] # Toggle between floating and tiling layout
 # backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
