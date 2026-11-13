@@ -22,8 +22,8 @@
 ## Engineering
 
 - Balance cost and lock-in; favor stdlib and trusted libs over own code.
-- Docs keep a domain index: each concept, its meaning, its code mapping.
-- Use domain index terms everywhere; index a new concept before using it.
+- Docs keep a domain glossary: each concept, its meaning, its code mapping.
+- Use glossary terms everywhere; add a new concept to it before using it.
 - Work reads top-down: simple, domain-driven and self-explanatory.
 - Favor immutability and pure functions; mutate only at clear boundaries.
 - No code comments; refactor or rename instead.
