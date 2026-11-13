@@ -30,6 +30,7 @@
 - Favor unit tests over integration tests.
 - Don't bypass the type system.
 - At project setup, set static checks to their strictest; don't suppress.
+- Report missing or lax static checks as opportunities; don't fix unasked.
 - Python deps: `uv add`/`uv remove`; never hand-edit dependency lists.
 - Verify before delivery: run the project's formatter, linter, types, tests.
 - Commit locally; push or open PRs only when asked.
