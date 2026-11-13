@@ -18,10 +18,27 @@
       "Bash(terragrunt run --all plan:*)",
       "Bash(terragrunt run --all validate:*)"
     ],
-    "deny": ["Read(//**/.env)", "Read(//**/.env.*)"]
+    "deny": [
+      "Read(//**/.env)",
+      "Read(//**/.env.*)",
+      "Read(//**/.ssh/**)",
+      "Read(//**/id_rsa*)",
+      "Read(//**/id_ed25519*)",
+      "Read(//**/id_ecdsa*)"
+    ],
+    "defaultMode": "auto"
   },
   "model": "opus",
   "disableClaudeAiConnectors": true,
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/manucalop/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "frontend-design@anthropic-plugin-directory": true,
+    "gitlab@anthropic-plugin-directory": true
+  },
+  "outputStyle": "Concise",
   "modelSettings": {
     "claude-opus-5-5": {
       "effortLevel": "medium"
@@ -30,11 +47,6 @@
   "agent": "lead",
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
-  "outputStyle": "Concise",
   "teammateMode": "tmux",
-  "agentPushNotifEnabled": true,
-  "statusLine": {
-    "type": "command",
-    "command": "/Users/manucalop/.claude/statusline.sh"
-  }
+  "agentPushNotifEnabled": true
 }
