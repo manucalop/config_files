@@ -1,43 +1,43 @@
 #!/bin/bash
-# Setup config files
-#
-function setup_config_files {
-    echo "Setting up config files..."
-    git clone https://github.com/manucalop/config_files.git
-    cp -r config_files/. ~/
-    rm -rf config_files
-    rm -rf packages
-    rm README.md
-    rm setup.bash
+set -euo pipefail
+
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+function install_stow {
+    if command -v stow &>/dev/null; then
+        return
+    fi
+    echo "Installing stow..."
+    if [[ "$OSTYPE" == darwin* ]]; then
+        brew install stow
+    else
+        sudo apt install -y stow
+    fi
+}
+
+function link_dotfiles {
+    echo "Linking dotfiles..."
+    cd "$DOTFILES_DIR"
+    stow -t "$HOME" home
 }
 
 function install_packages {
-    echo "Installing packages..."
-    xargs -d '\n' -- sudo apt install -y < .packages/apt_pkgs.txt
-    for file in .packages/scripts/*.bash; do
-        ./$file
-    done
+    if [[ "$OSTYPE" == darwin* ]]; then
+        echo "Installing brew packages..."
+        brew bundle --file="$DOTFILES_DIR/Brewfile"
+    else
+        echo "Installing apt packages..."
+        xargs -d '\n' -- sudo apt install -y < "$DOTFILES_DIR/.packages/apt_pkgs.txt"
+        for file in "$DOTFILES_DIR/.packages/scripts/"*.bash; do
+            [[ -e "$file" ]] && bash "$file"
+        done
+    fi
 }
 
-function install_core_packages {
-    local core_path="./.packages/core"
-    echo "Installing apt packages..."
-    xargs -d '\n' -- sudo apt install -y < $core_path/apt_pkgs.txt
-    echo "Installing pip packages..."
-    xargs -d '\n' -- pip install < $core_path/pip_pkgs.txt
-    echo "Installing npm packages..."
-    xargs -d '\n' -- sudo npm install -g < $core_path/npm_pkgs.txt
-    echo "Installing snap packages..."
-    xargs -d '\n' -- sudo snap install < $core_path/snap_pkgs.txt
-    echo "Installing scripts..."
-    for file in $core_path/scripts/*.bash; do
-        ./$file
-    done
-}
-
-function setup_all {
-    sudo apt update
-    setup_config_files
+function setup {
+    install_stow
+    link_dotfiles
     install_packages
 }
-setup_all
+
+setup
