@@ -25,6 +25,12 @@ function link_dotfiles {
     stow -t "$HOME" home
 }
 
+function install_packages {
+    echo "Installing packages..."
+    brew bundle --file="$DOTFILES_DIR/Brewfile"
+}
+
 install_homebrew
 install_stow
 link_dotfiles
+install_packages
