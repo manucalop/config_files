@@ -30,6 +30,8 @@ function install_omz {
 function link_dotfiles {
     echo "Linking dotfiles..."
     cd "$DOTFILES_DIR"
+    if [ -L "$HOME/.config" ]; then rm "$HOME/.config"; fi
+    mkdir -p "$HOME/.config"
     stow --restow -t "$HOME" home
 }
 
