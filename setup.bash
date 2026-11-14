@@ -3,16 +3,20 @@ set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+function install_homebrew {
+    if command -v brew &>/dev/null; then
+        return
+    fi
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
 function install_stow {
     if command -v stow &>/dev/null; then
         return
     fi
     echo "Installing stow..."
-    if [[ "$OSTYPE" == darwin* ]]; then
-        brew install stow
-    else
-        sudo apt install -y stow
-    fi
+    brew install stow
 }
 
 function link_dotfiles {
@@ -21,5 +25,6 @@ function link_dotfiles {
     stow -t "$HOME" home
 }
 
+install_homebrew
 install_stow
 link_dotfiles
