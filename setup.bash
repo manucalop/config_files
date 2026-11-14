@@ -21,23 +21,5 @@ function link_dotfiles {
     stow -t "$HOME" home
 }
 
-function install_packages {
-    if [[ "$OSTYPE" == darwin* ]]; then
-        echo "Installing brew packages..."
-        brew bundle --file="$DOTFILES_DIR/Brewfile"
-    else
-        echo "Installing apt packages..."
-        xargs -d '\n' -- sudo apt install -y < "$DOTFILES_DIR/.packages/apt_pkgs.txt"
-        for file in "$DOTFILES_DIR/.packages/scripts/"*.bash; do
-            [[ -e "$file" ]] && bash "$file"
-        done
-    fi
-}
-
-function setup {
-    install_stow
-    link_dotfiles
-    install_packages
-}
-
-setup
+install_stow
+link_dotfiles
