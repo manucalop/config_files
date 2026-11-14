@@ -1,3 +1,0 @@
-[submodule ".tools/lib/ubuntu-tiling"]
-	path = .tools/lib/ubuntu-tiling
-	url = git@github.com:manucalop/ubuntu-tiling.git
