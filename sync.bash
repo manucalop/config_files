@@ -33,6 +33,13 @@ function link_dotfiles {
     stow --restow -t "$HOME" home
 }
 
+function trust_taps {
+    echo "Trusting third-party taps..."
+    brew trust oven-sh/bun 2>/dev/null || true
+    brew trust tursodatabase/tap 2>/dev/null || true
+    brew trust nikitabobko/tap 2>/dev/null || true
+}
+
 function install_packages {
     echo "Installing packages..."
     brew bundle --file="$DOTFILES_DIR/Brewfile"
@@ -42,4 +49,5 @@ install_homebrew
 install_stow
 install_omz
 link_dotfiles
+trust_taps
 install_packages
