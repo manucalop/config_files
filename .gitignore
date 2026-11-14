@@ -7,3 +7,4 @@
 .config/lvim/plugin/*
 .config/nvim/tags/*
 .config/autostart/*
+.claude/worktrees/
