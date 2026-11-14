@@ -35,9 +35,13 @@ function link_dotfiles {
 
 function trust_taps {
     echo "Trusting third-party taps..."
+    brew trust felixkratz/formulae 2>/dev/null || true
+    brew trust koekeishiya/formulae 2>/dev/null || true
+    brew trust libsql/sqld 2>/dev/null || true
+    brew trust mediosz/tap 2>/dev/null || true
+    brew trust nikitabobko/tap 2>/dev/null || true
     brew trust oven-sh/bun 2>/dev/null || true
     brew trust tursodatabase/tap 2>/dev/null || true
-    brew trust nikitabobko/tap 2>/dev/null || true
 }
 
 function install_packages {
