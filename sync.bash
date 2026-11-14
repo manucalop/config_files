@@ -19,6 +19,14 @@ function install_stow {
     brew install stow
 }
 
+function install_omz {
+    if [[ -d "$HOME/.oh-my-zsh" ]]; then
+        return
+    fi
+    echo "Installing Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+}
+
 function link_dotfiles {
     echo "Linking dotfiles..."
     cd "$DOTFILES_DIR"
@@ -32,5 +40,6 @@ function install_packages {
 
 install_homebrew
 install_stow
+install_omz
 link_dotfiles
 install_packages
