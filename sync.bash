@@ -31,7 +31,7 @@ function link_dotfiles {
     echo "Linking dotfiles..."
     cd "$DOTFILES_DIR"
     if [ -L "$HOME/.config" ]; then rm "$HOME/.config"; fi
-    mkdir -p "$HOME/.config"
+    mkdir -p "$HOME/.config" "$HOME/.claude"
     stow --restow -t "$HOME" home
 }
 
