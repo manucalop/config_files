@@ -1,7 +1,7 @@
 # Setup
 ```bash
-git clone https://github.com/manucalop/config_files.git ~/config_files
-bash ~/config_files/sync.bash
+git clone https://github.com/manucalop/dotfiles.git ~/dotfiles
+bash ~/dotfiles/sync.bash
 ```
 
 `sync.bash` is idempotent; rerun it to sync.
