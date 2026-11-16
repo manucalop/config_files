@@ -1,4 +1,5 @@
 # Setup
+
 ```bash
 git clone https://github.com/manucalop/dotfiles.git ~/dotfiles
 bash ~/dotfiles/sync.bash
